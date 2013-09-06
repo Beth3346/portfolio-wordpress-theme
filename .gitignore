@@ -226,3 +226,5 @@ dwsync.xml
 test-delayed-stream-auto-pause.js
 
 /node_modules/
+*.scssc
+config.rb
