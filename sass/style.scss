@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*!-----------------------------------------------------------------------------
+Theme Name: Dynamic Response Websites
+Theme URI:  http://www.dynamicresponsemedia.net
+Version:    1.0.0
+author:     Elizabeth Rogers
+email:      info@elizabeth-rogers.com
+website:    http://www.elizabeth-rogers.com
+-----------------------------------------------------------------------------*/
+
+/* Compass
+-----------------------------------------------------------------------------*/
+@import "compass";
+
+/*! Partials
+-----------------------------------------------------------------------------*/
+@import "normalize";
+@import "general";
+@import "header";
+@import "main-content";
+@import "sidebar";
+@import "comments";
+@import "forms";
+@import 'media-queries';

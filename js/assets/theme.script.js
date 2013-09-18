@@ -3,6 +3,7 @@ jQuery(document).ready(function($){
 	/////////////////////////////////////////////
 	// HTML5 placeholder fallback	 							
 	/////////////////////////////////////////////
+	
 	$('[placeholder]').focus(function() {
 	  var input = $(this);
 	  if (input.val() == input.attr('placeholder')) {
@@ -28,9 +29,10 @@ jQuery(document).ready(function($){
 	/////////////////////////////////////////////
 	// Scroll to top 							
 	/////////////////////////////////////////////
+	
 	$('.back-top a').click(function () {
 		$('body,html').animate({
-			scrollTop: 0
+			scrollTop: 1000
 		}, 800);
 		return false;
 	});
@@ -38,6 +40,7 @@ jQuery(document).ready(function($){
 	/////////////////////////////////////////////
 	// Toggle searchform on mobile 							
 	/////////////////////////////////////////////
+	
 	$('#searchform-wrap').prepend('<div id="search-icon" class="mobile-button"></div>');
 
 	$("#search-icon").click(function(){

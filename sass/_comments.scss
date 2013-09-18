@@ -1,0 +1,157 @@
+/************************************************************************************
+COMMENTS
+*************************************************************************************/
+.commentwrap {
+	margin: 10px 0 20px;
+	position: relative;
+	clear: both;
+}
+
+/* comment title */
+.comment-title, #reply-title {
+	font-size: 18px;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+/* comment pagenav */
+.commentwrap .pagenav {
+	margin: 10px 0;
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.commentwrap .pagenav.top {
+	margin: 0;
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+
+/* commentlist */
+.commentlist {
+	margin: 0 0 30px;
+	padding: 5px 0 0;
+	border-top: solid 1px #ddd;
+}
+
+.commentlist li {
+	margin: 0;
+	padding: 15px 0 0;
+	list-style: none;
+	position: relative;
+}
+
+.commentlist .comment-author {
+	margin: 2px 0 5px;
+	padding: 0;
+}
+
+.commentlist .avatar {
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+.commentlist cite {
+	font-style: normal;
+	font-size: 16px;
+}
+
+.commentlist cite a {
+	text-decoration: none;
+}
+
+.commentlist .bypostauthor > .comment-author cite {
+	background: image-url('icon-author-comment.png') no-repeat 0 2px;
+	padding-left: 18px;
+}
+
+.commentlist .comment-time {
+	font-size: 75%;
+	text-transform: uppercase;
+}
+
+.commentlist .commententry {
+	border-bottom: solid 1px #ddd;
+	position: relative;
+	min-height: 40px;
+	overflow: hidden;
+	padding-bottom: 5px;
+	word-wrap: break-word;
+}
+
+.commentlist ul, .commentlist ol {
+	margin: 0 0 0 7%;
+	padding: 0;
+}
+
+/* reply link */
+.commentlist .reply {
+	position: absolute;
+	right: 0;
+	top: 8px;
+}
+
+.commentlist .comment-reply-link {
+	font-size: 11px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.commentlist .comment-reply-link:hover {
+	text-decoration: none;
+}
+
+/* 
+COMMENT FORM
+================================================ */
+#respond {
+	margin: 0;
+	padding: 10px 0 0;
+	position: relative;
+	clear: both;
+}
+
+#respond #cancel-comment-reply-link {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	font-size: 12px;
+	line-height: 100%;
+	text-decoration: none;
+	padding: 5px 10px;
+	display: block;
+	color: #fff;
+	background: #F30;
+}
+
+#respond #cancel-comment-reply-link:hover {
+	background: #333;
+}
+
+#commentform {
+	margin: 15px 0 0;
+}
+
+#commentform input[type=text] {
+	width: 206px;
+	margin-right: 5px;
+}
+
+#commentform label {
+	font-weight: bold;
+}
+
+#commentform label small {
+	font-weight: normal;
+}
+
+#commentform textarea {
+	height: 140px;
+}
+
+#commentform input#submit {
+	padding: 7px 20px;
+}

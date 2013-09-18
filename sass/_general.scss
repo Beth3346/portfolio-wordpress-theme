@@ -1,0 +1,151 @@
+/* =General
+-----------------------------------------------------------------------------*/
+body {
+  	padding: 0;
+	line-height: 1.4em;
+}
+
+.wrapper {
+	margin: auto;
+}	
+
+/************************************************************************************
+CLEAR & ALIGNMENT
+*************************************************************************************/
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.textleft {
+	text-align: left;
+}
+
+.textright {
+	text-align: right;
+}
+
+.textcenter {
+	text-align: center;
+}
+
+/* clearfix */
+.clearfix:after, .widget li:after, #body:after, #footer:after, footer:after, .pagenav:after, #main-nav:after, .menu:after, .gallery:after, #content:after
+{ visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.clearfix, .widget li, #body, #footer, footer, .pagenav, #main-nav, .menu, .gallery, #content
+{ display: inline-block; }
+/* clearfix for ie7 */
+.clearfix, .widget li, #body, #footer, footer, .pagenav, #main-nav, .menu, .gallery, #content
+{ display: block; zoom: 1; }	
+
+/* =Typography
+-----------------------------------------------------------------------------*/
+
+.bold {
+	font-weight: bold;
+}	
+
+.italic {
+	font-style: italic;
+}	
+
+.underline {
+	text-decoration: underline;
+}	
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.center {
+	text-align: center;
+}
+
+p {
+	font-size: 1em; /* 16px / 16px */
+	margin: 10px;
+	padding: 0;
+	line-height: 1.4em;
+}
+
+small {
+	font-size: .625em; /* 10px / 16px */
+}
+
+blockquote {
+	font-style: italic;
+	padding: 8px 30px 15px;
+	line-height: 1em;
+	font-size: 1em; /* 16px / 16px */
+}
+
+/* =Headings
+-----------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.4em;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+h1 {
+	font-size: 2em; /* 32px / 16px */
+}
+
+h2 {
+	font-size: 1.75em; /* 28px / 16px */
+	text-align: center;
+}
+
+h3 {
+	font-size: 1.5em; /* 24px / 16px */
+}
+
+h4 {
+	font-size: 1em; /* 16px / 16px */
+}
+
+h5 {
+	font-size: 0.875em; /* 14px / 16px */
+}
+
+h6 {
+	font-size: 0.75em; /* 12px / 16px */
+}
+
+/* =Lists
+-----------------------------------------------------------------------------*/
+ol {
+	list-style: decimal;
+}
+
+li, dd, dt {
+	font-size: 1em; /* 16px / 16px */
+	margin: 0;	
+}
+
+/* =Links
+-----------------------------------------------------------------------------*/
+a {
+	outline: none;
+	text-decoration: underline;
+}
+
+/* =Tables
+-----------------------------------------------------------------------------*/
+
+table { 
+  border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td {
+  text-align: left;
+	font-weight: normal;
+}
