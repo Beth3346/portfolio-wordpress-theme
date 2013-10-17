@@ -1,0 +1,7 @@
+<?php
+
+///////////////////////////////////////
+// Load theme languages
+///////////////////////////////////////
+
+load_theme_textdomain( 'themify', TEMPLATEPATH.'/languages' );

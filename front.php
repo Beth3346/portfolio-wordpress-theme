@@ -5,7 +5,7 @@ Template Name: Static-Home
 ?>
 <?php get_header(); ?>
 
-<article class="article">
+<article class="article" role="article">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 					

@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     coffee: {
       compile: {
         files: {
-          'path/to/result.js': 'path/to/source.coffee', // 1:1 compile
+          'js/coffee-complied/main.js': 'coffee/*.coffee', // 1:1 compile
           'path/to/another.js': ['path/to/sources/*.coffee', 'path/to/more/*.coffee'] // compile and concat into single file
         }
       },  
@@ -96,6 +96,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'uglify', 'compass', 'imagemin', 'livereload', 'watch']);
+  grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin', 'livereload', 'watch']);
 
 };

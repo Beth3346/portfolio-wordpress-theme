@@ -4,7 +4,7 @@
 
 	<time datetime="<?php the_time('o-m-d') ?>" class="post-date" pubdate><?php the_time('M j, Y') ?></time>
 	
-	<h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+	<h1 class="post-title" role="heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
 	<p class="post-meta"> 
 		<span class="post-author"><?php the_author_posts_link() ?></span>

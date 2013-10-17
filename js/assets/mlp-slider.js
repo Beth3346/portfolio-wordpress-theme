@@ -70,12 +70,12 @@
 			currentButton = $('button#button'+current);
 
 		// update current value
-		if (( current ) !== imgsLen ) {
+		if ( current !== imgsLen ) {
 			++current;
 			imgButtons.css('background-color', buttonBack);
 			currentButton = $('button#button'+current);
 			currentButton.css('background-color', buttonCurrentBack);
-		} else if (( current ) === imgsLen ) { // Are we at the end? Should we reset?
+		} else if ( current === imgsLen ) { // Are we at the end? Should we reset?
 			current = 1;
 			loc = 0;
 			imgButtons.css('background-color', buttonBack);

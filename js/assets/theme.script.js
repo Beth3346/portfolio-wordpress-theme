@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
 	/////////////////////////////////////////////
 	
 	$('.back-top a').click(function () {
-		$('body,html').animate({
+		$('body').animate({
 			scrollTop: 1000
 		}, 800);
 		return false;
