@@ -2,7 +2,19 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON('package.json'),    
+
+    coffee: {
+        glob_to_multiple: {
+    	expand: true,
+    	flatten: true,
+    	cwd: '',
+    	src: ['coffee/*.coffee'],
+    	dest: 'js/coffee-compiled',
+    	ext: '.js'
+      }  
+    },
+
     concat: {
         options: {
         // define a string to put between each file in the concatenated output
@@ -11,10 +23,17 @@ module.exports = function(grunt) {
 
       dist: {
         // the files to concatenate
-        src: ['js/assets/*.js'],
+        src: ['assets/*.js', 'js/coffee-compiled/*.js'],
         // the location of the resulting JS file
         dest: 'js/dist/<%= pkg.name %>.<%= pkg.version %>.js'
       }
+    },
+
+    jshint: {
+    	files: ['js/dist/*.js'],
+    	options: {
+
+    	}
     },
     
     uglify: {
@@ -39,14 +58,6 @@ module.exports = function(grunt) {
       }
     },
 
-    coffee: {
-      compile: {
-        files: {
-          'js/coffee-compiled/main.js': 'coffee/*.coffee'
-        }
-      },  
-    },
-
     compass: {
       dist: {
         options: {
@@ -60,6 +71,14 @@ module.exports = function(grunt) {
           relativeAssets: true,
           lineComments: false
         }
+      }
+    },
+
+    csslint: {
+      strict: {
+        options: {
+        },
+        src: ['*.css']
       }
     },
 
@@ -100,8 +119,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
   grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin']);
-
+  grunt.registerTask('cssstuff', ['compass', 'csshint']);
+  grunt.registerTask('jsstuff', ['coffee', 'concat', 'jshint', 'uglify']);
+  
 };
