@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'images/uncompressed/',
                 src: '{,*/}*.{png,jpg,jpeg}',
-                dest: 'images/'
+                dest: 'images/compressed'
             }]
       }
     },
@@ -42,8 +42,7 @@ module.exports = function(grunt) {
     coffee: {
       compile: {
         files: {
-          'js/coffee-complied/main.js': 'coffee/*.coffee', // 1:1 compile
-          'path/to/another.js': ['path/to/sources/*.coffee', 'path/to/more/*.coffee'] // compile and concat into single file
+          'js/coffee-compiled/main.js': 'coffee/*.coffee'
         }
       },  
     },
@@ -55,12 +54,18 @@ module.exports = function(grunt) {
           httpPath: '/',
           sassDir: 'sass',
           fontsDir: 'fonts',
-          imagesDir: 'images',
+          imagesDir: 'images/compressed',
           javascriptsDir: 'js',
           outputStyle: 'compressed',
           relativeAssets: true,
           lineComments: false
         }
+      }
+    },
+
+    clean: {
+      build: {
+        src: ["js", "images/compressed", "style.css"]
       }
     },
 
@@ -94,8 +99,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
-  grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin', 'livereload', 'watch']);
+  grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin']);
 
 };

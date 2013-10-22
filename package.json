@@ -1,6 +1,6 @@
 {
-  "name": "dynamic-response-websites",
-  "version": "0.1.0",
+  "name": "elr-wp-theme-boilerplate",
+  "version": "1.0.0",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.7.0",
@@ -9,6 +9,7 @@
     "grunt-contrib-imagemin": "~0.3.0",
     "grunt-contrib-livereload": "~0.1.2",
     "grunt-contrib-uglify": "~0.2.4",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-clean": "~0.5.0"
   }
 }
