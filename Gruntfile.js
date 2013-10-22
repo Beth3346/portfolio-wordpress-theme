@@ -108,6 +108,18 @@ module.exports = function(grunt) {
         files: ['dest/**/*'],
       },
     },
+
+    gitcommit: {
+      your_target: {
+        options: {
+        	message: 'Added grunt-git'
+        },
+        files: {
+          src: ['Gruntfile.js']
+        }
+      }
+    }
+
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -121,6 +133,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-git');
 
   // Default task(s).
   grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin']);
