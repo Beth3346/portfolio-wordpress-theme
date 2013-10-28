@@ -3,6 +3,7 @@
 body {
   	padding: 0;
 	line-height: 1.4em;
+	font-size: 16px;
 }
 
 .wrapper {
@@ -37,12 +38,12 @@ CLEAR & ALIGNMENT
 }
 
 /* clearfix */
-.clearfix:after, .widget li:after, #body:after, #footer:after, footer:after, .pagenav:after, #main-nav:after, .menu:after, .gallery:after, #content:after
+.clearfix:after, .widget li:after, .body:after, .footer:after, footer:after, .pagenav:after, .main-nav:after, .menu:after, .gallery:after, .content:after
 { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
-.clearfix, .widget li, #body, #footer, footer, .pagenav, #main-nav, .menu, .gallery, #content
+.clearfix, .widget li, .body, .footer, footer, .pagenav, .main-nav, .menu, .gallery, .content
 { display: inline-block; }
 /* clearfix for ie7 */
-.clearfix, .widget li, #body, #footer, footer, .pagenav, #main-nav, .menu, .gallery, #content
+.clearfix, .widget li, .body, .footer, footer, .pagenav, .main-nav, .menu, .gallery, .content
 { display: block; zoom: 1; }	
 
 /* =Typography
@@ -69,71 +70,87 @@ CLEAR & ALIGNMENT
 }
 
 p {
-	font-size: 1em; /* 16px / 16px */
-	margin: 10px;
+	font-size: (16em / 16);
+	margin: .5em 1em .5em 1em;
 	padding: 0;
 	line-height: 1.4em;
 }
 
 small {
-	font-size: .625em; /* 10px / 16px */
+	font-size: (10em / 16);
 }
 
 blockquote {
 	font-style: italic;
 	padding: 8px 30px 15px;
 	line-height: 1em;
-	font-size: 1em; /* 16px / 16px */
+	font-size: (16em / 16); /* 16px / 16px */
 }
 
 /* =Headings
 -----------------------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
-	line-height: 1.4em;
-	font-weight: normal;
-	font-size: 16px;
-}
 
 h1 {
-	font-size: 2em; /* 32px / 16px */
+	@extend %heading;
+	font-size: (32em / 16);
+	text-align: center;
 }
 
 h2 {
-	font-size: 1.75em; /* 28px / 16px */
+	@extend %heading;
+	font-size: (28em / 16);
 	text-align: center;
 }
 
 h3 {
-	font-size: 1.5em; /* 24px / 16px */
+	@extend %heading;
+	font-size: (24em / 16);
 }
 
 h4 {
-	font-size: 1em; /* 16px / 16px */
+	@extend %heading;
+	font-size: (16em / 16);
 }
 
 h5 {
-	font-size: 0.875em; /* 14px / 16px */
+	@extend %heading;
+	font-size: (14em / 16);
 }
 
 h6 {
-	font-size: 0.75em; /* 12px / 16px */
+	@extend %heading;
+	font-size: (12em / 16); 
 }
 
 /* =Lists
 -----------------------------------------------------------------------------*/
 ol {
 	list-style: decimal;
+	
+	li {
+		@extend %lists;
+	}
 }
 
-li, dd, dt {
-	font-size: 1em; /* 16px / 16px */
-	margin: 0;	
+ul li {
+	@extend %lists;
+	list-style: disc;
+}
+
+dd {
+	@extend %lists;
+	list-style: disc;		
+}
+
+dt {
+	@extend %lists;
+	list-style: disc;
+	font-weight: bold;
 }
 
 /* =Links
 -----------------------------------------------------------------------------*/
 a {
-	outline: none;
 	text-decoration: underline;
 }
 

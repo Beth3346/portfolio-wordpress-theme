@@ -1,66 +1,22 @@
-/* Media Query Breaking Points
-------------------------------------------------------------------------------
-Widescreen Version 
-------------------------------------------------------------------------------*/
-
-@media screen and (min-width: 1300px){
-
-} /*/mediaquery*/
-
-/*------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 1300px){
-
-} /*/mediaquery*/
-
-/*------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 1200px){	
-
-} /*/mediaquery*/
-
-/*------------------------------------------------------------------------------
-Normal Version / Large Tablet Landscape
-------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 1024px) {
-
-} /*/mediaquery*/
-
-/*------------------------------------------------------------------------------
-Large Tablet Version
-------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 768px) {
-
-} /*/mediaquery*/
-
-/*------------------------------------------------------------------------------
-Small Tablet Version
-------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 600px) {
-
-} /*/mediaquery*/
-
-/*------------------------------------------------------------------------------
-Phone Landscape Version
-------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 480px) {
-
-} /*/mediaquery*/
-
 /*-------------------------------------------------------------------------------
-Phone Portrait Version 
+	Media Query Breaking Points
 -------------------------------------------------------------------------------*/
 
-@media screen and (max-width: 320px) {
+@mixin breakpoint($point) {
 
-} /*/mediaquery*/
-
-/*-------------------------------------------------------------------------------*/
+  @if $point == trenta {
+    	@media screen and (min-width: $trenta) { @content; }
+  }	@else if $point == venti {
+    	@media screen and (max-width: $venti) { @content; }
+  }	@else if $point == grande {
+    	@media screen and (max-width: $grande) { @content; }
+  }	@else if $point == tall {
+    	@media screen and (max-width: $tall) { @content; }
+  }	@else if $point == short {
+    	@media screen and (max-width: $short) { @content; }
+  }	@else if $point == espresso {
+    	@media screen and (max-width: $espresso) { @content; }
+  }	@else if $point == bean {
+    	@media screen and (max-width: $bean) { @content; }
+  }
+}

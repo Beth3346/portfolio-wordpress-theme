@@ -11,7 +11,7 @@
 		font-size: 100%;
 		text-transform: capitalize;
 
-		h4 {
+		.widgettitle {
 			font-size: 1.5em;
 			font-weight: bold;
 			text-shadow: 1px 1px 0 #ccc;
@@ -44,8 +44,4 @@
 			font-size: 0.875em; /* 14px / 16px */
 		}
 	}
-}
-
-#tag_cloud-3.widget.widget_tag_cloud h4 {
-	margin-bottom: 5px;
 }

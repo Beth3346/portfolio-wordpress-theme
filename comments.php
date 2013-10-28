@@ -18,7 +18,7 @@
 <?php endif; // end commentwrap ?>
 
 <?php if ( have_comments() ) : ?>
-	<h4 class="comment-title"><?php comments_number(__('No Comments','themify'), __('One Comment','themify'), __('% Comments','themify') );?></h4>
+	<p class="comment-title"><?php comments_number(__('No Comments','themify'), __('One Comment','themify'), __('% Comments','themify') );?></p>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<div class="pagenav top clearfix">

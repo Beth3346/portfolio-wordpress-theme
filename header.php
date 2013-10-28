@@ -47,25 +47,14 @@
 <div class="wrapper">
     <header role="banner">
         <!--Blog Title-->
-        <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name');  ?></a></h1>
+        <a class="site-name" href="<?php bloginfo('url'); ?>"><?php bloginfo('name');  ?></a>
         <!--Blog Description-->
-        <h2><?php bloginfo('description'); ?></h2>
+        <p class="site-description" ><?php bloginfo('description'); ?></p>
 
         <!--Main Blog Navigation-->
         <nav id="main-menu" role="navigation">
-            <?php wp_nav_menu(array('theme_location' => 'mainNav' , 'fallback_cb' => 'default_main_nav' , 'container'  => 'mainNavWrapper' , 'menu_id' => 'mainNav' , 'menu_class' => 'mainNav')); ?>
+            <?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => 'mainNavWrapper' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
         </nav>
-
-        <div class="header-widgets" id="header-widgets">    	
-            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Header') ) : ?>
-            <section class="header-widgets">
-                <h4 class="widgettitle"><?php _e('Category','themify'); ?></h4>
-                <ul>
-                    <?php wp_list_categories('show_count=1&title_li='); ?>
-                </ul>
-            </section>
-            <?php endif; ?>
-        </div>
 
         <div class="search-top">
             <div id="searchform-wrap">

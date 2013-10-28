@@ -67,7 +67,7 @@ module.exports = function(grunt) {
           fontsDir: 'fonts',
           imagesDir: 'images/compressed',
           javascriptsDir: 'js',
-          outputStyle: 'compressed',
+          outputStyle: 'nested',
           relativeAssets: true,
           lineComments: false
         }
@@ -77,6 +77,10 @@ module.exports = function(grunt) {
     csslint: {
       strict: {
         options: {
+          "unique-headings": false,
+          "font-sizes": false,
+          "box-sizing": false,
+          "floats": false
         },
         src: ['*.css']
       }
@@ -92,7 +96,7 @@ module.exports = function(grunt) {
       compass: {
         // We watch and compile sass files as normal but don't live reload here
         files: ['sass/*.scss'],
-        tasks: ['compass'],
+        tasks: ['compass', 'csslint'],
       },
 
       scripts: {
@@ -107,17 +111,6 @@ module.exports = function(grunt) {
         options: { livereload: true },
         files: ['dest/**/*'],
       },
-    },
-
-    gitcommit: {
-      your_target: {
-        options: {
-        	message: 'Added grunt-git'
-        },
-        files: {
-          src: ['Gruntfile.js']
-        }
-      }
     }
 
   });
@@ -133,10 +126,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-git');
 
   // Default task(s).
-  grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin']);
+  grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'compass', 'imagemin', 'csslint']);
   grunt.registerTask('cssstuff', ['compass', 'csshint']);
   grunt.registerTask('jsstuff', ['coffee', 'concat', 'jshint', 'uglify']);
   
