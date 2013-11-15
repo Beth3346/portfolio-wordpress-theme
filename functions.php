@@ -63,3 +63,27 @@ function tgm_plugin_activation()
     locate_template( array( 'includes/functions/_tgm-plugin-activation.php' ), true, true );
 }
 add_action( 'after_setup_theme', 'tgm_plugin_activation' );
+
+function elr_filter()
+{
+    locate_template( array( 'includes/functions/_elr-filter.php' ), true, true );
+}
+add_action( 'after_setup_theme', 'elr_filter' );
+
+function elr_read_more_post_instant()
+{
+    locate_template( array( 'includes/functions/_elr-read-more-post-instant.php' ), true, true );
+}
+add_action( 'after_setup_theme', 'elr_read_more_post_instant' );
+
+function elr_remove_wp_version()
+{
+    locate_template( array( 'includes/functions/_elr-remove-wp-version.php' ), true, true );
+}
+add_action( 'after_setup_theme', 'elr_remove_wp_version' );
+
+function elr_right_now_custom_posts()
+{
+    locate_template( array( 'includes/functions/_elr-right-now-custom-posts.php' ), true, true );
+}
+add_action( 'after_setup_theme', 'elr_right_now_custom_posts' );

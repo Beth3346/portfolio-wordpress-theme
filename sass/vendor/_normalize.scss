@@ -42,14 +42,6 @@ audio:not([controls]) {
     height: 0;
 }
 
-/*
- * Addresses styling for `hidden` attribute not present in IE 8/9.
- */
-
-// [hidden] {
-//     display: none;
-// }
-
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -305,7 +297,7 @@ input[disabled] {
 
 input[type="checkbox"],
 input[type="radio"] {
-	@include box-sizing(border-box);
+    box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
 }
 
@@ -316,8 +308,7 @@ input[type="radio"] {
  */
 
 input[type="search"] {
- 	@include appearance(field);
- 	@include box-sizing(content-box);
+    @include box-sizing(content-box);
 }
 
 /*
@@ -327,7 +318,7 @@ input[type="search"] {
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-	@include appearance(none);
+    @include appearance(none);
 }
 
 /*

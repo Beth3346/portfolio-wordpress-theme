@@ -102,7 +102,7 @@ module.exports = function(grunt) {
     watch: {
 
       compass: {
-        files: ['sass/*.scss', 'sass/partials/*.scss', "sass/vendor/*.scss"],
+        files: ['sass/**/*.scss'],
         tasks: ['compass', 'csslint'],
       },
 
@@ -126,7 +126,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-csslint');
