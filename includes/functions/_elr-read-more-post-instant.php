@@ -12,7 +12,7 @@ function drm_rmpi_add_js() {
 
 	// enqueue the script
 	
-	wp_enqueue_script( 'drm_rmpi', get_template_directory_uri() . '/js/drm-responsive.3.0.0.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'drm_rmpi', get_template_directory_uri() . '/js/elr-wp-theme-boilerplate.1.0.0.min.js', array( 'jquery' ), true );
 
 	// get current page protocol
 	

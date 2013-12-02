@@ -15,6 +15,20 @@ article {
 	padding: 1% 1% 1% 0;
 	@include box-sizing(border-box);
 
+	h1 {
+		text-align: center;
+		font-weight: bold;
+	}
+
+	h2 {
+		text-align: center;
+		font-weight: bold;
+	}
+
+	h3 {
+		font-weight: bold;
+	}
+
 	img {
 		width: 60%;
 		margin: 2% 20% 2% 20%;
@@ -53,8 +67,7 @@ article {
 
 /* post meta */
 .post-meta {
-	margin: 0 0 7px;
-	font-size: 1em;
+	margin: 0;
 	text-transform: capitalize;
 
 	.post-author {
@@ -69,7 +82,7 @@ article {
 		@include drm-post-meta(image-url('post-tag.png'));
 	}
 
-	.post-comment a {
+	.post-comment {
 		@include drm-post-meta(image-url('post-comment.png'));
 	}
 }
@@ -152,61 +165,5 @@ PAGE NAVIGATION
 
 	.current {
 		text-decoration: none;
-	}
-}
-
-/************************************************************************************
-POST NAVIGATION
-*************************************************************************************/
-
-.post-nav {
-	margin: 0 0 30px;
-	padding: 15px 0;
-	clear: both;
-
-	span {
-		width: 47%;
-		position: relative;
-		@include box-sizing(border-box);
-
-		.arrow {
-			display: block;
-			float: left;
-			width: 32px;
-			height: 28px;
-			padding: 6px 0 0;
-			text-align: center;
-			margin: -8px 10px 17px 0;
-			@include border-radius(10em);
-			@include box-sizing(border-box);
-		}
-	}
-
-	a {
-		text-decoration: none;
-		display: block;
-		font-family: $sans-serif-font;
-		&:hover {
-			text-decoration: none;
-		}
-	}
-
-	.prev {
-		float: left;
-	}
-
-	.next {
-		float: right;
-		text-align: right;
-
-		span {
-			float: right;
-			margin-left: 10px;
-			margin-right: 0;
-
-			&:hover span {
-				background: $almost-black;
-			}
-		}
 	}
 }

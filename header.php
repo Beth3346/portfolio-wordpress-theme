@@ -14,7 +14,7 @@
             
     function drm_register_stuff() {
         wp_register_script('respond', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js', array(), null, true );
-        wp_register_script('main', get_template_directory_uri() . '/js/elr-theme-boilerplate.1.0.0.min.js', array(), null, true );
+        wp_register_script('main', get_template_directory_uri() . '/js/elr-wp-theme-boilerplate.1.0.0.min.js', array(), null, true );
         wp_register_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), null );
         wp_register_style('font-awesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), null, 'screen' );
         wp_register_style('style', get_template_directory_uri() . '/style.css', array(), null, 'screen' );
@@ -44,8 +44,10 @@
 <body <?php body_class(); ?>>
 <div class="wrapper">
     <header role="banner">
-        <a class="site-name" href="<?php bloginfo('url'); ?>"><?php bloginfo('name');  ?></a>
-        <p class="site-description" ><?php bloginfo('description'); ?></p>
+        <div class="logo">
+            <h1 class="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+            <h2 class="site-description" ><?php bloginfo('description'); ?></h2>           
+        </div>
         <nav id="main-menu" role="navigation">
             <?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => 'mainNavWrapper' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
         </nav>

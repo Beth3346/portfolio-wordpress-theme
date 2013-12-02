@@ -17,17 +17,19 @@ input[type=text], input[type=password], input[type=email], input[type=tel], text
 	padding: 6px 10px;
 	@include border-radius(5px);
 	@include appearance(none);
+	@include box-sizing(border-box);
+	@include drm-form-state($aqua, $off-white, $grey);
+	@include drm-em-font(12);
 }
 
-input[type=text], input[type=email], input[type=tel], input[type=search] {
-	width: 240px;
-	max-width: 90%;
+input[type=search] {
+	height: 30px;
+	@include border-radius(15px);
 }
 
 /* text area */
 textarea {
 	line-height: 150%;
-	width: 94%;
 }
 
 /* form button */
@@ -38,9 +40,10 @@ input[type=reset], input[type=submit], button {
 	@include border-radius(5px);
 }
 
-input[type=search] {
-	height: 30px;
-	@include border-radius(15px);
-	@include box-sizing(border-box);
-	@include drm-form-state($aqua, $off-white, $grey);
+.searchform {
+	width: 100%;
+	
+	input[type=search] {
+		width: 100%;		
+	}
 }

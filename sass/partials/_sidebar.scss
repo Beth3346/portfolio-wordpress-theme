@@ -3,14 +3,24 @@
 -----------------------------------------------------------------------------*/
 
 .sidebar {
-	padding: 1% 5% 1% 5%;
-	float: left;
+	padding: 1% 0 1% 5%;
+	float: right;
 	width: 35%;
 	@include box-sizing(border-box);
 
 	.widget {
 		padding: 0 0 20px 0;
 		@include box-sizing(border-box);
+
+		.widget-title {
+			margin-bottom: 10px;
+			@include drm-em-font(16);
+			@include drm-pill-heading($dark-grey, white);
+		}
+
+		li {
+			padding: 0 10px 0 10px;
+		}
 
 		&:last-child {
 			padding: 0;
