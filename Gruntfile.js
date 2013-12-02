@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['js/coffee-compiled/*.js', 'js/dist/*.js'],
+      files: ['js/dist/*.js'],
       options: {
 
       }
@@ -47,12 +47,12 @@ module.exports = function(grunt) {
     imagemin: {                          // Task
       dist: {                            // Target
         options: {                       // Target options
-          optimizationLevel: 3
+          optimizationLevel: 7
         },
             files: [{
                 expand: true,
-                cwd: 'images/uncompressed/',
-                src: '{,*/}*.{png,jpg,jpeg}',
+                cwd: 'images/uncompressed',
+                src: '**/*.{png,jpg,jpeg}',
                 dest: 'images/compressed'
             }]
       }
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
           fontsDir: 'fonts',
           imagesDir: 'images/compressed',
           javascriptsDir: 'js',
-          outputStyle: 'nested',
+          outputStyle: 'expanded',
           relativeAssets: true,
           lineComments: false
         }
@@ -83,11 +83,10 @@ module.exports = function(grunt) {
           "floats": false,
           "duplicate-background-images": false,
           "font-faces": false,
+          "star-property-hack": false,
           "qualified-headings": false,
           "ids": false,
-          "important": false,
-          "adjoining-classes": false,
-          "star-property-hack": false
+          "text-indent": false
         },
         src: ['*.css']
       }
@@ -95,23 +94,30 @@ module.exports = function(grunt) {
 
     clean: {
       build: {
-        src: ["js", "images/compressed", "style.css"]
+        src: ['js', 'images/compressed', '*.css']
       }
     },
 
     watch: {
+      images: {
+        files: ['images/uncompressed/**/*.{png,jpg,jpeg}'],
+        tasks: ['imagemin'],
+      },
 
       compass: {
+        // We watch and compile sass files as normal but don't live reload here
         files: ['sass/**/*.scss'],
         tasks: ['compass', 'csslint'],
       },
 
       scripts: {
-        files: ['js/assets/*.js', 'coffee/*.coffee'],
+        // We watch and compile sass files as normal but don't live reload here
+        files: ['assets/*.js', 'coffee/*.coffee'],
         tasks: ['coffee', 'concat', 'uglify', 'jshint'],
       },
 
       livereload: {
+        // Here we watch the files the sass task will compile to
         // These files are sent to the live reload server after sass compiles to them
         options: { livereload: true },
         files: ['dest/**/*'],
@@ -132,7 +138,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'imagemin', 'coffee', 'concat', 'uglify', 'compass','csslint', 'jshint']);
+  grunt.registerTask('default', ['clean', 'imagemin', 'coffee', 'concat', 'uglify', 'compass', 'csslint', 'jshint']);
   grunt.registerTask('cssstuff', ['compass', 'csslint']);
   grunt.registerTask('jsstuff', ['coffee', 'concat', 'jshint', 'uglify']);
   

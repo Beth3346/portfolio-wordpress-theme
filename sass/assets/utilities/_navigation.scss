@@ -1,0 +1,269 @@
+/*-----------------------------------------------------------------------------
+	Navigation Elements
+-----------------------------------------------------------------------------*/
+
+// creates a nav-bar with a transparent background
+
+@mixin drm-nav-bar($text-color: $text-color, $hover-color: $link-color, $align: left) {
+	@extend %drm-reset-box;
+
+	li {
+		@extend %drm-reset-box;
+		list-style: none;
+		display: block;
+		float: left;
+
+		a {
+			padding: 5px 10px 5px 10px;
+			width: 100%;
+			text-align: $align;
+			color: $text-color;
+			text-decoration: none;
+			@include box-sizing(border-box);
+			@include transition(all, .3s);
+
+			&:hover, &:focus {
+				color: $hover-color;
+				@include transition(all, .3s);
+			}	
+		}	
+	}
+}
+
+@mixin drm-nav-bar-stacked($text-color: $text-color, $hover-color: $link-color, $align: left) {
+	@include drm-nav-bar($text-color, $hover-color, $align);
+
+	li {
+		float: none;	
+	}	
+}
+
+// creates a nav bar with a solid color background
+// hover state will invert text color and background color
+
+@mixin drm-nav-bar-solid($text-color: white, $background-color: $link-color, $align: center) {
+	background-color: $background-color;
+	@include drm-nav-bar($text-color, $background-color, $align);
+
+	a {
+		display: block;
+		margin: 0;
+		background-color: $background-color;
+
+		&:visited {
+			color: $text-color;
+		}
+
+		&:hover, &:focus {
+			background-color: $text-color;
+		}	
+	}
+}
+
+@mixin drm-nav-bar-solid-stacked($text-color: white, $background-color: $link-color, $align: left) {
+	background-color: $background-color;
+	@include drm-nav-bar-stacked($text-color, $background-color, $align);
+
+	a {
+		display: block;
+		background-color: $background-color;
+
+		&:visited {
+			color: $text-color;
+		}
+
+		&:hover, &:focus {
+			background-color: $text-color;
+		}	
+	}
+}
+
+// creates a nav-bar with a pill shaped button that shows on hover
+
+@mixin drm-nav-bar-pills($text-color: $link-color, $hover-color: white, $align: left ) {
+	@include drm-nav-bar($text-color, $hover-color, $align);
+
+	li {
+		margin-right: 5px;
+
+		&:last-child {
+			margin-right: 0;
+		}		
+	}
+
+	a {
+		color: $text-color;
+		@include border-radius(5px);
+
+		&:visited {
+			color: $text-color;
+		}
+		
+		&:hover, &:focus {
+			background-color: $text-color;
+			color: $hover-color;
+		}
+	}
+}
+
+@mixin drm-nav-bar-pills-stacked($text-color: $link-color, $hover-color: white, $align: left ) {
+	@include drm-nav-bar-pills($text-color, $hover-color, $align);
+
+	li {
+		float: none;
+		margin-right: 0;
+		margin-bottom: 5px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}	
+	}
+
+	a {
+		display: block;
+	}
+}
+
+// creates a nav-bar with a pill shaped buttons
+
+@mixin drm-nav-bar-pills-solid($text-color: white, $background-color: $link-color, $align: left) {
+	@include drm-nav-bar-pills($text-color, $background-color, $align);
+
+	li {
+		margin-left: 5px;
+
+		&:first-child {
+			margin-left: 0;
+		}	
+	}
+
+	a {
+		background-color: $background-color;
+	}
+}
+
+@mixin drm-nav-bar-pills-solid-stacked($text-color: white, $background-color: $link-color, $align: left) {
+	@include drm-nav-bar-pills-stacked($text-color, $background-color, $align);
+
+	li {
+		margin-top: 5px;
+
+		&:first-child {
+			margin-top: 0;
+		}	
+	}
+
+	a {
+		background-color: $background-color;
+	}
+}
+
+// Styles a rounded button with a 1px border and transparent background
+// Useful for <button> and <a> elements
+
+@mixin drm-button-link($color: white, $bk-color: #333, $width: 40%, $align: center, $border-radius: 3px) {
+	width: $width;
+	border: 1px solid $color;
+	color: $color;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px 0;
+	text-decoration: none;
+	cursor: pointer;
+	@include border-radius(3px);
+	@include text-shadow(none);
+	@include box-sizing(border-box);
+	@include transition(all, .3s ease-out);
+
+	@if $align == center {
+		margin: 10px auto 10px auto;		
+	} @else {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+		background-color: $color;
+		color: $bk-color;
+		text-decoration: none;
+		@include text-shadow(none);
+		@include transition(all, .3s ease-in);
+	}	
+}
+
+// Styles a rounded button with a 1px border and solid background
+// Useful for <button> and <a> elements
+
+@mixin drm-button-solid($bk-color: #333, $color: white, $width: 40%, $align: center, $border-radius: 3px) {
+	background-color: $bk-color;
+	width: $width;
+	border: none;
+	color: $color;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px 0;
+	text-decoration: none;
+	cursor: pointer;
+	@include border-radius(3px);
+	@include text-shadow(none);
+	@include box-sizing(border-box);
+	@include transition(all, .3s ease-out);
+
+	@if $align == center {
+		margin: 10px auto 10px auto;		
+	} @else {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+		background-color: $color;
+		color: $bk-color;
+		text-decoration: none;
+		@include text-shadow(none);
+		@include transition(all, .3s ease-in);
+	}	
+}
+
+// Styles a rectangular button with a 2px solid drop shadow
+
+@mixin drm-rectangle-button($color: #333, $text: white, $border-radius: 0, $width: 40%) {
+	border: 1px solid darken($color, 10%);
+	background-color: $color;
+	font-weight: bold;
+	color: $text;
+	margin: 20px 0 20px 0;
+	padding: 10px 60px 10px 60px;
+	cursor: pointer;
+	width: $width;
+	@include border-radius($border-radius);
+	@include drm-solid-drop-shadow(darken($color, 10%));
+	@include transition(all, .3s ease-out);
+	@include drm-em-font(16);
+	@include box-sizing(border-box);
+
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+		background-color: lighten($color, 10%);
+		border: 1px solid $color;
+		@include drm-solid-drop-shadow($color);
+		@include transition(all, .3s ease-in);
+	}	
+}
+
+// glass button
+
+// pill button	

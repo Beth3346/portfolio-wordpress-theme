@@ -1,47 +1,19 @@
-/* =Sidebar
+/*-----------------------------------------------------------------------------
+	Sidebar
 -----------------------------------------------------------------------------*/
+
 .sidebar {
-	margin-top: 2%;	
-	padding: 1%;
-	overflow: hidden;
+	padding: 1% 5% 1% 5%;
+	float: left;
+	width: 35%;
+	@include box-sizing(border-box);
 
 	.widget {
-		margin: 0 0 30px;
-		word-wrap: break-word;
-		font-size: 100%;
-		text-transform: capitalize;
+		padding: 0 0 20px 0;
+		@include box-sizing(border-box);
 
-		.widgettitle {
-			font-size: 1.5em;
-			font-weight: bold;
-			text-shadow: 1px 1px 0 #ccc;
-			box-shadow: 0 1px 0 #ccc;
-		}
-
-		ul {
-			margin: 0;
+		&:last-child {
 			padding: 0;
-		}
-
-		li {
-			margin: 0;
-			padding: 6px 0;
-			list-style: none;
-			clear: both;
-			font-size: 1em; /* 16px / 16px */
-			font-weight: bold;
-		}
-
-		ul ul {
-			margin: 6px 0 -6px 0;
-			padding: 0;
-			border-top: none;
-		}
-
-		ul ul li {
-			margin: 0;
-			padding-left: 10px;
-			font-size: 0.875em; /* 14px / 16px */
 		}
 	}
 }

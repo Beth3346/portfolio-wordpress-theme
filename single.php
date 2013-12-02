@@ -1,23 +1,18 @@
 <?php get_header(); ?>
-	<?php while ( have_posts() ) : the_post(); ?>
-	
+<div class="main-content">
+	<?php while ( have_posts() ) : the_post(); ?>	
 	<article class="article" role="article">
 		
-		<?php // get loop.php ?>
-		<?php get_template_part( 'includes/template-parts/loop' , 'single'); ?>
+		<?php get_template_part( 'includes/template-parts/_loop' , 'single'); ?>
 
 		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 
-		<?php // get post-nav.php (next/prev post link) ?>
-		<?php get_template_part( 'includes/template-parts/post-nav'); ?>
+		<?php get_template_part( 'includes/template-parts/_post-nav'); ?>
 
-		<?php // get comment template (comments.php) ?>
 		<?php comments_template(); ?>
 	</article>	
 	<!-- /#content -->
-
-<?php endwhile; ?>
-
-<?php get_sidebar(); ?>
-	
+	<?php endwhile; ?>
+	<?php get_sidebar(); ?>
+</div>	
 <?php get_footer(); ?>

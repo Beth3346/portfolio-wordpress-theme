@@ -1,19 +1,19 @@
-/* =Header
+/*-----------------------------------------------------------------------------
+	Header
 -----------------------------------------------------------------------------*/
+
 header {
-	width: 98%;
-	margin: 1%;
-	padding: 1% 0 0 0;
+	width: 100%;
+	padding: 1% 5% 1% 5%;
 	@include box-sizing(border-box);
 }
 
 a.site-name {
 	margin: 0;
 	font-weight: normal;
-	text-transform: uppercase;
 	text-align: left;
-	font-size: 2em;
 	text-decoration: none;
+	@include drm-em-font(32);
 
 	&:hover {	
 		text-decoration: underline;
@@ -24,22 +24,15 @@ a.site-name {
 	text-align: left;
 	margin: 0;
 	font-style: italic;
-	font-size: 1.5em;
+	@include drm-em-font(24);
 }
 
 .main-nav {
-	margin: 0;
-	padding: 0 0 0 2%;
+	@extend %drm-reset-box;
 	clear: both;
-	font-size: 1.5em; /* 24px / 16px */
-	height: 40%;
+	@include drm-em-font(18);
 	@include box-sizing(border-box);
-
-	li {
-		display: inline;
-		padding: 0;
-		text-transform: uppercase;	
-	}
+	@include drm-inline-list;
 
 	a {
 		text-decoration: none;
@@ -49,42 +42,3 @@ a.site-name {
 		}
 	}	
 }
-
-.header-widgets {
-	text-align: right;	
-	margin: 0;
-	padding: 0;
-	clear: both;
-	@include box-sizing(border-box);
-}	
-
-.search-top {
-	margin: 0 0 10px 0;
-	overflow: hidden;
-}	
-
-.searchform {
-	position: relative;
-	right: 0;
-	margin: 10px;
-	float: right;
-	font-size: 0.8em; /* 12px / 16px */		
-}
-
-.s {
-	width: 70%;
-	background: #eee image-url('search.png') no-repeat 8px center;
-	padding-left: 28px;
-	float: right;
-	@include border-radius(3px);
-	@include single-transition(width, .7s);
-	@include box-sizing(border-box);
-	
-	&:focus {
-		width: 90%;
-	}
-}
-
-
-/* =Main Nav
------------------------------------------------------------------------------*/

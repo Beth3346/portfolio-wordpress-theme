@@ -1,15 +1,16 @@
-<?php get_header(); ?>	
+<?php get_header(); ?>
+<div class="main-content">
 	<article class="article" role="article">		
 		<?php // the loop ?>
 		<?php if (have_posts()) : ?>
 		
 			<?php while (have_posts()) : the_post(); ?>
 	
-				<?php get_template_part( 'includes/template-parts/loop' , 'index'); ?>
+				<?php get_template_part( 'includes/template-parts/_loop' , 'index'); ?>
 	
 			<?php endwhile; ?>
 							
-			<?php get_template_part( 'includes/template-parts/pagination'); ?>
+			<?php get_template_part( 'includes/template-parts/_pagination'); ?>
 		
 		<?php else : ?>
 	
@@ -17,8 +18,7 @@
 	
 		<?php endif; ?>			
 
-	</article>
-<!-- /#content -->
-		
-<?php get_sidebar(); ?>
+	</article>		
+	<?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>

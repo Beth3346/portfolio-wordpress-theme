@@ -1,15 +1,15 @@
 <footer id="footer">	
-    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 1') ) : ?>
-        <section class="footer-widget">
-            <h1 class="widgettitle"><?php _e('Pages','themify'); ?></h1>
+    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer') ) : ?>
+        <section class="footer-widget widget">
+            <h1 class="widget-title"><?php _e('Pages','themify'); ?></h1>
             <ul>
             <?php wp_list_pages('title_li=' ); ?>
             </ul>
         </section>
-        <section class="footer-widget">
-            <h1 class="widgettitle"><?php _e('Category','themify'); ?></h1>
+        <section class="footer-widget widget">
+            <h1 class="widget-title"><?php _e('Category','themify'); ?></h1>
             <ul>
-            <?php wp_list_categories('show_count=1&title_li='); ?>
+            <?php wp_list_categories('title_li='); ?>
             </ul>
         </section>
     <?php endif; ?>

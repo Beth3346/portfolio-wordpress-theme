@@ -1,6 +1,7 @@
-/************************************************************************************
-COMMENTS
-*************************************************************************************/
+/*-----------------------------------------------------------------------------
+	Comments
+-----------------------------------------------------------------------------*/
+
 .commentwrap {
 	margin: 10px 0 20px;
 	position: relative;
@@ -23,11 +24,11 @@ COMMENTS
 
 /* comment title */
 .comment-title {
-	@extend %comment-titles;
+	@extend %drm-comment-titles;
 }
 
 .reply-title {
-	@extend %comment-titles;
+	@extend %drm-comment-titles;
 }
 
 /* commentlist */
@@ -35,7 +36,7 @@ COMMENTS
 .commentlist {
 	margin: 0 0 30px;
 	padding: 5px 0 0;
-	border-top: solid 1px #ddd;
+	border-top: solid 1px $grey;
 
 	li {
 		margin: 0;
@@ -46,7 +47,6 @@ COMMENTS
 
 	cite {
 		font-style: normal;
-		font-size: 16px;
 
 		a {
 			text-decoration: none;
@@ -67,6 +67,7 @@ COMMENTS
 .avatar {
 	float: left;
 	margin: 0 15px 0 0;
+	@include drm-square(60px);
 }
 
 /* reply link */
@@ -77,9 +78,9 @@ COMMENTS
 }
 
 .comment-reply-link {
-	font-size: 11px;
 	text-transform: uppercase;
 	text-decoration: none;
+	@include drm-em-font(11);
 
 	&:hover {
 		text-decoration: none;
@@ -97,7 +98,7 @@ COMMENTS
 }
 
 .commententry {
-	border-bottom: solid 1px #ddd;
+	border-bottom: solid 1px $grey;
 	position: relative;
 	min-height: 40px;
 	overflow: hidden;
@@ -120,16 +121,15 @@ COMMENT FORM
 	position: absolute;
 	top: 20px;
 	right: 0;
-	font-size: 12px;
-	line-height: 100%;
 	text-decoration: none;
 	padding: 5px 10px;
 	display: block;
-	color: #fff;
+	color: white;
 	background: #F30;
+	@include drm-em-font(12);
 
 	&:hover {
-		background: #333;
+		background: $dark-grey;
 	}
 }
 

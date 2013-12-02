@@ -1,0 +1,236 @@
+/*-----------------------------------------------------------------------------
+	Page Elements
+-----------------------------------------------------------------------------*/
+
+// End of post block
+
+%drm-info-block {
+	@extend %drm-center-block;
+	width: 90%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding: 2%;
+	text-align: center;
+	@include box-sizing(border-box);
+
+	@include drm-breakpoint(tall) {
+		width: 100%;
+	}
+}
+
+%drm-feature-heading {
+	margin: 20px 0 0 0;
+	font-weight: bold;
+	overflow: hidden;
+	font-size: (20em / $default-font-size);	
+
+	@include drm-breakpoint(trenta) {
+		height: 60px;
+	}	
+
+	@include drm-breakpoint(venti) {
+		height: 60px;
+	}
+
+	@include drm-breakpoint(tall) {
+		height: auto;
+	}
+}
+
+// For main section headings; Usually applied to H1
+
+@mixin drm-section-heading($align: center, $size: 24) {
+	text-align: $align;
+	@include drm-em-font($size);
+}
+
+// For main section sub-headings; Usually applied to H2
+
+@mixin drm-section-sub-heading($align: center, $size: 20) {
+	text-align: $align;
+	margin: 0 0 20px 0;
+	@include drm-em-font($size);
+}
+
+// makes a pill heading
+
+@mixin drm-pill-heading($bk-color, $text-color) {
+	font-weight: bold;
+	background-color: $bk-color;
+	color: $text-color;
+	padding: 5px 10px 5px 10px;
+	@include border-radius(3px);	
+}
+
+// ribbon heading
+
+@mixin drm-ribbon-heading($color, $font, $stitch-color, $text-color, $text-shadow) {
+	margin: 40px auto 20px auto;
+	font-family: $font;
+	color: $text-color;
+	text-align: center;
+	line-height: 1.1;
+	position: relative;
+	height: 45px - 6;
+	@include drm-em-font(24);
+	@include drm-stitched-row($color, $stitch-color, none, 1, $darker-grey);
+	@include drm-inset-text($text-shadow);
+	@include box-sizing(border-box);
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: -14px;
+		left: -36px;
+		z-index: -10;
+		border: 20px solid $color;
+		border-right-width: 30px;
+		border-left-color: transparent;
+		@include box-shadow($darker-grey 1px 1px 1px);
+		@include drm-rectangle(0, 0);
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: -14px;
+		right: -36px;
+		z-index: -10;
+		border: 20px solid $color;
+		border-left-width: 30px;
+		border-right-color: transparent;
+		@include box-shadow($darker-grey -1px 1px 1px);
+		@include drm-rectangle(0, 0);
+	}
+
+	.ribbon-content {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 35px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: -19px;
+			left: -2px;
+			@include drm-triangle(bottom-right, 16px, 5px, darken($color, 20%));
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: -19px;
+			right: -3px;
+			@include drm-triangle(bottom-left, 16px, 5px, darken($color, 20%));
+		}
+	}
+}
+
+// An unstyled list
+// li elements have a 20px indent
+
+@mixin drm-unstyled-list() {
+
+	li {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+@mixin drm-inline-list() {
+	@extend %drm-reset-box;
+
+	li {
+		display: inline;
+
+		a {
+			display: inline;
+		}
+	}
+}
+
+// triangle bulleted list
+
+@mixin drm-triangle-list() {
+	margin: 0;
+	padding: 5px 5px 5px 20px;
+	@include drm-unstyled-list();
+
+	li {
+		&:before {
+			content: "\25B6";
+			display: block;
+			float: left;
+			margin-left: -20px;		
+		}
+	}
+}
+
+// checked bulleted list
+
+@mixin drm-checked-list() {
+	margin: 0;
+	padding: 5px 5px 5px 20px;
+	@include drm-unstyled-list();
+
+	li {
+		&:before {
+			content: "\2713";
+			display: block;
+			float: left;
+			margin-left: -20px;		
+		}
+	}
+}
+
+@mixin drm-floated-list() {
+	@extend %drm-reset-box;
+
+	li {
+		list-style: none;
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 5px 10px 5px 10px;
+	}
+}
+
+// Styles post-meta elements
+
+@mixin drm-post-meta($image) {
+	background-image: $image;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding: 2px 0 2px 16px;
+	margin-right: 7px;
+	@include drm-em-font(14);
+}
+
+@mixin context-box($type: info) {
+	@if $type == info {
+		background-color: lighten($info-color, 20%);
+		border: 1px solid $info-color;
+	} @elseif $type == danger {
+		background-color: lighten($danger-color, 20%);
+		border: 1px solid $danger-color;		
+	} @elseif $type == warning {
+		background-color: lighten($warning-color, 20%);
+		border: 1px solid $warning-color;		
+	} @elseif $type == success {
+		background-color: lighten($success-color, 20%);
+		border: 1px solid $success-color;		
+	} @elseif $type == muted {
+		background-color: lighten($muted-color, 20%);
+		border: 1px solid $muted-color;		
+	} @else {
+		@warn "#{error("That's not a context box type!")}";
+	}
+}

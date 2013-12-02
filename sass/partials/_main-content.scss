@@ -1,22 +1,26 @@
-/* =Main Content
+/*-----------------------------------------------------------------------------
+	Main Content
 -----------------------------------------------------------------------------*/
+
+.main-content {
+	width: 100%;
+	padding: 0 5% 0 5%;
+	@include box-sizing(border-box);
+	@include drm-clearfix();
+}
+
 article {
-	overflow: hidden;
+	float: left;
+	width: 65%;
+	padding: 1% 1% 1% 0;
 	@include box-sizing(border-box);
 
 	img {
-		margin-top: 20px;
-		margin-bottom: 0;
-		border: 1px solid #ccc;
+		width: 60%;
+		margin: 2% 20% 2% 20%;
+		border: 1px solid $light-grey;
+		@include box-sizing(border-box);
 	}
-}
-
-.page-title {
-	margin: 0 0 15px;
-	padding: 0;
-	font-size: (24em / 16);
-	line-height: 110%;
-	text-align: center;
 }
 
 .post {
@@ -29,13 +33,6 @@ article {
 
 .post-content {
 	min-width: 120px;
-}
-
-.post-title {
-	font-size: (26em / 16);
-	margin: 0 0 5px;
-	padding: 0;
-	text-align: center;
 }
 
 /* post image */
@@ -61,27 +58,19 @@ article {
 	text-transform: capitalize;
 
 	.post-author {
-		background: image-url('post-author.png') no-repeat 0 2px;
-		padding: 2px 0 2px 16px;
-		margin-right: 7px;
+		@include drm-post-meta(image-url('post-author.png'));
 	}
 
 	.post-category {
-		background: image-url('post-category.png') no-repeat 0 2px;
-		padding: 2px 0 2px 16px;
-		margin-right: 7px;
+		@include drm-post-meta(image-url('post-category.png'));
 	}
 
 	.post-tag {
-		background: image-url('post-tag.png') no-repeat 0 3px;
-		padding: 2px 0 2px 16px;
-		margin-right: 7px;
+		@include drm-post-meta(image-url('post-tag.png'));
 	}
 
 	.post-comment a {
-		background: image-url('post-comment.png') no-repeat 0 3px;
-		padding: 2px 0 2px 16px;
-		color: #666;
+		@include drm-post-meta(image-url('post-comment.png'));
 	}
 }
 
@@ -99,23 +88,23 @@ WORDPRESS POST FORMATTING
 *************************************************************************************/
 
 .alignnone {
-	@extend %imgalign;
+	margin-bottom: 15px;
 }
 
 .alignleft {
-	@extend %imgalign;
+	margin-bottom: 15px;
 	float: left;
 	margin-right: 30px;
 }
 
 .alignright {
-	@extend %imgalign;
+	margin-bottom: 15px;
 	float: right;
 	margin-left: 30px;
 }
 
 .aligncenter {
-	@extend %imgalign;
+	margin-bottom: 15px;
 	text-align: center;
 	display: block;
 	margin-left: auto;
@@ -196,8 +185,7 @@ POST NAVIGATION
 	a {
 		text-decoration: none;
 		display: block;
-		font-family: Verdana, Arial, sans-serif; //san-serif
-
+		font-family: $sans-serif-font;
 		&:hover {
 			text-decoration: none;
 		}
@@ -217,7 +205,7 @@ POST NAVIGATION
 			margin-right: 0;
 
 			&:hover span {
-				background: #000;
+				background: $almost-black;
 			}
 		}
 	}

@@ -1,0 +1,239 @@
+/*-----------------------------------------------------------------------------
+	Helper Classes
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+	General
+-----------------------------------------------------------------------------*/
+
+body {
+	line-height: $default-line-height;
+	font-size: $default-font-size#{px};
+	font-family: $font-family;
+	color: #333;
+
+	@include drm-breakpoint(tall) {		
+		font-size: ($default-font-size + 2)#{px};
+		line-height: $default-line-height + .2;
+	}
+}
+
+.wrapper {
+	margin: auto;
+}	
+
+/*-----------------------------------------------------------------------------
+	Clear and Alignment
+-----------------------------------------------------------------------------*/
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.textleft {
+	text-align: left;
+}
+
+.textright {
+	text-align: right;
+}
+
+.textcenter {
+	text-align: center;
+}
+
+/*-----------------------------------------------------------------------------
+	Typography
+-----------------------------------------------------------------------------*/
+
+.bold {
+	font-weight: bold;
+}	
+
+.italic {
+	font-style: italic;
+}	
+
+.underline {
+	text-decoration: underline;
+}	
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.smaller-text {
+	@include drm-em-font(10);
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.muted {
+	color: $muted-color;
+}
+
+.danger {
+	color: $danger-color;	
+}
+
+.info {
+	color: $info-color;
+}
+
+.warning {
+	color: $warning-color;
+}
+
+.success {
+	color: $success-color;
+}
+
+mark, .highlight {
+	color: $link-color;
+}
+
+p {
+	margin: 0;
+	padding: 10px 0 10px 0;
+}
+
+small {
+	@include drm-em-font(10);
+}
+
+blockquote {
+	margin: 0;
+	padding: 10px;
+	font-style: italic;
+}
+
+cite {
+	font-style: normal;
+}
+
+/*-----------------------------------------------------------------------------
+	Headings
+-----------------------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+h1 {
+	padding: 5px 0 5px 0;
+	text-transform: capitalize;
+	@include drm-em-font(26);
+}
+
+h2 {
+	padding: 5px 0 5px 0;
+	text-transform: capitalize;
+	@include drm-em-font(24);
+}
+
+h3 {
+	padding: 5px 0 5px 0;
+	text-transform: capitalize;
+	@include drm-em-font(18);
+}
+
+h5 {
+	@include drm-em-font(14);
+}
+
+h6 {
+	@include drm-em-font(12);
+}
+
+/*-----------------------------------------------------------------------------
+	Lists
+-----------------------------------------------------------------------------*/
+
+ul {
+	padding: 10px 10px 10px 40px;
+	list-style: disc;	
+}
+
+ol {
+	padding: 10px 10px 10px 40px;
+	list-style: decimal;
+}
+
+li, dd, dt {
+	margin: 0;
+	padding: 5px 0 5px 0;
+}
+
+dl {
+	list-style: disc;
+	padding: 5px;
+}
+
+dt {
+	font-weight: bold;
+}
+
+.unstlyled-list {
+	@include drm-unstyled-list();
+}
+
+.inline-list {
+	@include drm-inline-list();
+}
+
+.unstlyled-list {
+	@include drm-unstyled-list();
+}
+
+.triangle-list {
+	@include drm-triangle-list();
+}
+
+.checked-list {
+	@include drm-checked-list();
+}
+
+/*-----------------------------------------------------------------------------
+	Links
+-----------------------------------------------------------------------------*/
+
+a {
+	text-decoration: underline;
+	color: $link-color;
+
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+
+	&:visited {
+		color: darken($link-color,  20%);
+	}
+}
+
+/*-----------------------------------------------------------------------------
+	Tables
+-----------------------------------------------------------------------------*/
+
+table { 
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td {
+	text-align: left;
+	font-weight: normal;
+}

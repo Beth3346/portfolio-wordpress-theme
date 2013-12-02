@@ -1,24 +1,19 @@
 <?php get_header(); ?>
-<article class="article" role="article">	
+<div class="main-content">
+	<article class="article" role="article">
+	<?php while ( have_posts() ) : the_post(); ?>
+					
+		<h1 class="page-title"><?php the_title(); ?></h1>
 
-<?php while ( have_posts() ) : the_post(); ?>
-				
-	<h1 class="page-title"><?php the_title(); ?></h1>
-
-	<?php the_content(); ?>
-	
-	<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
-	
-	<?php edit_post_link(__('Edit','themify'), '[', ']'); ?>
-	
-	<?php // get comment template (comments.php) ?>
-	<?php //comments_template(); ?>
-
-<?php endwhile; ?>
-	
-</article>
-<!-- /#content -->
+		<?php the_content(); ?>
 		
-<?php //get_sidebar(); ?>
-<?php get_sidebar(); ?>
+		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+		
+		<?php edit_post_link(__('Edit','themify'), '[', ']'); ?>
+		<?php comments_template(); ?>
+
+	<?php endwhile; ?>		
+	</article>
+	<?php get_sidebar(); ?>
+</div>	
 <?php get_footer(); ?>

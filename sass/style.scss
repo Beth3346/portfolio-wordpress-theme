@@ -13,23 +13,23 @@ website:    http://www.elizabeth-rogers.com
 	Compass
 -----------------------------------------------------------------------------*/
 @import "compass";
+@import "vendor/reset";
 
 /*-----------------------------------------------------------------------------
 	Author Dependencies
 -----------------------------------------------------------------------------*/
 
-@import "variables";
-@import "media-queries";
-@import "extend";
-@import "normalize";
+@import "assets/drm-sass-utilities";
 
 /*-----------------------------------------------------------------------------
 	Partials
 -----------------------------------------------------------------------------*/
 
-@import "general";
-@import "header";
-@import "main-content";
-@import "sidebar";
-@import "comments";
-@import "forms";
+@import "partials/general";
+@import "partials/header";
+@import "partials/main-content";
+@import "partials/widgets";
+@import "partials/sidebar";
+@import "partials/comments";
+@import "partials/forms";
+@import "partials/footer";

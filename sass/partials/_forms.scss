@@ -1,4 +1,5 @@
-/* =Forms
+/*-----------------------------------------------------------------------------
+	Forms
 -----------------------------------------------------------------------------*/
 
 /* Removes fieldset borders. even on Opera 7 */
@@ -35,4 +36,11 @@ input[type=reset], input[type=submit], button {
 	padding: 7px 20px;
 	cursor: pointer;
 	@include border-radius(5px);
+}
+
+input[type=search] {
+	height: 30px;
+	@include border-radius(15px);
+	@include box-sizing(border-box);
+	@include drm-form-state($aqua, $off-white, $grey);
 }

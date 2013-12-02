@@ -1,0 +1,191 @@
+/*-----------------------------------------------------------------------------
+	Layout
+-----------------------------------------------------------------------------*/
+
+// Modern clearfix
+// Use instead of overflow:hidden to clear floats
+
+@mixin drm-clearfix() {
+    &:after, &:before {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// Centers an element on the page; for elements that take up the entire width 
+// of the wrapper
+
+%drm-container {
+	padding: 0;
+	margin-right: auto;
+	margin-left: auto;
+	@include drm-clearfix();
+
+	@include drm-breakpoint(trenta) {
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+		@include box-sizing(border-box);
+	}
+
+	@include drm-breakpoint(venti) {
+		width: 95%;
+		margin-left: 2.5%;
+		margin-right: 2.5%;
+		@include box-sizing(border-box);
+	}
+
+	@include drm-breakpoint(grande) {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		@include box-sizing(border-box);
+	}
+}
+
+%drm-container-full-width {
+	margin: 0;
+	@include drm-clearfix();
+
+	@include drm-breakpoint(trenta) {
+		padding-left: 10%;
+		padding-right: 10%;
+		@include box-sizing(border-box);
+	}
+
+	@include drm-breakpoint(venti) {
+		padding-left: 2.5%;
+		padding-right: 2.5%;
+		@include box-sizing(border-box);
+	}
+
+	@include drm-breakpoint(grande) {
+		padding-left: 0;
+		padding-right: 0;
+		@include box-sizing(border-box);
+	}	
+}
+
+// Sets margin and padding to 0
+
+%drm-reset-box {
+	margin: 0;
+	padding: 0;
+}
+
+// For elements that take up the entire width of their container; for 
+// container-inner elements
+
+%drm-row {
+	@extend %drm-reset-box;
+	width: 100%;
+	display: block;
+	@include drm-clearfix();
+}
+
+// Centers an element horizontally on the page
+
+%drm-center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Styles box elements to take up the entire width of their container
+// Accepts total number of elements for each row
+// Each element will be the exact same width
+
+@mixin drm-feature-box($total: 3) {
+	margin: 0;
+	width: ( 100% / $total );
+	float: left;
+	@include box-sizing(border-box);
+
+	@include drm-breakpoint(tall) {
+		padding: 10px;
+		width: 100%;
+		float: none;
+		@include box-sizing(border-box);
+	}
+}
+
+// Styles box elements to take up the entire width of their container
+// Accepts total number of elements for each row
+// Each element will be the exact same width
+
+@mixin drm-feature-box-margin($total: 3, $margin: 1%) {
+	margin: $margin;
+	width: (100% / $total) - ($margin * 2);
+	float: left;
+	@include box-sizing(border-box);
+
+	@include drm-breakpoint(tall) {
+		padding: 10px;
+		margin: 0;
+		width: 100%;
+		float: none;
+		@include box-sizing(border-box);
+	}	
+}
+
+// calculates em font size from px font size
+
+@mixin drm-em-font($size) {
+	font-size: ($size / $default-font-size)#{em};
+}
+
+// calculates em font size from px font size
+
+@mixin drm-em-margin($top, $right, $bottom, $left) {
+	@if $right == null {
+		margin: ($top / $default-font-size)#{em};
+	} @else {
+		margin: ($top / $default-font-size)#{em}, ($right / $default-font-size)#{em}, ($bottom / $default-font-size)#{em}, ($left / $default-font-size)#{em};		
+	}
+}
+
+// calculates em font size from px font size
+
+@mixin drm-em-padding($top, $right, $bottom, $left) {
+	@if $right == null {
+		padding: ($top / $default-font-size)#{em};
+	} @else {
+		padding: ($top / $default-font-size)#{em}, ($right / $default-font-size)#{em}, ($bottom / $default-font-size)#{em}, ($left / $default-font-size)#{em};		
+	}
+}
+
+// vertically center element
+
+@mixin drm-vertically-center($container-element-height, $height) {
+	position: absolute;
+	height: $height;
+	top: ($container-element-height / 2) - ($height / 2);
+}
+
+// horizonatally center element
+
+@mixin drm-horizonatally-center($container-element-width, $width) {
+	position: absolute;
+	width: $width;
+	top: ($container-element-width / 2) - ($width / 2);
+}
+
+%drm-comment-titles {
+	margin: 0 0 10px;
+	padding: 0; 
+	font-size: 18px; 
+	@include drm-em-font(18);
+}
+
+%drm-heading {
+	font-weight: normal;
+	margin: .5em 1em .5em 1em;	
+}
+
+%drm-lists {
+	margin: .75em 0 .75em 2.5em;
+}

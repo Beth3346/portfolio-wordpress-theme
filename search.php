@@ -1,28 +1,25 @@
-<?php get_header(); ?>		
-<article class="article" role="article">	
-	
-	<?php // the loop ?>
-	<?php if (have_posts()) : ?>
-	
-		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'themify' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-	
-		<?php while (have_posts()) : the_post(); ?>
-
-			<?php get_template_part( 'includes/template-parts/loop' , 'search'); ?>
-
-		<?php endwhile; ?>
-						
-		<?php get_template_part( 'includes/template-parts/pagination'); ?>
-	
-	<?php else : ?>
-
-		<p><?php _e( 'Sorry, nothing found. Please try again with a different keyword.', 'themify' ); ?></p>
-
-	<?php endif; ?>			
-
-</article>
-<!-- /#content -->
+<?php get_header(); ?>
+<div class="main-content">		
+	<article class="article" role="article">
+		<?php if (have_posts()) : ?>
 		
-<?php //get_sidebar(); ?>
-<?php get_sidebar(); ?>
+			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'themify' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		
+			<?php while (have_posts()) : the_post(); ?>
+
+				<?php get_template_part( 'includes/template-parts/_loop' , 'search'); ?>
+
+			<?php endwhile; ?>
+							
+			<?php get_template_part( 'includes/template-parts/_pagination'); ?>
+		
+		<?php else : ?>
+
+			<p><?php _e( 'Sorry, nothing found. Please try again with a different keyword.', 'themify' ); ?></p>
+
+		<?php endif; ?>			
+
+	</article>			
+	<?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>
