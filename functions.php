@@ -87,3 +87,9 @@ function elr_right_now_custom_posts()
     locate_template( array( 'includes/functions/_elr-right-now-custom-posts.php' ), true, true );
 }
 add_action( 'after_setup_theme', 'elr_right_now_custom_posts' );
+
+function elr_social_media()
+{
+    locate_template( array( 'includes/functions/_elr-social-media.php' ), true, true );
+}
+add_action( 'after_setup_theme', 'elr_social_media' );

@@ -202,7 +202,6 @@
 @mixin drm-button-solid($bk-color: #333, $color: white, $width: 40%, $align: center, $border-radius: 3px) {
 	background-color: $bk-color;
 	width: $width;
-	border: none;
 	color: $color;
 	font-weight: bold;
 	text-align: center;
@@ -214,6 +213,12 @@
 	@include text-shadow(none);
 	@include box-sizing(border-box);
 	@include transition(all, .3s ease-out);
+
+	@if $color == white {
+		border: 1px solid $bk-color;		
+	} @else {
+		border: none;
+	}
 
 	@if $align == center {
 		margin: 10px auto 10px auto;		

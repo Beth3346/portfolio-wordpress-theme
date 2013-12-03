@@ -1,161 +1,46 @@
-/*-----------------------------------------------------------------------------
-	Comments
------------------------------------------------------------------------------*/
+/************************************************************************************
+COMMENTS
+*************************************************************************************/
 
-.commentwrap {
-	margin: 10px 0 20px;
-	position: relative;
-	clear: both;
-}
-
-/* comment pagenav */
-.pagenav {
-	margin: 10px 0;
-	border: none;
-	@include box-shadow(none);
-}
-
-.top {
+.comments {
 	margin: 0;
-	position: absolute;
-	top: 10px;
-	right: 0;
-}
-
-/* comment title */
-.comment-title {
-	@extend %drm-comment-titles;
-}
-
-.reply-title {
-	@extend %drm-comment-titles;
-}
-
-/* commentlist */
-
-.commentlist {
-	margin: 0 0 30px;
-	padding: 5px 0 0;
-	border-top: solid 1px $grey;
-
-	li {
-		margin: 0;
-		padding: 15px 0 0;
-		list-style: none;
-		position: relative;
-	}
-
-	cite {
-		font-style: normal;
-
-		a {
-			text-decoration: none;
-		}
-	}
-
-	ul, ol {
-		margin: 0 0 0 7%;
-		padding: 0;
-	}
-}
-
-.comment-author {
-	margin: 2px 0 5px;
-	padding: 0;
-}
-
-.avatar {
-	float: left;
-	margin: 0 15px 0 0;
-	@include drm-square(60px);
-}
-
-/* reply link */
-.reply {
-	position: absolute;
-	right: 0;
-	top: 8px;
-}
-
-.comment-reply-link {
-	text-transform: uppercase;
-	text-decoration: none;
-	@include drm-em-font(11);
-
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-.comment-author cite {
-	background: image-url('icon-author-comment.png') no-repeat 0 2px;
-	padding-left: 18px;
-}
-
-.comment-time {
-	font-size: 75%;
-	text-transform: uppercase;
-}
-
-.commententry {
-	border-bottom: solid 1px $grey;
-	position: relative;
-	min-height: 40px;
-	overflow: hidden;
-	padding-bottom: 5px;
-	word-wrap: break-word;
+	padding: 1% 0 1% 0;
+	color: $dark-grey;
+	width: 100%;
 	@include box-sizing(border-box);
-}
-
-/* 
-COMMENT FORM
-================================================ */
-.respond {
-	margin: 0;
-	padding: 10px 0 0;
-	position: relative;
-	clear: both;
-}	
-
-.cancel-comment-reply-link {
-	position: absolute;
-	top: 20px;
-	right: 0;
-	text-decoration: none;
-	padding: 5px 10px;
-	display: block;
-	color: white;
-	background: #F30;
-	@include drm-em-font(12);
-
-	&:hover {
-		background: $dark-grey;
-	}
-}
-
-.commentform {
-	margin: 15px 0 0;
-
-	input[type=text] {
-		width: 206px;
-		margin-right: 5px;
-		@include box-sizing(border-box);
-	}
 
 	label {
 		font-weight: bold;
+		@include drm-em-font(14);
+	}
 
-		small {
-			font-weight: normal;
-		}
+	input[type=text], input[type=password], input[type=email], input[type=tel], input[type=search] {
+		width: 80%;
 	}
 
 	textarea {
-		height: 140px;
-		@include box-sizing(border-box);
+		width: 100%;
 	}
-}
 
-.submit {
-	padding: 7px 20px;
+	.commentlist {
+		@extend %drm-reset-box;
+		@include drm-unstyled-list();
+	}
+
+	.comment-author {
+        @extend %drm-reset-box;
+        width: 100%;
+
+		.avatar {
+	        float: left;
+	        margin: 0 15px 0 0;
+	        @include drm-square(60px);
+		}
+
+		.cite {
+			float: left;
+			margin-left: 20px;
+			display: block;
+		}
+	}
 }

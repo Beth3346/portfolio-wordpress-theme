@@ -42,7 +42,7 @@ article {
 }
 
 .post-date {
-	font-size: 1em;
+	@include drm-em-font(14);
 }
 
 .post-content {

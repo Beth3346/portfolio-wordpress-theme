@@ -15,15 +15,30 @@
 		.widget-title {
 			margin-bottom: 10px;
 			@include drm-em-font(16);
-			@include drm-pill-heading($dark-grey, white);
+			@include drm-pill-heading($aqua, white);
+		}
+
+		ul {
+			@include drm-unstyled-list(left);		
 		}
 
 		li {
-			padding: 0 10px 0 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			@include drm-em-font(14);
 		}
 
 		&:last-child {
 			padding: 0;
+		}
+	}
+
+	.searchform {
+		width: 80%;
+		margin: 0 auto 0 auto;
+		
+		input[type=search] {
+			width: 100%;		
 		}
 	}
 }

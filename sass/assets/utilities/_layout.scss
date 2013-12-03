@@ -118,10 +118,19 @@
 // Each element will be the exact same width
 
 @mixin drm-feature-box-margin($total: 3, $margin: 1%) {
-	margin: $margin;
+	margin-left: $margin;
+	margin-right: $margin;
 	width: (100% / $total) - ($margin * 2);
 	float: left;
 	@include box-sizing(border-box);
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
 
 	@include drm-breakpoint(tall) {
 		padding: 10px;

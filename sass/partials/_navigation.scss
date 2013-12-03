@@ -1,55 +1,119 @@
-/*-----------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------
+	Page Navigation
+------------------------------------------------------------------------------------*/
+
+.pagenav {
+	clear: both;
+	padding-bottom: 20px;
+	text-align: right;
+	background: $almost-black;
+	color: white;
+
+	a, span {
+		zoom: 1;
+		text-align: center;
+		margin: 0 0 0 10px;
+		line-height: 1.8em;
+		color: $dark-grey;
+		@include drm-circle(30px, inline-block);
+		@include box-sizing(border-box);
+	}
+
+	a {
+		text-decoration: none;
+		font-weight: normal;
+	}
+
+	.current {
+		text-decoration: none;
+		@include text-shadow(1px 1px 0 white);
+	}
+
+	&:hover {
+		background-color: $aqua;
+	}	
+}
+
+/*------------------------------------------------------------------------------------
 	Post Navigation
------------------------------------------------------------------------------*/
+------------------------------------------------------------------------------------*/
 
 .post-nav {
 	margin: 0 0 30px;
 	padding: 15px 0;
 	clear: both;
+	@include box-sizing(border-box);
 
 	span {
 		width: 47%;
 		position: relative;
 		@include box-sizing(border-box);
 
-		.arrow {
-			display: block;
-			float: left;
-			width: 32px;
-			height: 28px;
-			padding: 6px 0 0;
-			text-align: center;
-			margin: -8px 10px 17px 0;
-			@include border-radius(10em);
-			@include box-sizing(border-box);
+		span {
+			background: $dark-grey;
+			color: white;
+			font: normal 20px/100%;
 		}
 	}
 
 	a {
-		text-decoration: none;
+		text-decoration: underline;
 		display: block;
-		font-family: $sans-serif-font;
+		font-weight: normal;
+		line-height: 1.9em;
+		color: $dark-grey;
+		@include single-transition(all, .3s, ease-out);
+
+		span {
+			text-align: center;
+			background: $dark-grey;
+			@include drm-circle(30px, inline-block);
+			@include single-transition(all, .3s, ease-out)
+		}	
+
 		&:hover {
 			text-decoration: none;
+			color: $aqua;
+			@include single-transition(all, .3s, ease-in);
+
+			span {
+				color: white;
+				background: $aqua;
+				@include single-transition(all, .3s, ease-in);
+			}
 		}
+	}
+
+.post-nav span 
+
+	.arrow {
+		text-align: center;
+		margin: 0;
+		@include drm-circle(30px, inline-block);
+		@include box-sizing(border-box);
+		@include text-shadow(none);
 	}
 
 	.prev {
 		float: left;
+
+		span.arrow {
+			float: left;
+			margin: 0 10px 0 0;
+			line-height: 1.8em;
+			@include text-shadow(none);
+		}
 	}
 
 	.next {
 		float: right;
 		text-align: right;
 
-		span {
+		span.arrow {
 			float: right;
-			margin-left: 10px;
-			margin-right: 0;
-
-			&:hover span {
-				background: $almost-black;
-			}
+			margin: 0 0 0 10px;
+			line-height: 1.8em;
+			@include text-shadow(none);
 		}
 	}
 }

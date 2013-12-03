@@ -130,10 +130,17 @@
 // An unstyled list
 // li elements have a 20px indent
 
-@mixin drm-unstyled-list() {
+@mixin drm-unstyled-list($align: left) {
 
 	li {
+		text-align: $align;
 		list-style: none;
+		padding-top: 5px;
+		padding-bottom: 5px;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
 	}
 
 	a {

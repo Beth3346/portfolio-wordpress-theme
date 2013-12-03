@@ -8,11 +8,10 @@
 
 	ul {
 		@extend %drm-reset-box;
-		@include drm-unstyled-list();
 	}
 }
 
 .widget-title {
 	font-weight: bold;
-	@include drm-em-font(20);
+	@include drm-em-font(18);
 }

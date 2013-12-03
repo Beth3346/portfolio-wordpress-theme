@@ -4,12 +4,26 @@
 
 footer {
 	width: 100%;
-	padding: 1% 5% 1% 5%;
+	padding: 5% 5% 5% 5%;
 	@include drm-clearfix();
 	@include box-sizing(border-box);
 
 	.widget {
-		@include drm-feature-box(5);
+		@include drm-feature-box-margin(5);
+
+		ul {
+			padding-top: 10px;
+			@include drm-unstyled-list(center);		
+		}
+
+		.widget-title {
+			text-align: center;
+			border-bottom: 1px solid $dark-grey;
+		}
+
+		li {			
+			@include drm-em-font(14);
+		}
 	}
 }
 

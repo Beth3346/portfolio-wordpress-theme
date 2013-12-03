@@ -34,16 +34,5 @@ textarea {
 
 /* form button */
 input[type=reset], input[type=submit], button {
-	border: none;
-	padding: 7px 20px;
-	cursor: pointer;
-	@include border-radius(5px);
-}
-
-.searchform {
-	width: 100%;
-	
-	input[type=search] {
-		width: 100%;		
-	}
+	@include drm-button-solid($dark-grey, white, 40%, left);
 }
