@@ -4,12 +4,14 @@
 
 footer {
 	width: 100%;
-	padding: 5% 5% 5% 5%;
+	padding: 2% 5% 5% 5%;
+	background-color: $dark-grey;
+	color: white;
 	@include drm-clearfix();
 	@include box-sizing(border-box);
 
 	.widget {
-		@include drm-feature-box-margin(5);
+		@include drm-feature-box(5);
 
 		ul {
 			padding-top: 10px;
@@ -18,11 +20,20 @@ footer {
 
 		.widget-title {
 			text-align: center;
-			border-bottom: 1px solid $dark-grey;
+			color: $aqua;
+			@include drm-em-font(16);
 		}
 
 		li {			
 			@include drm-em-font(14);
+		}
+
+		a {
+			color: white;
+
+			&:visited {
+				color: $aqua;
+			}
 		}
 	}
 }
@@ -31,5 +42,11 @@ footer {
 	clear: both;
 	display: block;
 	text-align: center;
+	color: white;
+	background-color: $dark-grey;
 	padding: 10px 50px 10px 50px;
+
+	a {
+		color: $aqua;
+	}
 }

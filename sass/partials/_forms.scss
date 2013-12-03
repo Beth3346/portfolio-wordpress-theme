@@ -15,7 +15,7 @@ input, textarea, select, input[type=search], button {
 
 input[type=text], input[type=password], input[type=email], input[type=tel], textarea, input[type=search] {
 	padding: 6px 10px;
-	@include border-radius(5px);
+	@include border-radius(3px);
 	@include appearance(none);
 	@include box-sizing(border-box);
 	@include drm-form-state($aqua, $off-white, $grey);

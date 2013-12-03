@@ -48,7 +48,12 @@
             <h1 class="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
             <h2 class="site-description" ><?php bloginfo('description'); ?></h2>           
         </div>
-        <nav id="main-menu" role="navigation">
-            <?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => 'mainNavWrapper' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
-        </nav>
+        <div class="navigation-holder">
+            <div class="social-media-holder">
+                <?php get_template_part( 'includes/template-parts/_social-media'); ?>
+            </div>        
+            <nav id="main-menu" role="navigation">
+                <?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => 'mainNavWrapper' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
+            </nav>            
+        </div>
     </header>

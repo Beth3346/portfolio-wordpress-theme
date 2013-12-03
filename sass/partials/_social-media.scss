@@ -1,0 +1,48 @@
+/*-----------------------------------------------------------------------------
+	Social Media
+-----------------------------------------------------------------------------*/
+
+.social-media-holder {
+	float: right;
+	clear: both;
+	// quick and dirty margin fix :(
+	margin-right: -5px;		
+
+	@include drm-breakpoint(tall) {
+		float: none;
+		margin-right: 0;
+	}
+
+	ul {
+		float: right;
+		width: (32px + (5 * 2)) * 9;
+		margin: auto;
+		margin-top: 10px;
+		padding: 0;
+		list-style: none;
+		text-align: right;
+		@include drm-clearfix;
+		@include box-sizing(border-box);
+
+		@include drm-breakpoint(bean) {
+			width: (32px + (5 * 2)) * 6;
+			margin: 20px auto 20px auto; 
+		}
+
+		li {
+			width: 32px;
+			margin: 5px;
+			padding: 0;
+			display: inline-block;
+			@include box-sizing(border-box);
+		}
+
+		a {
+			display: inline-block;
+
+			&:hover {
+				@include opacity(.7);
+			}
+		}
+	}
+}

@@ -4,13 +4,15 @@
 
 header {
 	width: 100%;
-	padding: 2% 5% 5% 5%;
+	padding: 1% 5% 5% 5%;
 	@include drm-clearfix();
 	@include box-sizing(border-box);
 }
 
 .logo {
 	float: left;
+	width: 40%;
+	padding-top: 1%;
 }
 
 .site-name {
@@ -32,12 +34,18 @@ header {
 .site-description {
 	@extend %drm-reset-box;
 	text-align: left;
-	@include drm-em-font(18);
+	@include drm-em-font(16);
+}
+
+.navigation-holder {
+	float: right;
+	width: 60%;
 }
 
 .main-nav {
 	@extend %drm-reset-box;
 	float: right;
+	clear: both;
 	@include box-sizing(border-box);
 	@include drm-inline-list;
 
