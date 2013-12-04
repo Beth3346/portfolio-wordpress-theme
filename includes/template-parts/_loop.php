@@ -15,17 +15,17 @@
 		<?php endif; ?>
 	</div>
 
-	<section>	
+	<div>	
 	<?php if ( is_single() || is_page() ) { ?>
 		<div class="custom-post-image"><?php the_post_thumbnail(); ?></div>
 		<?php the_content(); ?>
 	<?php } else {?>
-		<section class="post-excerpt<?php echo $post->ID ?>">
+		<div class="post-excerpt<?php echo $post->ID ?>">
 			<div class="custom-post-image"><?php the_post_thumbnail(); ?></div>
 			<?php the_excerpt(); ?>
-		</section>
+		</div>
 	<?php } ?>
-	</section>
+	</div>
 
 	<?php edit_post_link(__('Edit', 'themify'), '[', ']'); ?>
 	

@@ -152,6 +152,30 @@
 	}
 }
 
+@mixin drm-border-list($align: left, $border-color: #333, $shadow-color: none) {
+
+	li {
+		text-align: $align;
+		list-style: none;
+		padding-top: 5px;
+		padding-bottom: 5px;
+
+		@if $shadow-color != none {
+			@include drm-inset-border($border-color, $shadow-color);
+		} @else {
+			bottom-border: $border-color;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
 @mixin drm-inline-list() {
 	@extend %drm-reset-box;
 

@@ -38,7 +38,7 @@ article {
 
 	a.more-link, button.hide-link {
 		@include drm-em-font(14);	
-		@include drm-button-solid($aqua, white, 100%)
+		@include drm-button-solid($aqua, white, 100%, center, 3px, $aqua)
 	}
 }
 
