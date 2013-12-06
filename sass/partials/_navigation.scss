@@ -6,32 +6,33 @@
 	clear: both;
 	padding-bottom: 20px;
 	text-align: right;
-	background: $almost-black;
 	color: white;
 
 	a, span {
 		zoom: 1;
 		text-align: center;
 		margin: 0 0 0 10px;
-		line-height: 1.8em;
+		line-height: 1.3em;
 		color: $dark-grey;
 		@include drm-circle(30px, inline-block);
-		@include box-sizing(border-box);
+		@include box-sizing(border-box);	
 	}
 
 	a {
 		text-decoration: none;
 		font-weight: normal;
+
+		&:hover {
+			color: white;
+			background-color: $aqua;
+		}
 	}
 
 	.current {
 		text-decoration: none;
-		@include text-shadow(1px 1px 0 white);
+		color: white;
+		background: $almost-black;
 	}
-
-	&:hover {
-		background-color: $aqua;
-	}	
 }
 
 /*------------------------------------------------------------------------------------
