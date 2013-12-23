@@ -7,9 +7,9 @@
 
 		<?php the_content(); ?>
 		
-		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','elr').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 		
-		<?php edit_post_link(__('Edit','themify'), '[', ']'); ?>
+		<?php edit_post_link(__('Edit','elr'), '[', ']'); ?>
 
 	<?php endwhile; ?>		
 	</article>

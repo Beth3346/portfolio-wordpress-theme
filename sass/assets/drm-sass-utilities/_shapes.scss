@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------
-	Shapes
+    Shapes
 -----------------------------------------------------------------------------*/
 // complex shapes are borrowed from: 
 // https://github.com/MoOx/compass-recipes/blob/master/stylesheets/recipes/shape/
@@ -7,52 +7,40 @@
 // Creates a circular element
 
 @mixin drm-circle($diameter, $display: block) {
-	display: $display;
-	width: $diameter;
-	height: $diameter;
-	@include border-radius(($diameter / 2));	
+    display: $display;
+    width: $diameter;
+    height: $diameter;
+    @include border-radius(($diameter / 2));    
 }
 
 // Creates an ellipse
 
-@mixin drm-ellipse($height, $width, $display: block) {
-	display: $display;
-	height: $height;
-	width: $width;
-	@include border-radius(($width/2), ($height/2));
-}
-
-// Creates a square element
-
-@mixin drm-square($width, $display: block) {
-	display: $display;
-	width: $width;
-	height: $width;
-}
-
-// Creates a rounded square element
-
-@mixin drm-rounded-square($width, $border-radius: 3px) {
-	border-radius: $border-radius;
-	@include drm-square($width);
+@mixin drm-ellipse($width, $height, $display: block) {
+    display: $display;
+    height: $height;
+    width: $width;
+    @include border-radius(($width/2), ($height/2));
 }
 
 // Creates a rectangular element
 
-@mixin drm-rectangle($width, $height, $display: block) {
-	display: $display;
-	width: $width;
-	height: $height;
+@mixin drm-rectangle($width, $height, $display: block, $border-radius: 0) {
+    display: $display;
+    width: $width;
+    height: $height;
+
+    @if $border-radius != 0 {
+        border-radius: $border-radius;
+    }
 }
 
-// Creates a rounded rectangular element
+// Creates a square element
 
-@mixin drm-rounded-rectangle($width, $height, $border-radius: 3px) {
-	border-radius: $border-radius;
-	@include drm-rectangle($width, $height);
+@mixin drm-square($width, $display: block, $border-radius: 0) {
+    @include drm-rectangle($width, $width, $display, $border-radius);
 }
 
-// Creates a triagle element
+// Creates a triangle element
 
 @mixin drm-triangle($direction: top, $base: 50px, $height: half, $color: #ccc)
 {
@@ -125,7 +113,7 @@
                 border-bottom: $height solid $color;
                 border-left: $base solid transparent;
         } @else {
-        	// https://gist.github.com/1671259
+            // https://gist.github.com/1671259
                 @warn "#{error("The direction used does not exist")}";
         }
 }
@@ -133,13 +121,13 @@
 // Creates an equilateral triangle
 
 @mixin drm-equilateral-triangle($direction: top, $base: 100px, $color: #ccc) {
-	$height: $base * 0.8;
+    $height: $base * 0.8;
 
-	@if ($direction == top or $direction == right or $direction == bottom or $direction == left) {
+    @if ($direction == top or $direction == right or $direction == bottom or $direction == left) {
         @include drm-triangle($direction, $base, $height, $color);
     } @else {
-    	@warn "#{error("This will not result in an equilateral triangle")}";
-    }	
+        @warn "#{error("This will not result in an equilateral triangle")}";
+    }   
 }
 
 // Creates a right triangle
@@ -149,9 +137,9 @@
 // positive skew for horizontal diamond
 // negative skew for vertical diamond
 
-@mixin drm-quadrilateral-diamond($width, $skew: 0)
+@mixin drm-quadrilateral-diamond($size, $skew: 0)
 {
-    @include drm-square($width);
+    @include drm-square($size);
     @include transform(rotate(-45deg) skew($skew#{deg}, $skew#{deg}));
 }
 
@@ -272,39 +260,39 @@
 
 // ribbon wrapper
 
-@mixin drm-ribbon-wrapper ($height, $color, $stitch-color) {
-	width: 114%;
-	position: relative;
-	left: -7%;
-	text-align: center;
-	margin: 20px 0 0 0;
-	height: $height;
-	@include drm-stitched-row($color, white, none, 1, $darker-grey);
-	@include box-sizing(border-box);
+@mixin drm-ribbon-wrapper ($height, $color, $stitch-color: white) {
+    width: 114%;
+    position: relative;
+    left: -7%;
+    text-align: center;
+    margin: 20px 0 0 0;
+    height: $height;
+    @include drm-stitched-row($color, $stitch-color, none, 1, $darker-grey);
+    @include box-sizing(border-box);
 
-	&:before {
-		content: "";
-		position: absolute;
-		top: -22px;
-		left: -4px;
-		z-index: -10;
-		@include drm-triangle(bottom-right, 14px, 9px, darken($color, 20%));
-	}
+    &:before {
+        content: "";
+        position: absolute;
+        top: -22px;
+        left: -4px;
+        z-index: -10;
+        @include drm-triangle(bottom-right, 14px, 9px, darken($color, 20%));
+    }
 
-	&:after {
-		content: "";
-		position: absolute;
-		top: -22px;
-		right: -4px;
-		z-index: -10;
-		@include drm-triangle(bottom-left, 14px, 9px, darken($color, 20%));
-	}
-}	
+    &:after {
+        content: "";
+        position: absolute;
+        top: -22px;
+        right: -4px;
+        z-index: -10;
+        @include drm-triangle(bottom-left, 14px, 9px, darken($color, 20%));
+    }
+}   
 
 // Star (5-points)
 // @author Kit Macallister
 // @link http://kitmacallister.com/2011/css-only-5-point-star/
-@mixin drm-star-5($width: $width, $background-color: transparent, $z-index: 0)
+@mixin drm-star-5($width, $background-color: #ccc, $z-index: 0)
 {
     margin-top: $width/2;
     margin-bottom: $width/2;
@@ -351,7 +339,7 @@
 }
 
 // Star (6-points)
-@mixin drm-star-6($width: $width, $background-color: transparent, $z-index: 0)
+@mixin drm-star-6($width, $background-color: #ccc, $z-index: 0)
 {
     width: 0;
     height: 0;
@@ -381,12 +369,12 @@
 // @author Alan Johnson
 // @link http://commondream.net/post/8848553728/pure-css-badges
 // @todo maybe improve this to be able to include text without the transform()
-@mixin drm-star-8($width: 8em, $color: #000, $z-index: 0)
+@mixin drm-star-8($width: 8em, $background-color: #ccc, $z-index: 0)
 {
     &,
     &:before,
     {
-        @include square($width, $color);
+        @include square($width, $background-color);
     }
 
     position: relative;
@@ -405,7 +393,7 @@
     }
 }
 
-@mixin drm-badge($width: 8em, $color: #000, $z-index: 0)
+@mixin drm-badge($width: 8em, $background-color: #ccc, $z-index: 0)
 {
     &,
     &:before,

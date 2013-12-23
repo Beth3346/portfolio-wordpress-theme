@@ -16,13 +16,15 @@
     }
 }
 
-// Centers an element on the page; for elements that take up the entire width 
+// Centers an element on the page; container for elements that take up the entire width 
 // of the wrapper
 
 %drm-container {
 	padding: 0;
-	margin-right: auto;
-	margin-left: auto;
+	width: 95%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	@include box-sizing(border-box);
 	@include drm-clearfix();
 
 	@include drm-breakpoint(trenta) {
@@ -48,7 +50,10 @@
 }
 
 %drm-container-full-width {
-	margin: 0;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
 	@include drm-clearfix();
 
 	@include drm-breakpoint(trenta) {
@@ -95,12 +100,28 @@
 	margin-right: auto;
 }
 
+%drm-comment-titles {
+	margin: 0 0 10px;
+	padding: 0; 
+	font-size: (18 / $default-font-size)#{em};
+}
+
+%drm-heading {
+	font-weight: normal;
+	margin: .5em 1em .5em 1em;	
+}
+
+%drm-lists {
+	margin: .75em 0 .75em 2.5em;
+}
+
 // Styles box elements to take up the entire width of their container
 // Accepts total number of elements for each row
 // Each element will be the exact same width
 
 @mixin drm-feature-box($total: 3) {
-	margin: 0;
+	margin-left: 0;
+	margin-right: 0;
 	width: ( 100% / $total );
 	float: left;
 	@include box-sizing(border-box);
@@ -124,14 +145,6 @@
 	float: left;
 	@include box-sizing(border-box);
 
-	&:first-child {
-		margin-left: 0;
-	}
-
-	&:last-child {
-		margin-right: 0;
-	}
-
 	@include drm-breakpoint(tall) {
 		padding: 10px;
 		margin: 0;
@@ -139,6 +152,15 @@
 		float: none;
 		@include box-sizing(border-box);
 	}	
+}
+
+@mixin drm-circle-blocks($container-width: 1000px, $margin: 20px, $total: 3) {
+	$margin-total: ($margin * 2) * $total;
+
+	float: left;
+	margin: $margin;
+	@include drm-circle( ( $container-width - 120 ) / $total );
+	@include box-sizing(border-box);	
 }
 
 // calculates em font size from px font size
@@ -177,24 +199,8 @@
 
 // horizonatally center element
 
-@mixin drm-horizonatally-center($container-element-width, $width) {
+@mixin drm-horizontally-center($container-element-width, $width) {
 	position: absolute;
 	width: $width;
 	top: ($container-element-width / 2) - ($width / 2);
-}
-
-%drm-comment-titles {
-	margin: 0 0 10px;
-	padding: 0; 
-	font-size: 18px; 
-	@include drm-em-font(18);
-}
-
-%drm-heading {
-	font-weight: normal;
-	margin: .5em 1em .5em 1em;	
-}
-
-%drm-lists {
-	margin: .75em 0 .75em 2.5em;
 }

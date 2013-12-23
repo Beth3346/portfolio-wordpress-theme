@@ -22,7 +22,7 @@
 	margin: 20px 0 0 0;
 	font-weight: bold;
 	overflow: hidden;
-	font-size: (20em / $default-font-size);	
+	@include drm-em-font(20);	
 
 	@include drm-breakpoint(trenta) {
 		height: 60px;
@@ -64,9 +64,8 @@
 
 // ribbon heading
 
-@mixin drm-ribbon-heading($color, $font, $stitch-color, $text-color, $text-shadow) {
+@mixin drm-ribbon-heading($color, $stitch-color: white, $text-color: white, $text-shadow: none) {
 	margin: 40px auto 20px auto;
-	font-family: $font;
 	color: $text-color;
 	text-align: center;
 	line-height: 1.1;
@@ -74,8 +73,11 @@
 	height: 45px - 6;
 	@include drm-em-font(24);
 	@include drm-stitched-row($color, $stitch-color, none, 1, $darker-grey);
-	@include drm-inset-text($text-shadow);
 	@include box-sizing(border-box);
+
+	@if $text-shadow != none {
+		@include drm-inset-text($text-shadow);	
+	}
 
 	&:before {
 		content: "";
@@ -224,6 +226,7 @@
 
 @mixin drm-floated-list() {
 	@extend %drm-reset-box;
+	@include drm-clearfix();
 
 	li {
 		list-style: none;
@@ -231,6 +234,25 @@
 		float: left;
 		margin: 0;
 		padding: 5px 10px 5px 10px;
+	}
+}
+
+@mixin drm-list-group($background-color: white, $text-color: #333, $border-radius: 0, $border-color: #999) {
+	@extend %drm-reset-box;
+	border: 1px solid $border-color;
+	background-color: $background-color;
+	color: $text-color;
+
+	li {
+		list-style: none;
+		display: block;
+		margin: 0;
+		padding: 5px 10px 5px 10px;
+		border-bottom: 1px solid $border-color;
+
+		&:last-child {
+			border-bottom: none;
+		}
 	}
 }
 
@@ -245,7 +267,13 @@
 	@include drm-em-font(14);
 }
 
-@mixin context-box($type: info) {
+@mixin context-box($type: info, $border-radius: 0) {
+	padding: 10px 20px 10px 20px;
+
+	@if $border-radius != 0 {
+		border-radius: $border-radius;
+	}
+
 	@if $type == info {
 		background-color: lighten($info-color, 20%);
 		border: 1px solid $info-color;

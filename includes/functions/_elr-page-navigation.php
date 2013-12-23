@@ -4,7 +4,7 @@
 // Page navigation
 ///////////////////////////////////////
 
-function themify_pagenav($before = '', $after = '') {
+function elr_pagenav($before = '', $after = '') {
 	global $wpdb, $wp_query;
 
 	$request = $wp_query->request;
@@ -16,7 +16,7 @@ function themify_pagenav($before = '', $after = '') {
 	if(empty($paged) || $paged == 0) {
 		$paged = 1;
 	}
-	$pages_to_show = apply_filters('themify_filter_pages_to_show', 8);
+	$pages_to_show = apply_filters('elr_filter_pages_to_show', 8);
 	$pages_to_show_minus_1 = $pages_to_show-1;
 	$half_page_start = floor($pages_to_show_minus_1/2);
 	$half_page_end = ceil($pages_to_show_minus_1/2);

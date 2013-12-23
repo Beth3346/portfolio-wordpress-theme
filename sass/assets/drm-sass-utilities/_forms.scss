@@ -2,10 +2,10 @@
 	Forms
 -----------------------------------------------------------------------------*/
 
-@mixin drm-form-state($glow, $background, $border) {
-	background: $background;
+@mixin drm-form-state($glow: #00b3bb, $background: #e2e2e2, $border: #999) {
+	background-color: $background;
 	border: solid 1px $border;
-	@include single-transition(all, .5s, ease-out);
+	@include transition(border .5s ease-out, box-shadow .5s ease-out);
 
 	&:hover {
 		border: 1px solid $glow;
@@ -16,7 +16,7 @@
 	&:focus {
 		outline: none;
 		border: 1px solid darken($border, 20%);
-		background: lighten($background, 20%);
+		background-color: lighten($background, 20%);
 		@include transition(border .5s ease-in, background .5s ease-in);
 	}
 }

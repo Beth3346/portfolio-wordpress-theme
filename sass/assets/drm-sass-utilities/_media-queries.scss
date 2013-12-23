@@ -4,19 +4,25 @@
 
 @mixin drm-breakpoint($point) {
 
-  @if $point == trenta {
+@if $point == trenta {
     	@media screen and (min-width: $trenta) { @content; }
-  }	@else if $point == venti {
+    } @else if $point == venti {
     	@media screen and (max-width: $venti) { @content; }
-  }	@else if $point == grande {
+    } @else if $point == grande {
     	@media screen and (max-width: $grande) { @content; }
-  }	@else if $point == tall {
+    } @else if $point == tall {
     	@media screen and (max-width: $tall) { @content; }
-  }	@else if $point == short {
+    } @else if $point == short {
     	@media screen and (max-width: $short) { @content; }
-  }	@else if $point == espresso {
+    } @else if $point == espresso {
     	@media screen and (max-width: $espresso) { @content; }
-  }	@else if $point == bean {
+    } @else if $point == bean {
     	@media screen and (max-width: $bean) { @content; }
-  }
+    }
+}
+
+@mixin drm-hide-breakpoint($point) {
+    @include drm-breakpoint($point) {
+        display: none;
+    }
 }

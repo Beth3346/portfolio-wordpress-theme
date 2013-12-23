@@ -124,7 +124,7 @@
 	}
 }
 
-// creates a nav-bar with a pill shaped buttons
+// creates a nav-bar with pill shaped buttons
 
 @mixin drm-nav-bar-pills-solid($text-color: white, $background-color: $link-color, $align: left) {
 	@include drm-nav-bar-pills($text-color, $background-color, $align);
@@ -161,7 +161,7 @@
 // Styles a rounded button with a 1px border and transparent background
 // Useful for <button> and <a> elements
 
-@mixin drm-button-link($color: white, $bk-color: #333, $width: 40%, $align: center, $border-radius: 3px) {
+@mixin drm-button-link($color: white, $bk-color: $link-color, $width: 40%, $align: center, $border-radius: 3px, $border-color: none) {
 	width: $width;
 	border: 1px solid $color;
 	color: $color;
@@ -171,7 +171,132 @@
 	padding: 10px 0 10px 0;
 	text-decoration: none;
 	cursor: pointer;
-	@include border-radius(3px);
+	@include border-radius($border-radius);
+	@include text-shadow(none);
+	@include box-shadow(none);
+	@include box-sizing(border-box);
+	@include transition(all, .3s ease-out);
+
+	@if $align == center {
+		margin: 10px auto 10px auto;		
+	} @else {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+
+		@if $border-color != none {
+			border: 1px solid $border-color;		
+		} @else {
+			border: 1px solid $color;
+		}
+
+		background-color: $color;
+		color: $bk-color;
+		text-decoration: none;
+		@include text-shadow(none);
+		@include box-shadow(none);
+		@include transition(all, .3s ease-in);
+	}	
+}
+
+// Styles a rounded button with a 1px border and solid background
+// Useful for <button> and <a> elements
+
+@mixin drm-button-solid($bk-color: $link-color, $color: white, $width: 40%, $center: center, $border-radius: 3px, $border-color: none) {
+	background-color: $bk-color;
+	width: $width;
+	color: $color;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px 0;
+	text-decoration: none;
+	cursor: pointer;
+	@include border-radius($border-radius);
+	@include text-shadow(none);
+	@include box-sizing(border-box);
+	@include transition(all, .3s ease-out);
+
+	@if $border-color != none {
+		border: 1px solid $border-color;		
+	} @else {
+		border: none;
+	}
+
+	@if $center == center {
+		margin: 10px auto 10px auto;		
+	} @else {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+		background-color: $color;
+		color: $bk-color;
+		text-decoration: none;
+		@include text-shadow(none);
+		@include box-shadow(none);
+		@include transition(all, .3s ease-in);
+	}	
+}
+
+// Styles a rectangular button with a 2px solid drop shadow
+
+@mixin drm-rectangle-button($color: $link-color, $text: white, $border-radius: 0, $width: 40%) {
+	border: 1px solid darken($color, 10%);
+	background-color: $color;
+	font-weight: bold;
+	color: $text;
+	margin: 20px 0 20px 0;
+	padding: 10px 60px 10px 60px;
+	cursor: pointer;
+	width: $width;
+	@include drm-solid-drop-shadow(darken($color, 10%));
+	@include transition(all, .3s ease-out);
+	@include box-sizing(border-box);
+
+	@if $border-radius != 0 {
+		@include border-radius($border-radius);	
+	}
+
+	&:visited {
+		color: $color;
+	}
+
+	&:hover {
+		background-color: lighten($color, 10%);
+		border: 1px solid $color;
+		@include drm-solid-drop-shadow($color);
+		@include transition(all, .3s ease-in);
+	}	
+}
+
+// glass button
+
+// pill button
+
+@mixin drm-pill-button-link($height: 50px, $color: white, $bk-color: $link-color, $width: 40%, $center: center) {
+	width: $width;
+	height: $height;
+	border: 1px solid $color;
+	color: $color;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px 0;
+	text-decoration: none;
+	cursor: pointer;
+	@include border-radius($height / 2);
 	@include text-shadow(none);
 	@include box-shadow(none);
 	@include box-sizing(border-box);
@@ -202,9 +327,10 @@
 // Styles a rounded button with a 1px border and solid background
 // Useful for <button> and <a> elements
 
-@mixin drm-button-solid($bk-color: #333, $color: white, $width: 40%, $align: center, $border-radius: 3px, $border-color: none) {
+@mixin drm-pill-button-solid($height: 50px, $bk-color: $link-color, $color: white, $width: 40%, $center: center, $border-color: none) {
 	background-color: $bk-color;
 	width: $width;
+	height: $height;
 	color: $color;
 	font-weight: bold;
 	text-align: center;
@@ -212,7 +338,7 @@
 	padding: 10px 0 10px 0;
 	text-decoration: none;
 	cursor: pointer;
-	@include border-radius(3px);
+	@include border-radius($height / 2);
 	@include text-shadow(none);
 	@include box-sizing(border-box);
 	@include transition(all, .3s ease-out);
@@ -223,7 +349,7 @@
 		border: none;
 	}
 
-	@if $align == center {
+	@if $center == center {
 		margin: 10px auto 10px auto;		
 	} @else {
 		margin-top: 10px;
@@ -242,37 +368,4 @@
 		@include box-shadow(none);
 		@include transition(all, .3s ease-in);
 	}	
-}
-
-// Styles a rectangular button with a 2px solid drop shadow
-
-@mixin drm-rectangle-button($color: #333, $text: white, $border-radius: 0, $width: 40%) {
-	border: 1px solid darken($color, 10%);
-	background-color: $color;
-	font-weight: bold;
-	color: $text;
-	margin: 20px 0 20px 0;
-	padding: 10px 60px 10px 60px;
-	cursor: pointer;
-	width: $width;
-	@include border-radius($border-radius);
-	@include drm-solid-drop-shadow(darken($color, 10%));
-	@include transition(all, .3s ease-out);
-	@include drm-em-font(16);
-	@include box-sizing(border-box);
-
-	&:visited {
-		color: $color;
-	}
-
-	&:hover {
-		background-color: lighten($color, 10%);
-		border: 1px solid $color;
-		@include drm-solid-drop-shadow($color);
-		@include transition(all, .3s ease-in);
-	}	
-}
-
-// glass button
-
-// pill button	
+}	

@@ -2,7 +2,7 @@
 
 // Add custom post types to right now dashboard
 
-function drm_right_now_content_table_end() {
+function elr_dashboard_glance_items() {
 
  $args = array(
   'public' => true ,
@@ -19,12 +19,11 @@ function drm_right_now_content_table_end() {
   $text = _n( $post_type->labels->singular_name, $post_type->labels->name , intval( $num_posts->publish ) );
 
   if ( current_user_can( 'edit_posts' ) ) {
-   $num = "<a href='edit.php?post_type=$post_type->name'>$num</a>";
-   $text = "<a href='edit.php?post_type=$post_type->name'>$text</a>";
+   $num = "<a href='edit.php?post_type=$post_type->name'>$num";
+   $text = "$text</a>";
   }
 
-  echo '<tr><td class="first b b-' . $post_type->name . '">' . $num . '</td>';
-  echo '<td class="t ' . $post_type->name . '">' . $text . '</td></tr>';
+  echo '<li class="post-count">' . $num . ' ' . $text . '</li>';
  }
 
  $taxonomies = get_taxonomies( $args , $output , $operator );
@@ -44,4 +43,4 @@ function drm_right_now_content_table_end() {
  }
 }
 
-add_action( 'right_now_content_table_end' , 'drm_right_now_content_table_end' );
+add_action( 'dashboard_glance_items' , 'elr_dashboard_glance_items' );

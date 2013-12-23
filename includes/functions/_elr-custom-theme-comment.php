@@ -15,19 +15,19 @@ function custom_theme_comment($comment, $args, $depth) {
 		<?php comment_date('M d, Y'); ?>
 		</strong> @
 		<?php comment_time('H:i:s'); ?>
-		<?php edit_comment_link( __('Edit', 'themify'),' [',']') ?>
+		<?php edit_comment_link( __('Edit', 'elr'),' [',']') ?>
 		</small>
 	</p>
 	<div class="commententry">
 		<?php if ($comment->comment_approved == '0') : ?>
 		<p>
-			<em><?php _e('Your comment is awaiting moderation.', 'themify') ?></em>
+			<em><?php _e('Your comment is awaiting moderation.', 'elr') ?></em>
 		</p>
 		<?php endif; ?>
 		<?php comment_text() ?>
 	</div>
 	<p class="reply">
-		<?php comment_reply_link(array_merge( $args, array('add_below' => 'comment', 'depth' => $depth, 'reply_text' => __( 'Reply', 'themify' ), 'max_depth' => $args['max_depth']))) ?>
+		<?php comment_reply_link(array_merge( $args, array('add_below' => 'comment', 'depth' => $depth, 'reply_text' => __( 'Reply', 'elr' ), 'max_depth' => $args['max_depth']))) ?>
 	</p>
 <?php
 }

@@ -11,6 +11,7 @@ body {
 	font-size: $default-font-size#{px};
 	font-family: $font-family;
 	color: #333;
+	background-color: white;
 
 	@include drm-breakpoint(tall) {		
 		font-size: ($default-font-size + 2)#{px};
@@ -23,6 +24,14 @@ body {
 }	
 
 /*-----------------------------------------------------------------------------
+	Visibility
+-----------------------------------------------------------------------------*/	
+
+.hide {
+	display: none;
+}
+
+/*-----------------------------------------------------------------------------
 	Clear and Alignment
 -----------------------------------------------------------------------------*/
 
@@ -32,6 +41,10 @@ body {
 
 .pull-right {
 	float: right;
+}
+
+.clear {
+	@include drm-clearfix();
 }
 
 /*-----------------------------------------------------------------------------
@@ -58,36 +71,49 @@ body {
 	@include drm-em-font(10);
 }
 
-.left {
+.text-left {
 	text-align: left;
 }
 
-.right {
+.text-right {
 	text-align: right;
 }
 
-.center {
+.text-center {
 	text-align: center;
 }
 
-.muted {
+.text-justified {
+	text-align: justify;
+}
+
+.text-muted {
 	color: $muted-color;
 }
 
-.danger {
+.text-danger {
 	color: $danger-color;	
 }
 
-.info {
+.text-error {
+	color: $danger-color;
+	font-weight: bold;
+}
+
+.text-info {
 	color: $info-color;
 }
 
-.warning {
+.text-warning {
 	color: $warning-color;
 }
 
-.success {
+.text-success {
 	color: $success-color;
+}
+
+mark {
+	background-color: transparent;
 }
 
 mark, .highlight {
@@ -183,10 +209,6 @@ dt {
 	@include drm-inline-list();
 }
 
-.unstlyled-list {
-	@include drm-unstyled-list();
-}
-
 .triangle-list {
 	@include drm-triangle-list();
 }
@@ -224,4 +246,8 @@ table {
 td {
 	text-align: left;
 	font-weight: normal;
+}
+
+thead {
+	font-weight: bold;
 }

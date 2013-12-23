@@ -12,11 +12,20 @@ $short: 750px;
 $espresso: 550px;
 $bean: 370px;
 
-// layout
+// font faces
 
+$serif-font: Georgia, 'Times New Roman', serif;
+$sans-serif-font: 'Open Sans', Helvetica, Arial, sans-serif;
+
+// typography
+
+$font-family: $sans-serif-font;
+$default-font-size: 16;
 $default-line-height: 1.5;
 
 // colors
+
+// add more colors below
 
 $almost-black: #111;
 $dark-grey: #333;
@@ -28,26 +37,23 @@ $lightest-grey: #eee;
 $off-white: #e2e2e2;
 $almost-white: #f1f1f1;
 
-$aqua: #00C2FF;
+$drm-blue: #00b3bb;
+$dark-aqua: #096367;
+$dark-pink: #ed145b;
 
-// background images 
+// font colors
 
-// font faces
-
-$serif-font: Georgia, "Times New Roman", Times, serif;
-$sans-serif-font: 'Open Sans', Helvetica, Arial, sans-serif;
-$script-font: cursive;
-$cursive-font: cursive;
-
-// typography
-
-$default-font-size: 16;
-$text-color: $dark-grey;
-$link-color: $aqua;
-$font-family: $sans-serif-font;
 $danger-color: #B90A07; // red
 $warning-color: #D1CB34; // yellow
 $success-color: #468847; // green
 $info-color: #3a87ad; // blue
 $muted-color: $grey;
+
+// color scheme
+
+$text-color: $dark-grey;
+$link-color: $drm-blue;
+$background-color: white;
+$main-color: $drm-blue;
+$accent-color: $dark-pink;
 $shadow-color: $off-white;

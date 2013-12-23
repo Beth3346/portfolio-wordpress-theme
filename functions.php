@@ -28,12 +28,6 @@ function elr_register_sidebars()
 }
 add_action( 'after_setup_theme', 'elr_register_sidebars' );
 
-function elr_post_navigation()
-{
-    locate_template( array( 'includes/functions/_elr-post-navigation.php' ), true, true );
-}
-add_action( 'after_setup_theme', 'elr_post_navigation' );
-
 function elr_page_navigation()
 {
     locate_template( array( 'includes/functions/_elr-page-navigation.php' ), true, true );
@@ -93,3 +87,9 @@ function elr_social_media()
     locate_template( array( 'includes/functions/_elr-social-media.php' ), true, true );
 }
 add_action( 'after_setup_theme', 'elr_social_media' );
+
+function elr_show_rel_posts()
+{
+    locate_template( array( 'includes/functions/_elr-show-related-posts.php' ), true, true );
+}
+add_action( 'after_setup_theme', 'elr_show_rel_posts' );

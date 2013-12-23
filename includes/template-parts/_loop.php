@@ -11,7 +11,7 @@
 		<p class="post-category"><?php the_category(', ') ?></p>
 		<?php the_tags(' <p class="post-tag">', ', ', '</p>'); ?>
 		<?php if ( comments_open() ) : ?>
-			<p class="post-comment"><?php comments_popup_link( __( '0 Comments', 'themify' ), __( '1 Comment', 'themify' ), __( '% Comments', 'themify' ) ); ?></p>
+			<p class="post-comment"><?php comments_popup_link( __( '0 Comments', 'elr' ), __( '1 Comment', 'elr' ), __( '% Comments', 'elr' ) ); ?></p>
 		<?php endif; ?>
 	</div>
 
@@ -27,6 +27,6 @@
 	<?php } ?>
 	</div>
 
-	<?php edit_post_link(__('Edit', 'themify'), '[', ']'); ?>
+	<?php edit_post_link(__('Edit', 'elr'), '[', ']'); ?>
 	
 </section>

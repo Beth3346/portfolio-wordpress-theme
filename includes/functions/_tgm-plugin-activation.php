@@ -116,6 +116,36 @@ function my_theme_register_required_plugins() {
             'slug'      => 'wp-super-cache',
             'required'  => false,
         ), 
+        array(
+            'name'      => 'Disable Comments',
+            'slug'      => 'disable-comments',
+            'required'  => false,
+        ), 
+        array(
+            'name'      => 'Google XML Sitemap for Videos',
+            'slug'      => 'xml-sitemaps-for-videos',
+            'required'  => false,
+        ), 
+        array(
+            'name'      => 'Post Types Order',
+            'slug'      => 'post-types-order',
+            'required'  => false,
+        ), 
+        array(
+            'name'      => 'Regenerate Thumbnails',
+            'slug'      => 'regenerate-thumbnails',
+            'required'  => false,
+        ), 
+        array(
+            'name'      => 'Stat Press',
+            'slug'      => 'statpress',
+            'required'  => false,
+        ), 
+        array(
+            'name'      => 'Lazy Load',
+            'slug'      => 'lazy-load',
+            'required'  => false,
+        ) 
     );
  
     // Change this to your theme text domain, used for internationalising strings

@@ -5,7 +5,7 @@
 		
 		<?php get_template_part( 'includes/template-parts/_loop' , 'single'); ?>
 
-		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','elr').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 
 		<?php get_template_part( 'includes/template-parts/_post-nav'); ?>
 

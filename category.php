@@ -14,7 +14,7 @@
 		
 		<?php else : ?>
 	
-			<p><?php _e( 'Sorry, nothing found.', 'themify' ); ?></p>
+			<p><?php _e( 'Sorry, nothing found.', 'elr' ); ?></p>
 	
 		<?php endif; ?>			
 

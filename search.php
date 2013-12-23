@@ -3,7 +3,7 @@
 	<article class="article" role="article">
 		<?php if (have_posts()) : ?>
 		
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'themify' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'elr' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		
 			<?php while (have_posts()) : the_post(); ?>
 
@@ -15,7 +15,7 @@
 		
 		<?php else : ?>
 
-			<p><?php _e( 'Sorry, nothing found. Please try again with a different keyword.', 'themify' ); ?></p>
+			<p><?php _e( 'Sorry, nothing found. Please try again with a different keyword.', 'elr' ); ?></p>
 
 		<?php endif; ?>			
 

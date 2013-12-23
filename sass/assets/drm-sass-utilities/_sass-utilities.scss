@@ -21,12 +21,13 @@
 	Sass Utilities
 -----------------------------------------------------------------------------*/	
 
-	@import "variables";
-	@import "utilities/media-queries";
-	@import "utilities/layout";
-	@import "utilities/shapes";		
-	@import "utilities/page-elements";
-	@import "utilities/navigation";				
-	@import "utilities/effects";			
-	@import "utilities/forms";	
+	@import "default-config";
+	@import "../drm-sass-utilities-config";
+	@import "media-queries";
+	@import "layout";
+	@import "shapes";		
+	@import "page-elements";
+	@import "navigation";				
+	@import "effects";			
+	@import "forms";	
 	@import "helper-classes";					

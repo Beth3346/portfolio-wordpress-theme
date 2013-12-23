@@ -34,5 +34,5 @@ textarea {
 
 /* form button */
 input[type=reset], input[type=submit], button {
-	@include drm-button-solid($dark-grey, white, 40%, left);
+	@include drm-button-solid($dark-grey, white, 40%, left, 0, $dark-grey);
 }
