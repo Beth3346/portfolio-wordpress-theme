@@ -7,38 +7,43 @@ nextButton = $('.next-img')
 prevButton = $('.prev-img')
 slides = slideHolder.find('.front-slide')
 current = 0
-last = slides.length-1	
 firstSlide = slides.first()
 lastSlide = slides.last()
 play = 5000
+speed = 2000
+length = slides.length
+last = length-1	
 
 ## Initialize
 
 slides.hide()
 firstSlide.show()
-if slides.length > 1
-	$('.front-slider-nav').show()
+if length > 1
+	nextButton.show()
+	prevButton.show()
+
+console.log length	
 
 prevImage = ->
-	slides.fadeOut(1000)
+	slides.fadeOut(speed)
 
 	if current == 0
-		lastSlide.fadeIn(1000)
+		lastSlide.fadeIn(speed)
 		current = last
 	else
 		current = current - 1
-		slides.eq(current).fadeIn(1000)
+		slides.eq(current).fadeIn(speed)
 	return	
 
 nextImage = ->	
-	slides.fadeOut(1000)	
+	slides.fadeOut(speed)	
 
 	if current == last
-		firstSlide.fadeIn(1000)
+		firstSlide.fadeIn(speed)
 		current = 0
 	else
 		current = current + 1
-		slides.eq(current).fadeIn(1000)
+		slides.eq(current).fadeIn(speed)
 	return
 
 startShow = ->
@@ -54,8 +59,9 @@ stopShow = ->
 	return
 
 win.load ->
-	startShow()
-	return
+	if length > 1 
+		startShow()
+		return	
 
 prevButton.click ->
 	prevImage()
@@ -72,6 +78,7 @@ slides.hover(
 		stopShow()
 		return
 	->
-		startShow()
-		return	
+		if length > 1
+			startShow()
+			return	
 )

@@ -66,9 +66,6 @@ function elr_rmpi_ajax() {
 		// "The Loop"
 		
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
-			echo '<div class="custom-post-image">';
-				the_post_thumbnail();
-			echo '</div>';
 			the_content();
 
 			endwhile; else: 

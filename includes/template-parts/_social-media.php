@@ -8,7 +8,7 @@
 	    while ( $query->have_posts() ) : $query->the_post();
 			global $post;
 			$title = substr( str_ireplace( '"', '', trim( get_the_title() ) ), 0, 70 );
-			$url = str_ireplace('"', '', trim(get_post_meta($post->ID, 'drm_social_media_url', true)));
+			$url = str_ireplace('"', '', trim(get_post_meta($post->ID, 'elr_social_media_url', true)));
 			?>
 			<li><a href="<?php echo esc_attr( $url ); ?>" title="<?php echo esc_attr( $title ); ?>" target="_blank"><?php the_post_thumbnail(); ?></a></li>
 			<?php

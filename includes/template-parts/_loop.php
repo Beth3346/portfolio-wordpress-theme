@@ -15,16 +15,20 @@
 		<?php endif; ?>
 	</div>
 
-	<div>	
-	<?php if ( is_single() || is_page() ) { ?>
-		<div class="custom-post-image"><?php the_post_thumbnail(); ?></div>
-		<?php the_content(); ?>
-	<?php } else {?>
-		<div class="post-excerpt<?php echo $post->ID ?>">
-			<div class="custom-post-image"><?php the_post_thumbnail(); ?></div>
-			<?php the_excerpt(); ?>
+	<?php if ( '' != get_the_post_thumbnail() ) { ?>
+		<div class="post-image">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 		</div>
 	<?php } ?>
+
+	<div>
+		<?php if ( is_single() || is_page() ) { ?>
+			<?php the_content(); ?>
+		<?php } else { ?>
+		<div class="post-excerpt<?php echo $post->ID ?>">
+			<?php the_excerpt(); ?>
+		</div>
+		<?php } ?>
 	</div>
 
 	<?php edit_post_link(__('Edit', 'elr'), '[', ']'); ?>
