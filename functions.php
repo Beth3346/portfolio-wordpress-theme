@@ -70,11 +70,11 @@ function elr_read_more_post_instant()
 }
 add_action( 'after_setup_theme', 'elr_read_more_post_instant' );
 
-function elr_remove_wp_version()
+function elr_remove_wordpress_version()
 {
     locate_template( array( 'includes/functions/_elr-remove-wp-version.php' ), true, true );
 }
-add_action( 'after_setup_theme', 'elr_remove_wp_version' );
+add_action( 'after_setup_theme', 'elr_remove_wordpress_version' );
 
 function elr_right_now_custom_posts()
 {

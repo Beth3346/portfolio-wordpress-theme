@@ -10,7 +10,7 @@
     display: $display;
     width: $diameter;
     height: $diameter;
-    @include border-radius(($diameter / 2));    
+    border-radius: $diameter;
 }
 
 // Creates an ellipse
@@ -19,7 +19,7 @@
     display: $display;
     height: $height;
     width: $width;
-    @include border-radius(($width/2), ($height/2));
+    border-radius: ($width / 2), ($height / 2);
 }
 
 // Creates a rectangular element
@@ -28,6 +28,7 @@
     display: $display;
     width: $width;
     height: $height;
+    box-sizing: border-box;
 
     @if $border-radius != 0 {
         border-radius: $border-radius;
@@ -42,7 +43,7 @@
 
 // Creates a triangle element
 
-@mixin drm-triangle($direction: top, $base: 50px, $height: half, $color: #ccc)
+@mixin drm-triangle($direction: top, $base: 50px, $height: half, $color: $light-grey)
 {
         @if ($direction == top or $direction == right or $direction == bottom or $direction == left)
         {
@@ -139,8 +140,8 @@
 
 @mixin drm-quadrilateral-diamond($size, $skew: 0)
 {
+    transform: rotate(-45deg) skew($skew#{deg}, $skew#{deg});
     @include drm-square($size);
-    @include transform(rotate(-45deg) skew($skew#{deg}, $skew#{deg}));
 }
 
 // Creates a pentagon
@@ -153,8 +154,7 @@
     border-style: solid;
     border-color: $background-color transparent;
 
-    &:before
-        {
+    &:before {
         content: "";
         position: absolute;
         height: 0;
@@ -177,8 +177,7 @@
     position: relative;
     
     &:before,
-    &:after
-    {
+    &:after {
         content: "";
         position: absolute;
         width: 0;
@@ -190,14 +189,12 @@
         border-right: $width/2 solid transparent;
     }
 
-        &:before
-        {
+        &:before {
             top: -$width/4;
             border-bottom: $width/4 solid $background-color;
         }
 
-        &:after
-        {
+        &:after {
             bottom: -$width/4;
             border-top: $width/4 solid $background-color;
         }
@@ -213,8 +210,7 @@
     position: relative;
 
     &:before,
-    &:after
-    {
+    &:after {
         content: "";
         position: absolute;
         left: 0;
@@ -226,14 +222,12 @@
         border-right: $width*0.29 solid transparent;        
     }
 
-        &:before
-        {
+        &:before {
             top: -$height*0.29;
             border-bottom: $height*0.29 solid $background-color;
         }
 
-        &:after
-        {
+        &:after {
             bottom: -$height*0.29;
             border-top: $height*0.29 solid $background-color;
         }
@@ -244,7 +238,7 @@
 @mixin drm-parallelogram($width, $height, $skew: 20) {
     width: $width;
     height: $height;
-    @include skew($skew#{deg}, 0deg);
+    transform: skew($skew#{deg}, 0deg);
 }
 
 // Creates a trapezoid
@@ -267,8 +261,8 @@
     text-align: center;
     margin: 20px 0 0 0;
     height: $height;
+    box-sizing: border-box;
     @include drm-stitched-row($color, $stitch-color, none, 1, $darker-grey);
-    @include box-sizing(border-box);
 
     &:before {
         content: "";
@@ -304,7 +298,7 @@
     border-right:  $width solid transparent;
     border-bottom: $width*0.7  solid $background-color;
     border-left:   $width solid transparent;
-    @include transform(rotate(35deg));
+    transform: rotate(35deg);
 
     &:before,
     &:after
@@ -324,7 +318,7 @@
         border-bottom: $width*0.8 solid $background-color;
         border-left: $width*0.3 solid transparent;
         border-right: $width*0.3 solid transparent;
-        @include transform(rotate(-35deg));
+        transform: rotate(-35deg);
     }
 
     &:after
@@ -334,7 +328,7 @@
         border-right: $width solid transparent;
         border-bottom: $width*0.7 solid $background-color;
         border-left: $width solid transparent;
-        @include transform(rotate(-70deg));
+        transform: rotate(-70deg);
     }
 }
 
@@ -356,11 +350,9 @@
         width: 0;
         height: 0;
         z-index: $z-index - 1;
-
         border-left: $width/2 solid transparent;
         border-right: $width/2 solid transparent;
-        border-top: $width solid $background-color;
-        
+        border-top: $width solid $background-color;        
         top: $width*0.3;
         left: - $width /2;
     }
@@ -374,12 +366,12 @@
     &,
     &:before,
     {
-        @include square($width, $background-color);
+        @include drm-square($width, $background-color);
     }
 
     position: relative;
     text-align: center;
-    @include transform(rotate(20deg));
+    transform: rotate(20deg);
     z-index: $z-index;
 
     &:before
@@ -388,7 +380,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        @include transform(rotate(135deg));
+        transform: rotate(135deg);
         z-index: $z-index - 1;
     }
 }
@@ -399,7 +391,7 @@
     &:before,
     &:after
     {
-        @include square($width, $color);
+        @include drm-square($width, $color);
     }
 
     position: relative;
@@ -418,11 +410,11 @@
     
     &:before
     {
-        @include transform(rotate(30deg));
+        transform: rotate(30deg);
     }
 
     &:after
     {
-        @include transform(rotate(60deg));
+        transform: rotate(60deg);
     }
 }

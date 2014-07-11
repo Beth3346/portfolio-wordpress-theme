@@ -34,12 +34,11 @@ function elr_dashboard_glance_items() {
   $text = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name , intval( $num_terms ));
 
   if ( current_user_can( 'manage_categories' ) ) {
-   $num = "<a href='edit-tags.php?taxonomy=$taxonomy->name'>$num</a>";
-   $text = "<a href='edit-tags.php?taxonomy=$taxonomy->name'>$text</a>";
+   $num = "<a href='edit-tags.php?taxonomy=$taxonomy->name'>$num";
+   $text = "$text</a>";
   }
 
-  echo '<tr><td class="first b b-' . $taxonomy->name . '">' . $num . '</td>';
-  echo '<td class="t ' . $taxonomy->name . '">' . $text . '</td></tr>';
+  echo '<li class="post-count">' . $num . ' ' . $text . '</li>';
  }
 }
 

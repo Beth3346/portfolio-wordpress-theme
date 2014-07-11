@@ -2,32 +2,38 @@
 
 /*!----------------------------------------------------------------------------
 
-	Name:       Dynamic Response Media Sass Utilities
-	URI:        http://www.dynamicresponsemedia.com
-	Version:    0.1.0
-	author:     Elizabeth Rogers
-	email:      info@elizabeth-rogers.com
-	website:    http://www.elizabeth-rogers.com
+    Name:       Dynamic Response Media Sass Utilities
+    URI:        http://www.dynamicresponsemedia.com
+    Version:    0.8.0
+    author:     Elizabeth Rogers
+    email:      beth@elizabeth-rogers.com
+    website:    http://www.elizabeth-rogers.com
 
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
-	Vendor Dependencies
+    Vendor Dependencies
 -----------------------------------------------------------------------------*/
 
-	@import "compass";
+    @import "compass";
 
 /*-----------------------------------------------------------------------------
-	Sass Utilities
------------------------------------------------------------------------------*/	
+    Sass Utilities
+-----------------------------------------------------------------------------*/ 
 
-	@import "default-config";
-	@import "../drm-sass-utilities-config";
-	@import "media-queries";
-	@import "layout";
-	@import "shapes";		
-	@import "page-elements";
-	@import "navigation";				
-	@import "effects";			
-	@import "forms";	
-	@import "helper-classes";					
+    @import "default-config";
+    @import "../drm-sass-utilities-config";
+    @import "media-queries";
+    @import "layout";
+    @import "shapes";       
+    @import "page-elements";
+    @import "navigation";               
+    @import "effects";          
+    @import "forms";    
+    @import "helper-classes";   
+    @import "calendar";
+    @import "simple-slider";
+    @import "lightbox";
+    @import "tables";
+    @import "tabbed-content";
+    @import "grid";

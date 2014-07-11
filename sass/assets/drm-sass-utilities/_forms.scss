@@ -2,21 +2,359 @@
 	Forms
 -----------------------------------------------------------------------------*/
 
-@mixin drm-form-state($glow: #00b3bb, $background: #e2e2e2, $border: #999) {
-	background-color: $background;
-	border: solid 1px $border;
-	@include transition(border .5s ease-out, box-shadow .5s ease-out);
+@mixin drm-form-state($glow: $drm-blue, $bk-color: $lightest-grey, $border: $grey) {
+	background-color: $bk-color;
+	border: 1px solid $border;
+	transition: border .5s ease-out, box-shadow .5s ease-out;
 
 	&:hover {
 		border: 1px solid $glow;
-		@include box-shadow(0 0 2px $glow);
-		@include transition(border .5s ease-in, box-shadow .5s ease-in);
+		box-shadow: 0 0 2px $glow;
+		transition: border .5s ease-in, box-shadow .5s ease-in;
 	}
 
 	&:focus {
 		outline: none;
 		border: 1px solid darken($border, 20%);
-		background-color: lighten($background, 20%);
-		@include transition(border .5s ease-in, background .5s ease-in);
+		background-color: lighten($bk-color, 20%);
+		transition: border .5s ease-in, background .5s ease-in;
+	}
+
+	&.drm-form-success {
+		background-color: lighten($success-color, 30%);
+		border: 1px solid $success-color;
+
+		&:hover {
+			border: 1px solid $success-color;
+			box-shadow: 0 0 2px $success-color;
+			transition: border .5s ease-in, box-shadow .5s ease-in;
+		}
+
+		&:focus {
+			outline: none;
+			border: 1px solid darken($success-color, 20%);
+			background-color: white;
+			transition: border .5s ease-in, background .5s ease-in;
+		}	
+	}
+
+	&.drm-form-warning {
+		background-color: lighten($warning-color, 30%);
+		border: 1px solid $warning-color;
+
+		&:hover {
+			border: 1px solid $warning-color;
+			box-shadow: 0 0 2px $warning-color;
+			transition: border .5s ease-in, box-shadow .5s ease-in;
+		}
+
+		&:focus {
+			outline: none;
+			border: 1px solid darken($warning-color, 20%);
+			background-color: white;
+			transition: border .5s ease-in, background .5s ease-in;
+		}	
+	}
+
+	&.drm-form-danger {
+		background-color: lighten($danger-color, 30%);
+		border: 1px solid $danger-color;
+
+		&:hover {
+			border: 1px solid $danger-color;
+			box-shadow: 0 0 2px $danger-color;
+			transition: border .5s ease-in, box-shadow .5s ease-in;
+		}
+
+		&:focus {
+			outline: none;
+			border: 1px solid darken($danger-color, 20%);
+			background-color: white;
+			transition: border .5s ease-in, background .5s ease-in;
+		}	
+	}
+
+	&[disabled] {
+		background-color: darken($bk-color, 10%);
+		border: 1px solid darken($border, 10%);	
+		transition: none;
+
+		&:hover {
+			cursor: not-allowed;
+			border:  1px solid darken($border, 10%);
+			box-shadow: none;
+			transition: none;
+		}
+
+		&:focus {
+			outline: none;
+			border:  1px solid darken($border, 10%);
+			background-color: darken($bk-color, 10%);
+			transition: none;
+		}
+	}
+}
+
+@mixin drm-form($glow: $drm-blue, $bk-color: $lightest-grey, $border: $grey) {
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+
+	small {
+		display: block;
+		color: $grey;
+		margin: 0 0 20px 5px;
+		padding: 0;
+	}
+
+	.form-notice-holder {
+		float: left;
+		@include drm-clearfix();
+	}
+
+	p {
+		&.form-success-notice {
+			@include drm-form-notice(success);
+		}
+
+		&.form-warning-notice {
+			@include drm-form-notice(warning);
+		}
+
+		&.form-danger-notice {
+			@include drm-form-notice(danger);
+		}
+
+		&.form-info-notice, &.form-length-notice {
+			@include drm-form-notice(info);	
+		}
+
+		&.password-meter-danger {
+			@include drm-password-meter(danger);
+		}
+
+		&.password-meter-warning {
+			@include drm-password-meter(warning);
+		}
+
+		&.password-meter-success {
+			@include drm-password-meter(success);
+		}
+	}
+
+	small {
+		&.password-message-danger {
+			@include drm-form-notice(danger);
+		}
+
+		&.password-message-warning {
+			@include drm-form-notice(warning);
+		}
+
+		&.password-message-success {
+			@include drm-form-notice(success);
+		}
+	}
+
+	label {
+		margin: 15px 0 5px 0;
+		line-height: 2em;
+		@include drm-em-font(14);
+	}
+
+	input, textarea, select {
+		margin: 5px 0 5px 0;
+		padding: 5px 10px 5px 10px;
+		border-radius: 3px;
+		box-sizing: border-box;
+		@include drm-form-state($glow, $bk-color, $border);
+	}
+
+	input[type="checkbox"], input[type="radio"] {
+		display: inline;
+		padding: 4px 4px 0 0;
+	}
+
+	.drm-control-label {
+		margin: 0;
+		padding: 5px 0 5px 0;
+		font-weight: normal;
+		@include drm-em-font(18);
+	}
+
+	.drm-tabular-control-group {
+		padding: 15px 0 15px 0;		
+	}
+
+	.drm-control-group {
+		padding: 5px 0 5px 0;
+
+		label {
+			padding: 0;
+			display: inline;
+			line-height: normal;
+		}
+
+		input[type="checkbox"], input[type="radio"] {
+			display: block;
+			margin: 7px 10px 0 0;
+			padding: 0;
+			float: left;
+		}
+	}
+
+	.drm-inline-control-group {
+		width: 100%;
+		margin: 5px 0 5px 0;
+		@include drm-clearfix();
+
+		label {
+			float: left;
+			width: auto;
+			margin: 6px 15px 0 0;
+		}
+
+		input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="url"], textarea, select {
+			float: left;
+			width: auto;
+			margin: 5px 15px 0 0;
+		}
+
+		.drm-control-group {
+			margin-left: -10px;
+			margin-right: 15px;
+			float: left;
+
+			input[type="checkbox"], input[type="radio"] {
+				margin-left: 10px;
+			}
+		}
+	}
+
+	input[type="submit"], button {		
+		margin: 5px 0 5px 0;
+		@include drm-button-solid($drm-blue, white, 180px, null, 3px, $drm-blue, block);
+	}
+
+	input[type="submit"][disabled], button[disabled] {		
+		@include drm-button-solid(#6ebbbe, white, 180px, null, 3px, #6ebbbe, block);
+
+		&:hover {
+			cursor: not-allowed;
+			background-color: #6ebbbe;
+			color: white;
+			transition: none;
+		}
+	}
+}
+
+@mixin drm-tabular-form($glow: $drm-blue, $bk-color: $lightest-grey, $border: $grey) {
+	@include drm-form($glow, $bk-color, $border);
+
+	label, input, select {
+		display: block;
+	}
+
+	input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="url"], select {
+		width: 80%;
+	}
+
+	label {		
+		width: 80%;
+	}
+
+	textarea {
+		width: 100%;
+	}
+
+	input[type="submit"], button {		
+		margin: 5px 0 5px 0;
+		@include drm-button-solid($drm-blue, white, 180px, null, 3px, $drm-blue, block);
+	}
+}
+
+@mixin drm-inline-form($glow: $drm-blue, $bk-color: $lightest-grey, $border: $grey) {
+	@include drm-clearfix();
+	@include drm-form($glow, $bk-color, $border);
+
+	padding-left: 0;
+
+	label {
+		margin: 5px;
+		line-height: 2em;
+		@include drm-em-font(14);
+	}
+
+	input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="url"], textarea {
+		margin: 5px;
+	}
+
+	label, input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="url"], textarea, input[type="submit"], button {
+		float: left;
+	}
+
+	input[type="submit"], button {
+		@include drm-button-solid($drm-blue, white, 100px, null, 3px, $drm-blue, inline-block);
+		@include drm-em-font(12);
+		margin: 0;
+	}
+
+	.drm-control-group {		
+		margin: 4px 20px 0 20px;
+		float: left;
+
+		input[type="checkbox"], input[type="radio"] {
+			margin-top: 4px;
+		}
+	}
+
+	input[type="submit"][disabled], button[disabled] {		
+		@include drm-button-solid(#6ebbbe, white, 180px, null, 3px, #6ebbbe, inline-block);
+		@include drm-em-font(12);
+		margin: 0;
+
+		&:hover {
+			cursor: not-allowed;
+			background-color: #6ebbbe;
+			color: white;
+			transition: none;
+		}
+	}
+}
+
+@mixin drm-form-notice($type: 'info') {
+	margin: 5px 0 5px 0;
+	padding: 0;
+	@include drm-em-font(12);
+
+	@if $type == 'success' {
+		color: $success-color;
+	} @elseif $type == 'warning' {
+		color: $warning-color;
+	} @elseif $type == 'danger' {
+		color: $danger-color;
+	} @else {
+		color: $info-color;
+	}
+}
+
+@mixin drm-password-meter($type: 'success') {
+	font-weight: bold;
+	margin: 5px 0 5px 0;
+	padding: 5px 10px 5px 10px;
+	@include drm-em-font(16);
+
+	@if $type == 'danger' {		
+        background-color: lighten($danger-color, 20%);
+        border: 1px solid $danger-color;
+        color: darken($danger-color, 20%);
+	} @elseif $type == 'warning' {
+        background-color: lighten($warning-color, 20%);
+        border: 1px solid $warning-color;
+        color: darken($warning-color, 20%);
+	} @elseif $type == 'success' {
+        background-color: lighten($success-color, 20%);
+        border: 1px solid $success-color;
+        color: darken($success-color, 20%);
 	}
 }

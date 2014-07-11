@@ -1,0 +1,159 @@
+/*-----------------------------------------------------------------------------
+    Lightbox & Modals
+-----------------------------------------------------------------------------*/
+
+@mixin drm-lightbox($overlay-color: black, $opacity: 0.8) {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    @include drm-background-transparent($overlay-color, $opacity);
+
+    .close {
+        margin: 0;
+        padding: 20px;
+        border: none;
+        background: none;
+        color: white;
+        position: relative;
+        top: 20px;
+        left: 95%;
+        cursor: pointer;
+        @include drm-em-font(18);
+    }
+}
+
+@mixin drm-lightbox-slideshow($overlay-color: black, $opacity: 0.8, $image-size: 125px, $list-position: 'bottom-left') {
+
+    @include drm-lightbox($overlay-color, $opacity);
+
+    img {
+        @extend %drm-center-block;
+        position: relative;
+        height: 60%;
+    }
+
+    .thumbnail-list {
+        position: relative;
+
+        @if $list-position == 'top-right' {
+            top: 0;
+            right: 0;
+        } @else if $list-position == 'top-left' {
+            top: 0;
+            left: 0;            
+        } @else if $list-position == 'bottom-right' {
+            bottom: 0;
+            right: 0;           
+        } @else {
+            bottom: 0;
+            left: 0;        
+        }
+
+        @include drm-unstyled-list();
+        @include drm-clearfix();
+
+        li {
+            float: left;
+        }
+
+        img {
+            @extend %drm-reset-box;
+            @include drm-square($image-size);
+
+            @include drm-breakpoint(tall) {
+                @include drm-square(($image-size / 2));
+            }
+        }   
+    }
+}
+
+@mixin drm-modals($overlay-color: black, $opacity: 0.8, $modal-color: white, $button-color: $link-color) {
+
+    @include drm-lightbox($overlay-color, $opacity);
+
+    .drm-modal {
+        background-color: $modal-color;
+        border: 1px solid $grey;
+        padding: 0;
+        width: 60%;
+        top: 20px;
+        left: 20%;
+        position: absolute;
+        border-radius: 5px;
+
+        @include drm-breakpoint(trenta) {
+            width: 30%;
+            left: 35%;
+            top: 100px;
+        }
+
+        @include drm-breakpoint(venti) {
+            width: 60%;
+            left: 20%;
+            top: 20px;
+        }
+
+        @include drm-breakpoint(tall) {
+            width: 80%;
+            left: 10%;
+            top: 20px;
+        }
+
+        .header {
+            @extend %drm-container-full-width;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $light-grey;
+
+            @include drm-breakpoint(grande) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        .body {
+            @extend %drm-container-full-width;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $light-grey;
+
+            @include drm-breakpoint(grande) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        .footer {
+            @extend %drm-container-full-width;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            @include drm-breakpoint(grande) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        form {
+            @include drm-tabular-form();
+        }
+
+        button {        
+            @include drm-button-solid($button-color, white, 180px, left, 3px, $button-color, inline-block);
+        }
+
+        .video-holder {
+            @extend %drm-center-block;
+            width: 90%;
+            text-align: center;
+
+            iframe {
+                display: inline-block;
+            }
+        }
+    }
+}

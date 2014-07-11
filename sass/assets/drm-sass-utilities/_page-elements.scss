@@ -1,295 +1,601 @@
 /*-----------------------------------------------------------------------------
-	Page Elements
+    Page Elements
 -----------------------------------------------------------------------------*/
 
 // End of post block
 
 %drm-info-block {
-	@extend %drm-center-block;
-	width: 90%;
-	margin-top: 5%;
-	margin-bottom: 5%;
-	padding: 2%;
-	text-align: center;
-	@include box-sizing(border-box);
+    @extend %drm-center-block;
+    width: 90%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2%;
+    text-align: center;
+    box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
-		width: 100%;
-	}
+    @include drm-breakpoint(tall) {
+        width: 100%;
+    }
 }
 
 %drm-feature-heading {
-	margin: 20px 0 0 0;
-	font-weight: bold;
-	overflow: hidden;
-	@include drm-em-font(20);	
+    margin: 20px 0 0 0;
+    font-weight: bold;
+    overflow: hidden;
+    @include drm-em-font(20);   
 
-	@include drm-breakpoint(trenta) {
-		height: 60px;
-	}	
+    @include drm-breakpoint(trenta) {
+        height: 60px;
+    }   
 
-	@include drm-breakpoint(venti) {
-		height: 60px;
-	}
+    @include drm-breakpoint(venti) {
+        height: 60px;
+    }
 
-	@include drm-breakpoint(tall) {
-		height: auto;
-	}
+    @include drm-breakpoint(tall) {
+        height: auto;
+    }
 }
 
 // For main section headings; Usually applied to H1
 
 @mixin drm-section-heading($align: center, $size: 24) {
-	text-align: $align;
-	@include drm-em-font($size);
+    text-align: $align;
+    @include drm-em-font($size);
 }
 
 // For main section sub-headings; Usually applied to H2
 
 @mixin drm-section-sub-heading($align: center, $size: 20) {
-	text-align: $align;
-	margin: 0 0 20px 0;
-	@include drm-em-font($size);
+    text-align: $align;
+    margin: 0 0 20px 0;
+    @include drm-em-font($size);
 }
 
 // makes a pill heading
 
 @mixin drm-pill-heading($bk-color, $text-color) {
-	font-weight: bold;
-	background-color: $bk-color;
-	color: $text-color;
-	padding: 5px 10px 5px 10px;
-	@include border-radius(3px);	
+    font-weight: bold;
+    background-color: $bk-color;
+    color: $text-color;
+    padding: 5px 10px 5px 10px;
+    border-radius: 3px; 
 }
 
 // ribbon heading
 
 @mixin drm-ribbon-heading($color, $stitch-color: white, $text-color: white, $text-shadow: none) {
-	margin: 40px auto 20px auto;
-	color: $text-color;
-	text-align: center;
-	line-height: 1.1;
-	position: relative;
-	height: 45px - 6;
-	@include drm-em-font(24);
-	@include drm-stitched-row($color, $stitch-color, none, 1, $darker-grey);
-	@include box-sizing(border-box);
+    margin: 40px auto 20px auto;
+    color: $text-color;
+    text-align: center;
+    line-height: 1.1;
+    position: relative;
+    height: 45px - 6;
+    box-sizing: border-box;
+    @include drm-em-font(24);
+    @include drm-stitched-row($color, $stitch-color, none, 1, $darker-grey);
 
-	@if $text-shadow != none {
-		@include drm-inset-text($text-shadow);	
-	}
+    @if $text-shadow != none {
+        @include drm-inset-text($text-shadow);  
+    }
 
-	&:before {
-		content: "";
-		position: absolute;
-		top: -14px;
-		left: -36px;
-		z-index: -10;
-		border: 20px solid $color;
-		border-right-width: 30px;
-		border-left-color: transparent;
-		@include box-shadow($darker-grey 1px 1px 1px);
-		@include drm-rectangle(0, 0);
-	}
+    &:before {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: -36px;
+        z-index: -10;
+        border: 20px solid $color;
+        border-right-width: 30px;
+        border-left-color: transparent;
+        box-shadow: $darker-grey 1px 1px 1px;
+        @include drm-rectangle(0, 0);
+    }
 
-	&:after {
-		content: "";
-		position: absolute;
-		top: -14px;
-		right: -36px;
-		z-index: -10;
-		border: 20px solid $color;
-		border-left-width: 30px;
-		border-right-color: transparent;
-		@include box-shadow($darker-grey -1px 1px 1px);
-		@include drm-rectangle(0, 0);
-	}
+    &:after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: -36px;
+        z-index: -10;
+        border: 20px solid $color;
+        border-left-width: 30px;
+        border-right-color: transparent;
+        box-shadow: $darker-grey -1px 1px 1px;
+        @include drm-rectangle(0, 0);
+    }
 
-	.ribbon-content {
-		position: relative;
-		display: block;
-		width: 100%;
-		height: 35px;
+    .ribbon-content {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 35px;
 
-		&:before {
-			content: "";
-			position: absolute;
-			top: -19px;
-			left: -2px;
-			@include drm-triangle(bottom-right, 16px, 5px, darken($color, 20%));
-		}
+        &:before {
+            content: "";
+            position: absolute;
+            top: -19px;
+            left: -2px;
+            @include drm-triangle(bottom-right, 16px, 5px, darken($color, 20%));
+        }
 
-		&:after {
-			content: "";
-			position: absolute;
-			top: -19px;
-			right: -3px;
-			@include drm-triangle(bottom-left, 16px, 5px, darken($color, 20%));
-		}
-	}
+        &:after {
+            content: "";
+            position: absolute;
+            top: -19px;
+            right: -3px;
+            @include drm-triangle(bottom-left, 16px, 5px, darken($color, 20%));
+        }
+    }
 }
 
 // An unstyled list
 // li elements have a 20px indent
 
-@mixin drm-unstyled-list($align: left) {
+@mixin drm-list-divider($color: $light-grey) {
+    height: 1px;
+    padding: 0;
+    margin: 5px 0 5px 0;
+    border-bottom: 1px solid $color;    
+}
 
-	li {
-		text-align: $align;
-		list-style: none;
-		padding-top: 5px;
-		padding-bottom: 5px;
+@mixin drm-unstyled-list($align: left, $padding: yes) {
+    list-style: none;
+    @if $padding == no {
+        padding: 5px 0 5px 0;
+    }
 
-		&:last-child {
-			padding-bottom: 0;
-		}
-	}
+    li {
+        text-align: $align;
+        list-style: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
 
-	a {
-		text-decoration: none;
+        &:last-child {
+            padding-bottom: 0;
+        }
 
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+        &.divider {
+            @include drm-list-divider();
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 @mixin drm-border-list($align: left, $border-color: #333, $shadow-color: none) {
 
-	li {
-		text-align: $align;
-		list-style: none;
-		padding-top: 5px;
-		padding-bottom: 5px;
+    li {
+        text-align: $align;
+        list-style: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
 
-		@if $shadow-color != none {
-			@include drm-inset-border($border-color, $shadow-color);
-		} @else {
-			bottom-border: $border-color;
-		}
-	}
+        @if $shadow-color != none {
+            @include drm-inset-border($border-color, $shadow-color);
+        } @else {
+            bottom-border: $border-color;
+        }
+    }
 
-	a {
-		text-decoration: none;
+    a {
+        text-decoration: none;
 
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 @mixin drm-inline-list() {
-	@extend %drm-reset-box;
+    @extend %drm-reset-box;
 
-	li {
-		display: inline;
+    li {
+        display: inline;
 
-		a {
-			display: inline;
-		}
-	}
+        a {
+            display: inline;
+        }
+    }
 }
 
 // triangle bulleted list
 
 @mixin drm-triangle-list() {
-	margin: 0;
-	padding: 5px 5px 5px 20px;
-	@include drm-unstyled-list();
+    margin: 0;
+    padding: 5px 5px 5px 20px;
+    @include drm-unstyled-list();
 
-	li {
-		&:before {
-			content: "\25B6";
-			display: block;
-			float: left;
-			margin-left: -20px;		
-		}
-	}
+    li {
+        &:before {
+            content: "\25B6";
+            display: block;
+            float: left;
+            margin-left: -20px;     
+        }
+    }
 }
 
 // checked bulleted list
 
 @mixin drm-checked-list() {
-	margin: 0;
-	padding: 5px 5px 5px 20px;
-	@include drm-unstyled-list();
+    margin: 0;
+    padding: 5px 5px 5px 20px;
+    @include drm-unstyled-list();
 
-	li {
-		&:before {
-			content: "\2713";
-			display: block;
-			float: left;
-			margin-left: -20px;		
-		}
-	}
+    li {
+        &:before {
+            content: "\2713";
+            display: block;
+            float: left;
+            margin-left: -20px;     
+        }
+    }
 }
 
 @mixin drm-floated-list() {
-	@extend %drm-reset-box;
-	@include drm-clearfix();
+    @extend %drm-reset-box;
+    @include drm-clearfix();
 
-	li {
-		list-style: none;
-		display: block;
-		float: left;
-		margin: 0;
-		padding: 5px 10px 5px 10px;
-	}
+    li {
+        list-style: none;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 5px 10px 5px 10px;
+    }
 }
 
 @mixin drm-list-group($background-color: white, $text-color: #333, $border-radius: 0, $border-color: #999) {
-	@extend %drm-reset-box;
-	border: 1px solid $border-color;
-	background-color: $background-color;
-	color: $text-color;
+    @extend %drm-reset-box;
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    color: $text-color;
 
-	li {
-		list-style: none;
-		display: block;
-		margin: 0;
-		padding: 5px 10px 5px 10px;
-		border-bottom: 1px solid $border-color;
+    li {
+        list-style: none;
+        display: block;
+        margin: 0;
+        padding: 5px 10px 5px 10px;
+        border-bottom: 1px solid $border-color;
 
-		&:last-child {
-			border-bottom: none;
-		}
-	}
+        &:last-child {
+            border-bottom: none;
+        }
+    }
 }
 
 // Styles post-meta elements
 
 @mixin drm-post-meta($image) {
-	background-image: $image;
-	background-repeat: no-repeat;
-	background-position: left center;
-	padding: 2px 0 2px 20px;
-	margin-right: 7px;
-	@include drm-em-font(14);
+    background-image: $image;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 2px 0 2px 20px;
+    margin-right: 7px;
+    @include drm-em-font(14);
 }
 
-@mixin context-box($type: info, $border-radius: 0) {
-	padding: 10px 20px 10px 20px;
+@mixin drm-context-box($type: info, $border-radius: 0, $color: none) {
+    padding: 10px 20px 10px 20px;
+    width: 95%;
+    margin: 20px 2.5% 20px 2.5%;
+    position: relative;
+    box-sizing: border-box;
+    @include drm-clearfix();
 
-	@if $border-radius != 0 {
-		border-radius: $border-radius;
-	}
+    @include drm-breakpoint(trenta) {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        box-sizing: border-box;
+    }
 
-	@if $type == info {
-		background-color: lighten($info-color, 20%);
-		border: 1px solid $info-color;
-	} @elseif $type == danger {
-		background-color: lighten($danger-color, 20%);
-		border: 1px solid $danger-color;		
-	} @elseif $type == warning {
-		background-color: lighten($warning-color, 20%);
-		border: 1px solid $warning-color;		
-	} @elseif $type == success {
-		background-color: lighten($success-color, 20%);
-		border: 1px solid $success-color;		
-	} @elseif $type == muted {
-		background-color: lighten($muted-color, 20%);
-		border: 1px solid $muted-color;		
-	} @else {
-		@warn "#{error("That's not a context box type!")}";
-	}
+    @include drm-breakpoint(venti) {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        box-sizing: border-box;
+    }
+
+    .close {
+        @extend %drm-reset-box;
+        position: absolute;
+        right: 5px;
+        top: 3px;
+        border: none;
+        background: none;
+        transition: color, .3s, ease-out;
+        @include drm-square(20px);
+        @include drm-em-font(14);
+
+        &:hover {
+            color: white;
+            cursor: pointer;
+            transition: color, .3s, ease-in;
+        }
+    }
+
+    @if $border-radius != 0 {
+        border-radius: $border-radius;
+    }
+
+    @if $type == info {
+        background-color: lighten($info-color, 20%);
+        border: 1px solid $info-color;
+        color: darken($info-color, 20%);
+
+        .close {
+            color: $info-color;
+        }
+
+    } @else if $type == danger {
+        background-color: lighten($danger-color, 20%);
+        border: 1px solid $danger-color;
+        color: darken($danger-color, 20%);
+
+        .close {
+            color: $danger-color;
+        }
+
+    } @else if $type == warning {
+        background-color: lighten($warning-color, 20%);
+        border: 1px solid $warning-color;
+        color: darken($warning-color, 20%);
+
+        .close {
+            color: $warning-color;
+        }   
+
+    } @else if $type == success {
+        background-color: lighten($success-color, 20%);
+        border: 1px solid $success-color;
+        color: darken($success-color, 20%);
+
+        .close {
+            color: $success-color;
+        }   
+
+    } @else if $type == muted {
+        background-color: lighten($muted-color, 10%);
+        border: 1px solid $muted-color;
+        color: darken($muted-color, 20%);
+
+        .close {
+            color: $muted-color;
+        }   
+
+    } @else if $type == custom {
+        background-color: lighten($color, 20%);
+        border: 1px solid $color;
+        color: darken($color, 20%);
+
+        .close {
+            color: $color;
+        }   
+
+    } @else {
+        @warn "#{error("That's not a context box type!")}";
+    }
+}
+
+@mixin drm-label($type: info, $border-radius: 3px, $color: none) {
+    padding: 5px 10px 5px 10px;
+
+    @if $border-radius != 0 {
+        border-radius: $border-radius;
+    }
+
+    @if $type == info {
+        background-color: lighten($info-color, 20%);
+        border: 1px solid $info-color;
+        color: darken($info-color, 20%);
+    } @else if $type == danger {
+        background-color: lighten($danger-color, 20%);
+        border: 1px solid $danger-color;
+        color: darken($danger-color, 20%);      
+    } @else if $type == warning {
+        background-color: lighten($warning-color, 20%);
+        border: 1px solid $warning-color;
+        color: darken($warning-color, 20%);     
+    } @else if $type == success {
+        background-color: lighten($success-color, 20%);
+        border: 1px solid $success-color;
+        color: darken($success-color, 20%);     
+    } @else if $type == muted {
+        background-color: lighten($muted-color, 10%);
+        border: 1px solid $muted-color;
+        color: darken($muted-color, 20%);           
+    } @else if $type == custom {
+        background-color: lighten($color, 20%);
+        border: 1px solid $color;
+        color: darken($color, 20%);     
+    } @else {
+        @warn "#{error("That's not a context box type!")}";
+    }
+}
+
+@mixin drm-accordion($label-color: $link-color, $border-radius: 0, $color: white, $border-color: $grey) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .drm-accordion-label, .drm-accordion-inner {
+
+        @if $border-color != none {
+            border: 1px solid $border-color;
+        }
+        
+        @if $border-radius != 0 {
+            border-radius: $border-radius;
+        }
+            
+        margin: 5px;
+        padding: 5px 10px 5px 10px;
+        background-color: $color;
+    }
+
+    .drm-accordion-label {
+        h1, h2, h3, p {
+            @extend %drm-reset-box;
+            color: $label-color;
+            font-weight: normal;
+            @include drm-em-font(18);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .drm-accordion-inner {
+        display: none;  
+    }   
+}
+
+@mixin drm-thumbnail-list($border-color: white, $width: 150px, $height: 120px, $glow: $drm-blue) {
+    padding: 10px;
+    @include drm-unstyled-list();
+    @include drm-clearfix();
+
+    li {
+        margin: 10px;
+        float: left;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    img {
+        @extend %drm-reset-box;
+        transition: box-shadow, .3s, ease-out;
+        @include drm-thumbnail();
+
+        &:hover {
+            transition: box-shadow, .3s, ease-in;
+            box-shadow: $grey 0 0 0 1px, $glow 0 0 3px 2px;
+        }
+    }   
+}
+
+@mixin drm-popover($direction: "left", $bk-color: $link-color, $color: white) {
+    width: 200px;
+    padding: 10px;
+    margin: 10px 5px 5px 5px;
+    position: absolute;
+    background-color: $bk-color;
+    color: $color;
+    display: none;
+    min-height: 50px;
+    z-index: 100;
+    border-radius: 5px;
+    box-sizing: border-box;
+    @include drm-em-font(14);
+
+    @if $direction == "left" {
+        top: -13px;
+        left: -215px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 200px;
+            @include drm-triangle(right, 20px, half, $bk-color);
+        }
+    } @else if $direction == "top" {
+        bottom: 55px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: (200px / 2) - 10;
+            @include drm-triangle(bottom, 20px, half, $bk-color);
+        }   
+    } @else if $direction == "bottom" {
+        &:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: (200px / 2) - 10;
+            @include drm-triangle(top, 20px, half, $bk-color);
+        }
+    } @else {
+        // $direction == right
+        top: -13px;
+        left: 215px;
+    
+        &:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            @include drm-triangle(left, 20px, half, $bk-color);
+        }
+    }
+}
+
+@mixin drm-tooltip($direction: "top", $bk-color: $link-color, $color: white, $width: 100px) {
+    width: $width;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    background-color: $bk-color;
+    color: $color;
+    z-index: 100;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    @include drm-em-font(12);
+
+    @if $direction == "left" {
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: $width;
+            @include drm-triangle(right, 10px, half, $bk-color);
+        }
+
+    } @else if $direction == "top" {
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: ($width / 2) - 5;
+            @include drm-triangle(bottom, 10px, half, $bk-color);
+        }
+
+    } @else if $direction == "bottom" {
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: ($width / 2) - 5;
+            @include drm-triangle(top, 10px, half, $bk-color);
+        }
+
+    } @else  {
+        // $direction == right
+        &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: -5px;
+            @include drm-triangle(left, 10px, half, $bk-color);
+        }
+    }
 }

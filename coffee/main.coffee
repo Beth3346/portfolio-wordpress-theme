@@ -1,1 +1,1 @@
-$ = jQuery
+"use strict"

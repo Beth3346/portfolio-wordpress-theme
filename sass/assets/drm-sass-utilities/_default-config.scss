@@ -38,21 +38,23 @@ $off-white: #e2e2e2;
 $almost-white: #f1f1f1;
 
 $drm-blue: #00b3bb;
+$drm-blue-light: #89D6DA;
 $dark-aqua: #096367;
 $dark-pink: #ed145b;
 
 // font colors
 
-$danger-color: #B90A07; // red
+$danger-color: #f7322f; // red
 $warning-color: #D1CB34; // yellow
-$success-color: #468847; // green
-$info-color: #3a87ad; // blue
-$muted-color: $grey;
+$success-color: #7aba7b; // green
+$info-color: #1DAAF0; // blue
+$muted-color: $light-grey;
 
 // color scheme
 
 $text-color: $dark-grey;
 $link-color: $drm-blue;
+$hover-color: #89D6DA;
 $background-color: white;
 $main-color: $drm-blue;
 $accent-color: $dark-pink;

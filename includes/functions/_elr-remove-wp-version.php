@@ -2,8 +2,8 @@
 
 // Hide WordPress Version
 
-function drm_remove_wp_version() {  
+function elr_remove_wp_version() {  
    return '';  
 } 
 
-add_filter('the_generator', 'drm_remove_wp_version'); 
+add_filter('the_generator', 'elr_remove_wp_version'); 

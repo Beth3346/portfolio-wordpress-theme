@@ -1,18 +1,18 @@
 <?php
 
-global $elr_rmpi_needjs;
+global $drm_rmpi_needjs;
 
-$elr_rmpi_needjs = false;
+$drm_rmpi_needjs = false;
 
 // enque the script, in the footer
 
-add_action( 'template_redirect', 'elr_rmpi_add_js' );
+add_action( 'template_redirect', 'drm_rmpi_add_js' );
 
-function elr_rmpi_add_js() {
+function drm_rmpi_add_js() {
 
 	// enqueue the script
-	
-	wp_enqueue_script( 'elr_rmpi', get_template_directory_uri() . '/js/elr-wp-theme-boilerplate.1.0.0.min.js', array( 'jquery' ), true );
+	wp_register_script('main', get_template_directory_uri() . '/js/elr-theme-boilerplate.1.0.0.js', array( 'jquery' ), '2.0.0', true );
+	wp_enqueue_script( 'main' );
 
 	// get current page protocol
 	
@@ -22,42 +22,42 @@ function elr_rmpi_add_js() {
 	
 	$params = array( 'ajaxurl' => admin_url( 'admin-ajax.php', $protocol ) );
 
-	wp_localize_script( 'elr_rmpi', 'elr_rmpi', $params );
+	wp_localize_script( 'main', 'main', $params );
 }
 
 // don't add the script if actually not needed
 
-add_action( 'wp_print_footer_scripts', 'elr_rmpi_footer_maybe_remove', 1 );
+add_action( 'wp_print_footer_scripts', 'drm_rmpi_footer_maybe_remove', 1 );
 
-function elr_rmpi_footer_maybe_remove() {
-	global $elr_rmpi_needjs;
-	if( !elr_rmpi_needjs ) {
-		wp_deregister_script( 'elr_rmpi' );
+function drm_rmpi_footer_maybe_remove() {
+	global $drm_rmpi_needjs;
+	if( !drm_rmpi_needjs ) {
+		wp_deregister_script( 'main' );
 	}
 }
 
 // inspect each post to check if there's a "read more" tag
 
-add_action( 'the_post', 'elr_rmpi_check_single' );
+add_action( 'the_post', 'drm_rmpi_check_single' );
 
-function elr_rmpi_check_single( $post ) {
+function drm_rmpi_check_single( $post ) {
 	if ( !is_single() ) {
-		global $elr_rmpi_needjs;
-		$elr_rmpi_needjs = true;
+		global $drm_rmpi_needjs;
+		$drm_rmpi_needjs = true;
 	}
 }
 
 // ajax handler
 
-add_action('wp_ajax_nopriv_elr_rmpi_ajax', 'elr_rmpi_ajax');
+add_action('wp_ajax_nopriv_drm_rmpi_ajax', 'drm_rmpi_ajax');
 
-add_action('wp_ajax_elr_rmpi_ajax', 'elr_rmpi_ajax');
+add_action('wp_ajax_drm_rmpi_ajax', 'drm_rmpi_ajax');
 
-function elr_rmpi_ajax() {
+function drm_rmpi_ajax() {
 
 	// modify the way WP gets post content
 	
-	add_filter( 'the_content', 'elr_rmpi_get_2nd_half' );
+	add_filter( 'the_content', 'drm_rmpi_get_2nd_half' );
 
 		// setup the main Query again
 		
@@ -83,6 +83,6 @@ function elr_rmpi_ajax() {
 
 // get the second part of a post after the "more" jump 
 
-function elr_rmpi_get_2nd_half( $content ) {
+function drm_rmpi_get_2nd_half( $content ) {
 	return $content;
 }

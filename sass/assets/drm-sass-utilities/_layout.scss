@@ -24,28 +24,28 @@
 	width: 95%;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	@include drm-clearfix();
 
 	@include drm-breakpoint(trenta) {
 		width: 80%;
 		margin-left: 10%;
 		margin-right: 10%;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 
 	@include drm-breakpoint(venti) {
 		width: 95%;
 		margin-left: 2.5%;
 		margin-right: 2.5%;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 
 	@include drm-breakpoint(grande) {
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 }
 
@@ -54,24 +54,25 @@
 	margin-right: 0;
 	padding-left: 2.5%;
 	padding-right: 2.5%;
+	box-sizing: border-box;
 	@include drm-clearfix();
 
 	@include drm-breakpoint(trenta) {
 		padding-left: 10%;
 		padding-right: 10%;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 
 	@include drm-breakpoint(venti) {
 		padding-left: 2.5%;
 		padding-right: 2.5%;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 
 	@include drm-breakpoint(grande) {
 		padding-left: 0;
 		padding-right: 0;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}	
 }
 
@@ -86,9 +87,11 @@
 // container-inner elements
 
 %drm-row {
-	@extend %drm-reset-box;
+	margin-left: 0;
+	margin-right: 0;
 	width: 100%;
 	display: block;
+	box-sizing: border-box;
 	@include drm-clearfix();
 }
 
@@ -100,37 +103,36 @@
 	margin-right: auto;
 }
 
-%drm-comment-titles {
-	margin: 0 0 10px;
-	padding: 0; 
-	font-size: (18 / $default-font-size)#{em};
-}
+// %drm-comment-titles {
+// 	margin: 0 0 10px;
+// 	padding: 0; 
+// 	font-size: (18 / $default-font-size)#{em};
+// }
 
-%drm-heading {
-	font-weight: normal;
-	margin: .5em 1em .5em 1em;	
-}
+// %drm-heading {
+// 	font-weight: normal;
+// 	margin: .5em 1em .5em 1em;	
+// }
 
-%drm-lists {
-	margin: .75em 0 .75em 2.5em;
-}
+// %drm-lists {
+// 	margin: .75em 0 .75em 2.5em;
+// }
 
 // Styles box elements to take up the entire width of their container
 // Accepts total number of elements for each row
 // Each element will be the exact same width
 
-@mixin drm-feature-box($total: 3) {
-	margin-left: 0;
-	margin-right: 0;
+@mixin drm-feature-box($total: 3, $margin-top: 0, $margin-bottom: 0) {
+	margin: $margin-top 0 $margin-bottom 0;
 	width: ( 100% / $total );
 	float: left;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 
 	@include drm-breakpoint(tall) {
 		padding: 10px;
 		width: 100%;
 		float: none;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 }
 
@@ -138,19 +140,18 @@
 // Accepts total number of elements for each row
 // Each element will be the exact same width
 
-@mixin drm-feature-box-margin($total: 3, $margin: 1%) {
-	margin-left: $margin;
-	margin-right: $margin;
+@mixin drm-feature-box-margin($total: 3, $margin: 1%, $margin-top: $margin, $margin-bottom: $margin) {
+	margin: $margin-top $margin $margin-bottom $margin;
 	width: (100% / $total) - ($margin * 2);
 	float: left;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 
 	@include drm-breakpoint(tall) {
 		padding: 10px;
 		margin: 0;
 		width: 100%;
 		float: none;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}	
 }
 
@@ -160,7 +161,14 @@
 	float: left;
 	margin: $margin;
 	@include drm-circle( ( $container-width - 120 ) / $total );
-	@include box-sizing(border-box);	
+	box-sizing: border-box;
+
+	@include drm-breakpoint(tall) {
+		padding: 10px;
+		margin: $margin auto $margin auto;
+		float: none;
+		box-sizing: border-box;
+	}
 }
 
 // calculates em font size from px font size
@@ -202,5 +210,5 @@
 @mixin drm-horizontally-center($container-element-width, $width) {
 	position: absolute;
 	width: $width;
-	top: ($container-element-width / 2) - ($width / 2);
+	left: ($container-element-width / 2) - ($width / 2);
 }

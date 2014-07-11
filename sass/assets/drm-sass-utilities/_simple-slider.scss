@@ -1,0 +1,125 @@
+/*-----------------------------------------------------------------------------
+    Simple Slider
+-----------------------------------------------------------------------------*/
+
+@mixin drm-simple-slider($next-image: "next.png", $prev-image: "previous.png") {
+    @extend %drm-center-block;
+    margin-top: 50px;
+    margin-bottom: 0;
+    z-index: -1;
+    width: 700px;
+    height: 350px;
+    box-sizing: border-box;
+    @include drm-clearfix;
+
+    .drm-simple-slide-holder {  
+        @extend %drm-reset-box;
+        position: relative;
+        width: 700px;
+        height: 350px;
+        overflow: hidden;
+        box-sizing: border-box;
+        @include drm-clearfix;
+    }
+
+    .drm-simple-slide {
+        @extend %drm-reset-box;
+        z-index: 0;
+        width: 700px;
+        height: 350px;
+        box-sizing: border-box;
+
+        figure {
+            @extend %drm-reset-box;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            box-sizing: border-box;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            figcaption {
+                position: absolute;
+                top: 75%;
+                left: 0;
+                color: $dark-grey;
+                padding: 10px 10px 10px 20px;
+                margin: 0;
+                width: 80%;
+                box-sizing: border-box;
+                font-weight: bold;
+                @include drm-background-transparent(white, 0.5);
+            }
+        }
+    }   
+
+    .drm-simple-slider-list {
+        @extend %drm-reset-box;
+        position: absolute;
+        text-align: center;
+        z-index: 1;
+        width: 700px;
+        bottom: 10px;
+        box-sizing: border-box;
+
+        li {
+            margin: 0 1px 0 1px;
+            padding: 0;
+            display: inline-block;
+            box-sizing: border-box; 
+        }
+
+        button {
+            @extend %drm-reset-box;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            @include drm-circle(10px);
+            @include drm-background-transparent(white, 0.5);
+
+            &:hover, &:focus {
+                background-color: white;
+            }
+
+            &.active {
+                background-color: $link-color;
+            }
+        }
+    }
+
+    .drm-simple-slider-nav {
+        margin: 0;
+        padding: 0 20px 0 20px;
+        z-index: 1;
+        width: 100%;
+        @include drm-vertically-center(350px, 64px);
+        box-sizing: border-box;
+        @include drm-clearfix;
+
+        button {
+            @extend %drm-reset-box;
+            border: none;
+            cursor: pointer;
+            @include opacity(.3);
+            @include drm-square(64px);
+
+            &:hover, &:focus {
+                @include opacity(1);
+            }
+        }
+
+        .drm-simple-slide-prev {
+            float: left;
+            background: image-url($prev-image) no-repeat center transparent;
+        }
+
+        .drm-simple-slide-next {
+            float: right;
+            background: image-url($next-image) no-repeat center transparent; 
+        }
+    }
+}
