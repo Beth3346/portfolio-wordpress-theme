@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="main-content">		
+<main class="main-content">		
 	<article class="article" role="article">
 		<?php if (have_posts()) : ?>
 		
@@ -7,11 +7,11 @@
 		
 			<?php while (have_posts()) : the_post(); ?>
 
-				<?php get_template_part( 'includes/template-parts/_loop' , 'search'); ?>
+				<?php get_template_part( TEMPLATES . '/_loop' , 'search'); ?>
 
 			<?php endwhile; ?>
 							
-			<?php get_template_part( 'includes/template-parts/_pagination'); ?>
+			<?php get_template_part( TEMPLATES . '/_pagination'); ?>
 		
 		<?php else : ?>
 
@@ -21,5 +21,5 @@
 
 	</article>			
 	<?php get_sidebar(); ?>
-</div>
+</main>
 <?php get_footer(); ?>

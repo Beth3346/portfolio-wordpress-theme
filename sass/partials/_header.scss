@@ -6,14 +6,21 @@ header {
 	@extend %drm-container-full-width;
 	padding-top: 1%;
 	padding-bottom: 5%;
+	box-sizing: border-box;
 	@include drm-clearfix();
-	@include box-sizing(border-box);
 }
 
 .logo {
 	float: left;
 	width: 40%;
 	padding-top: 1%;
+
+	@include drm-breakpoint(tall) {
+		float: none;	
+		width: 100%;
+		padding: 1%;
+		box-sizing: border-box;
+	}
 }
 
 .site-name {
@@ -21,6 +28,10 @@ header {
 	font-weight: normal;
 	text-align: left;
 	@include drm-em-font(28);
+
+	@include drm-breakpoint(tall) {
+		text-align: center;
+	}
 
 	a {
 		@extend %drm-reset-box;
@@ -36,19 +47,36 @@ header {
 	@extend %drm-reset-box;
 	text-align: left;
 	@include drm-em-font(16);
+
+	@include drm-breakpoint(tall) {
+		text-align: center;
+	}
 }
 
 .navigation-holder {
 	float: right;
 	width: 60%;
+
+	@include drm-breakpoint(tall) {
+		float: none;	
+		width: 100%;
+		padding: 1%;
+		box-sizing: border-box;
+	}
 }
 
 .main-nav {
 	@extend %drm-reset-box;
 	float: right;
 	clear: both;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	@include drm-inline-list;
+
+	@include drm-breakpoint(tall) {
+		float: none;
+		text-align: center;
+		box-sizing: border-box;
+	}
 
 	li {
 		padding: 0 10px 0 0;
@@ -65,5 +93,5 @@ header {
 		&:hover {
 			text-decoration: underline;
 		}
-	}	
+	}
 }

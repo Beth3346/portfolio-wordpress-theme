@@ -15,9 +15,9 @@ input, textarea, select, input[type=search], button {
 
 input[type=text], input[type=password], input[type=email], input[type=tel], textarea, input[type=search] {
 	padding: 6px 10px;
-	@include border-radius(3px);
-	@include appearance(none);
-	@include box-sizing(border-box);
+	box-sizing: border-box;
+	border-radius: 3px;
+	appearance: none;
 	@include drm-form-state($aqua, $off-white, $grey);
 	@include drm-em-font(12);
 }
@@ -34,5 +34,5 @@ textarea {
 
 /* form button */
 input[type=reset], input[type=submit], button {
-	@include drm-button-solid($dark-grey, white, 40%, left, 0, $dark-grey);
+	@include drm-button-solid($main-text, white, 40%, left, 0, $main-text);
 }

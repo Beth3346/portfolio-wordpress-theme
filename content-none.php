@@ -1,0 +1,1 @@
+<p><?php _e( 'Sorry, nothing found.', 'elr' ); ?></p>

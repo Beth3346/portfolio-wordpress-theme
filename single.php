@@ -1,18 +1,9 @@
 <?php get_header(); ?>
-<div class="main-content">
-	<?php while ( have_posts() ) : the_post(); ?>	
+<main class="main-content">
 	<article class="article" role="article">
-		
-		<?php get_template_part( 'includes/template-parts/_loop' , 'single'); ?>
-
-		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','elr').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
-
-		<?php get_template_part( 'includes/template-parts/_post-nav'); ?>
-
-		<?php comments_template(); ?>
+		<?php get_template_part( TEMPLATES . '/_single'); ?>
 	</article>	
 	<!-- /#content -->
-	<?php endwhile; ?>
 	<?php get_sidebar(); ?>
-</div>	
+</main>	
 <?php get_footer(); ?>

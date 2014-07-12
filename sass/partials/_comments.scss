@@ -5,9 +5,9 @@ COMMENTS
 .comments {
 	margin: 0;
 	padding: 1% 0 1% 0;
-	color: $dark-grey;
+	color: $main-text;
 	width: 100%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 
 	label {
 		font-weight: bold;

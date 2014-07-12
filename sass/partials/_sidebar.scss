@@ -6,16 +6,22 @@
 	padding: 1% 0 1% 5%;
 	float: right;
 	width: 35%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
+
+	@include drm-breakpoint(tall) {
+		float: none;	
+		width: 100%;
+		padding: 1%;
+	}
 
 	.widget {
 		padding: 0 0 20px 0;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 
 		.widget-title {
 			margin-bottom: 10px;
 			@include drm-em-font(16);
-			@include drm-pill-heading($aqua, white);
+			@include drm-pill-heading($main-text, white);
 		}
 
 		ul {

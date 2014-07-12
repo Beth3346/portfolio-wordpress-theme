@@ -2,11 +2,11 @@
 	Main Content
 -----------------------------------------------------------------------------*/
 
-.main-content {
+main {
 	@extend %drm-container-full-width;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	@include drm-clearfix();
 }
 
@@ -14,7 +14,13 @@ article {
 	float: left;
 	width: 65%;
 	padding: 1% 1% 1% 0;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
+
+	@include drm-breakpoint(tall) {
+		float: none;	
+		width: 100%;
+		padding: 1% 5% 1% 5%;
+	}
 
 	h1 {
 		text-align: center;
@@ -35,19 +41,23 @@ article {
 		margin: 2% auto 2% auto;
 		border: 1px solid $light-grey;
 		display: block;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 
 	a.more-link, button.hide-link {
 		@include drm-em-font(14);	
-		@include drm-button-solid($aqua, white, 100%, center, 3px, $aqua)
+		@include drm-button-solid($main-text, white, 100%, center, 3px, $main-text)
 	}
 }
 
 .article-full {
 	width: 100%;
 	padding: 1%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
+
+	@include drm-breakpoint(tall) {
+		padding: 1% 5% 1% 5%;
+	}
 }
 
 .post {
@@ -65,7 +75,7 @@ article {
 .post-image {
 	width: 80%;
 	margin: 2% 10% 2% 10%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 
 	.left {
 		float: left;
@@ -141,7 +151,7 @@ WORDPRESS POST FORMATTING
 	text-align: center;
 	margin-bottom: 15px;
 	max-width: 100%;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 .wp-caption-text {
@@ -168,8 +178,8 @@ PAGE NAVIGATION
 		min-width: 24px;
 		min-height: 18px;
 		text-align: center;
-		@include border-radius(10em);
-		@include box-sizing(border-box);
+		border-radius: 10em;
+		box-sizing: border-box;
 	}
 
 	a {
