@@ -20,25 +20,8 @@
         </div>
     </header>
 
-    <!-- if we have a featured image then display it -->
-    <?php if ( has_post_thumbnail() ) : ?>
-        <div class="post-image"> 
-        <?php if ( is_single() || is_page() ) : ?>
-            <?php the_post_thumbnail(); ?>
-        <?php else : ?>
-            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
-        <?php endif; ?>
-        </div>
-    <?php endif; ?>
-
     <div>
-        <?php if ( is_single() || is_page() ) : ?>
-            <?php the_content(); ?>
-        <?php else : ?>
-        <div class="post-excerpt<?php echo $post->ID ?>">
-            <?php the_excerpt(); ?>
-        </div>
-        <?php endif; ?>
+        <?php the_content(); ?>
     </div>
 
     <?php edit_post_link(__('Edit', 'elr')); ?>

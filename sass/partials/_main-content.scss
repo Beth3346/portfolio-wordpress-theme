@@ -10,7 +10,7 @@ main {
 	@include drm-clearfix();
 }
 
-article {
+.content-holder {
 	float: left;
 	width: 65%;
 	padding: 1% 1% 1% 0;
@@ -62,6 +62,11 @@ article {
 
 .post {
 	margin-bottom: 50px;
+}
+
+.sticky {
+	background-color: $lightest-grey;
+	padding: 20px;
 }
 
 .post-date {

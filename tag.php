@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <main class="main-content">
-	<article class="article" role="article">
+	<div class="content-holder">
 		<?php get_template_part( TEMPLATES . '/_post'); ?>
-	</article>		
+	</div>
 	<?php get_sidebar(); ?>
 </main>
 <?php get_footer(); ?>

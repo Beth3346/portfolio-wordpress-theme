@@ -1,13 +1,14 @@
 <?php get_header(); ?>
 <main class="main-content">		
-	<article class="article" role="article">
-		<?php if (have_posts()) : ?>
+	<div class="content-holder">
 		
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'elr' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'elr' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		
+		<?php if (have_posts()) : ?>
 		
 			<?php while (have_posts()) : the_post(); ?>
 
-				<?php get_template_part( TEMPLATES . '/_loop' , 'search'); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
 
 			<?php endwhile; ?>
 							
@@ -15,11 +16,11 @@
 		
 		<?php else : ?>
 
-			<p><?php _e( 'Sorry, nothing found. Please try again with a different keyword.', 'elr' ); ?></p>
+	    	<?php get_template_part( 'content', 'none' ); ?>		
 
 		<?php endif; ?>			
 
-	</article>			
+	</div>			
 	<?php get_sidebar(); ?>
 </main>
 <?php get_footer(); ?>

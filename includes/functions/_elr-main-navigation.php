@@ -13,9 +13,10 @@ if (function_exists('register_nav_menus')) {
 //////////////////////////////////////////////////////////////////////
 // Default Main Nav Function
 //////////////////////////////////////////////////////////////////////
-
-function default_main_nav() {
-	echo '<ul id="main-nav" class="main-nav row">';
-	   wp_list_pages('title_li=');
-	echo '</ul>';
+if (function_exists('default_main_nav')) {
+    function default_main_nav() {
+    	echo '<ul id="main-nav" class="main-nav row">';
+    	   wp_list_pages('title_li=');
+    	echo '</ul>';
+    }
 }

@@ -2,15 +2,14 @@
 /*
 Template Name: Single-Column
 */
-
-get_header(); 
-
 ?>
 
+<?php get_header(); ?>
+
 <main class="main-content">
-	<article class="article-full" role="article">		
+	<div class="content-holder article-full">		
 		<?php get_template_part( TEMPLATES . '/_page'); ?>
-	</article>
+	</div>
 </main>
 
 <?php get_footer(); ?>

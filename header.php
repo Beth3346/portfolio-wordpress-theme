@@ -6,7 +6,7 @@
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <!-- add pinterest url here --> 
     <!-- saved from url=(0014)about:internet-->
-    <title><?php if (is_home() || is_front_page()) { echo bloginfo('name'); } else { echo wp_title(''); } ?></title>
+    <title><?php if (is_home() || is_front_page()) { echo bloginfo('name'); } else { echo wp_title( '&nbsp;&ndash;&nbsp;', true, 'right' ) . bloginfo('name'); } ?></title>
 
 <?php
 
@@ -43,9 +43,9 @@
 </head>
 <body <?php body_class(); ?>>
 <div class="wrapper">
-    <header role="banner">
+    <header class="branding" role="banner">
         <div class="logo">
-            <h1 class="site-name"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+            <h1 class="site-name"><a href="<?php bloginfo('url'); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
             <h2 class="site-description" ><?php bloginfo('description'); ?></h2>           
         </div>
         <div class="navigation-holder">
@@ -53,7 +53,15 @@
                 <?php get_template_part( TEMPLATES . '/_social-media'); ?>
             </div>        
             <nav id="main-menu" role="navigation">
-                <?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => 'mainNavWrapper' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
+                <?php wp_nav_menu(
+                    array(
+                        'theme_location' => 'main-nav',
+                        'fallback_cb' => 'default_main_nav',
+                        'container'  => 'mainNavWrapper',
+                        'menu_id' => 'main-nav',
+                        'menu_class' => 'main-nav'
+                    )
+                ); ?>
             </nav>            
         </div>
     </header>

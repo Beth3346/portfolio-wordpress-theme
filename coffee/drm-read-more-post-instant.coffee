@@ -1,31 +1,31 @@
-(($) ->
+"use strict"
+$ = jQuery
 
-    $('a.more-link').click ->
-        link = $ @
+$('a.more-link').click ->
+    link = $ @
 
-        link.html 'loading...'
+    link.html 'loading...'
 
-        post_id = link.data 'post'
+    post_id = link.data 'post'
 
-        data = {
-            action: 'drm_rmpi_ajax'
-            post_id: post_id
-        }
+    data =
+        action: 'drm_rmpi_ajax'
+        post_id: post_id
 
-        $.get(main.ajaxurl, data, (data) ->
-            excerpt = $('div.post-excerpt' + post_id)
-            data = '<div class="post-content' + post_id + ' ">' + data + '</div>' + '<button class="hide-link hide-content' + post_id + '">Hide Article</button>'
+    $.get(main.ajaxurl, data, (data) ->
+        excerpt = $ "div.post-excerpt#{post_id}"
+        origExcerpt = $ "div.post-excerpt#{post_id}"
+        data = "<div class='post-content#{post_id}'>#{data}</div><button class='hide-link hide-content#{post_id}'>Hide Article</button>"
 
-            excerpt.before(data).slideUp 'slow'
+        excerpt.before(data).fadeOut 0, -> $(@).slideUp('slow')
 
-            hideButton = $('button.hide-content' + post_id).click ->
-                $('div.post-content' + post_id).slideUp('slow', ->
-                    $(this).remove()
-                    hideButton.remove()
-                    $('div.post-excerpt' + post_id).slideDown 'slow'
-                    link.html 'Read More'
-                )
-            return  
-        )       
-        return false
-) jQuery
+        hideButton = $ "button.hide-content#{post_id}"
+        hideButton.click ->
+            $("div.post-content#{post_id}").slideUp 'slow', ->
+                $(@).remove()
+                hideButton.remove()
+                origExcerpt.slideDown('slow')
+                link.html('Read More')
+        return  
+    )       
+    return false

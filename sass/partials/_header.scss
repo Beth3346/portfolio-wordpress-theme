@@ -2,7 +2,7 @@
 	Header
 -----------------------------------------------------------------------------*/
 
-header {
+header[role="banner"] {
 	@extend %drm-container-full-width;
 	padding-top: 1%;
 	padding-bottom: 5%;
