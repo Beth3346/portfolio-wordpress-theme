@@ -50,7 +50,7 @@
         </div>
         <div class="navigation-holder">
             <div class="social-media-holder">
-                <?php get_template_part( 'social-media'); ?>
+                <?php get_template_part( 'partials/social-media'); ?>
             </div>        
             <nav id="main-menu" role="navigation">
                 <?php wp_nav_menu(

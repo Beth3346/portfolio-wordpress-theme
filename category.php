@@ -1,20 +1,21 @@
 <?php get_header(); ?>
 <main class="main-content">
 	<div class="content-holder">
+        <h1>Category Archives</h1>
         <?php // the loop ?>
         <?php if (have_posts()) : ?>
 
             <?php while (have_posts()) : the_post(); ?>
 
-                <?php get_template_part( 'content', get_post_format() ); ?>
+                <?php get_template_part( 'content/content', get_post_format() ); ?>
                 
             <?php endwhile; ?>  
 
-            <?php get_template_part( 'pagination' ); ?>
+            <?php get_template_part( 'partials/pagination' ); ?>
 
         <?php else : ?>
 
-            <?php get_template_part( 'content', 'none' ); ?>
+            <?php get_template_part( 'content/content', 'none' ); ?>
 
         <?php endif; ?>
 	</div>

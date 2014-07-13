@@ -71,13 +71,29 @@ class Validation {
 
 	public function numeric( $value, $fieldname ) {
 
-		$pattern = '/^[0-9]*$/';		
+		$pattern = '/^[0-9.,]*$/';		
 
 		if ( preg_match( $pattern, $value ) ) {
 			$valid = TRUE;
 		} else {
 			$valid = FALSE;	
-			$this->errors[] = "Please provide a valid $fieldname";
+			$this->errors[] = "Please provide a valid number $fieldname";
+		}
+
+		return $valid;
+	}
+
+	// checks that a value is currency
+
+	public function currency( $value, $fieldname ) {
+
+		$pattern = '/^[0-9.,$]*$/';		
+
+		if ( preg_match( $pattern, $value ) ) {
+			$valid = TRUE;
+		} else {
+			$valid = FALSE;	
+			$this->errors[] = "Please provide a valid number $fieldname";
 		}
 
 		return $valid;
@@ -90,7 +106,7 @@ class Validation {
 		$valid = filter_var($value, FILTER_VALIDATE_INT);
 
 		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a whole number $fieldname";
+			$this->errors[] = "Please provide a whole number for $fieldname";
 		} else {
 			$valid = TRUE;
 		}
@@ -265,7 +281,7 @@ class Validation {
 	
 	public function fullName( $value, $fieldname ) {
 
-		$pattern = '/^[a-z.\s]*$/i';		
+		$pattern = '/^[a-z.,\s]*$/i';		
 
 		if ( preg_match( $pattern, $value ) ) {
 			$valid = TRUE;
@@ -357,7 +373,7 @@ class Validation {
 	// checks a string to see if it contains any urls
 
 	public function nourl( $value, $fieldname ) {
-		$pattern = '/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i'; // url
+		$pattern = '/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/i'; // url
 
 		if ( preg_match( $pattern, $value ) ) {
 			$valid = FALSE;
@@ -372,7 +388,7 @@ class Validation {
 	// checks a string to see if it contains any html tags
 
 	public function notags( $value, $fieldname ) {
-		$pattern = '/^[<>]/'; // tags
+		$pattern = '/[<>]/'; // tags
 
 		if ( preg_match( $pattern, $value ) ) {
 			$valid = FALSE;
@@ -408,6 +424,20 @@ class Validation {
 			$this->errors[] = "Invalid $fieldname";
 		} else {
 			$valid = TRUE;
+		}
+
+		return $valid;
+	}
+
+	// honeypot
+	
+	public function honeypot( $value, $fieldname ) {
+
+		if ( ( !$value ) ) {
+			$valid = TRUE;
+		} else {
+			$valid = FALSE;
+			$this->errors[] = "There was an error processing your message";
 		}
 
 		return $valid;

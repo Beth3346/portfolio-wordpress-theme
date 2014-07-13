@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Single-Column
+Template Name: Full Width
 */
 ?>
 
@@ -11,6 +11,13 @@ Template Name: Single-Column
         <?php while ( have_posts() ) : the_post(); ?>
         <article>
             <h1 class="page-title"><?php the_title(); ?></h1>
+
+            <!-- if we have a featured image then display it -->
+            <?php if ( has_post_thumbnail() ) : ?>
+                <div class="post-image">
+                    <?php the_post_thumbnail(); ?>
+                </div>
+            <?php endif; ?>
 
             <?php the_content(); ?>
             

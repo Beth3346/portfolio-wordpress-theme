@@ -5,6 +5,13 @@
         <article>
             <h1 class="page-title"><?php the_title(); ?></h1>
 
+            <!-- if we have a featured image then display it -->
+            <?php if ( has_post_thumbnail() ) : ?>
+                <div class="post-image">
+                    <?php the_post_thumbnail(); ?>
+                </div>
+            <?php endif; ?>
+
             <?php the_content(); ?>
             
             <?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','elr').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
