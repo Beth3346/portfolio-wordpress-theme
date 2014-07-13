@@ -80,3 +80,11 @@ if ( ! function_exists( 'elr_vendor_functions' ) ) {
 
     add_action( 'after_setup_theme', 'elr_vendor_functions' );
 }
+
+if ( ! function_exists( 'elr_theme_options' ) ) {
+    function elr_theme_options() {
+        require_once( FRAMEWORK . '/theme-options/_elr-theme-options.php' );
+    }
+
+    add_action( 'after_setup_theme', 'elr_theme_options' );
+}

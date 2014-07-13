@@ -5,7 +5,12 @@
 // Can choose related posts by category or tag
 ///////////////////////////////////////////////////////////////////////////////////
 
-$taxonomy = 'category';
+$display_options = (array)get_option('elr_theme_display_options');
+$taxonomy = $display_options['related_posts_taxonomy'];
+// add a default if no taxonomy is supplied
+if ( !$taxonomy ) {
+    $taxonomy = 'category';
+}
 
 add_filter( 'the_content', function( $content ) use ( $taxonomy ) {
         return elr_show_related_posts( $content, $taxonomy );

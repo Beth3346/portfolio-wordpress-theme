@@ -32,12 +32,12 @@ function elr_theme_intialize_social_options() {
         'elr_theme_social_options'            // Page on which to add this section of options
     );
     
-    add_settings_field(        
-        'google_plus_url',                                                
-        'Google Plus URL',                                                        
-        'elr_google_plus_url_callback',        
-        'elr_theme_social_options',        
-        'social_settings_section'                        
+    add_settings_field(
+        'google_plus_url',
+        'Google Plus URL',
+        'elr_google_plus_url_callback',
+        'elr_theme_social_options',
+        'social_settings_section'
     );
     
     add_settings_field(        
@@ -89,7 +89,7 @@ function elr_social_options_callback() {
  * 
  * It accepts an array or arguments and expects the first element in the array to be the description
  * to be displayed next to the checkbox.
- */   
+ */
 
 function elr_google_plus_url_callback() {
         
