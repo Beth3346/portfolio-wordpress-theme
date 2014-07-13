@@ -7,9 +7,9 @@
 define( 'THEMEROOT', get_stylesheet_directory_uri() );
 define( 'IMAGES', THEMEROOT . '/images' );
 define( 'SCRIPTS', THEMEROOT . '/js' );
-define( 'TEMPLATES', 'includes/template-parts' );
-define( 'FUNCTIONS', 'includes/functions' );
 define( 'FRAMEWORK', get_template_directory() . '/framework' );
+define( 'TEMPLATES', FRAMEWORK . '/template-parts' );
+define( 'FUNCTIONS', FRAMEWORK . '/functions' );
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Load framework
@@ -31,22 +31,22 @@ if ( ! isset( $content_width ) ) {
 
 if ( ! function_exists( 'elr_setup' ) ) {
     function elr_setup() {
-        locate_template( array( FUNCTIONS . '/_elr-theme-languages.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-post-thumbnails.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-feed-links.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-post-formats.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-main-navigation.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-register-sidebars.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-page-navigation.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-custom-theme-comment.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-read-more.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-theme-options.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-read-more-post-instant.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-remove-wp-version.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-right-now-custom-posts.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-social-media.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_elr-show-related-posts.php' ), true, true );
-        locate_template( array( FUNCTIONS . '/_tgm-plugin-activation.php' ), true, true );
+        require_once( FUNCTIONS . '/_elr-theme-languages.php' );
+        require_once( FUNCTIONS . '/_elr-post-thumbnails.php' );
+        require_once( FUNCTIONS . '/_elr-feed-links.php' );
+        require_once( FUNCTIONS . '/_elr-post-formats.php' );
+        require_once( FUNCTIONS . '/_elr-main-navigation.php' );
+        require_once( FUNCTIONS . '/_elr-register-sidebars.php' );
+        require_once( FUNCTIONS . '/_elr-page-navigation.php' );
+        require_once( FUNCTIONS . '/_elr-custom-theme-comment.php' );
+        require_once( FUNCTIONS . '/_elr-read-more.php' );
+        require_once( FUNCTIONS . '/_elr-theme-options.php' );
+        require_once( FUNCTIONS . '/_elr-read-more-post-instant.php' );
+        require_once( FUNCTIONS . '/_elr-remove-wp-version.php' );
+        require_once( FUNCTIONS . '/_elr-right-now-custom-posts.php' );
+        require_once( FUNCTIONS . '/_elr-social-media.php' );
+        require_once( FUNCTIONS . '/_elr-show-related-posts.php' );
+        require_once( FUNCTIONS . '/_tgm-plugin-activation.php' );
     }
 
     add_action( 'after_setup_theme', 'elr_setup' );

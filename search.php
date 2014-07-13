@@ -12,7 +12,7 @@
 
 			<?php endwhile; ?>
 							
-			<?php get_template_part( TEMPLATES . '/_pagination'); ?>
+			<?php get_template_part( 'pagination' ); ?>
 		
 		<?php else : ?>
 

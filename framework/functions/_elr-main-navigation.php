@@ -13,7 +13,7 @@ if (function_exists('register_nav_menus')) {
 //////////////////////////////////////////////////////////////////////
 // Default Main Nav Function
 //////////////////////////////////////////////////////////////////////
-if (function_exists('default_main_nav')) {
+if ( ! function_exists('default_main_nav')) {
     function default_main_nav() {
     	echo '<ul id="main-nav" class="main-nav row">';
     	   wp_list_pages('title_li=');

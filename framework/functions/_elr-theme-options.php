@@ -96,5 +96,5 @@ if ( ! function_exists( 'elr_theme_display' ) ) {
     } // end elr_theme_display
 }
 
-require_once( get_template_directory().'/includes/functions/theme-options/_elr-theme-display-options.php' );
-require_once( get_template_directory().'/includes/functions/theme-options/_elr-theme-social-options.php' );
+require_once( FUNCTIONS . '/theme-options/_elr-theme-display-options.php' );
+require_once( FUNCTIONS . '/theme-options/_elr-theme-social-options.php' );

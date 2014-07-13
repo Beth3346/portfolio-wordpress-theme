@@ -1,7 +1,15 @@
 <?php get_header(); ?>
 <main class="main-content">
 	<div class="content-holder">
-		<?php get_template_part( TEMPLATES . '/_single'); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
+        <?php get_template_part( 'content', get_post_format() ); ?>
+
+        <?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','elr').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+
+        <?php get_template_part( 'post-nav' ); ?>
+
+        <?php comments_template(); ?>
+    <?php endwhile; ?>
 	</div>	
 	<!-- /#content -->
 	<?php get_sidebar(); ?>
