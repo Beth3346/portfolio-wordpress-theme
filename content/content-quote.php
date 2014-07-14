@@ -10,8 +10,7 @@
 
         <p class="post-date"><time datetime="<?php the_time('o-m-d') ?>" pubdate><?php the_time('M j, Y') ?></time></p>
 
-        <div class="post-meta"> 
-            <p class="post-author"><?php the_author_posts_link() ?></p>
+        <div class="post-meta">
             <p class="post-category"><?php the_category(', ') ?></p>
             <?php the_tags(' <p class="post-tag">', ', ', '</p>'); ?>
             <?php if ( comments_open() ) : ?>
@@ -24,6 +23,8 @@
         <?php the_content(); ?>
     </div>
 
-    <?php edit_post_link(__('Edit', 'elr')); ?>
+    <footer>
+        <?php edit_post_link(__('Edit', 'elr')); ?>    
+    </footer>
     
 </article>

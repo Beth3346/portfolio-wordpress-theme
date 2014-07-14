@@ -24,6 +24,8 @@
         <?php the_content(); ?>
     </div>
 
-    <?php edit_post_link(__('Edit', 'elr')); ?>
+    <footer>
+        <?php edit_post_link(__('Edit', 'elr')); ?>    
+    </footer>
     
 </article>

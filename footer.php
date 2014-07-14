@@ -24,6 +24,13 @@
             <a href="sitemap.html">Site Map</a> - 
             <a href="/privacy/">Privacy</a> - 
             <a href="/disclaimer/">Disclaimer</a> - 
+            <?php
+                $social_options = ( array )get_option( 'elr_theme_social_options' );
+                $google_plus_url = $social_options['google_plus_url'];
+            ?>
+            <?php if( $google_plus_url ) : ?>
+                <a href="<?php echo $google_plus_url; ?>">Google+</a>
+            <?php endif; ?>
             WordPress Theme by: <a href="http://www.elizabeth-rogers.com">Elizabeth Rogers</a>
         </small>
 	<!--end wrapper-->

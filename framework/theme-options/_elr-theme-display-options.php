@@ -30,7 +30,7 @@ function elr_initialize_theme_options() {
     
     add_settings_field(
         'related_posts_taxonomy',
-        'Related Posts Taxonomy',
+        'Related Posts Taxonomy:',
         'elr_related_posts_taxonomy_callback',
         'elr_theme_display_options',
         'general_settings_section'
@@ -79,14 +79,6 @@ function elr_related_posts_taxonomy_callback() {
         
     // Render the output
     ?>
-    
-<!--     <input 
-        type="text" 
-        class="widefat" 
-        id="related_posts_taxonomy" 
-        name="elr_theme_display_options[related_posts_taxonomy]"
-        value="<?php echo esc_attr($options['related_posts_taxonomy'])?>"
-    /> -->
 
     <select class="widefat" id="related_posts_taxonomy" name="elr_theme_display_options[related_posts_taxonomy]">
         <?php if ( !$taxonomy ) : ?>
@@ -107,6 +99,8 @@ function elr_related_posts_taxonomy_callback() {
             <option value="tag">Tag</option>
         <?php endif; ?>
     </select>
+
+    <small>Choose the taxonomy to use when displaying related posts.</small>
         
 <?php } // end elr_related_posts_taxonomy_callback
 

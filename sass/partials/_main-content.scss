@@ -93,6 +93,11 @@ main {
 	}	
 }
 
+.post-image-caption {
+	text-align: center;
+	@include drm-em-font(14);
+}
+
 /* post meta */
 .post-meta {
 	margin: 0;

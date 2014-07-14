@@ -34,7 +34,7 @@ function elr_theme_intialize_social_options() {
     
     add_settings_field(
         'google_plus_url',
-        'Google Plus URL',
+        'Google Plus URL:',
         'elr_google_plus_url_callback',
         'elr_theme_social_options',
         'social_settings_section'
@@ -42,7 +42,7 @@ function elr_theme_intialize_social_options() {
     
     add_settings_field(        
         'google_verification',                                                
-        'Google Verification',                                                        
+        'Google Verification:',                                                        
         'elr_google_verification_callback',        
         'elr_theme_social_options',        
         'social_settings_section'                        
@@ -50,7 +50,7 @@ function elr_theme_intialize_social_options() {
     
     add_settings_field(        
         'pinterest_validation',                                                
-        'Pinterest Validation',                                                        
+        'Pinterest Validation:',                                                        
         'elr_pinterest_validation_callback',        
         'elr_theme_social_options',        
         'social_settings_section'                        
@@ -96,30 +96,57 @@ function elr_google_plus_url_callback() {
     // First, we read the social options collection
     $options = get_option( 'elr_theme_social_options' );
         
-    // Render the output
-    echo '<input type="url" class="widefat" id="google_plus_url" name="elr_theme_social_options[google_plus_url]" value="' . esc_attr($options['google_plus_url']) . '" />';
+    // Render the output ?>
+    <input
+        type="url"
+        class="widefat"
+        id="google_plus_url"
+        placeholder="https://plus.google.com/u/0/b/104511450703174840201"
+        name="elr_theme_social_options[google_plus_url]"
+        value="<?php echo esc_attr($options['google_plus_url']); ?>"
+    />
+
+    <small>Provide your Google Plus URL.</small>
         
-} // end elr_google_plus_url_callback
+<?php } // end elr_google_plus_url_callback
 
 function elr_google_verification_callback() {
         
     // First, we read the social options collection
     $options = get_option( 'elr_theme_social_options' );
         
-    // Render the output
-    echo '<input type="text" class="widefat" id="google_verification" name="elr_theme_social_options[google_verification]" value="' . esc_attr($options['google_verification']) . '" />';
+    // Render the output ?>
+    <input
+        type="text"
+        class="widefat"
+        id="google_verification"
+        placeholder="JbNxE47zGPZ7L1tTRaVelm-2HNK3j0YN5ZigpJRnd70"
+        name="elr_theme_social_options[google_verification]"
+        value="<?php echo esc_attr($options['google_verification']); ?>"
+    />
+
+    <small>Provide your Google verification code.</small>
         
-} // end elr_google_verification_callback
+<?php } // end elr_google_verification_callback
 
 function elr_pinterest_validation_callback() {
         
     // First, we read the social options collection
     $options = get_option( 'elr_theme_social_options' );
         
-    // Render the output
-    echo '<input type="text" class="widefat" id="pinterest_validation" name="elr_theme_social_options[pinterest_validation]" value="' . esc_attr($options['pinterest_validation']) . '" />';
+    // Render the output ?>
+    <input
+        type="text"
+        class="widefat"
+        id="pinterest_validation"
+        placeholder="c9c19da0901decbf1fb6d0238db03488"
+        name="elr_theme_social_options[pinterest_validation]"
+        value="<?php echo esc_attr($options['pinterest_validation']); ?>"
+    />
+
+    <small>Provide your Pinterest validation code.</small>
         
-} // end elr_pinterest_validation_callback
+<?php } // end elr_pinterest_validation_callback
 
 /* ------------------------------------------------------------------------ *
  * Setting Callbacks

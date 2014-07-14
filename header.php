@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
-    
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <!-- add pinterest url here --> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="robots" content="index, follow" />
+    <?php
+        $social_options = (array)get_option('elr_theme_social_options');
+        $pinterest = $social_options['pinterest_validation'];
+        $google_verification = $social_options['google_verification'];
+        $google_plus_url = $social_options['google_plus_url'];
+    ?>
+    <?php if( $google_verification ) : ?>
+        <meta name="google-site-verification" content="<?php echo $google_verification; ?>" />
+    <?php endif; ?>
+    <?php if( $pinterest ) : ?>
+        <meta name="p:domain_verify" content="<?php echo $pinterest; ?>" />
+    <?php endif; ?>
+    <?php if( $google_plus_url ) : ?>
+        <link rel="author" href="<?php echo $google_plus_url; ?>">
+    <?php endif; ?>
     <!-- saved from url=(0014)about:internet-->
-    <title><?php if (is_home() || is_front_page()) { echo bloginfo('name'); } else { echo wp_title( '&nbsp;&ndash;&nbsp;', true, 'right' ) . bloginfo('name'); } ?></title>
+    <title><?php echo wp_title( '&nbsp;&ndash;&nbsp;', true, 'right' ) . bloginfo('name'); ?></title>
 
 <?php
 
@@ -35,8 +50,6 @@
 
     add_action( 'wp_enqueue_scripts', 'drm_enqueue_stuff');
 ?>
-    <!-- add google plus url here --> 
-    <!-- <link rel="author" href=""> -->
     
 <!-- wp_header -->
 <?php wp_head(); ?>
