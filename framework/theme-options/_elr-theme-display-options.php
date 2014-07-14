@@ -6,7 +6,8 @@
 function elr_theme_default_display_options() {
         
     $defaults = array(
-        'related_posts_taxonomy' => 'category'
+        'related_posts_taxonomy' => 'category',
+        'ajax_posts' => true
     );
     
     return apply_filters( 'elr_theme_default_display_options', $defaults );
@@ -32,6 +33,14 @@ function elr_initialize_theme_options() {
         'related_posts_taxonomy',
         'Related Posts Taxonomy:',
         'elr_related_posts_taxonomy_callback',
+        'elr_theme_display_options',
+        'general_settings_section'
+    );
+    
+    add_settings_field(
+        'ajax_posts',
+        'AJAX Posts:',
+        'elr_ajax_posts_callback',
         'elr_theme_display_options',
         'general_settings_section'
     );
@@ -103,6 +112,25 @@ function elr_related_posts_taxonomy_callback() {
     <small>Choose the taxonomy to use when displaying related posts.</small>
         
 <?php } // end elr_related_posts_taxonomy_callback
+
+function elr_ajax_posts_callback() {
+        
+    // First, we read the social options collection
+    $options = get_option( 'elr_theme_display_options' );
+    $status = $options['ajax_posts'];
+        
+    // Render the output
+    ?>
+    <?php if ( $status ) : ?>
+        <input type="checkbox" class="widefat" id="ajax_posts" checked name="elr_theme_display_options[ajax_posts]">
+    <?php else : ?>
+        <input type="checkbox" class="widefat" id="ajax_posts" name="elr_theme_display_options[ajax_posts]">
+    <?php endif; ?>
+    
+
+    <small>Load the rest of the post without leaving the current page.</small>
+        
+<?php } // end elr_ajax_posts_callback
 
 /* ------------------------------------------------------------------------ *
  * Setting Callbacks
