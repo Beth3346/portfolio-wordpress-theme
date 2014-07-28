@@ -27,7 +27,7 @@ class Validation {
 		// extracts $params array from $rule
 
 		function parseParam( $callback ) {
-
+			$param_list = NULL;
 			$colon = strpos( $callback, ':' );
 			$params = array(); 
 

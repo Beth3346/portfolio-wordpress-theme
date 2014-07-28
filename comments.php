@@ -18,17 +18,17 @@
 <?php endif; // end commentwrap ?>
 
 <?php if ( have_comments() ) : ?>
-	<h4 class="comment-title"><?php comments_number(__('No Comments','elr'), __('One Comment','elr'), __('% Comments','elr') );?></h4>
+	<h4 class="comment-title"><?php comments_number(__( 'No Comments','elr' ), __( 'One Comment','elr' ), __( '% Comments','elr' ) );?></h4>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<div class="pagenav top clearfix">
-			<?php paginate_comments_links( array('prev_text' => '&laquo;', 'next_text' => '&raquo;') );?>
+			<?php paginate_comments_links( array( 'prev_text' => '&laquo;', 'next_text' => '&raquo;' ) );?>
 		</div> 
 		<!-- /.pagenav -->
 	<?php endif; // check for comment navigation ?>
 
 	<ul class="commentlist">
-		<?php wp_list_comments('callback=custom_theme_comment'); ?>
+		<?php wp_list_comments( 'callback=custom_theme_comment' ); ?>
 	</ul>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
@@ -50,18 +50,23 @@
 
 <?php endif; // end have_comments() ?>
 
-<?php 
+<?php
+
+if ( !isset( $post_id ) ) {
+	$post_id = NULL;
+}
+
 $custom_comment_form = array( 'fields' => apply_filters( 'comment_form_default_fields', array(
     'author' => '<p class="comment-form-author">' .
 			( $req ? '<span class="required">* </span>' : ' ' ) .
 			'<label for="author">' . __( 'Your Name: ' , 'elr' ) . '</label><br>' .
 			'<input id="author" name="author" type="text" value="' .
-			esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' class="required" />' .
+			esc_attr( $commenter['comment_author'] ) . '" size="30"' . ' class="required" />' .
 			'</p>',
     'email'  => '<p class="comment-form-email">' .
 			( $req ? '<span class="required">* </span>' : '' ) .
     		'<label for="email">' . __( 'Your Email: ' , 'elr' ) . '</label><br>' .
-			'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' class="required email" />' .
+			'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . ' class="required email" />' .
 			'</p>') ),
 	'comment_field' => '<p class="comment-form-comment">' .
 			'<label for="comment">' . __( 'Comments: ' , 'elr' ) . '</label><br>' .
@@ -74,7 +79,7 @@ $custom_comment_form = array( 'fields' => apply_filters( 'comment_form_default_f
 	'cancel_reply_link' => __( 'Cancel' , 'elr' ),
 	'label_submit' => __( 'Post Comment' , 'elr' ),
 );
-comment_form($custom_comment_form); 
+comment_form( $custom_comment_form ); 
 ?>
 
 <?php if ( have_comments() || comments_open() ) : ?>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <main class="main-content">
-	<div class="content-holder">
+    <div class="content-holder">
         <?php // the loop ?>
         <?php if (have_posts()) : ?>
 
@@ -34,7 +34,7 @@
             <?php get_template_part( 'content/content', 'none' ); ?>
 
         <?php endif; ?>
-	</div>
-	<?php get_sidebar(); ?>
+    </div>
+    <?php get_sidebar(); ?>
 </main>
 <?php get_footer(); ?>

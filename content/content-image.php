@@ -1,6 +1,6 @@
 <?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
 
-<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post clearfix $class"); ?>>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post clearfix"); ?>>
     <header>
         <?php if ( is_single() || is_page() ) : ?>
             <h1 class="post-title" role="heading"><?php the_title(); ?></h1>

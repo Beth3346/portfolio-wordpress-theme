@@ -9,6 +9,11 @@
             <?php if ( has_post_thumbnail() ) : ?>
                 <div class="post-image">
                     <?php the_post_thumbnail(); ?>
+        
+                    <?php $caption = get_post(get_post_thumbnail_id())->post_excerpt; ?>
+                    <?php if ( $caption ) : ?>
+                        <p class="post-image-caption"><?php echo esc_html( $caption; ) ?></p>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
 

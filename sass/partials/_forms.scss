@@ -36,3 +36,16 @@ textarea {
 input[type=reset], input[type=submit], button {
 	@include drm-button-solid($main-text, white, 40%, left, 0, $main-text);
 }
+
+small {
+	margin: 0;
+	display: block;
+
+	@include drm-breakpoint(tall) {
+		text-align: center;
+	}
+}
+
+.hidden-field {
+	display: none;
+}

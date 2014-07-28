@@ -81,7 +81,7 @@ if ( ! function_exists( 'elr_save_social_media' ) ) {
 
         if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return;
         //security check - nonce
-        if ( $_POST && !wp_verify_nonce($_POST['elr_nonce'], __FILE__) ) {
+        if ( isset($_POST['elr_nonce']) && $_POST && !wp_verify_nonce($_POST['elr_nonce'], __FILE__) ) {
             return;
         }
         

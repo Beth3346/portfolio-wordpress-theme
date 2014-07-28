@@ -1,11 +1,11 @@
 <?php
 
-foreach ($_POST as $key => $value) {
+foreach ( $_POST as $key => $value ) {
 	// assign to temporary variable and strip whitespace if not an array
-	$temp = is_array($value) ? $value : trim($value);
+	$temp = is_array( $value ) ? $value : trim( $value );
 	
 	// add expected variables to array
-	if (in_array($key, $expected)) {
+	if ( in_array( $key, $expected ) ) {
 		// otherwise, assign to a variable of the same name as $key
 		${$key} = $temp;
 	}
@@ -13,7 +13,7 @@ foreach ($_POST as $key => $value) {
 
 // strip spaces and everything that is not a number
 function remove_nonnumeric( $value ) {
-	$value = preg_replace('/[^0-9]*/i', '', $value);
+	$value = preg_replace( '/[^0-9]*/i', '', $value );
 
 	return $value;
 }
@@ -84,15 +84,15 @@ if ( !empty( $phone ) ) {
 	$phone = format_phone( $phone );
 }
 
-$mailSent = false;
+$mail_sent = false;
 
 // initialize the $message variable
 $message = '';
 
 // loop through the $expected array
-foreach($expected as $item) {
+foreach( $expected as $item ) {
 	// assign the value of the current item to $val
-	if (isset(${$item}) && !empty(${$item})) {
+	if ( isset( ${$item} ) && !empty( ${$item} ) ) {
 		$val = ${$item};
 	} else {
 		// if it has no value, assign 'Not selected'
@@ -100,22 +100,22 @@ foreach($expected as $item) {
 	}
 
 	// if an array, expand as comma-separated string
-	if (is_array($val)) {
-		$val = implode(', ', $val);
+	if ( is_array( $val ) ) {
+		$val = implode( ', ', $val );
 	}
 
 	// replace underscores and hyphens in the label with spaces
-	$item = str_replace(array('_', '-'), ' ', $item);
+	$item = str_replace( array( '_', '-' ), ' ', $item );
 
 	// add label and value to the message body
-	$message .= ucfirst($item).": $val\r\n\r\n";
+	$message .= ucfirst( $item ).": $val\r\n\r\n";
 }
 
 // limit line length to 70 characters
 $message = wordwrap( htmlentities( $message ) , 70);
 
-$mail_sent = mail($to, $subject, $message, $headers);
+$mail_sent = mail( $to, $subject, $message, $headers );
 
-if (!$mail_sent) {
+if ( !$mail_sent ) {
 	$errors['mail_fail'] = true;
 }
