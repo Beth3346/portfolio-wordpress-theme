@@ -1,49 +1,51 @@
 /*-----------------------------------------------------------------------------
-	Social Media
+    Social Media
 -----------------------------------------------------------------------------*/
 
 .social-media-holder {
-	float: right;
-	clear: both;
-	// quick and dirty margin fix :(
-	margin-right: -5px;		
+    float: right;
+    clear: both;
+    // quick and dirty margin fix :(
+    margin-right: -5px;     
 
-	@include drm-breakpoint(tall) {
-		float: none;
-		margin-right: 0;
-	}
+    @include drm-breakpoint(tall) {
+        float: none;
+        margin-right: 0;
+    }
 
-	ul {
-		float: right;
-		width: (32px + (5 * 2)) * 9;
-		margin: auto;
-		margin-top: 10px;
-		padding: 0;
-		list-style: none;
-		text-align: right;
-		box-sizing: border-box;
-		@include drm-clearfix;
+    ul {
+        float: right;
+        text-align: right;
+    }
+}
 
-		@include drm-breakpoint(tall) {
-			text-align: center;
-			width: 100%;
-			margin: 20px auto 20px auto; 
-		}
+.social-media-section {
+    margin: auto;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-align: center;
+    @include drm-clearfix;
 
-		li {
-			width: 32px;
-			margin: 5px;
-			padding: 0;
-			display: inline-block;
-			box-sizing: border-box;
-		}
+    @include drm-breakpoint(tall) {
+        width: 100%;
+        margin: 20px auto 20px auto;
+    }
 
-		a {
-			display: inline-block;
+    li {
+        width: 32px;
+        margin: 5px;
+        padding: 0;
+        display: inline-block;
+        box-sizing: border-box;
+    }
 
-			&:hover {
-				opacity: .7;
-			}
-		}
-	}
+    a {
+        display: inline-block;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
 }

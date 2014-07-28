@@ -17,9 +17,9 @@
         <!-- wp_footer -->
         <?php wp_footer(); ?>        
         <small class="copyright">
-            <?php bloginfo(); ?> &copy; 2012 - <?php echo date( 'Y' ); ?> 
-            <a href="http://www.dynamicresponsemedia.com">Dynamic Response Media</a> 
+            <?php bloginfo(); ?> &copy; 2012 - <?php echo date( 'Y' ); ?>
             All Rights Reserved. 
+            Built with Care by: <a href="http://www.dynamicresponsemedia.com">Dynamic Response Media</a> 
             <!-- Insert Google Plus Link Here --> - 
             <a href="sitemap.html">Site Map</a> - 
             <a href="/privacy/">Privacy</a> - 

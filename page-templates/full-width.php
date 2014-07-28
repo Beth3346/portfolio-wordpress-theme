@@ -19,7 +19,7 @@ Template Name: Full Width
         
                     <?php $caption = get_post(get_post_thumbnail_id())->post_excerpt; ?>
                     <?php if ( $caption ) : ?>
-                        <p class="post-image-caption"><?php echo esc_html( $caption; ) ?></p>
+                        <p class="post-image-caption"><?php echo esc_html( $caption ); ?></p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>

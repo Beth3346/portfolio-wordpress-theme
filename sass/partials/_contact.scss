@@ -1,0 +1,66 @@
+/*-----------------------------------------------------------------------------
+    Contact Template
+-----------------------------------------------------------------------------*/
+
+.contact-template {
+    @extend %drm-container;
+    overflow: hidden;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+        text-align: left;
+        @include drm-em-font(20);
+
+        @include drm-breakpoint(tall) {
+            text-align: center;
+            @include drm-em-font(20);
+        }
+    }
+}
+
+.contact-info-holder {
+    word-wrap: break-word;
+    margin-top: 40px;
+
+    @include drm-breakpoint(tall) {
+        float: none;
+        width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    a {
+        color: $text-color;
+    }
+}
+
+.contact-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    margin-top: 40px;
+
+    h2 {
+        padding-left: 10px;
+    }
+
+    @include drm-breakpoint(tall) {
+        float: none;
+        width: 100%;
+    }
+
+    form {
+        @include drm-tabular-form();
+    }
+}

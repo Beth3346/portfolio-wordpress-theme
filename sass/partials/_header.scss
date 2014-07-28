@@ -4,8 +4,8 @@
 
 header[role="banner"] {
 	@extend %drm-container-full-width;
-	padding-top: 1%;
-	padding-bottom: 5%;
+	padding-top: 20px;
+	padding-bottom: 40px;
 	box-sizing: border-box;
 	@include drm-clearfix();
 }

@@ -100,6 +100,10 @@
 	width: 100%;
 	box-sizing: border-box;
 
+	.hidden-field {
+		display: none;
+	}
+
 	small {
 		display: block;
 		color: $grey;
