@@ -2,444 +2,444 @@
 
 class Validation {
 
-	public $errors = array();
+    public $errors = array();
 
-	public function validate( $data, $rules ) {
+    public function validate( $data, $rules ) {
 
-		$valid = TRUE;
+        $valid = TRUE;
 
-		// extracts callback from $rule
+        // extracts callback from $rule
 
-		function parseCallback( $callback ) {
+        function parseCallback( $callback ) {
 
-			$colon = strpos( $callback, ':' );
-			$length = strlen( $callback );
+            $colon = strpos( $callback, ':' );
+            $length = strlen( $callback );
 
-			if ( $colon == FALSE ) {
-				$rule = $callback;
-			} else {
-				$rule = substr( $callback , 0, $length - ($length - $colon));
-			}
+            if ( $colon == FALSE ) {
+                $rule = $callback;
+            } else {
+                $rule = substr( $callback , 0, $length - ($length - $colon));
+            }
 
-			return $rule;
-		}
+            return $rule;
+        }
 
-		// extracts $params array from $rule
+        // extracts $params array from $rule
 
-		function parseParam( $callback ) {
-			$param_list = NULL;
-			$colon = strpos( $callback, ':' );
-			$params = array(); 
+        function parseParam( $callback ) {
+            $param_list = NULL;
+            $colon = strpos( $callback, ':' );
+            $params = array(); 
 
-			if ( $colon == FALSE ) {
-				$param = NULL;
-			} else {
-				$param_list = substr( $callback , $colon + 1 );
-			}
+            if ( $colon == FALSE ) {
+                $param = NULL;
+            } else {
+                $param_list = substr( $callback , $colon + 1 );
+            }
 
-			if ( $param_list != NULL ) {
-				$params = explode(':', $param_list);
-			}
+            if ( $param_list != NULL ) {
+                $params = explode(':', $param_list);
+            }
 
-			return $params;			
-		}
+            return $params;         
+        }
 
-		foreach ( $rules as $fieldname => $rule ) {
-			// Extract rules as callbacks
-			
-			$callbacks = explode( '|', $rule );
+        foreach ( $rules as $fieldname => $rule ) {
+            // Extract rules as callbacks
+            
+            $callbacks = explode( '|', $rule );
 
-			// Call the validation callback
-			
-			foreach ( $callbacks as $callback ) {
-				$value = isset( $data[$fieldname] ) ? $data[$fieldname] : NULL;
+            // Call the validation callback
+            
+            foreach ( $callbacks as $callback ) {
+                $value = isset( $data[$fieldname] ) ? $data[$fieldname] : NULL;
 
-				$params = parseParam( $callback );
+                $params = parseParam( $callback );
 
-				$callback = parseCallback( $callback );
+                $callback = parseCallback( $callback );
 
-				if ( $this->$callback( $value, $fieldname, $params ) == FALSE ) {
-					$valid = FALSE;
-				}
-			}
-		}
+                if ( $this->$callback( $value, $fieldname, $params ) == FALSE ) {
+                    $valid = FALSE;
+                }
+            }
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks that a value is numeric
+    // checks that a value is numeric
 
-	public function numeric( $value, $fieldname ) {
+    public function numeric( $value, $fieldname ) {
 
-		$pattern = '/^[0-9.,]*$/';		
+        $pattern = '/^[0-9.,]*$/';      
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "Please provide a valid number $fieldname";
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "Please provide a valid number $fieldname";
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks that a value is currency
+    // checks that a value is currency
 
-	public function currency( $value, $fieldname ) {
+    public function currency( $value, $fieldname ) {
 
-		$pattern = '/^[0-9.,$]*$/';		
+        $pattern = '/^[0-9.,$]*$/';     
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "Please provide a valid number $fieldname";
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "Please provide a valid number $fieldname";
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks that a value is an integer
+    // checks that a value is an integer
 
-	public function integer( $value, $fieldname ) {
+    public function integer( $value, $fieldname ) {
 
-		$valid = filter_var($value, FILTER_VALIDATE_INT);
+        $valid = filter_var($value, FILTER_VALIDATE_INT);
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a whole number for $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "Please provide a whole number for $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks for an integer that is less than a max value
+    // checks for an integer that is less than a max value
 
-	public function max( $value, $fieldname, $params ) {
+    public function max( $value, $fieldname, $params ) {
 
-		$options = array (
-			'options' => array(
-				'max_range' => $params[0]
-			)
-		);
+        $options = array (
+            'options' => array(
+                'max_range' => $params[0]
+            )
+        );
 
-		$valid = filter_var($value, FILTER_VALIDATE_INT, $options);
+        $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a whole number less than $params[0] for $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "Please provide a whole number less than $params[0] for $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks for an integer that is greater than a min value
+    // checks for an integer that is greater than a min value
 
-	public function min( $value, $fieldname, $params ) {
+    public function min( $value, $fieldname, $params ) {
 
-		$options = array (
-			'options' => array(
-				'min_range' => $params[0]
-			)
-		);
+        $options = array (
+            'options' => array(
+                'min_range' => $params[0]
+            )
+        );
 
-		$valid = filter_var($value, FILTER_VALIDATE_INT, $options);
+        $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a whole number greater than $params[0] for $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "Please provide a whole number greater than $params[0] for $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks for an integer that falls within a specified range
+    // checks for an integer that falls within a specified range
 
-	public function range( $value, $fieldname, $params ) {
+    public function range( $value, $fieldname, $params ) {
 
-		$options = array (
-			'options' => array(
-				'min_range' => $params[0],
-				'max_range' => $params[1]
-			)
-		);
+        $options = array (
+            'options' => array(
+                'min_range' => $params[0],
+                'max_range' => $params[1]
+            )
+        );
 
-		$valid = filter_var($value, FILTER_VALIDATE_INT, $options);
+        $valid = filter_var($value, FILTER_VALIDATE_INT, $options);
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a whole number between $params[0] and $params[1] for $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "Please provide a whole number between $params[0] and $params[1] for $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// most form values are at least 3 characters long
-	// automatically rejects any value that is less than 3 characters in length
+    // most form values are at least 3 characters long
+    // automatically rejects any value that is less than 3 characters in length
 
-	public function short( $value, $fieldname ) {
+    public function short( $value, $fieldname ) {
 
-		$value = trim( $value );
+        $value = trim( $value );
 
-		if ( strlen( $value ) > 3 ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "$fieldname should be more than two characters";			
-		}
+        if ( strlen( $value ) > 3 ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "$fieldname should be more than two characters";          
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks that a value is alpha characters only
+    // checks that a value is alpha characters only
 
-	public function alpha( $value, $fieldname ) {
+    public function alpha( $value, $fieldname ) {
 
-		$pattern = '/^[a-z]*$/i';		
+        $pattern = '/^[a-z]*$/i';       
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "Please provide a valid $fieldname";
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "Please provide a valid $fieldname";
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks a value for a minimum string length
+    // checks a value for a minimum string length
 
-	public function minLength( $value, $fieldname, $params ) {
-		$value = trim( $value );
+    public function minLength( $value, $fieldname, $params ) {
+        $value = trim( $value );
 
-		if ( strlen( $value ) > $params[0] ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "$fieldname should be more than $params[0] characters";			
-		}
+        if ( strlen( $value ) > $params[0] ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "$fieldname should be more than $params[0] characters";           
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks a value for a maximum string length
+    // checks a value for a maximum string length
 
-	public function maxLength( $value, $fieldname, $params ) {
-		$value = trim( $value );
+    public function maxLength( $value, $fieldname, $params ) {
+        $value = trim( $value );
 
-		if ( strlen( $value ) < $params[0] ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "$fieldname should be less than $params[0] characters";			
-		}	
+        if ( strlen( $value ) < $params[0] ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "$fieldname should be less than $params[0] characters";           
+        }   
 
-		return $valid;	
-	}
+        return $valid;  
+    }
 
-	// checks a value for an exact string length
+    // checks a value for an exact string length
 
-	public function length( $value, $fieldname, $params ) {
-		$value = trim( $value );
+    public function length( $value, $fieldname, $params ) {
+        $value = trim( $value );
 
-		if ( strlen( $value ) == $params[0] ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "$fieldname should be exactly $params[0] characters";			
-		}	
+        if ( strlen( $value ) == $params[0] ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "$fieldname should be exactly $params[0] characters";         
+        }   
 
-		return $valid;		
-	}
+        return $valid;      
+    }
 
-	// checks a value for a string length range
+    // checks a value for a string length range
 
-	public function betweenLength( $value, $fieldname, $params ) {
-		$value = trim( $value );
-		$str_len = strlen( $value ); 
-		$min = $params[0];
-		$max = $params[1];
+    public function betweenLength( $value, $fieldname, $params ) {
+        $value = trim( $value );
+        $str_len = strlen( $value ); 
+        $min = $params[0];
+        $max = $params[1];
 
-		if ( $str_len >= $min and $str_len <= $max ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "$fieldname should be between $min and $max characters";			
-		}	
+        if ( $str_len >= $min and $str_len <= $max ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "$fieldname should be between $min and $max characters";          
+        }   
 
-		return $valid;	
-	}
+        return $valid;  
+    }
 
-	// accepts alpha characters, ' ', and '.'
-	// Does not ensure that value is actually a first name and last name
-	// Only looks for acceptable chararacters that would appear in a person's full name
-	// Examples: John Q. Public, John, John Doe
-	
-	public function fullName( $value, $fieldname ) {
+    // accepts alpha characters, ' ', and '.'
+    // Does not ensure that value is actually a first name and last name
+    // Only looks for acceptable chararacters that would appear in a person's full name
+    // Examples: John Q. Public, John, John Doe
+    
+    public function fullName( $value, $fieldname ) {
 
-		$pattern = '/^[a-z.,\s]*$/i';		
+        $pattern = '/^[a-z.,\s]*$/i';       
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;	
-			$this->errors[] = "Please provide a valid $fieldname";
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE; 
+            $this->errors[] = "Please provide a valid $fieldname";
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// validates that a ten digit phone number with an optional extension is provided
-	// only validates US phone numbers for now
+    // validates that a ten digit phone number with an optional extension is provided
+    // only validates US phone numbers for now
 
-	public function phone( $value, $fieldname ) {
+    public function phone( $value, $fieldname ) {
 
-		function cleanPhone( $value ) {
+        function cleanPhone( $value ) {
 
-			// remove whitespace
-			$value = trim( $value );
+            // remove whitespace
+            $value = trim( $value );
 
-			// look for extension followed by 'x'
-			// split phone number and extension into two seperate strings				
-			if ( strpos($value, 'x') != FALSE ) {
-				$complete_phone = preg_split( '/[x]/i', $value );
+            // look for extension followed by 'x'
+            // split phone number and extension into two seperate strings               
+            if ( strpos($value, 'x') != FALSE ) {
+                $complete_phone = preg_split( '/[x]/i', $value );
 
-				$value = $complete_phone[0];
-			}
+                $value = $complete_phone[0];
+            }
 
-			// strip spaces and everything that is not a number
-			$value = preg_replace('/[^0-9]*/', '', $value);
+            // strip spaces and everything that is not a number
+            $value = preg_replace('/[^0-9]*/', '', $value);
 
-			// strip leading 1
-			$value = preg_replace('/\b[1]/', '', $value);
+            // strip leading 1
+            $value = preg_replace('/\b[1]/', '', $value);
 
-			return $value;
-		}
+            return $value;
+        }
 
-		// no bad area codes or toll free / pay per call
-		// BAD_AREA_CODES = open('bad-area-codes.txt', 'r').read().split('\n');
+        // no bad area codes or toll free / pay per call
+        // BAD_AREA_CODES = open('bad-area-codes.txt', 'r').read().split('\n');
 
-		// make sure phone number is exactly 10 digits
-		
-		if ( strlen( $value ) < 10 ) {
-			$valid = FALSE;
-			$this->errors[] = "Too short! Please provide a valid phone number for $fieldname";			
-		} else {		
-			$phone = cleanPhone( $value );
-			
-			if ( strlen( $phone ) != 10 ) {
-				$valid = FALSE;
-				$this->errors[] = "Please provide a valid phone number for $fieldname";
-			} else {
-				$valid = TRUE;
-			}			
-		}
+        // make sure phone number is exactly 10 digits
+        
+        if ( strlen( $value ) < 10 ) {
+            $valid = FALSE;
+            $this->errors[] = "Too short! Please provide a valid phone number for $fieldname";          
+        } else {        
+            $phone = cleanPhone( $value );
+            
+            if ( strlen( $phone ) != 10 ) {
+                $valid = FALSE;
+                $this->errors[] = "Please provide a valid phone number for $fieldname";
+            } else {
+                $valid = TRUE;
+            }           
+        }
 
-		return $valid;	
-	}
+        return $valid;  
+    }
 
-	// checks for a valid email
+    // checks for a valid email
 
-	public function email( $value, $fieldname ) {
-		$valid = filter_var($value, FILTER_VALIDATE_EMAIL);
+    public function email( $value, $fieldname ) {
+        $valid = filter_var($value, FILTER_VALIDATE_EMAIL);
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a valid email address for $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "Please provide a valid email address for $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks for a valid url
+    // checks for a valid url
 
-	public function url( $value, $fieldname ) {
-		$valid = filter_var($value, FILTER_VALIDATE_URL);
+    public function url( $value, $fieldname ) {
+        $valid = filter_var($value, FILTER_VALIDATE_URL);
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "Please provide a valid url for $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "Please provide a valid url for $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks a string to see if it contains any urls
+    // checks a string to see if it contains any urls
 
-	public function nourl( $value, $fieldname ) {
-		$pattern = '/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/i'; // url
+    public function nourl( $value, $fieldname ) {
+        $pattern = '/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/i'; // url
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = FALSE;
-			$this->errors[] = "Invalid $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = FALSE;
+            $this->errors[] = "Invalid $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks a string to see if it contains any html tags
+    // checks a string to see if it contains any html tags
 
-	public function notags( $value, $fieldname ) {
-		$pattern = '/[<>]/'; // tags
+    public function notags( $value, $fieldname ) {
+        $pattern = '/[<>]/'; // tags
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = FALSE;
-			$this->errors[] = "$fieldname cannot contain html";
-		} else {
-			$valid = TRUE;
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = FALSE;
+            $this->errors[] = "$fieldname cannot contain html";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks to see that any required fields are not null
+    // checks to see that any required fields are not null
 
-	public function required( $value, $fieldname ) {
-		$valid = !empty( $value );
+    public function required( $value, $fieldname ) {
+        $valid = !empty( $value );
 
-		if ( $valid == FALSE ) {
-			$this->errors[] = "The $fieldname is required";
-		} else {
-			$valid = TRUE;
-		}
+        if ( $valid == FALSE ) {
+            $this->errors[] = "The $fieldname is required";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// checks for header attack attempts
+    // checks for header attack attempts
 
-	public function attacks( $value, $fieldname ) {
-		$pattern = '/Content-Type:|Bcc:|Cc:/i';
+    public function attacks( $value, $fieldname ) {
+        $pattern = '/Content-Type:|Bcc:|Cc:/i';
 
-		if ( preg_match( $pattern, $value ) ) {
-			$valid = FALSE;
-			$this->errors[] = "Invalid $fieldname";
-		} else {
-			$valid = TRUE;
-		}
+        if ( preg_match( $pattern, $value ) ) {
+            $valid = FALSE;
+            $this->errors[] = "Invalid $fieldname";
+        } else {
+            $valid = TRUE;
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 
-	// honeypot
-	
-	public function honeypot( $value, $fieldname ) {
+    // honeypot
+    
+    public function honeypot( $value, $fieldname ) {
 
-		if ( ( !$value ) ) {
-			$valid = TRUE;
-		} else {
-			$valid = FALSE;
-			$this->errors[] = "There was an error processing your message";
-		}
+        if ( ( !$value ) ) {
+            $valid = TRUE;
+        } else {
+            $valid = FALSE;
+            $this->errors[] = "There was an error processing your message";
+        }
 
-		return $valid;
-	}
+        return $valid;
+    }
 }

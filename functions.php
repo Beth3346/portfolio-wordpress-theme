@@ -1,4 +1,11 @@
 <?php
+$options = get_option( 'elr_theme_display_options' );
+
+if( isset( $options['post_revisions'] ) ) {
+    $post_revisions = $options['post_revisions'];
+} else {
+    $post_revisions = NULL;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Define Constants
@@ -14,6 +21,14 @@ define( 'FRAMEWORK', get_template_directory() . '/framework' );
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 require_once( FRAMEWORK . '/init.php' );
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// No post revisions
+///////////////////////////////////////////////////////////////////////////////////////////
+
+if ( $post_revisions == true ) {
+    $wpdb->query( "DELETE FROM $wpdb->posts WHERE post_type = 'revision'" );
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Set Up Content Width Value
@@ -57,35 +72,16 @@ if ( ! function_exists( 'elr_security_functions' ) ) {
 
 if ( ! function_exists( 'elr_custom_posts' ) ) {
     function elr_custom_posts() {
-        require_once( FRAMEWORK . '/custom-posts/_elr-right-now-custom-posts.php' );
-        require_once( FRAMEWORK . '/custom-posts/_elr-social-media.php' );
+        // TODO: fix this function
+        require_once( FRAMEWORK . '/custom-posts/_elr-custom-post-type-archive-folders.php' );
     }
 
     add_action( 'after_setup_theme', 'elr_custom_posts' );
 }
 
-if ( ! function_exists( 'elr_custom_functions' ) ) {
-    function elr_custom_functions() {
-        require_once( FRAMEWORK . '/post-enhancements/_elr-show-related-posts.php' );
-    }
-
-    add_action( 'after_setup_theme', 'elr_custom_functions' );
-}
-
-$options = get_option( 'elr_theme_display_options' );
-$status = $options['ajax_posts'];
-
-if ( !(function_exists( 'elr_ajax_posts_functions' )) && ($status == true) ) {
-    function elr_ajax_posts_functions() {
-        require_once( FRAMEWORK . '/post-enhancements/_elr-read-more-post-instant.php' );
-    }
-
-    add_action( 'after_setup_theme', 'elr_ajax_posts_functions' );
-}
-
 if ( ! function_exists( 'elr_vendor_functions' ) ) {
     function elr_vendor_functions() {
-        require_once( FRAMEWORK . '/vendor/_tgm-plugin-activation.php' );
+        require_once( FRAMEWORK . '/vendor/tgm-plugin-activation.php' );
     }
 
     add_action( 'after_setup_theme', 'elr_vendor_functions' );

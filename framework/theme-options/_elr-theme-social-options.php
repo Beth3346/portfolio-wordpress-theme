@@ -10,6 +10,7 @@
 function elr_theme_default_social_options() {
         
     $defaults = array(
+        'phone' => '',
         'google_plus_url' => '',
         'google_verification' => '',
         'pinterest_validation' => ''

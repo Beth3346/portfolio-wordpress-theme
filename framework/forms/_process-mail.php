@@ -20,10 +20,10 @@ function remove_nonnumeric( $value ) {
 
 // validate the user's email
 if ( !empty( $email ) ) {
-	$validemail = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+	$valid_email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-	if ( $validemail ) {
-		$headers .= "\r\nReply-To: $validemail";
+	if ( $valid_email ) {
+		$headers .= "\r\nReply-To: $valid_email";
 	} else {
 		$errors['email'] = true;
 	}
@@ -34,9 +34,12 @@ if ( !empty( $email ) ) {
 if ( !empty( $phone ) ) {
 
 	function format_phone( $value ) {
+		$extension = NULL;
+		$complete_phone = NULL;
 
 		// takes a ten diget string and formats in into (000) 000-0000
 		function create_phone( $phone ) {
+			$formatted_phone = NULL;
 
 			// break apart phone string
 			$phone = preg_split('//', $phone);

@@ -10,7 +10,6 @@ add_theme_support( 'post-formats',
         'link',
         'image',
         'quote',
-        'video',
         'audio'
     )
 );

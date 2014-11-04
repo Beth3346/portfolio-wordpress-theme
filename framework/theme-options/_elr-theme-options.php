@@ -24,12 +24,12 @@ if ( ! function_exists( 'elr_theme_menu' ) ) {
             );
             
             add_submenu_page(
-                'elr_theme_menu',                                // The ID of the top-level menu page to which this submenu item belongs
-                __( 'Display Options', 'elr' ),                        // The value used to populate the browser's title bar when the menu page is active
-                __( 'Display Options', 'elr' ),                                        // The label of this submenu item displayed in the menu
-                'administrator',                                        // What roles are able to access this submenu item
-                'elr_theme_display_options',        // The ID used to represent this submenu item
-                'elr_theme_display'                                // The callback function used to render the options for this submenu item
+                'elr_theme_menu',
+                __( 'Display Options', 'elr' ),
+                __( 'Display Options', 'elr' ),
+                'administrator',
+                'elr_theme_display_options',
+                'elr_theme_display'
             );
             
             add_submenu_page(
@@ -53,45 +53,41 @@ add_action( 'admin_menu', 'elr_theme_menu' );
 if ( ! function_exists( 'elr_theme_display' ) ) {
     function elr_theme_display( $active_tab = '' ) {
     ?>
-            <!-- Create a header in the default WordPress 'wrap' container -->
-            <div class="wrap">
+        <!-- Create a header in the default WordPress 'wrap' container -->
+        <div class="wrap">
+        
+            <div id="icon-themes" class="icon32"></div>
+            <h2><?php _e( 'ELR Theme Options', 'elr' ); ?></h2>
+            <?php settings_errors(); ?>
             
-                    <div id="icon-themes" class="icon32"></div>
-                    <h2><?php _e( 'ELR Theme Options', 'elr' ); ?></h2>
-                    <?php settings_errors(); ?>
-                    
-                    <?php if( isset( $_GET[ 'tab' ] ) ) {
-                        $active_tab = $_GET[ 'tab' ];
-                    } else if( $active_tab == 'social_options' ) {
-                        $active_tab = 'social_options';
-                    } else {
-                        $active_tab = 'display_options';
-                    } // end if/else ?>
-                    
-                    <h2 class="nav-tab-wrapper">
-                        <a href="?page=elr_theme_options&tab=display_options" class="nav-tab <?php echo $active_tab == 'display_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Display Options', 'elr' ); ?></a>
-                        <a href="?page=elr_theme_options&tab=social_options" class="nav-tab <?php echo $active_tab == 'social_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social Options', 'elr' ); ?></a>
-                    </h2>
-                    
-                    <form method="post" action="options.php">
-                    <?php                    
-                        if ( $active_tab == 'display_options' ) {
-
-                            settings_fields( 'elr_theme_display_options' );
-                            do_settings_sections( 'elr_theme_display_options' );
-
-                        } else {
-
-                            settings_fields( 'elr_theme_social_options' );
-                            do_settings_sections( 'elr_theme_social_options' );
-
-                        }
-                        
-                        submit_button();                    
-                    ?>
-                    </form>
-                    
-            </div><!-- /.wrap -->
+            <?php if( isset( $_GET[ 'tab' ] ) ) {
+                $active_tab = $_GET[ 'tab' ];
+            } else if( $active_tab == 'social_options' ) {
+                $active_tab = 'social_options';
+            } else {
+                $active_tab = 'display_options';
+            } // end if/else ?>
+            
+            <h2 class="nav-tab-wrapper">
+                <a href="?page=elr_theme_options&tab=display_options" class="nav-tab <?php echo $active_tab == 'display_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Display Options', 'elr' ); ?></a>
+                <a href="?page=elr_theme_options&tab=social_options" class="nav-tab <?php echo $active_tab == 'social_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social Options', 'elr' ); ?></a>
+            </h2>
+            
+            <form method="post" action="options.php">
+            <?php                    
+                if ( $active_tab == 'display_options' ) {
+                    settings_fields( 'elr_theme_display_options' );
+                    do_settings_sections( 'elr_theme_display_options' );
+                } else {
+                    settings_fields( 'elr_theme_social_options' );
+                    do_settings_sections( 'elr_theme_social_options' );
+                } // end if/else
+                
+                submit_button();                    
+            ?>
+            </form>
+                
+        </div><!-- /.wrap -->
     <?php
     } // end elr_theme_display
 }
