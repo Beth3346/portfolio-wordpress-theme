@@ -31,7 +31,7 @@
         wp_register_script( 'respond', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js', array(), null, true );
         wp_register_script( 'main', SCRIPTS . '/elr-theme-boilerplate.1.0.0.js', array( 'jquery' ), null, true );
         wp_register_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), null );
-        wp_register_style( 'font-awesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), null, 'screen' );
+        wp_register_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), null, 'screen' );
         wp_register_style( 'style', get_template_directory_uri() . '/style.css', array(), null, 'screen' );
         wp_register_style( 'open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans', array(), null, 'screen' );
         // register any google fonts

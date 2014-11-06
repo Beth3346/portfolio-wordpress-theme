@@ -8,11 +8,15 @@
 	text-align: right;
 	color: white;
 
+	@include drm-breakpoint(saturn) {
+		text-align: center;
+	}
+
 	a, span {
 		zoom: 1;
 		text-align: center;
 		margin: 0 0 0 10px;
-		line-height: 1.3em;
+		line-height: 1.8em;
 		color: $main-text;
 		box-sizing: border-box;	
 		@include drm-circle(30px, inline-block);
@@ -104,7 +108,7 @@
 			line-height: 1.8em;
 			text-shadow: none;
 
-			@include drm-breakpoint(tall) {
+			@include drm-breakpoint(saturn) {
 				line-height: 1.5em;
 			}
 		}
@@ -120,7 +124,7 @@
 			line-height: 1.8em;
 			text-shadow: none;
 
-			@include drm-breakpoint(tall) {
+			@include drm-breakpoint(saturn) {
 				line-height: 1.5em;
 			}
 		}

@@ -15,3 +15,10 @@
 	font-weight: bold;
 	@include drm-em-font(18);
 }
+
+.elr-recent-posts-widget {
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}

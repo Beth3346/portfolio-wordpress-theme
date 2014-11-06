@@ -1,0 +1,73 @@
+/*-----------------------------------------------------------------------------
+    Custom Post Styles
+-----------------------------------------------------------------------------*/
+
+.num-results-nav, .taxonomy-nav {
+    ul {
+        @include drm-unstyled-list(left, no);
+
+        li {
+            display: inline-block;
+        }
+
+        a {
+            display: block;        
+            background-color: $main-text;
+            color: white;
+            border-radius: 5px;
+            margin-right: 5px;
+            text-decoration: none;
+            padding: 5px 10px;
+
+            &:hover {
+                text-decoration: none;
+                background-color: $aqua;
+            }
+
+            &.active {
+                background-color: $aqua;
+            }
+        }
+    }
+}
+
+.cpt-grid-content {
+    padding-top: 40px;
+    width: 100%;
+    @include drm-clearfix();
+
+    .post-count {
+        clear: both;
+    }
+}
+
+.cpt-grid-box {
+    @include drm-feature-box(4);
+
+    ul {
+        @include drm-unstyled-list(center, no);
+    }
+
+    .cpt-grid-image-holder {
+        text-align: center;
+
+        img {
+            box-sizing: border-box;
+            border: 1px solid $light-grey;            
+        }
+    }
+}
+
+.person-info {
+    @include drm-unstyled-list(center, no);
+}
+
+.post-info {
+    @include drm-unstyled-list(left, no);
+}
+
+.event {
+    .post-info li {
+        text-align: center;
+    }
+}

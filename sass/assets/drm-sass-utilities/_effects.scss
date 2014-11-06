@@ -1,22 +1,22 @@
 /*-----------------------------------------------------------------------------
-	Effects
+    Effects
 -----------------------------------------------------------------------------*/
 
 // Applies a solid 2px drop shadow to an element
 
 @mixin drm-solid-drop-shadow($color) {
-	box-shadow: $color 0 3px 0;
+    box-shadow: $color 0 3px 0;
 }
 
 // Creates a slightly transparent background with a hex color backup
 
 @mixin drm-background-transparent($color, $opacity: 0.7) {
-	@if $opacity == 1 {
-		background-color: $color;
-	} @else {
-		background-color: $color;
-		background-color: rgba($color, $opacity);
-	}
+    @if $opacity == 1 {
+        background-color: $color;
+    } @else {
+        background-color: $color;
+        background-color: rgba($color, $opacity);
+    }
 
 }
 
@@ -24,92 +24,92 @@
 // Accepts a hex color value and pixel value for border-width
 
 @mixin drm-border-transparent($color, $thickness: 5px, $opacity: 0.7) {
-	border-color: $color;
-	border-color: rgba($color, $opacity); 
-	border-width: $thickness;
-	border-style: solid;	
+    border-color: $color;
+    border-color: rgba($color, $opacity); 
+    border-width: $thickness;
+    border-style: solid;    
 }
 
 // Creates an element with a stitched effect
 // Takes an optional border and opacity argument
 
 @mixin drm-stitched-box($color, $stitch-color: white, $border-radius: 0, $border-color: none, $opacity: 1) {
-	border: 1px $stitch-color dashed;
+    border: 1px $stitch-color dashed;
 
-	@if $opacity == 1 {
-		background: $color;
-	} @else {
-		@include drm-background-transparent($color, $opacity);		
-	}
+    @if $opacity == 1 {
+        background: $color;
+    } @else {
+        @include drm-background-transparent($color, $opacity);      
+    }
 
-	border-radius: $border-radius;
+    border-radius: $border-radius;
 
-	@if $border-color == none {
-		box-shadow: rgba($color, $opacity) 0 0 0 5px;
-	} @else {
-		box-shadow: 0 0 0 5px rgba($color, $opacity), 0 0 0 6px $border-color;
-	}
+    @if $border-color == none {
+        box-shadow: rgba($color, $opacity) 0 0 0 5px;
+    } @else {
+        box-shadow: 0 0 0 5px rgba($color, $opacity), 0 0 0 6px $border-color;
+    }
 }
 
 // Creates a stitched top and bottom border
 
 @mixin drm-stitched-row($color, $stitch-color: white, $border-color: none, $opacity: 1, $shadow: 'transparent') {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-top: 1px $stitch-color dashed;
-	border-bottom: 1px $stitch-color dashed;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px $stitch-color dashed;
+    border-bottom: 1px $stitch-color dashed;
 
-	@if $opacity == 1 {
-		background: $color;
-	
-		@if $shadow == 'transparent' {
-			@if $border-color == none {
-				box-shadow: 0 0 0 3px $color;
-			} @else {
-				box-shadow: 0 0 0 3px $color, 0 0 0 4px $border-color;
-			}			
-		} @else {
-			@if $border-color == none {
-				box-shadow: 0 0 0 3px $color, 0 1px 1px 4px $shadow;
-			} @else {
-				box-shadow: 0 0 0 3px $color, 0 0 0 4px $border-color, 0 1px 1px 5px $shadow;
-			}
-		}
+    @if $opacity == 1 {
+        background: $color;
+    
+        @if $shadow == 'transparent' {
+            @if $border-color == none {
+                box-shadow: 0 0 0 3px $color;
+            } @else {
+                box-shadow: 0 0 0 3px $color, 0 0 0 4px $border-color;
+            }           
+        } @else {
+            @if $border-color == none {
+                box-shadow: 0 0 0 3px $color, 0 1px 1px 4px $shadow;
+            } @else {
+                box-shadow: 0 0 0 3px $color, 0 0 0 4px $border-color, 0 1px 1px 5px $shadow;
+            }
+        }
 
-	} @elseif $opacity < 0.6 {
-		@include drm-background-transparent($color, $opacity);
-	
-		@if $shadow == 'transparent' {
-			@if $border-color == none {
-				box-shadow: 0 0 0 3px rgba($color, $opacity);
-			} @else {
-				box-shadow: 0 0 0 3px rgba($color, $opacity + 0.2), 0 0 0 4px $border-color;
-			}			
-		} @else {
-			@if $border-color == none {
-				box-shadow: 0 0 0 3px rgba($color, $opacity + 0.2), 0 1px 1px 4px $shadow;
-			} @else {
-				box-shadow: 0 0 0 3px rgba($color, $opacity + 0.2), 0 0 0 4px $border-color, 0 1px 1px 5px $shadow;
-			}
-		}
+    } @elseif $opacity < 0.6 {
+        @include drm-background-transparent($color, $opacity);
+    
+        @if $shadow == 'transparent' {
+            @if $border-color == none {
+                box-shadow: 0 0 0 3px rgba($color, $opacity);
+            } @else {
+                box-shadow: 0 0 0 3px rgba($color, $opacity + 0.2), 0 0 0 4px $border-color;
+            }           
+        } @else {
+            @if $border-color == none {
+                box-shadow: 0 0 0 3px rgba($color, $opacity + 0.2), 0 1px 1px 4px $shadow;
+            } @else {
+                box-shadow: 0 0 0 3px rgba($color, $opacity + 0.2), 0 0 0 4px $border-color, 0 1px 1px 5px $shadow;
+            }
+        }
 
-	} @else {
-		@include drm-background-transparent($color, $opacity);
-	
-		@if $shadow == 'transparent' {
-			@if $border-color == none {
-				box-shadow: 0 0 0 3px rgba($color, $opacity);
-			} @else {
-				box-shadow: 0 0 0 3px rgba($color, $opacity), 0 0 0 4px $border-color;
-			}			
-		} @else {
-			@if $border-color == none {
-				box-shadow: 0 0 0 3px rgba($color, $opacity), 0 1px 1px 4px $shadow;
-			} @else {
-				box-shadow: 0 0 0 3px rgba($color, $opacity), 0 0 0 4px $border-color, 0 1px 1px 5px $shadow;
-			}
-		}		
-	}
+    } @else {
+        @include drm-background-transparent($color, $opacity);
+    
+        @if $shadow == 'transparent' {
+            @if $border-color == none {
+                box-shadow: 0 0 0 3px rgba($color, $opacity);
+            } @else {
+                box-shadow: 0 0 0 3px rgba($color, $opacity), 0 0 0 4px $border-color;
+            }           
+        } @else {
+            @if $border-color == none {
+                box-shadow: 0 0 0 3px rgba($color, $opacity), 0 1px 1px 4px $shadow;
+            } @else {
+                box-shadow: 0 0 0 3px rgba($color, $opacity), 0 0 0 4px $border-color, 0 1px 1px 5px $shadow;
+            }
+        }       
+    }
 }
 
 // Styles a <div> or <figure> with a transparent border that sits on top of the <img> element
@@ -117,72 +117,72 @@
 // Make sure the containing element has a z-index of 100 and position: relative
 
 @mixin drm-figure-transparent-border($color, $hover-color, $thickness: 5px) {
-	margin: auto;
-	box-sizing: border-box;
-	@include drm-border-transparent($color, $thickness);
-	@include single-transition(border, .3s, ease-out);
+    margin: auto;
+    box-sizing: border-box;
+    transition: border .3s ease-out;
+    @include drm-border-transparent($color, $thickness);
 
-	img {
-		z-index: -10;
-		position: relative;
-		top: -$thickness;
-		left: -$thickness;
-		background-color: $color;
-		display: block;
-		box-sizing: border-box;
-	}
+    img {
+        z-index: -10;
+        position: relative;
+        top: -$thickness;
+        left: -$thickness;
+        background-color: $color;
+        display: block;
+        box-sizing: border-box;
+    }
 
-	&:hover {
-		@include drm-border-transparent($hover-color, $thickness);
-		@include single-transition(border, .3s, ease-in);
-	}
+    &:hover {
+        transition: border .3s ease-in;
+        @include drm-border-transparent($hover-color, $thickness);
+    }
 }
 
 // creates a shadow with two thick borders and one thin border
 
 @mixin drm-triple-shadow($color1, $color2) {
-	box-shadow: 0 0 0 3px $color1, 0 0 0 10px $color2, 0 0 0 11px $color1;
+    box-shadow: 0 0 0 3px $color1, 0 0 0 10px $color2, 0 0 0 11px $color1;
 }
 
 // gives a slight shadow effect on text
 
 @mixin drm-inset-text($shadow-color: $shadow-color) {
-	text-shadow: 1px 1px 0 $shadow-color;
+    text-shadow: 1px 1px 0 $shadow-color;
 }
 
 // creates a bottom border with a slight shadow effect
 
 @mixin drm-inset-border($color, $shadow-color: $shadow-color) {
-	border-bottom: 1px solid $color;
-	box-shadow: $shadow-color 0 1px 0;
+    border-bottom: 1px solid $color;
+    box-shadow: $shadow-color 0 1px 0;
 }
 
 // creates a slight box shadow
 
 @mixin drm-inset-box($shadow-color: $shadow-color) {
-	box-shadow: $shadow-color 1px 1px 0;	
+    box-shadow: $shadow-color 1px 1px 0;    
 }
 
 // creates a thick bottom drop shadow
 
 @mixin drm-boxy-drop-shadow($shadow-color: $grey) {
-	box-shadow: $shadow-color 0 30px 15px -20px;
+    box-shadow: $shadow-color 0 30px 15px -20px;
 }
 
 @mixin drm-softer-thick-box-shadow($shadow-color: $dark-grey) {
-	box-shadow: $shadow-color 0 58px 18px -53px;
+    box-shadow: $shadow-color 0 58px 18px -53px;
 }
 
 @mixin drm-thumbnail($border-color: white, $width: 150px, $height: 125px, $border-radius: 0, $display: block) {
-	border: 5px solid $border-color;
-	box-shadow: $grey 0 0 0 1px;
+    border: 5px solid $border-color;
+    box-shadow: $grey 0 0 0 1px;
 
-	@if $border-radius == 'round' {
-		@include drm-circle($width);
-	} @else if $border-radius != 0 {
-		@include drm-rectangle($width, $height, $display, $border-radius);
-	} @else if $border-radius == 0 {
-		@include drm-rectangle($width, $height, $display);
-	}
+    @if $border-radius == 'round' {
+        @include drm-circle($width);
+    } @else if $border-radius != 0 {
+        @include drm-rectangle($width, $height, $display, $border-radius);
+    } @else if $border-radius == 0 {
+        @include drm-rectangle($width, $height, $display);
+    }
 
 }

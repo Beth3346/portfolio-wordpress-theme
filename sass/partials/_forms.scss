@@ -41,7 +41,7 @@ small {
 	margin: 0;
 	display: block;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		text-align: center;
 	}
 }

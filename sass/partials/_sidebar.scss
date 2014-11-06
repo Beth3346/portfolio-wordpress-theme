@@ -8,7 +8,15 @@
 	width: 35%;
 	box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(mars) {
+		padding-right: 5%;
+	}
+
+	@include drm-breakpoint(jupiter) {
+		padding-right: 1%;
+	}
+
+	@include drm-breakpoint(saturn) {
 		float: none;	
 		width: 100%;
 		padding: 1%;

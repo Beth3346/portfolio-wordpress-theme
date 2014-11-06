@@ -7,7 +7,7 @@
 	if ( $query->have_posts() ):
 	    while ( $query->have_posts() ) : $query->the_post();
 			global $post;
-			$url = str_ireplace('"', '', trim(get_post_meta($post->ID, 'elr_social_media_url', true)));
+			$url = str_ireplace('"', '', trim(get_post_meta($post->ID, '_social_media_url', true)));
 	?>
 			<li>
 				<a href="<?php echo esc_url( $url ); ?>" title="<?php echo get_the_title(); ?>" target="_blank"><?php the_post_thumbnail(); ?></a>

@@ -18,7 +18,7 @@
         text-align: left;
         @include drm-em-font(20);
 
-        @include drm-breakpoint(tall) {
+        @include drm-breakpoint(saturn) {
             text-align: center;
             @include drm-em-font(20);
         }
@@ -29,23 +29,54 @@
     word-wrap: break-word;
     margin-top: 40px;
 
-    @include drm-breakpoint(tall) {
+    @include drm-breakpoint(saturn) {
         float: none;
         width: 100%;
     }
 
     h2 {
+        margin: 0;
+        padding-top: 20px;
+        padding-bottom: 5px;
         text-align: center;
     }
 
     a {
         color: $text-color;
     }
+
+    .organization-contact-info {
+        text-align: center;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .address {
+        @include drm-unstyled-list(center, no);
+    }
+}
+
+.google-map-holder {
+    width: 90%;
+    height: 450px;
+    overflow: hidden;
+    border: 1px solid $light-grey;
+    margin: 30px 5%;
+    box-sizing: border-box;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .contact-content {
     text-align: center;
     margin-bottom: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .contact-form {
@@ -55,7 +86,7 @@
         padding-left: 10px;
     }
 
-    @include drm-breakpoint(tall) {
+    @include drm-breakpoint(saturn) {
         float: none;
         width: 100%;
     }

@@ -23,10 +23,13 @@ Template Name: Contact
             </div>
         <?php endif; ?>
 
+        <div class="contact-content"><?php elr_post_content( $post->ID ); ?></div>
+
         <div class="drm-grid-2 contact-info-holder">
-            <div class="contact-content"><?php the_content(); ?></div>
             <h2 class="drm-text-center">Connect With Us</h2>
             <?php get_template_part( 'partials/social-media'); ?>
+            <h2>Contact Me</h2>
+            <?php get_template_part( 'partials/contact-information'); ?>
         </div>
 
         <div class="drm-grid-2 contact-form">

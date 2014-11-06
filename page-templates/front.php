@@ -5,6 +5,7 @@ Template Name: Static-Home
 ?>
 <?php get_header(); ?>
 <main class="main-content">
+	<?php get_template_part( 'partials/announcements'); ?>
 	<div class="content-holder">
 		<?php while ( have_posts() ) : the_post(); ?>
 						

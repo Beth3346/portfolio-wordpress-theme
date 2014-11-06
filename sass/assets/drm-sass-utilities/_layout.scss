@@ -21,27 +21,27 @@
 
 %drm-container {
 	padding: 0;
-	width: 95%;
-	margin-left: 2.5%;
-	margin-right: 2.5%;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
 	box-sizing: border-box;
 	@include drm-clearfix();
 
-	@include drm-breakpoint(trenta) {
-		width: 80%;
-		margin-left: 10%;
-		margin-right: 10%;
+	@include drm-breakpoint(mercury) {
+		width: 70%;
+		margin-left: 15%;
+		margin-right: 15%;
 		box-sizing: border-box;
 	}
 
-	@include drm-breakpoint(venti) {
-		width: 95%;
-		margin-left: 2.5%;
-		margin-right: 2.5%;
+	@include drm-breakpoint(venus) {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
 		box-sizing: border-box;
 	}
 
-	@include drm-breakpoint(grande) {
+	@include drm-breakpoint(mars) {
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0;
@@ -57,19 +57,19 @@
 	box-sizing: border-box;
 	@include drm-clearfix();
 
-	@include drm-breakpoint(trenta) {
-		padding-left: 10%;
-		padding-right: 10%;
+	@include drm-breakpoint(mercury) {
+		padding-left: 15%;
+		padding-right: 15%;
 		box-sizing: border-box;
 	}
 
-	@include drm-breakpoint(venti) {
+	@include drm-breakpoint(venus) {
 		padding-left: 2.5%;
 		padding-right: 2.5%;
 		box-sizing: border-box;
 	}
 
-	@include drm-breakpoint(grande) {
+	@include drm-breakpoint(mars) {
 		padding-left: 0;
 		padding-right: 0;
 		box-sizing: border-box;
@@ -128,7 +128,7 @@
 	float: left;
 	box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		padding: 10px;
 		width: 100%;
 		float: none;
@@ -146,7 +146,7 @@
 	float: left;
 	box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		padding: 10px;
 		margin: 0;
 		width: 100%;
@@ -163,7 +163,7 @@
 	@include drm-circle( ( $container-width - 120 ) / $total );
 	box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		padding: 10px;
 		margin: $margin auto $margin auto;
 		float: none;
@@ -173,8 +173,8 @@
 
 // calculates em font size from px font size
 
-@mixin drm-em-font($size) {
-	font-size: ($size / $default-font-size)#{em};
+@mixin drm-em-font($size, $base: $default-font-size) {
+	font-size: ($size / $base)#{em};
 }
 
 // calculates em font size from px font size

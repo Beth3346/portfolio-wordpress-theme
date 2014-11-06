@@ -65,12 +65,13 @@ if ( ! function_exists( 'elr_number_of_cpts' ) ) {
         $cpts = array( 'faq', 'product', 'person', 'location', 'video', 'project', 'service' );
         $num = 20;
 
-        if ( is_post_type_archive( $cpts, $num ) ) {
+        if ( $query->is_main_query() ) {
+            if ( is_post_type_archive( $cpts, $num ) ) {
+                $query->set( 'posts_per_page', $num );
+            }
 
-            $query->set( 'posts_per_page', $num );
+            return $query;
         }
-
-        return $query;
     }
      
     add_filter( 'pre_get_posts', 'elr_number_of_cpts' );
@@ -590,10 +591,14 @@ function elr_start_end( $start_date, $start_time, $end_date, $end_time ) {
  * @return void
  */
 
-function elr_map( $map ) {
+function elr_map( $map, $width = 500, $height = 450 ) {
     echo '<iframe src="';
     echo esc_url( $map );
-    echo '"width="1000" height="450" frameborder="0" style="border:0; pointer-events:none;"></iframe>';
+    echo '"width="';
+    echo $width;
+    echo '" height="';
+    echo $height;
+    echo '" frameborder="0" style="border:0; pointer-events:none;"></iframe>';
 }
 
 /**
@@ -819,7 +824,7 @@ function elr_address( $address ) {
             if ( $address['state'] ) {
                 echo '<span itemprop="addressRegion">';
                 echo esc_html( $address['state'] );
-                echo ' </span>';
+                echo ', </span>';
             }
 
             if ( $address['zip_code'] ) {

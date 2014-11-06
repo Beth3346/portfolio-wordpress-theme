@@ -1,0 +1,48 @@
+/*-----------------------------------------------------------------------------
+    Front Announcements
+-----------------------------------------------------------------------------*/
+
+.front-announcements {
+
+    h1 {
+        margin: 0;
+        padding: 5px 0 5px 0;
+        @include drm-em-font(16);
+    }
+
+    p {
+        margin: 0;
+        padding: 5px 0 5px 0;
+        @include drm-em-font(14);
+    }
+
+    a {
+        margin: 0;
+        padding: 0;
+        @include drm-em-font(14);
+    }
+}
+
+.information-alert {
+    @include drm-context-box(info, 3px);
+}
+
+.danger-alert {
+    @include drm-context-box(danger, 3px);
+}
+
+.warning-alert {
+    @include drm-context-box(warning, 3px);
+}
+
+.success-alert {
+    @include drm-context-box(success, 3px);
+}
+
+.muted-alert {
+    @include drm-context-box(muted, 3px);
+}
+
+.news-alert {
+    @include drm-context-box(custom, 3px, darken($drm-blue, 10%));
+}

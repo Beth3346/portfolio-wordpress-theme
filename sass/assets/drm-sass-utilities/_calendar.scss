@@ -276,19 +276,19 @@
     left: 20%;
     position: absolute;
 
-    @include drm-breakpoint(trenta) {
+    @include drm-breakpoint(mercury) {
         width: 40%;
         left: 30%;
         top: 100px;
     }
 
-    @include drm-breakpoint(venti) {
+    @include drm-breakpoint(venus) {
         width: 60%;
         left: 20%;
         top: 20px;
     }
 
-    @include drm-breakpoint(tall) {
+    @include drm-breakpoint(neptune) {
         width: 80%;
         left: 10%;
         top: 20px;

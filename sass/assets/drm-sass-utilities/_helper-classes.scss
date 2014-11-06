@@ -1,311 +1,306 @@
 /*-----------------------------------------------------------------------------
-	Helper Classes
+    Helper Classes
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
-	General
+    General
 -----------------------------------------------------------------------------*/
 
 body {
-	line-height: $default-line-height;
-	font-size: $default-font-size#{px};
-	font-family: $font-family;
-	color: $dark-grey;
-	background-color: white;
-
-	@include drm-breakpoint(tall) {		
-		font-size: ($default-font-size + 2)#{px};
-		line-height: $default-line-height + .5;
-	}
+    line-height: $default-line-height;
+    font-size: $default-font-size#{px};
+    font-family: $font-family;
+    color: $dark-grey;
+    background-color: white;
 }
 
 .drm-wrapper {
-	@extend %drm-container;
-	margin-top: 20px;
-}	
+    @extend %drm-container;
+    margin-top: 20px;
+}   
 
 /*-----------------------------------------------------------------------------
-	Visibility
------------------------------------------------------------------------------*/	
+    Visibility
+-----------------------------------------------------------------------------*/ 
 
 .drm-hide {
-	display: none;
+    display: none;
 }
 
 /*-----------------------------------------------------------------------------
-	Clear and Alignment
+    Clear and Alignment
 -----------------------------------------------------------------------------*/
 
 .drm-pull-left {
-	float: left;
+    float: left;
 }
 
 .drm-pull-right {
-	float: right;
+    float: right;
 }
 
 .drm-clear {
-	@include drm-clearfix();
+    @include drm-clearfix();
 }
 
 /*-----------------------------------------------------------------------------
-	Typography
+    Typography
 -----------------------------------------------------------------------------*/
 
 .drm-bold {
-	font-weight: bold;
-}	
+    font-weight: bold;
+}   
 
 .drm-italic {
-	font-style: italic;
-}	
+    font-style: italic;
+}   
 
 .drm-underline {
-	text-decoration: underline;
-}	
+    text-decoration: underline;
+}   
 
 .drm-uppercase {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .drm-capitalize {
-	text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .drm-smaller-text {
-	@include drm-em-font(10);
+    @include drm-em-font(10);
 }
 
 .drm-text-left {
-	text-align: left;
+    text-align: left;
 }
 
 .drm-text-right {
-	text-align: right;
+    text-align: right;
 }
 
 .drm-text-center {
-	text-align: center;
+    text-align: center;
 }
 
 .drm-text-justified {
-	text-align: justify;
+    text-align: justify;
 }
 
 .drm-text-muted {
-	color: $muted-color;
+    color: $muted-color;
 }
 
 .drm-text-disabled {
-	color: $light-grey;
+    color: $light-grey;
 }
 
 .drm-text-danger {
-	color: $danger-color;	
+    color: $danger-color;   
 }
 
 .drm-text-error {
-	color: $danger-color;
-	font-weight: bold;
+    color: $danger-color;
+    font-weight: bold;
 }
 
 .drm-text-info {
-	color: $info-color;
+    color: $info-color;
 }
 
 .drm-text-warning {
-	color: $warning-color;
+    color: $warning-color;
 }
 
 .drm-text-success {
-	color: $success-color;
+    color: $success-color;
 }
 
 mark {
-	background-color: $link-color;
-	color: white;
-	padding-left: 3px;
-	padding-right: 3px;
+    background-color: $link-color;
+    color: white;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .drm-highlight {
-	color: $link-color;
+    color: $link-color;
 }
 
 p {
-	margin: 0;
-	padding: 10px 0 10px 0;
+    margin: 0;
+    padding: 10px 0 10px 0;
 }
 
 small {
-	@include drm-em-font(10);
+    @include drm-em-font(10);
 }
 
 blockquote {
-	margin: 0;
-	padding: 10px;
-	font-style: italic;
+    margin: 0;
+    padding: 10px;
+    font-style: italic;
 }
 
 cite {
-	font-style: normal;
+    font-style: normal;
 }
 
 pre {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background-color: $lightest-grey;
-	border: 1px solid $light-grey;
-	padding: 10px;
-	box-sizing: border-box;
-	border-radius: 3px;
-	white-space: pre-wrap;
-	word-wrap: break-word;
-	max-width: 800px;
-	@include drm-em-font(14);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: $lightest-grey;
+    border: 1px solid $light-grey;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 800px;
+    @include drm-em-font(14);
 
-	@include drm-breakpoint(tall) {
-		width: 100%;
-	}
+    @include drm-breakpoint(neptune) {
+        width: 100%;
+    }
 }
 
 /*-----------------------------------------------------------------------------
-	Headings
+    Headings
 -----------------------------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	font-weight: normal;
+    margin: 0;
+    font-weight: normal;
 }
 
 h1 {
-	padding: 5px 0 5px 0;
-	text-transform: capitalize;
-	@include drm-em-font(26);
+    padding: 5px 0 5px 0;
+    text-transform: capitalize;
+    @include drm-em-font(26);
 }
 
 h2 {
-	padding: 5px 0 5px 0;
-	text-transform: capitalize;
-	@include drm-em-font(24);
+    padding: 5px 0 5px 0;
+    text-transform: capitalize;
+    @include drm-em-font(24);
 }
 
 h3 {
-	padding: 5px 0 5px 0;
-	text-transform: capitalize;
-	@include drm-em-font(18);
+    padding: 5px 0 5px 0;
+    text-transform: capitalize;
+    @include drm-em-font(18);
 }
 
 h4 {
-	padding: 5px 0 5px 0;
-	@include drm-em-font(16);	
+    padding: 5px 0 5px 0;
+    @include drm-em-font(16);   
 }
 
 h5 {
-	padding: 5px 0 5px 0;
-	@include drm-em-font(14);
+    padding: 5px 0 5px 0;
+    @include drm-em-font(14);
 }
 
 h6 {
-	padding: 5px 0 5px 0;
-	@include drm-em-font(12);
+    padding: 5px 0 5px 0;
+    @include drm-em-font(12);
 }
 
 /*-----------------------------------------------------------------------------
-	Lists
+    Lists
 -----------------------------------------------------------------------------*/
 
 ul {
-	margin: 0;
-	padding: 10px 10px 10px 20px;
-	list-style: disc;	
+    margin: 0;
+    padding: 10px 10px 10px 20px;
+    list-style: disc;   
 }
 
 ol {
-	margin: 0;
-	padding: 10px 10px 10px 20px;
-	list-style: decimal;
+    margin: 0;
+    padding: 10px 10px 10px 20px;
+    list-style: decimal;
 }
 
 li, dd, dt {
-	margin: 0;
-	padding: 5px 0 5px 0;
+    margin: 0;
+    padding: 5px 0 5px 0;
 }
 
 dl {
-	@extend %drm-reset-box;
+    @extend %drm-reset-box;
 }
 
 dt {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .drm-unstyled-list {
-	@include drm-unstyled-list(left, no);
+    @include drm-unstyled-list(left, no);
 }
 
 .drm-inline-list {
-	@include drm-inline-list();
+    @include drm-inline-list();
 }
 
 .drm-triangle-list {
-	@include drm-triangle-list();
+    @include drm-triangle-list();
 }
 
 .drm-checked-list {
-	@include drm-checked-list();
+    @include drm-checked-list();
 }
 
 /*-----------------------------------------------------------------------------
-	Links
+    Links
 -----------------------------------------------------------------------------*/
 
 a {
-	text-decoration: underline;
-	color: $link-color;
+    text-decoration: underline;
+    color: $link-color;
 
-	&:hover, &:focus {
-		text-decoration: none;
-	}
+    &:hover, &:focus {
+        text-decoration: none;
+    }
 
-	&:visited {
-		color: darken($link-color,  20%);
-	}
+    &:visited {
+        color: darken($link-color,  20%);
+    }
 }
 
 /*-----------------------------------------------------------------------------
-	Alerts
+    Alerts
 -----------------------------------------------------------------------------*/
 
 .drm-info-alert {
-	@include drm-context-box(info, 3px);
+    @include drm-context-box(info, 3px);
 }
 
 .drm-danger-alert {
-	@include drm-context-box(danger, 3px);
+    @include drm-context-box(danger, 3px);
 }
 
 .drm-warning-alert {
-	@include drm-context-box(warning, 3px);
+    @include drm-context-box(warning, 3px);
 }
 
 .drm-success-alert {
-	@include drm-context-box(success, 3px);
+    @include drm-context-box(success, 3px);
 }
 
 .drm-muted-alert {
-	@include drm-context-box(muted, 3px);
+    @include drm-context-box(muted, 3px);
 }
 
 .drm-custom-alert {
-	@include drm-context-box(custom, 3px, $drm-blue);
+    @include drm-context-box(custom, 3px, $drm-blue);
 }
 
 /*-----------------------------------------------------------------------------
-	Images
+    Images
 -----------------------------------------------------------------------------*/
 
 .drm-thumbnail {
-	margin: 10px;
-	@include drm-thumbnail();
+    margin: 10px;
+    @include drm-thumbnail();
 }

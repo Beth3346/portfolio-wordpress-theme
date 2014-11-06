@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <main class="main-content">
+    <?php get_template_part( 'partials/announcements'); ?>
 	<div class="content-holder">
         <?php // the loop ?>
         <?php if (have_posts()) : ?>

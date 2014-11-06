@@ -100,10 +100,6 @@
 	width: 100%;
 	box-sizing: border-box;
 
-	.hidden-field {
-		display: none;
-	}
-
 	small {
 		display: block;
 		color: $grey;
@@ -172,6 +168,10 @@
 		border-radius: 3px;
 		box-sizing: border-box;
 		@include drm-form-state($glow, $bk-color, $border);
+
+		&.hidden-field {
+			display: none;
+		}
 	}
 
 	input[type="checkbox"], input[type="radio"] {

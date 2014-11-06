@@ -1,733 +1,732 @@
 /*-----------------------------------------------------------------------------
-	Navigation Elements
+    Navigation Elements
 -----------------------------------------------------------------------------*/
 
 // creates a nav-bar with a transparent background
 
 @mixin drm-nav-bar($text-color: $text-color, $hover-color: $link-color, $align: left, $divider-color: $light-grey) {
-	@extend %drm-reset-box;
-	@include drm-clearfix();
+    @extend %drm-reset-box;
+    @include drm-clearfix();
 
-	li {
-		@extend %drm-reset-box;
-		list-style: none;
-		display: block;
-		float: left;
+    li {
+        @extend %drm-reset-box;
+        list-style: none;
+        display: block;
+        float: left;
 
-		> ul {
-			color: $text-color;
-			padding-left: 0;
-			padding-right: 20px;
+        > ul {
+            color: $text-color;
+            padding-left: 0;
+            padding-right: 20px;
 
-			li {
-				float: none;
+            li {
+                float: none;
 
-				&.divider {
-					@include drm-list-divider($divider-color);
-				}	
-			}
+                &.divider {
+                    @include drm-list-divider($divider-color);
+                }   
+            }
 
-			a {
-				@include drm-em-font(12);
-			}
-		}	
-	}
+            a {
+                @include drm-em-font(12);
+            }
+        }   
+    }
 
-	a {
-		padding: 5px 10px 5px 10px;
-		width: 100%;
-		text-align: $align;
-		color: $text-color;
-		text-decoration: none;
-		box-sizing: border-box;
-		transition: all, .3s;
-		@include drm-em-font(14);
+    a {
+        padding: 5px 10px 5px 10px;
+        width: 100%;
+        text-align: $align;
+        color: $text-color;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: all, .3s;
+        @include drm-em-font(14);
 
-		&.active {
-			color: $hover-color
-		}
+        &.active {
+            color: $hover-color
+        }
 
-		&.text-disabled {
-			color: $light-grey;
-			cursor: not-allowed;
-		}
+        &:hover, &:focus {
+            color: $hover-color;
+            transition: all, .3s;
+        }
+    }
 
-		&:hover, &:focus {
-			color: $hover-color;
-			transition: all, .3s;
-		}
-	}
+    .text-disabled {
+        color: $light-grey;
+        cursor: not-allowed;
+    }
 }
 
 @mixin drm-nav-bar-stacked($text-color: $text-color, $hover-color: $link-color, $align: left) {
-	@include drm-nav-bar($text-color, $hover-color, $align);
+    @include drm-nav-bar($text-color, $hover-color, $align);
 
-	li {
-		float: none;
+    li {
+        float: none;
 
-		> ul {
-			padding: 0;
+        > ul {
+            padding: 0;
 
-			a {
-				padding-left: 20px;
-			}
-		}
-	}	
+            a {
+                padding-left: 20px;
+            }
+        }
+    }   
 }
 
 // creates a nav bar with a solid color background
 // hover state will invert text color and background color
 
 @mixin drm-nav-bar-solid($text-color: white, $background-color: $link-color, $align: center, $active-color: $hover-color) {
-	@include drm-nav-bar($text-color, $background-color, $align);
+    @include drm-nav-bar($text-color, $background-color, $align);
 
-	li > ul {
-		padding: 0;
-	}
+    li > ul {
+        padding: 0;
+    }
 
-	a {
-		display: block;
-		margin: 0;
-		background-color: $background-color;
-		color: $text-color;
+    a {
+        display: block;
+        margin: 0;
+        background-color: $background-color;
+        color: $text-color;
 
-		&.active {
-			background-color: $active-color;
-			color: $text-color;
-		}
+        &.active {
+            background-color: $active-color;
+            color: $text-color;
+        }
 
-		&:visited {
-			color: $text-color;
-		}
+        &:visited {
+            color: $text-color;
+        }
 
-		&:hover, &:focus {
-			background-color: $active-color;
-			color: $text-color;
-		}	
-	}
+        &:hover, &:focus {
+            background-color: $active-color;
+            color: $text-color;
+        }   
+    }
 }
 
 @mixin drm-nav-bar-solid-stacked($text-color: white, $background-color: $link-color, $align: left, $active-color: $hover-color) {
-	background-color: $background-color;
-	@include drm-nav-bar-stacked($text-color, $background-color, $align);
+    background-color: $background-color;
+    @include drm-nav-bar-stacked($text-color, $background-color, $align);
 
-	li > ul {
-		padding: 0;
-	}
+    li > ul {
+        padding: 0;
+    }
 
-	a {
-		display: block;
-		background-color: $background-color;
-		color: $text-color;
+    a {
+        display: block;
+        background-color: $background-color;
+        color: $text-color;
 
-		&.active {
-			background-color: $active-color;
-			color: $text-color;
-		}
+        &.active {
+            background-color: $active-color;
+            color: $text-color;
+        }
 
-		&:visited {
-			color: $text-color;
-		}
+        &:visited {
+            color: $text-color;
+        }
 
-		&:hover, &:focus {
-			background-color: $active-color;
-			color: $text-color;
-		}
-	}
+        &:hover, &:focus {
+            background-color: $active-color;
+            color: $text-color;
+        }
+    }
 }
 
 // creates a nav-bar with a pill shaped button that shows on hover
 
 @mixin drm-nav-bar-pills($text-color: $link-color, $hover-color: white, $align: left, $border: none ) {
-	@include drm-nav-bar($text-color, $hover-color, $align);
+    @include drm-nav-bar($text-color, $hover-color, $align);
 
-	li {
-		margin-right: 5px;
+    li {
+        margin-right: 5px;
+        padding: 5px 0 5px 0;
 
-		&:last-child {
-			margin-right: 0;
-		}	
-	}
+        &:last-child {
+            margin-right: 0;
+        }   
+    }
 
-	a {
-		color: $text-color;
-		border-radius: 5px;
-		width: 100%;
+    a {
+        color: $text-color;
+        border-radius: 5px;
+        width: 100%;
 
-		@if $border != none {
-			border: 1px solid $border;		
-		} @else {
-			border: none;
-		}
+        @if $border != none {
+            border: 1px solid $border;      
+        } @else {
+            border: none;
+        }
 
-		&:visited {
-			color: $text-color;
-		}
+        &:visited {
+            color: $text-color;
+        }
 
-		&.active {
-			background-color: $text-color;
-			color: $hover-color;
-		}
-		
-		&:hover, &:focus {
-			background-color: $text-color;
-			color: $hover-color;
-		}
-	}
+        &.active {
+            background-color: $text-color;
+            color: $hover-color;
+        }
+        
+        &:hover, &:focus {
+            background-color: $text-color;
+            color: $hover-color;
+        }
+    }
 }
 
 @mixin drm-nav-bar-pills-stacked($text-color: $link-color, $hover-color: white, $align: left, $border: none ) {
-	@include drm-nav-bar-pills($text-color, $hover-color, $align, $border);
+    @include drm-nav-bar-pills($text-color, $hover-color, $align, $border);
 
-	li {
-		float: none;
-		margin-right: 0;
-		margin-bottom: 5px;
+    li {
+        float: none;
+        margin-right: 0;
+        margin-bottom: 5px;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+        &:last-child {
+            margin-bottom: 0;
+        }
 
-		> ul a {
-				padding-left: 20px;
-		}
-	}
+        > ul a {
+                padding-left: 20px;
+        }
+    }
 
-	a {
-		display: block;
-	}
+    a {
+        display: block;
+    }
 }
 
 // creates a nav-bar with pill shaped buttons
 
 @mixin drm-nav-bar-pills-solid($text-color: white, $background-color: $link-color, $align: left, $border: none, $active-color: $hover-color) {
-	@include drm-nav-bar-pills($text-color, $active-color, $align, $border);
+    @include drm-nav-bar-pills($text-color, $active-color, $align, $border);
 
-	li {
-		margin-left: 5px;
+    li {
+        margin-left: 5px;
 
-		&:first-child {
-			margin-left: 0;
-		}	
-	}
+        &:first-child {
+            margin-left: 0;
+        }   
+    }
 
-	ul>li {
-		margin: 5px 0 10px 0;
-	}
+    ul>li {
+        margin: 5px 0 10px 0;
+    }
 
-	a {
-		background-color: $background-color;
+    a {
+        background-color: $background-color;
 
-		&.active {
-			color: $text-color;
-			background-color: $active-color;
-		}
-		
-		&:hover, &:focus {
-			color: $text-color;
-			background-color: $active-color;
-		}
-	}
+        &.active {
+            color: $text-color;
+            background-color: $active-color;
+        }
+        
+        &:hover, &:focus {
+            color: $text-color;
+            background-color: $active-color;
+        }
+    }
 }
 
 @mixin drm-nav-bar-pills-solid-stacked($text-color: white, $background-color: $link-color, $align: left, $border: none, $active-color: $hover-color) {
-	@include drm-nav-bar-pills-stacked($text-color, $background-color, $align, $border);
+    @include drm-nav-bar-pills-stacked($text-color, $background-color, $align, $border);
 
-	li {
-		margin-top: 5px;
+    li {
+        margin-top: 5px;
 
-		&:first-child {
-			margin-top: 0;
-		}	
-	}
+        &:first-child {
+            margin-top: 0;
+        }   
+    }
 
-	a {
-		background-color: $background-color;
+    a {
+        background-color: $background-color;
 
-		&.active {
-			color: $text-color;
-			background-color: $active-color;
-		}
-		
-		&:hover, &:focus {
-			color: $text-color;
-			background-color: $active-color;
-		}
-	}
+        &.active {
+            color: $text-color;
+            background-color: $active-color;
+        }
+        
+        &:hover, &:focus {
+            color: $text-color;
+            background-color: $active-color;
+        }
+    }
 }
 
 @mixin drm-dropdown-nav($text-color: white, $background-color: $link-color, $divider-color: $light-grey) {
-	@include drm-nav-bar-solid();
+    @include drm-nav-bar-solid();
 
-	li {
-		position: relative;
+    li {
+        position: relative;
 
-		a {
-			padding-left: 20px;
-			padding-right: 20px;
-		}	
+        a {
+            padding-left: 20px;
+            padding-right: 20px;
+        }   
 
-		> ul {
-			color: $text-color;
-			position: absolute;
-			width: 120%;
-			display: none;
-			z-index: 100;
-			@include drm-nav-bar-solid-stacked($text-color, $background-color, left);
+        > ul {
+            color: $text-color;
+            position: absolute;
+            width: 120%;
+            display: none;
+            z-index: 100;
+            @include drm-nav-bar-solid-stacked($text-color, $background-color, left);
 
-			> li ul {
-				display: none;
-				position: absolute;
-				left: 100%;
-				top: 0;
-				z-index: 100;
-			}
-		}
-	}
+            > li ul {
+                display: none;
+                position: absolute;
+                left: 100%;
+                top: 0;
+                z-index: 100;
+            }
+        }
+    }
 
-	.carat {
-		position: relative;
-		
-		&:after {
-			content: "\25BE";
-			position: absolute;
-			right: 5%;
-			font-weight: bold;
-			line-height: 1.9em;
-			@include drm-em-font(12);
-		}
-	}
+    .carat {
+        position: relative;
+        
+        &:after {
+            content: "\25BE";
+            position: absolute;
+            right: 5%;
+            font-weight: bold;
+            line-height: 1.9em;
+            @include drm-em-font(12);
+        }
+    }
 
-	.carat-right {
-		position: relative;
-		
-		&:after {
-			content: "\25B8";
-			position: absolute;
-			right: 5%;
-			font-weight: bold;
-			line-height: 1.9em;
-			@include drm-em-font(12);
-		}
-	}
+    .carat-right {
+        position: relative;
+        
+        &:after {
+            content: "\25B8";
+            position: absolute;
+            right: 5%;
+            font-weight: bold;
+            line-height: 1.9em;
+            @include drm-em-font(12);
+        }
+    }
 }
 
 // Styles a rounded button with a 1px border and transparent background
 // Useful for <button> and <a> elements
 
 @mixin drm-button-link($color: white, $bk-color: $link-color, $width: 40%, $center: center, $border-radius: 3px, $border-color: none, $display: block) {
-	width: $width;
-	border: 1px solid $color;
-	color: $color;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px 0 10px 0;
-	text-decoration: none;
-	cursor: pointer;
-	background-color: transparent;
-	border-radius: $border-radius;
-	text-shadow: none;
-	box-shadow: none;
-	box-sizing: border-box;
-	transition: all, .3s ease-out;
+    width: $width;
+    border: 1px solid $color;
+    color: $color;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: $border-radius;
+    text-shadow: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all, .3s ease-out;
 
-	@if $center == center {
-		margin: 10px auto 10px auto;
-		display: block;
-	} @else {
-		margin-top: 10px;
-		margin-bottom: 10px;
+    @if $center == center {
+        margin: 10px auto 10px auto;
+        display: block;
+    } @else {
+        margin-top: 10px;
+        margin-bottom: 10px;
         margin-right: 5px;
-		display: $display;
-	}
+        display: $display;
+    }
 
-	&:visited {
-		color: $color;
-	}
+    &:visited {
+        color: $color;
+    }
 
-	&:hover {
+    &:hover {
 
-		@if $border-color != none {
-			border: 1px solid $border-color;		
-		} @else {
-			border: 1px solid $color;
-		}
+        @if $border-color != none {
+            border: 1px solid $border-color;        
+        } @else {
+            border: 1px solid $color;
+        }
 
-		background-color: $color;
-		color: $bk-color;
-		text-decoration: none;
-		text-shadow: none;
-		box-shadow: none;
-		transition: all, .3s ease-in;
-	}	
+        background-color: $color;
+        color: $bk-color;
+        text-decoration: none;
+        text-shadow: none;
+        box-shadow: none;
+        transition: all, .3s ease-in;
+    }   
 }
 
 // Styles a rounded button with a 1px border and solid background
 // Useful for <button> and <a> elements
 
 @mixin drm-button-solid($bk-color: $link-color, $color: white, $width: 40%, $center: center, $border-radius: 3px, $border-color: none, $display: block) {
-	background-color: $bk-color;
-	width: $width;
-	color: $color;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px 0 10px 0;
-	text-decoration: none;
-	cursor: pointer;
-	border-radius: $border-radius;
-	text-shadow: none;
-	box-sizing: border-box;
-	transition: all, .3s ease-out;
+    background-color: $bk-color;
+    width: $width;
+    color: $color;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: $border-radius;
+    text-shadow: none;
+    box-sizing: border-box;
+    transition: all, .3s ease-out;
 
-	@if $border-color != none {
-		border: 1px solid $border-color;		
-	} @else {
-		border: none;
-	}
+    @if $border-color != none {
+        border: 1px solid $border-color;        
+    } @else {
+        border: none;
+    }
 
-	@if $center == center {
-		margin: 10px auto 10px auto;
-		display: block;
-	} @else {
-		margin-top: 10px;
-		margin-bottom: 10px;
+    @if $center == center {
+        margin: 10px auto 10px auto;
+        display: block;
+    } @else {
+        margin-top: 10px;
+        margin-bottom: 10px;
         margin-right: 5px;
-		display: $display;
-	}
+        display: $display;
+    }
 
-	&:visited {
-		color: $color;
-	}
+    &:visited {
+        color: $color;
+    }
 
-	&:hover {
-		background-color: $color;
-		color: $bk-color;
-		text-decoration: none;
-		text-shadow: none;
-		box-shadow: none;
-		transition: all, .3s ease-in;
-	}	
+    &:hover {
+        background-color: $color;
+        color: $bk-color;
+        text-decoration: none;
+        text-shadow: none;
+        box-shadow: none;
+        transition: all, .3s ease-in;
+    }   
 }
 
 // Styles a rectangular button with a solid drop shadow
 
 @mixin drm-rectangle-button($color: $link-color, $text: white, $border-radius: 0, $width: 40%, $center: center, $display: block) {
-	border: 1px solid darken($color, 10%);
-	background-color: $color;
-	font-weight: bold;
-	color: $text;
-	padding: 10px 10px 10px 10px;
-	cursor: pointer;
-	width: $width;
-	text-decoration: none;
-	text-align: center;
-	transition: all, .3s ease-out;
-	box-sizing: border-box;
-	border-radius: $border-radius;
-	@include drm-solid-drop-shadow(darken($color, 10%));
+    border: 1px solid darken($color, 10%);
+    background-color: $color;
+    font-weight: bold;
+    color: $text;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    width: $width;
+    text-decoration: none;
+    text-align: center;
+    transition: all, .3s ease-out;
+    box-sizing: border-box;
+    border-radius: $border-radius;
+    @include drm-solid-drop-shadow(darken($color, 10%));
 
-	@if $center == center {
-		margin: 10px auto 10px auto;
-		display: block;
-	} @else {
-		margin-top: 10px;
-		margin-bottom: 10px;
+    @if $center == center {
+        margin: 10px auto 10px auto;
+        display: block;
+    } @else {
+        margin-top: 10px;
+        margin-bottom: 10px;
         margin-right: 5px;
-		display: $display;
-	}
+        display: $display;
+    }
 
-	&:visited {
-		color: $text;
-	}
+    &:visited {
+        color: $text;
+    }
 
-	&:hover {
-		background-color: lighten($color, 10%);
-		border: 1px solid $color;
-		@include drm-solid-drop-shadow($color);
-		transition: all, .3s ease-in;
-	}	
+    &:hover {
+        background-color: lighten($color, 10%);
+        border: 1px solid $color;
+        @include drm-solid-drop-shadow($color);
+        transition: all, .3s ease-in;
+    }   
 }
 
 // glass button
 
 @mixin drm-pill-button-link($height: 50px, $color: white, $bk-color: $link-color, $width: 40%, $center: center, $border-color: none, $display: block) {
-	width: $width;
-	height: $height;
-	border: 1px solid $color;
-	color: $color;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px 0 10px 0;
-	text-decoration: none;
-	cursor: pointer;
-	line-height: 1.8;
-	border-radius: ($height / 2);
-	text-shadow: none;
-	box-shadow: none;
-	box-sizing: border-box;
-	transition: all, .3s ease-out;
+    width: $width;
+    border: 1px solid $color;
+    color: $color;
+    font-weight: normal;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.8;
+    border-radius: ($height / 2);
+    text-shadow: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all, .3s ease-out;
 
-	@if $center == center {
-		margin: 10px auto 10px auto;
-		display: block;
-	} @else {
-		margin-top: 10px;
-		margin-bottom: 10px;
+    @if $center == center {
+        margin: 10px auto 10px auto;
+        display: block;
+    } @else {
+        margin-top: 10px;
+        margin-bottom: 10px;
         margin-right: 5px;
-		display: $display;
-	}
+        display: $display;
+    }
 
-	&:visited {
-		color: $color;
-	}
+    &:visited {
+        color: $color;
+    }
 
-	&:hover {
+    &:hover {
 
-		@if $border-color != none {
-			border: 1px solid $border-color;		
-		} @else {
-			border: 1px solid $color;
-		}
+        @if $border-color != none {
+            border: 1px solid $border-color;        
+        } @else {
+            border: 1px solid $color;
+        }
 
-		background-color: $color;
-		color: $bk-color;
-		text-decoration: none;
-		text-shadow: none;
-		box-shadow: none;
-		transition: all, .3s ease-in;
-	}	
+        background-color: $color;
+        color: $bk-color;
+        text-decoration: none;
+        text-shadow: none;
+        box-shadow: none;
+        transition: all, .3s ease-in;
+    }   
 }
 
 // Styles a rounded button with a 1px border and solid background
 // Useful for <button> and <a> elements
 
 @mixin drm-pill-button-solid($height: 50px, $bk-color: $link-color, $color: white, $width: 40%, $center: center, $border-color: none, $display: block) {
-	background-color: $bk-color;
-	width: $width;
-	height: $height;
-	color: $color;
-	font-weight: bold;
-	text-align: center;
-	padding: 10px 0 10px 0;
-	text-decoration: none;
-	cursor: pointer;
-	line-height: 1.8;
-	border-radius: ($height / 2);
-	text-shadow: none;
-	box-sizing: border-box;
-	transition: all, .3s ease-out;
+    background-color: $bk-color;
+    width: $width;
+    color: $color;
+    font-weight: normal;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.8;
+    border-radius: ($height / 2);
+    text-shadow: none;
+    box-sizing: border-box;
+    transition: all, .3s ease-out;
 
-	@if $border-color != none {
-		border: 1px solid $border-color;		
-	} @else {
-		border: none;
-	}
+    @if $border-color != none {
+        border: 1px solid $border-color;        
+    } @else {
+        border: none;
+    }
 
-	@if $center == center {
-		margin: 10px auto 10px auto;
-		display: block;
-	} @else {
-		margin-top: 10px;
-		margin-bottom: 10px;
-		display: $display;
-	}
+    @if $center == center {
+        margin: 10px auto 10px auto;
+        display: block;
+    } @else {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: $display;
+    }
 
-	&:visited {
-		color: $color;
-	}
+    &:visited {
+        color: $color;
+    }
 
-	&:hover {
-		background-color: $color;
-		color: $bk-color;
-		text-decoration: none;
-		text-shadow: none;
-		box-shadow: none;
-		transition: all, .3s ease-in;
-	}	
+    &:hover {
+        background-color: $color;
+        color: $bk-color;
+        text-decoration: none;
+        text-shadow: none;
+        box-shadow: none;
+        transition: all, .3s ease-in;
+    }   
 }
 
 @mixin drm-button-group($bk-color: $link-color, $color: white, $border-radius: 0, $border: none) {
-	border-collapse: collapse;
-	@include drm-clearfix();
+    border-collapse: collapse;
+    @include drm-clearfix();
 
-	button {
-		float: left;
-		background-color: $bk-color;
-		color: $color;
-		font-weight: bold;
-		text-align: center;
-		display: block;
-		padding: 10px 20px 10px 20px;
-		text-decoration: none;
-		cursor: pointer;
-		margin: 0;
-		text-shadow: none;
-		box-sizing: border-box;
-		transition: all, .3s ease-out;
-		box-shadow: none;
+    button {
+        float: left;
+        background-color: $bk-color;
+        color: $color;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 0;
+        text-shadow: none;
+        box-sizing: border-box;
+        transition: all, .3s ease-out;
+        box-shadow: none;
 
-		@if $border == none {
- 			border: none;
-		} @else {
-			border: 1px solid $border;
-			border-left: none;
-		}
+        @if $border == none {
+            border: none;
+        } @else {
+            border: 1px solid $border;
+            border-left: none;
+        }
 
-		&:visited {
-			color: $color;
-		}
+        &:visited {
+            color: $color;
+        }
 
-		&.active {
-			background-color: $color;
-			color: $bk-color;
-			text-decoration: none;
-			text-shadow: none;
-			box-shadow: none;
-			transition: all, .3s ease-in;			
-		}
+        &.active {
+            background-color: $color;
+            color: $bk-color;
+            text-decoration: none;
+            text-shadow: none;
+            box-shadow: none;
+            transition: all, .3s ease-in;           
+        }
 
-		&:hover {
-			background-color: $color;
-			color: $bk-color;
-			text-decoration: none;
-			text-shadow: none;
-			box-shadow: none;
-			transition: all, .3s ease-in;
-		}
+        &:hover {
+            background-color: $color;
+            color: $bk-color;
+            text-decoration: none;
+            text-shadow: none;
+            box-shadow: none;
+            transition: all, .3s ease-in;
+        }
 
-		@if $border-radius != 0 {
-			&:first-of-type {
-				border-radius: $border-radius 0 0 $border-radius;
+        @if $border-radius != 0 {
+            &:first-of-type {
+                border-radius: $border-radius 0 0 $border-radius;
 
-				@if $border == none {
-		 			border-left: none;
-				} @else {
-					border-left: 1px solid $border;
-				}
-			}
+                @if $border == none {
+                    border-left: none;
+                } @else {
+                    border-left: 1px solid $border;
+                }
+            }
 
-			&:last-of-type {
-				border-radius: 0 $border-radius $border-radius 0;	
-			}
-		}
-	}
-}	
+            &:last-of-type {
+                border-radius: 0 $border-radius $border-radius 0;   
+            }
+        }
+    }
+}   
 
 @mixin drm-dropdown-button-solid($bk-color: $link-color, $color: white, $width: 40%, $border: none, $border-radius: 0, $divider-color: $light-grey) {
-	width: $width;
-	position: relative;
+    width: $width;
+    position: relative;
 
-	button {
-		position: relative;
-		@if $border == none {			
-			@include drm-button-solid($bk-color, $color, 100%);
-		} @else {
-			@include drm-button-solid($bk-color, $color, 100%, center, $border-radius, $border);
-		}
-		
-		&:after {
-			content: "\25BE";
-			position: absolute;
-			right: 5%;
-		}
+    button {
+        position: relative;
+        @if $border == none {           
+            @include drm-button-solid($bk-color, $color, 100%);
+        } @else {
+            @include drm-button-solid($bk-color, $color, 100%, center, $border-radius, $border);
+        }
+        
+        &:after {
+            content: "\25BE";
+            position: absolute;
+            right: 5%;
+        }
 
-		&.clicked {
-			color: $bk-color;
-			background-color: $color;
-		}	
-	}
+        &.clicked {
+            color: $bk-color;
+            background-color: $color;
+        }   
+    }
 
-	ul {
-		margin: 0;
-		width: 100%;
-		position: absolute;
-		padding: 5px 0 5px 0;
-		display: none;
-		z-index: 100;
+    ul {
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        padding: 5px 0 5px 0;
+        display: none;
+        z-index: 100;
 
-		@if $border-radius > 5px {
-			border-radius: 5px;
-		} @else if $border-radius {
-			border-radius: $border-radius
-		}
+        @if $border-radius > 5px {
+            border-radius: 5px;
+        } @else if $border-radius {
+            border-radius: $border-radius
+        }
 
-		@if $border != none {
-			border: 1px solid $divider-color;
-			box-sizing: border-box;
-		}
+        @if $border != none {
+            border: 1px solid $divider-color;
+            box-sizing: border-box;
+        }
 
-		@include drm-nav-bar-solid-stacked($bk-color, $color, left, $divider-color);
-	}
-}	
+        @include drm-nav-bar-solid-stacked($bk-color, $color, left, $divider-color);
+    }
+}   
 
 @mixin drm-dropdown-button-split($bk-color: $link-color, $color: white, $border-radius: 0, $border: none, $divider-color: $light-grey) {
-	position: relative;
+    position: relative;
 
     .drm-dropdown-button-group {
-		margin: 0 0 5px 0;
+        margin: 0 0 5px 0;
         @include drm-button-group(white, $drm-blue, $border-radius, $border);
     }
 
-	button {
-		position: relative;
-		margin: 0;
+    button {
+        position: relative;
+        margin: 0;
 
-		&:last-of-type {
-			padding-left: 10px;
-			padding-right: 10px;
-		}
+        &:last-of-type {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
-		&.clicked {
-			color: $bk-color;
-			background-color: $color;
-		}	
-	}
+        &.clicked {
+            color: $bk-color;
+            background-color: $color;
+        }   
+    }
 
-	ul {
-		margin: 0;
-		width: 100%;
-		position: absolute;
-		padding: 5px 0 5px 0;
-		top: 100%;
-		display: none;
-		z-index: 100;
-		
-		@if $border-radius > 5px {
-			border-radius: 5px;
-		} @else if $border-radius {
-			border-radius: $border-radius
-		}
+    ul {
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        padding: 5px 0 5px 0;
+        top: 100%;
+        display: none;
+        z-index: 100;
+        
+        @if $border-radius > 5px {
+            border-radius: 5px;
+        } @else if $border-radius {
+            border-radius: $border-radius
+        }
 
-		@if $border != none {
-			border: 1px solid $divider-color;
-			box-sizing: border-box;
-		}
-		
-		@include drm-nav-bar-solid-stacked($bk-color, $color, left, $divider-color);
-	}
+        @if $border != none {
+            border: 1px solid $divider-color;
+            box-sizing: border-box;
+        }
+        
+        @include drm-nav-bar-solid-stacked($bk-color, $color, left, $divider-color);
+    }
 }
 
 // works with fluid and fixed layouts
 @mixin drm-offscreen-menu($bk-color: $link-color, $width: 15%) {
-	width: $width;
-	position: absolute;
-	left: 0;
-	height: 100%;
-	background-color: $bk-color;
-	z-index: 100;
-	box-sizing: border-box;
+    width: $width;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background-color: $bk-color;
+    z-index: 100;
+    box-sizing: border-box;
 
-	ul {
-		@include drm-nav-bar-solid-stacked();
+    ul {
+        @include drm-nav-bar-solid-stacked();
 
-		li a {
-			padding: 10px 15px 10px 15px;
-		}
-	}	
+        li a {
+            padding: 10px 15px 10px 15px;
+        }
+    }   
 }
 
 @mixin drm-sticky-menu($position: 'top') {
-	@if $position == 'top' {
+    @if $position == 'top' {
         position: fixed;
         left: 0;
         top: 0;
@@ -740,38 +739,38 @@
             color: white;
         }
 
-	} @elseif $position == 'left' {
-		position: fixed;
+    } @elseif $position == 'left' {
+        position: fixed;
         top: 5%;
         
-        @include drm-breakpoint(trenta) {
-        	left: 10%;
+        @include drm-breakpoint(mercury) {
+            left: 10%;
         }
 
-        @include drm-breakpoint(venti) {
-        	left: 2.5%;
+        @include drm-breakpoint(venus) {
+            left: 2.5%;
         }
-	}
+    }
 }
 
 @mixin drm-back-to-top($bk-color: $link-color, $color: white) {
-	color: white;
-	position: fixed;
-	bottom: 5%;
-	right: 5%;
-	border: none;
-	cursor: pointer;
-	padding: 0 0 5px 0;
-	line-height: 0;
-	@include drm-background-transparent($bk-color, 0.7);
-	@include drm-square(50px, none, 3px);
-	@include drm-em-font(48);
+    color: white;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 5px 0;
+    line-height: 0;
+    @include drm-background-transparent($bk-color, 0.7);
+    @include drm-square(50px, none, 3px);
+    @include drm-em-font(48);
 
-	@include drm-breakpoint(trenta) {
-		right: 10%;
-	}
+    @include drm-breakpoint(mercury) {
+        right: 10%;
+    }
 
-	&:hover {
-		@include drm-background-transparent($bk-color, 1);
-	}
+    &:hover {
+        @include drm-background-transparent($bk-color, 1);
+    }
 }

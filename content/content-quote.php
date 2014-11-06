@@ -8,15 +8,7 @@
             <h1 class="post-title" role="heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         <?php endif; ?>
 
-        <p class="post-date"><time datetime="<?php the_time('o-m-d') ?>" pubdate><?php the_time('M j, Y') ?></time></p>
-
-        <div class="post-meta">
-            <p class="post-category"><?php the_category(', ') ?></p>
-            <?php the_tags(' <p class="post-tag">', ', ', '</p>'); ?>
-            <?php if ( comments_open() ) : ?>
-                <p class="post-comment"><?php comments_popup_link( __( '0 Comments', 'elr' ), __( '1 Comment', 'elr' ), __( '% Comments', 'elr' ) ); ?></p>
-            <?php endif; ?>
-        </div>
+        <?php elr_post_meta( $post->ID ); ?>
     </header>
 
     <div>

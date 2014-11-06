@@ -16,7 +16,15 @@ main {
 	padding: 1% 1% 1% 0;
 	box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(mars) {
+		padding-left: 5%;
+	}
+
+	@include drm-breakpoint(jupiter) {
+		padding-left: 1%;
+	}
+
+	@include drm-breakpoint(saturn) {
 		float: none;	
 		width: 100%;
 		padding: 1% 5% 1% 5%;
@@ -39,7 +47,6 @@ main {
 	img {
 		max-width: 100%;
 		margin: 2% auto 2% auto;
-		border: 1px solid $light-grey;
 		display: block;
 		box-sizing: border-box;
 	}
@@ -52,11 +59,19 @@ main {
 
 .article-full {
 	width: 100%;
-	padding: 1%;
+	padding: 1% 5%;
 	box-sizing: border-box;
 
-	@include drm-breakpoint(tall) {
-		padding: 1% 5% 1% 5%;
+	@include drm-breakpoint(mercury) {
+		padding: 1% 15%;
+	}
+
+	@include drm-breakpoint(venus) {
+		padding: 1% 15%;
+	}
+
+	@include drm-breakpoint(jupiter) {
+		padding: 1% 5%;
 	}
 }
 
@@ -69,17 +84,13 @@ main {
 	padding: 20px;
 }
 
-.post-date {
-	@include drm-em-font(14);
-}
-
 .post-content {
 	min-width: 120px;
 }
 
 .post-image {
 	width: 80%;
-	margin: 2% 10% 2% 10%;
+	margin: 2% 10%;
 	box-sizing: border-box;
 
 	.left {
@@ -102,22 +113,8 @@ main {
 .post-meta {
 	margin: 0;
 	text-transform: capitalize;
-
-	.post-author {
-		@include drm-post-meta(image-url('post-author.png'));
-	}
-
-	.post-category {
-		@include drm-post-meta(image-url('post-category.png'));
-	}
-
-	.post-tag {
-		@include drm-post-meta(image-url('post-tag.png'));
-	}
-
-	.post-comment {
-		@include drm-post-meta(image-url('post-comment.png'));
-	}
+	@include drm-em-font(14);
+	@include drm-unstyled-list(left, no);
 }
 
 p.wp-caption-text {
@@ -129,9 +126,9 @@ p.wp-caption-text {
 	margin: 10px 15px 10px 10px;
 }	
 
-/************************************************************************************
+/*------------------------------------------------------------------------------------
 WORDPRESS POST FORMATTING
-*************************************************************************************/
+------------------------------------------------------------------------------------*/
 
 .alignnone {
 	margin-bottom: 15px;
@@ -171,32 +168,11 @@ WORDPRESS POST FORMATTING
 	margin: 6px 0;
 }
 
-/************************************************************************************
-PAGE NAVIGATION
-*************************************************************************************/
-.pagenav {
-	clear: both;
-	padding-bottom: 20px;
-	text-align: right;
+.social-media-icons {
+	list-style: none;
+}
 
-	a, span {
-		line-height: 100%;
-		padding: 6px 0 0;
-		vertical-align: middle;
-		display: inline-block;
-		zoom: 1;
-		min-width: 24px;
-		min-height: 18px;
-		text-align: center;
-		border-radius: 10em;
-		box-sizing: border-box;
-	}
-
-	a {
-		text-decoration: none;
-	}
-
-	.current {
-		text-decoration: none;
-	}
+.fa {
+	width: auto;
+	padding-right: 5px;
 }

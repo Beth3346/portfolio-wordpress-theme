@@ -8,6 +8,16 @@ header[role="banner"] {
 	padding-bottom: 40px;
 	box-sizing: border-box;
 	@include drm-clearfix();
+
+	@include drm-breakpoint(mars) {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	@include drm-breakpoint(jupiter) {
+		padding-left: 1%;
+		padding-right: 1%;
+	}
 }
 
 .logo {
@@ -15,7 +25,7 @@ header[role="banner"] {
 	width: 40%;
 	padding-top: 1%;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		float: none;	
 		width: 100%;
 		padding: 1%;
@@ -29,7 +39,7 @@ header[role="banner"] {
 	text-align: left;
 	@include drm-em-font(28);
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		text-align: center;
 	}
 
@@ -48,7 +58,7 @@ header[role="banner"] {
 	text-align: left;
 	@include drm-em-font(16);
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		text-align: center;
 	}
 }
@@ -57,7 +67,7 @@ header[role="banner"] {
 	float: right;
 	width: 60%;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		float: none;	
 		width: 100%;
 		padding: 1%;
@@ -72,7 +82,7 @@ header[role="banner"] {
 	box-sizing: border-box;
 	@include drm-inline-list;
 
-	@include drm-breakpoint(tall) {
+	@include drm-breakpoint(saturn) {
 		float: none;
 		text-align: center;
 		box-sizing: border-box;

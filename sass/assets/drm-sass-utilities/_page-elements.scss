@@ -13,7 +13,7 @@
     text-align: center;
     box-sizing: border-box;
 
-    @include drm-breakpoint(tall) {
+    @include drm-breakpoint(neptune) {
         width: 100%;
     }
 }
@@ -24,15 +24,15 @@
     overflow: hidden;
     @include drm-em-font(20);   
 
-    @include drm-breakpoint(trenta) {
+    @include drm-breakpoint(mercury) {
         height: 60px;
     }   
 
-    @include drm-breakpoint(venti) {
+    @include drm-breakpoint(venus) {
         height: 60px;
     }
 
-    @include drm-breakpoint(tall) {
+    @include drm-breakpoint(neptune) {
         height: auto;
     }
 }
@@ -180,7 +180,7 @@
         @if $shadow-color != none {
             @include drm-inset-border($border-color, $shadow-color);
         } @else {
-            bottom-border: $border-color;
+            border-bottom: $border-color;
         }
     }
 
@@ -290,14 +290,14 @@
     box-sizing: border-box;
     @include drm-clearfix();
 
-    @include drm-breakpoint(trenta) {
+    @include drm-breakpoint(mercury) {
         width: 80%;
         margin-left: 10%;
         margin-right: 10%;
         box-sizing: border-box;
     }
 
-    @include drm-breakpoint(venti) {
+    @include drm-breakpoint(venus) {
         width: 95%;
         margin-left: 2.5%;
         margin-right: 2.5%;

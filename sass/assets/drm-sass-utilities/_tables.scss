@@ -8,20 +8,20 @@
     text-align: left;
     margin: 10px auto 30px auto;
 
-    @include drm-breakpoint(trenta) {
+    @include drm-breakpoint(mercury) {
         width: 100%;
     }
 
-    @include drm-breakpoint(venti) {
+    @include drm-breakpoint(venus) {
         width: 100%;
     }
 
-    @include drm-breakpoint(grande) {
+    @include drm-breakpoint(mars) {
         width: 600px;
         overflow-x: scroll;
     }
 
-    @include drm-breakpoint(tall) {
+    @include drm-breakpoint(neptune) {
         width: 400px;
     }
 
