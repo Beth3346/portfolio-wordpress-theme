@@ -8,29 +8,35 @@
     $type = get_post_meta( $post->ID, '_announcement_type', true );
 
     $expire_datetime ? $datetime = $expire_datetime : $datetime = null;
+            
+    if ( $type ) {
+        $announcement_class = $type . '-alert';
+    } else {
+        $announcement_class = 'muted-alert';
+    }
 ?>
 <!-- check to see if announcement is expired -->
-<?php if ( ! elr_is_expired( $datetime ) ) : ?>
+<?php if ( ! elr_is_expired( $expire_datetime ) ) : ?>
     <article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post"); ?>>
-        <header>
-            <?php elr_post_title(); ?>
-            <ul class="post-meta">
-                <?php elr_post_comments(); ?>
-            </ul>
-        </header>
-        
-        <div class="drm-row">
-            <?php elr_post_thumbnail( 'cpt-image-holder' ); ?>
-            <!-- display custom post info -->
-            <ul class="cpt-info">
-                <?php if ( $type ) : ?><li><?php echo esc_html( $type ); ?></li><?php endif; ?>
-                <?php if ( $priority ) : ?><li><?php echo esc_html( $priority ); ?></li><?php endif; ?>
-                <?php if ( $expected_response ) : ?><li><?php echo esc_html( $expected_response ); ?></li><?php endif; ?>
-            </ul>
+        <div class="drm-dismissible-alert <?php echo esc_attr( $announcement_class ); ?>">
+            <button class="close">x</button>
+            <header class="header">
+                <?php if ( $type === 'danger' ) : ?>
+                    <i class="fa fa-exclamation-triangle"></i>
+                <?php elseif ( $type === 'warning' ) : ?>
+                    <i class="fa fa-bomb"></i>
+                <?php elseif ( $type === 'success' ) : ?>
+                    <i class="fa fa-thumbs-up"></i>
+                <?php elseif ( $type === 'information' ) : ?>
+                    <i class="fa fa-bullhorn"></i>
+                <?php else : ?>
+                    <i class="fa fa-circle-o"></i>
+                <?php endif; ?>
+                <?php elr_post_title(); ?>
+            </header>
+            <?php elr_post_content( $post->ID ); ?>
+            <a href="<?php the_permalink(); ?>">Read More</a>
+            <footer><?php elr_post_actions_nav( $post->ID ); ?></footer>
         </div>
-
-        <?php elr_post_content( $post->ID ); ?>
-
-        <footer><?php elr_post_actions_nav( $post->ID ); ?></footer>
     </article>
 <?php endif; ?>

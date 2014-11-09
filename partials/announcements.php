@@ -22,7 +22,7 @@
     $query = new WP_Query( $args );
 ?>
 <?php if ( $query->have_posts() ) : ?>
-    <div class="front-announcements">
+    <div class="announcement">
         <?php while ( $query->have_posts() ) : $query->the_post();
             global $post;
             $expected_response = get_post_meta( $post->ID, '_announcement_expected_response', true );
@@ -39,9 +39,20 @@
             ?>
             <div class="drm-dismissible-alert <?php echo esc_attr( $announcement_class ); ?>">
                 <button class="close">x</button>
-
-                <h1><?php echo esc_html( get_the_title() ); ?></a></h1>
-
+                <div class="header">
+                    <?php if ( $type === 'danger' ) : ?>
+                        <i class="fa fa-exclamation-triangle"></i>
+                    <?php elseif ( $type === 'warning' ) : ?>
+                        <i class="fa fa-bomb"></i>
+                    <?php elseif ( $type === 'success' ) : ?>
+                        <i class="fa fa-thumbs-up"></i>
+                    <?php elseif ( $type === 'information' ) : ?>
+                        <i class="fa fa-bullhorn"></i>
+                    <?php else : ?>
+                        <i class="fa fa-circle-o"></i>
+                    <?php endif; ?>
+                    <?php elr_post_title(); ?>
+                </div>
                 <?php if ( get_the_content( $post->ID ) ) : ?>
                     <p><?php echo esc_html( elr_trim_content( $short_excerpt_length ) ); ?></p>
                 <?php endif; ?> 

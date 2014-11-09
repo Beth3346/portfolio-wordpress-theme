@@ -331,6 +331,10 @@
         border: 1px solid $info-color;
         color: darken($info-color, 20%);
 
+        a {
+            color: darken($info-color, 20%);
+        }
+
         .close {
             color: $info-color;
         }
@@ -339,6 +343,10 @@
         background-color: lighten($danger-color, 20%);
         border: 1px solid $danger-color;
         color: darken($danger-color, 20%);
+
+        a {
+            color: darken($danger-color, 20%);
+        }
 
         .close {
             color: $danger-color;
@@ -349,6 +357,10 @@
         border: 1px solid $warning-color;
         color: darken($warning-color, 20%);
 
+        a {
+            color: darken($warning-color, 20%);
+        }
+
         .close {
             color: $warning-color;
         }   
@@ -357,6 +369,10 @@
         background-color: lighten($success-color, 20%);
         border: 1px solid $success-color;
         color: darken($success-color, 20%);
+
+        a {
+            color: darken($success-color, 20%);
+        }
 
         .close {
             color: $success-color;
@@ -367,6 +383,10 @@
         border: 1px solid $muted-color;
         color: darken($muted-color, 20%);
 
+        a {
+            color: darken($muted-color, 20%);
+        }
+
         .close {
             color: $muted-color;
         }   
@@ -375,6 +395,10 @@
         background-color: lighten($color, 20%);
         border: 1px solid $color;
         color: darken($color, 20%);
+
+        a {
+            color: darken($color, 20%);
+        }
 
         .close {
             color: $color;

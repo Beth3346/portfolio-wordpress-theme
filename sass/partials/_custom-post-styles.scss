@@ -66,6 +66,22 @@
     @include drm-unstyled-list(left, no);
 }
 
+.event-image-holder {
+    width: 400px;
+    margin: auto;
+
+    img {
+        border: 1px solid $text-color;
+    }
+}
+
+.event-map-holder {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border: 1px solid $text-color;
+}
+
 .event {
     .post-info li {
         text-align: center;
