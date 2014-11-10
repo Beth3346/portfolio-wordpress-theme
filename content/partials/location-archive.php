@@ -11,7 +11,6 @@
     $phone = get_post_meta( $post->ID, '_location_phone', true );
     $email = get_post_meta( $post->ID, '_location_email', true );
     $url = get_post_meta( $post->ID, '_location_url', true );
-    $map = get_post_meta( $post->ID, '_location_map', true );
 
     $bus_hours = array(
         'sun_open' => get_post_meta( $post->ID, '_location_sun_open', true ),
@@ -61,12 +60,7 @@
         </ul>
     </div>
     <div class="drm-row">
-        <?php elr_post_thumbnail( 'location-image-holder' ); ?>
-        <?php if ( $map ) : ?>
-            <div class="location-map-holder">
-                <?php elr_map( $map, 1000 ); ?>
-            </div>
-        <?php endif; ?>        
+        <?php elr_post_thumbnail( 'location-image-holder' ); ?>    
     </div>
     <?php if ( $bus_hours ) : ?>
         <h2>Business Hours</h2>

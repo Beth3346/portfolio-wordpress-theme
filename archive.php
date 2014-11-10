@@ -3,7 +3,7 @@
     <div class="content-holder">
         <?php // the loop ?>
         <?php if (have_posts()) : ?>
-
+        <h1>Archive</h1>
             <?php while (have_posts()) : the_post(); ?>
 
                 <!-- since its a custom function we need to make sure it exists -->

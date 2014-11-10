@@ -66,7 +66,7 @@
     @include drm-unstyled-list(left, no);
 }
 
-.event-image-holder {
+.event-image-holder, .location-image-holder {
     width: 400px;
     margin: auto;
 
@@ -75,8 +75,10 @@
     }
 }
 
-.event-map-holder {
+.event-map-holder, .location-map-holder {
     width: 100%;
+    max-width: 1000px;
+    margin: 10px auto;
     height: 450px;
     overflow: hidden;
     border: 1px solid $text-color;
@@ -85,5 +87,45 @@
 .event {
     .post-info li {
         text-align: center;
+    }
+}
+
+.location {
+    .post-info, .address, .business-hours {
+        @include drm-unstyled-list(center, no);
+    }
+}
+
+.faq-accordion {
+    width: 100%;
+    box-sizing: border-box;
+
+    article {
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
+
+    .drm-accordion-label {
+        border-radius: 3px;
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 10px 5px 10px;
+        margin-bottom: 10px;
+        border: 1px solid $lighter-grey;
+        cursor: pointer;
+    }
+
+    .drm-accordion-content {
+        border-radius: 3px;
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 10px 5px 10px;
+        border: 1px solid $lighter-grey;
+    }
+
+    .faq-info {
+        @include drm-unstyled-list(left, no);
     }
 }

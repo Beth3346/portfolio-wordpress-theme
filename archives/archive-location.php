@@ -3,8 +3,7 @@
     $tax_term = elr_get_current_tax( $wp_query );
 
     if ( post_type_exists( 'location' ) ) {
-        $count_posts = wp_count_posts( 'location' );
-        $num_posts = $count_posts->publish;
+        $num_posts = wp_count_posts( 'location' )->publish;;
     } else {
         $num_posts = 0;
     }
@@ -14,8 +13,8 @@
 
 <main class="main-content">
 
-    <!-- if location archive or location custom taxonomy show grid -->
-    <?php if ( is_post_type_archive() || is_tax()  ) : ?>
+    <!-- if location archive show grid -->
+    <?php if ( ( is_post_type_archive() ) && $num_posts >= 4 ) : ?>
         <div class="cpt-grid">
             <div class="cpt-grid-nav">
                 <h3>Limit Results:</h3>
@@ -38,7 +37,7 @@
             </div>            
         </div>
 
-    <!-- if category/tag/author/date archive show normal loop -->
+    <!-- if category/tag/author/date archive or location custom taxonomy  show normal loop -->
     <?php else : ?>
         <div class="content-holder">
             <?php elr_get_loop(); ?>

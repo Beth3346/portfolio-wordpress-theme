@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // init.php
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -612,79 +611,81 @@ function elr_map( $map, $width = 500, $height = 450 ) {
 
 function elr_bus_hours( $bus_hours ) {
 
-    echo '<ul class="business-hours">';
+    if ( array_filter( $bus_hours ) ) {
+        echo '<ul class="business-hours">';
 
-    if( array_key_exists( 'sun_open', $bus_hours ) ) {
-        if ( $bus_hours['sun_open'] ) {
-            echo '<li><span class="bus-hour-label">Sunday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['sun_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['sun_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'sun_open', $bus_hours ) ) {
+            if ( $bus_hours['sun_open'] ) {
+                echo '<li><span class="bus-hour-label">Sunday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['sun_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['sun_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    if( array_key_exists( 'mon_open', $bus_hours ) ) {
-        if ( $bus_hours['mon_open'] ) {
-            echo '<li><span class="bus-hour-label">Monday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['mon_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['mon_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'mon_open', $bus_hours ) ) {
+            if ( $bus_hours['mon_open'] ) {
+                echo '<li><span class="bus-hour-label">Monday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['mon_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['mon_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    if( array_key_exists( 'tue_open', $bus_hours ) ) {
-        if ( $bus_hours['tue_open'] ) {
-            echo '<li><span class="bus-hour-label">Tuesday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['tue_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['tue_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'tue_open', $bus_hours ) ) {
+            if ( $bus_hours['tue_open'] ) {
+                echo '<li><span class="bus-hour-label">Tuesday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['tue_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['tue_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    if( array_key_exists( 'wed_open', $bus_hours ) ) {
-        if ( $bus_hours['wed_open'] ) {
-            echo '<li><span class="bus-hour-label">Wednesday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['wed_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['wed_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'wed_open', $bus_hours ) ) {
+            if ( $bus_hours['wed_open'] ) {
+                echo '<li><span class="bus-hour-label">Wednesday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['wed_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['wed_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    if( array_key_exists( 'thu_open', $bus_hours ) ) {
-        if ( $bus_hours['thu_open'] ) {
-            echo '<li><span class="bus-hour-label">Thursday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['thu_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['thu_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'thu_open', $bus_hours ) ) {
+            if ( $bus_hours['thu_open'] ) {
+                echo '<li><span class="bus-hour-label">Thursday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['thu_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['thu_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    if( array_key_exists( 'fri_open', $bus_hours ) ) {
-        if ( $bus_hours['fri_open'] ) {
-            echo '<li><span class="bus-hour-label">Friday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['fri_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['fri_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'fri_open', $bus_hours ) ) {
+            if ( $bus_hours['fri_open'] ) {
+                echo '<li><span class="bus-hour-label">Friday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['fri_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['fri_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    if( array_key_exists( 'sat_open', $bus_hours ) ) {
-        if ( $bus_hours['sat_open'] ) {
-            echo '<li><span class="bus-hour-label">Saturday:</span> ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['sat_open'] ) );
-            echo ' - ';
-            echo esc_html( mysql2date( 'g:i a', $bus_hours['sat_close'] ) );
-            echo '</li>';
+        if( array_key_exists( 'sat_open', $bus_hours ) ) {
+            if ( $bus_hours['sat_open'] ) {
+                echo '<li><span class="bus-hour-label">Saturday:</span> ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['sat_open'] ) );
+                echo ' - ';
+                echo esc_html( mysql2date( 'g:i a', $bus_hours['sat_close'] ) );
+                echo '</li>';
+            }
         }
-    }
 
-    echo '</ul>';
+        echo '</ul>';
+    }
 }
 
 /**
@@ -803,43 +804,52 @@ function elr_video( $video, $width = 560, $height = 349 ) {
  */
 
 function elr_address( $address ) {
-
-    if ( $address ) {
+    if ( array_filter( $address ) ) {
         echo '<ul class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">';
 
+        if ( array_key_exists( 'street_address', $address ) ) {
             if ( $address['street_address'] ) {
                 echo '<li class="drm-text-center" itemprop="streetAddress">';
                 echo esc_html( $address['street_address'] );
                 echo '</li>';
             }
+        }
 
-            echo '<li class="drm-text-center">';
+        echo '<li class="drm-text-center">';
 
+        if ( array_key_exists( 'city', $address ) ) {
             if ( $address['city'] ) {
                 echo '<span itemprop="addressLocality">';
                 echo esc_html( $address['city'] );
                 echo ', </span>';
             }
+        }
 
+        if ( array_key_exists( 'state', $address ) ) {
             if ( $address['state'] ) {
                 echo '<span itemprop="addressRegion">';
                 echo esc_html( $address['state'] );
                 echo ', </span>';
             }
+        }
 
+        if ( array_key_exists( 'zip_code', $address ) ) {
             if ( $address['zip_code'] ) {
                 echo '<span itemprop="postalCode">';
                 echo esc_html( $address['zip_code'] );
                 echo ', </span>';
             }
+        }
 
+        if ( array_key_exists( 'country', $address ) ) {
             if ( $address['country'] ) { 
                 echo '<span itemprop="country">';
                 echo esc_html( $address['country'] );
                 echo '</span><br>';
             }
-
-            echo '</li>';
+        }
+        
+        echo '</li>';
         echo '</ul>';
     }
 }
@@ -1025,7 +1035,7 @@ function elr_taxonomy_terms( $taxonomy, $id ) {
         echo '<a href="';
         echo $term_link;
         echo '">';
-        echo ucwords( $value->name );
+        echo mb_convert_case($value->name, MB_CASE_TITLE, "UTF-8");
 
         if ( $key === $last_key ) {
             echo '</a> ';
@@ -1046,7 +1056,7 @@ function elr_taxonomy_terms( $taxonomy, $id ) {
 
 function elr_social_media( $social_media ) {
 
-    if ( $social_media ) {
+    if ( array_filter( $social_media ) ) {
 
         echo '<li class="social-media-icons">';
 
