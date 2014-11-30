@@ -32,6 +32,7 @@
 
             <?php if ( get_the_terms( $post->ID, 'product_type' ) ) : ?>
                 <li><i class="fa fa-gift"></i> <?php elr_taxonomy_terms( 'product_type', $post->ID ); ?></li>
+                <li><i class="fa fa-tag"></i> <?php elr_taxonomy_terms( 'product_tag', $post->ID ); ?></li>
             <?php endif; ?>
 
             <?php if ( $id ) : ?>

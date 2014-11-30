@@ -1,0 +1,29 @@
+/*-----------------------------------------------------------------------------
+    Resume Styles
+-----------------------------------------------------------------------------*/
+
+.resume {
+    h3 {
+        font-weight: bold;
+    }
+
+    li {
+        @include drm-em-font(14);
+    }
+
+    .portfolio ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .experience-details {
+        padding-left: 0;
+        padding-bottom: 0;
+        
+        li {
+            font-weight: bold;
+            display: inline;
+            padding-right: 10px;
+        }
+    }
+}

@@ -10,6 +10,12 @@ main {
 	@include drm-clearfix();
 }
 
+.expertise {
+	h3, p {
+		text-align: center;
+	}
+}
+
 .content-holder {
 	float: left;
 	width: 65%;

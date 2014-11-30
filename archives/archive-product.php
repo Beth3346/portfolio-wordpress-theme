@@ -28,10 +28,9 @@
                 </nav>
 
                 <h3>Filter Results:</h3>
-
                 <?php elr_tax_nav( 'brand', $tax_term ); ?>
-
                 <?php elr_tax_nav( 'product_type', $tax_term ); ?>
+                <?php elr_tax_nav( 'product_tag', $tax_term ); ?>
             </div>
             <div class="cpt-grid-content" data-post-type="product">
                 <?php elr_get_loop(); ?>

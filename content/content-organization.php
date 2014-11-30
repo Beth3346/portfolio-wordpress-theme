@@ -54,16 +54,16 @@
     </div>
     <div class="drm-row">
         <?php elr_address( $address ); ?>
-        <ul class="post-info">
+        <ul class="cpt-info-center">
             <?php if ( $phone ) : ?><li><?php elr_phone( $phone ) ?></li><?php endif; ?>
-            <?php if ( $url ) : ?><li><?php esc_html( $url ) ?></li><?php endif; ?>
+            <?php if ( $url ) : ?><li><a href="<?php echo esc_url( $url ) ?>"><?php echo esc_url( $url ) ?></a></li><?php endif; ?>
             <?php elr_social_media( $social_media ); ?>
         </ul>
-        <ul class="post-info-left">            
+        <ul class="cpt-info">            
             <?php if ( $legal_name ) : ?><li><?php echo esc_html( $legal_name ); ?></li><?php endif; ?>
             <?php if ( $industry ) : ?><li><span class="drm-bold">Primary Industry:</span> <?php echo esc_html( $industry ); ?></li><?php endif; ?>
             <?php if ( $founder ) : ?><li><span class="drm-bold">Founder(s):</span> <?php echo esc_html( $founder ); ?></li><?php endif; ?>
-            <?php if ( $year_founded ) : ?><li><?php echo esc_html( $year_founded ); ?> - <?php if ( $year_dissolved ) : ?><?php echo esc_html( $year_dissolved ); ?><?php endif; ?></li><?php endif; ?>            
+            <?php if ( $year_founded ) : ?><li><?php echo esc_html( $year_founded ); ?> - <?php if ( $year_dissolved ) : echo esc_html( $year_dissolved ); else : echo 'Present'; endif; ?></li><?php endif; ?>            
             <?php if ( $status ) : ?><li><?php echo esc_html( $status ); ?></li><?php endif; ?>
         </ul>
     </div>

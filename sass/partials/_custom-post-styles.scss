@@ -3,21 +3,29 @@
 -----------------------------------------------------------------------------*/
 
 .num-results-nav, .taxonomy-nav {
+    h4 {
+        font-weight: bold;
+        padding-bottom: 0;
+        @include drm-em-font(12);
+    }
+
     ul {
         @include drm-unstyled-list(left, no);
+        padding-top: 0;
 
         li {
             display: inline-block;
         }
 
         a {
-            display: block;        
+            display: block;   
             background-color: $main-text;
             color: white;
             border-radius: 5px;
             margin-right: 5px;
             text-decoration: none;
             padding: 5px 10px;
+            @include drm-em-font(12);
 
             &:hover {
                 text-decoration: none;
@@ -44,8 +52,14 @@
 .cpt-grid-box {
     @include drm-feature-box(4);
 
+    h1 {
+        font-weight: bold;
+        @include drm-em-font(16, 14);
+    }
+
     ul {
         @include drm-unstyled-list(center, no);
+        @include drm-em-font(14);
     }
 
     .cpt-grid-image-holder {
@@ -62,8 +76,20 @@
     @include drm-unstyled-list(center, no);
 }
 
-.post-info {
+.address, .cpt-info-center {
+    @include drm-unstyled-list(center, no);
+}
+
+.post-info, .cpt-info {
     @include drm-unstyled-list(left, no);
+
+    .cpt-button-link {
+        @include drm-button-solid($text-color, white, 100%, center, 3px, $text-color);
+    }
+}
+
+.cpt-info, .cpt-info-center, .address {
+    @include drm-em-font(14);
 }
 
 .event-image-holder, .location-image-holder {

@@ -29,8 +29,8 @@
 
                 <h3>Filter Results:</h3>
 
-                <?php elr_tax_nav( 'project_type', $tax_term ); ?>
                 <?php elr_tax_nav( 'technology', $tax_term ); ?>
+                <?php elr_tax_nav( 'portfolio', $tax_term ); ?>
             </div>
             <div class="cpt-grid-content" data-post-type="project">
                 <?php elr_get_loop(); ?>

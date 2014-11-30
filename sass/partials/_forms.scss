@@ -49,3 +49,7 @@ small {
 .hidden-field {
 	display: none;
 }
+
+.contact-form .grunion-field-label span {
+	@include drm-em-font(10);
+}
