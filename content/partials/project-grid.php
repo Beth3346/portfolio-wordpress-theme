@@ -10,7 +10,6 @@
     <!-- display custom post info -->
     <ul>
         <li><h1 class="post-title" role="heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1></li>
-
         <li><a class="cpt-button-link" href="<?php the_permalink(); ?>">See More</a></li>
         <li><?php elr_post_actions_nav( $post->ID ); ?></li>
     </ul>

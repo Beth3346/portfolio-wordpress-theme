@@ -36,55 +36,91 @@
             <?php endif; ?>
 
             <?php if ( $id ) : ?>
-                <li>#: <?php echo esc_html( $id ); ?></li>
+                <li>
+                    <span class="drm-bold">#: </span>
+                    <?php echo esc_html( $id ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $color ) : ?>
-                <li>Color: <?php echo esc_html( $color ); ?></li>
+                <li>
+                    <span class="drm-bold">Color: </span>
+                    <?php echo esc_html( $color ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $weight ) : ?>
-                <li>Weight: <?php echo esc_html( $weight ); ?></li>
+                <li>
+                    <span class="drm-bold">Weight: </span>
+                    <?php echo esc_html( $weight ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $height ) : ?>
-                <li>Height: <?php echo esc_html( $height ); ?></li>
+                <li>
+                    <span class="drm-bold">Height: </span>
+                    <?php echo esc_html( $height ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $width ) : ?>
-                <li>Width: <?php echo esc_html( $width ); ?></li>
+                <li>
+                    <span class="drm-bold">Width: </span>
+                    <?php echo esc_html( $width ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $size ) : ?>
-                <li>Size: <?php echo esc_html( $size ); ?></li>
+                <li>
+                    <span class="drm-bold">Size: </span>
+                    <?php echo esc_html( $size ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( get_the_terms( $post->ID, 'brand' ) ) : ?>
-                <li>Brand: <?php elr_taxonomy_terms( 'brand', $post->ID ); ?></li>
+                <li>
+                    <span class="drm-bold">Brand: </span>
+                    <?php elr_taxonomy_terms( 'brand', $post->ID ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $condition ) : ?>
-                <li>Condition: <?php echo esc_html( $condition ); ?></li>
+                <li>
+                    <span class="drm-bold">Condition: </span>
+                    <?php echo esc_html( $condition ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $country ) : ?>
-                <li>Made in: <?php echo esc_html( $country ); ?></li>
+                <li>
+                    <span class="drm-bold">Made in: </span>
+                    <?php echo esc_html( $country ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $creator ) : ?>
-                <li>Made by: <?php echo esc_html( $creator ); ?></li>
+                <li>
+                    <span class="drm-bold">Made by: </span>
+                    <?php echo esc_html( $creator ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $availability ) : ?>
-                <li>Availability: <?php echo esc_html( $availability ); ?></li>
+                <li>
+                    <span class="drm-bold">Availability: </span>
+                    <?php echo esc_html( $availability ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $price ) : ?>
-                <li>$<?php echo esc_html( $price ); ?></li>
+                <li>
+                    <span class="drm-bold">$</span>
+                    <?php echo esc_html( $price ); ?>
+                </li>
             <?php endif; ?>
 
             <?php if ( $purchase_url ) : ?>
-                <li><a class="cpt-button-link" href="<?php echo esc_url( $purchase_url ); ?>"><i class="fa fa-shopping-cart"></i> Buy Now</a></li>
+                <li><a class="cpt-buy-link" href="<?php echo esc_url( $purchase_url ); ?>"><i class="fa fa-shopping-cart"></i> Buy Now</a></li>
             <?php endif; ?>
         </ul>
     </div>

@@ -51,19 +51,33 @@
 
 .cpt-grid-box {
     @include drm-feature-box(4);
+    margin-bottom: 40px;
 
     h1 {
+        width: 90%;
+        margin: auto;
         font-weight: bold;
         @include drm-em-font(16, 14);
     }
 
     ul {
+        width: 90%;
+        margin: auto;
         @include drm-unstyled-list(center, no);
         @include drm-em-font(14);
+
+        .cpt-button-link, .cpt-buy-link {
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
 
     .cpt-grid-image-holder {
         text-align: center;
+        height: 220px;
+        width: 90%;
+        margin: auto;
 
         img {
             box-sizing: border-box;
@@ -83,9 +97,19 @@
 .post-info, .cpt-info {
     @include drm-unstyled-list(left, no);
 
-    .cpt-button-link {
-        @include drm-button-solid($text-color, white, 100%, center, 3px, $text-color);
+    .cpt-button-link, .cpt-buy-link {
+        &:hover {
+            text-decoration: none;
+        }
     }
+}
+
+.cpt-button-link {
+    @include drm-button-solid($text-color, white, 100%, center, 3px, $text-color);
+}
+
+.cpt-buy-link {
+    @include drm-button-solid($text-color, white, 40%, left, 3px, $text-color);
 }
 
 .cpt-info, .cpt-info-center, .address {

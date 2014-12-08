@@ -61,6 +61,21 @@ main {
 		@include drm-em-font(14);	
 		@include drm-button-solid($main-text, white, 100%, center, 3px, $main-text)
 	}
+
+	li {
+		h1, h2, h3, h4, p {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.highlight {
+		color: $aqua;
+	}
+
+	pre {
+		margin: 20px auto;
+	}
 }
 
 .article-full {
@@ -182,3 +197,45 @@ WORDPRESS POST FORMATTING
 	width: auto;
 	padding-right: 5px;
 }
+
+.related-posts {
+	background-color: $almost-black;
+	padding: 10px 20px;
+	color: white;
+	margin: 40px auto 0 auto;
+	width: 80%;
+	border-radius: 5px;
+	box-sizing: border-box;
+
+	li {
+		list-style: none;
+		@include drm-clearfix();
+	}
+
+	figure {
+		float: left;
+		padding: 0;
+		margin: 0 20px 0 0;
+		width: 100px;
+
+		a {
+			width: 100%;
+		}
+	}
+
+	p {
+		float: left;
+		width: 70%;
+
+		a {
+			color: white;
+		}
+	}
+
+	.post-date {
+		display: block;
+		padding-top: 5px;
+		@include drm-em-font(10);
+	}
+}
+

@@ -3,9 +3,9 @@
     <?php get_template_part( 'partials/announcements'); ?>
 	<div class="content-holder">
         <?php // the loop ?>
-        <?php if (have_posts()) : ?>
+        <?php if ( have_posts() ) : ?>
 
-            <?php while (have_posts()) : the_post(); ?>
+            <?php while ( have_posts() ) : the_post(); ?>
 
                 <!-- since its a custom function we need to make sure it exists -->
                 <?php if ( function_exists( 'is_custom_post_type' ) ) : ?>

@@ -29,15 +29,7 @@
     <?php endif; ?>
     
     <!-- display the post content -->
-    <div>
-        <?php if ( is_single() || is_page() ) : ?>
-            <?php the_content(); ?>
-        <?php else : ?>
-        <div class="post-excerpt<?php echo $post->ID ?>">
-            <?php the_excerpt(); ?>
-        </div>
-        <?php endif; ?>
-    </div>
+    <div><?php elr_post_content( $post->ID ); ?></div>
 
     <footer>
         <?php edit_post_link(__('Edit', 'elr')); ?>    

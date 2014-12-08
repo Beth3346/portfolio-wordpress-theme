@@ -9,6 +9,10 @@
 	ul {
 		@extend %drm-reset-box;
 	}
+
+    iframe {
+        width:100% !important;
+    }
 }
 
 .widget-title {
@@ -35,5 +39,11 @@
         float: left;
         margin: 0;
         padding: 0 0 0 20px;
+    }
+
+    .post-date {
+        display: block;
+        color: $grey;
+        @include drm-em-font(12);
     }
 }

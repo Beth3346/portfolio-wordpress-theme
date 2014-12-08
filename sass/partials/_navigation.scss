@@ -2,11 +2,12 @@
 	Page Navigation
 ------------------------------------------------------------------------------------*/
 
-.pagenav {
+.page-nav {
 	clear: both;
 	padding-bottom: 20px;
 	text-align: right;
 	color: white;
+	@include drm-clearfix();
 
 	@include drm-breakpoint(saturn) {
 		text-align: center;
@@ -48,6 +49,7 @@
 	padding: 15px 0;
 	clear: both;
 	box-sizing: border-box;
+	@include drm-clearfix();
 
 	span {
 		width: 47%;

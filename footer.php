@@ -14,8 +14,6 @@
                 </section>
             <?php endif; ?>
         </footer>
-        <!-- wp_footer -->
-        <?php wp_footer(); ?>        
         <small class="copyright">
             <?php bloginfo(); ?> &copy; 2012 - <?php echo date( 'Y' ); ?>
             All Rights Reserved. 
@@ -32,6 +30,8 @@
                 <a href="<?php echo $google_plus_url; ?>">Google+</a>
             <?php endif; ?>
             WordPress Theme by: <a href="http://www.elizabeth-rogers.com">Elizabeth Rogers</a>
+            <!-- wp_footer -->
+            <?php wp_footer(); ?>
         </small>
 	<!--end wrapper-->
 	</div>
