@@ -38,19 +38,20 @@
     }
 
     .front-box-3 {
-        height: 470px;
         text-align: center;
-        padding: 20px 40px;
+        padding: 40px;
         @include drm-feature-box(3);
 
         h1 {
             font-weight: bold;
+            height: 50px;
             @include drm-em-font(16);
         }
-    }
 
-    p {
-        @include drm-em-font(14);
+        p {
+            height: 105px;
+            @include drm-em-font(14);
+        }
     }
 
     .button-link {
