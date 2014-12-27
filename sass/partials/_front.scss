@@ -1,0 +1,89 @@
+/*-----------------------------------------------------------------------------
+    Front
+-----------------------------------------------------------------------------*/
+
+.cpt-content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    .section-heading {
+        text-align: center;
+    }
+}
+
+.front-section {
+    @extend %drm-container-full-width;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid $main-text;
+    @include drm-clearfix;
+
+    @include drm-breakpoint(mars) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    @include drm-breakpoint(jupiter) {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    figure {
+        height: 200px;
+    }
+
+    .front-box-3 {
+        text-align: center;
+        padding: 20px 40px;
+        @include drm-feature-box(3);
+
+        h1 {
+            font-weight: bold;
+            @include drm-em-font(16);
+        }
+    }
+
+    p {
+        @include drm-em-font(14);
+    }
+
+    .button-link {
+        color: white;
+        text-decoration: none;
+        background-color: $main-text;
+        margin: 10px 0;
+        padding: 10px 20px;
+        border-radius: 3px;
+        border: 1px solid $main-text;
+        display: inline-block;
+        width: 70%;
+        @include drm-em-font(14);
+
+        &:hover {
+            background-color: white;
+            color: $main-text;
+        }
+    }
+
+    &:nth-child(odd) {
+        background-color: $main-text;
+        color: white;
+        border-bottom: 1px solid white;
+
+        h1 a {
+            color: white;
+        }
+
+        .button-link {
+            border: 1px solid white;
+            color: $main-text;
+            background-color: white;
+
+            &:hover {
+                background-color: $main-text;
+                color: white;
+            }            
+        }
+    }
+}

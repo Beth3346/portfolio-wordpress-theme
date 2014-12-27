@@ -901,10 +901,7 @@ function elr_phone( $phone ) {
  * @return void
  */
 
-function elr_front_section_heading( $heading_name ) {
-
-    $front_page_options = (array)get_option('elr_theme_front_page_options');
-    $heading = str_ireplace( '"', '', trim( $front_page_options[$heading_name] ) );
+function elr_front_section_heading( $heading = 'Recent Articles' ) {
 
     if ( $heading ) {
         echo '<h1 class="section-heading">';

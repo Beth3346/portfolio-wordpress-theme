@@ -105,11 +105,11 @@
 }
 
 .cpt-button-link {
-    @include drm-button-solid($text-color, white, 100%, center, 3px, $text-color);
+    @include drm-button-solid($main-text, white, 100%, center, 3px, $main-text);
 }
 
 .cpt-buy-link {
-    @include drm-button-solid($text-color, white, 40%, left, 3px, $text-color);
+    @include drm-button-solid($main-text, white, 40%, left, 3px, $main-text);
 }
 
 .cpt-info, .cpt-info-center, .address {
@@ -121,7 +121,7 @@
     margin: auto;
 
     img {
-        border: 1px solid $text-color;
+        border: 1px solid $main-text;
     }
 }
 
@@ -131,7 +131,7 @@
     margin: 10px auto;
     height: 450px;
     overflow: hidden;
-    border: 1px solid $text-color;
+    border: 1px solid $main-text;
 }
 
 .event {

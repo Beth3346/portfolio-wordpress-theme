@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Static-Home
+Template Name: Front-Basic
 */
 ?>
 <?php get_header(); ?>
