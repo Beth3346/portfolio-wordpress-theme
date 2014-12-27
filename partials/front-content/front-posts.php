@@ -13,31 +13,50 @@
         //$cpt_archive = get_post_type_archive_link( $post_type );
         $post_name = get_post_type_object( $post_type )->label;
         $published_posts = wp_count_posts( $post_type )->publish;
-
+        $title = 'Recent ' . ucwords( $post_type ) . 's';
         $cpt_archive = ( $post_type === 'post' ) ? '\/blog\/' : get_post_type_archive_link( $post_type );
+        
+        if ( $post_type === 'post' ) {
+            $num = 6;
+            $front_box_class = 'front-box-3';
+        } else if ( $post_type === 'testimonial' ) {
+            $num = 1;
+            $front_box_class = 'front-box-1';
+        } else {
+            $num = 3;
+            $front_box_class = 'front-box-3';
+        }
 
         $args = array(
             'post_type' => $post_type,
             'post_status' => 'publish',
-            'posts_per_page' => '3',
+            'posts_per_page' => $num,
             'ignore_sticky_posts' => true
         );
 
         $query = new WP_Query( $args );
     ?>
-    <?php if ( $published_posts >= 3 && $post_type !== 'faq' ) : ?>
-        <?php if ( $cpt_archive ) : ?>
+    <?php if ( $post_type !== 'faq' && $cpt_archive ) : ?>
+        <?php if ( $published_posts >= 3 || $post_type === 'testimonial' ) : ?>
             <?php if ( $query->have_posts() ) : ?>
                 <article class="front-section posts-section">
-                    <?php elr_front_section_heading( 'Recent ' . ucwords( $post_type ) ) ?>
+                    <?php elr_front_section_heading( $title ) ?>
                     <div class="front-holder">
                     <?php while ( $query->have_posts() ) : $query->the_post();
                         global $post;
                         ?>
-                        <section class="front-box-3 post-box">
+                        <section class="<?php echo $front_box_class; ?> <?php echo $post_type . '-box' ?>">
                             <?php elr_front_thumbnail(); ?>
                             <?php elr_front_title(); ?>
-                            <?php elr_front_content( $post->ID ); ?>
+                            <?php
+                                if ( $post_type === 'testimonial' ) {
+                                    echo '<blockquote>';
+                                    elr_front_content( $post->ID, 999 );
+                                    echo '</blockquote>';
+                                } else {
+                                    elr_front_content( $post->ID );
+                                }
+                            ?>
                             <?php elr_front_more(); ?>
                         </section>  
                     <?php endwhile; ?>

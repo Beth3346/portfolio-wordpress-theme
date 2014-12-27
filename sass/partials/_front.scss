@@ -33,7 +33,12 @@
         height: 200px;
     }
 
+    .front-box-1 {
+        text-align: center;
+    }
+
     .front-box-3 {
+        height: 470px;
         text-align: center;
         padding: 20px 40px;
         @include drm-feature-box(3);
