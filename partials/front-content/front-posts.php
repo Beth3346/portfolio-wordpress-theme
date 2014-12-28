@@ -20,7 +20,7 @@
             $num = 6;
             $front_box_class = 'front-box-3';
         } else if ( $post_type === 'testimonial' ) {
-            $num = 1;
+            $num = 3;
             $front_box_class = 'front-box-1';
         } else {
             $num = 3;
@@ -46,18 +46,16 @@
                         global $post;
                         ?>
                         <section class="<?php echo $front_box_class; ?> <?php echo $post_type . '-box' ?>">
-                            <?php elr_front_thumbnail(); ?>
-                            <?php elr_front_title(); ?>
                             <?php
                                 if ( $post_type === 'testimonial' ) {
-                                    echo '<blockquote>';
-                                    elr_front_content( $post->ID, 999 );
-                                    echo '</blockquote>';
+                                    get_template_part( 'partials/front-content/front-testimonial' );
                                 } else {
+                                    elr_front_thumbnail();
+                                    elr_front_title();
                                     elr_front_content( $post->ID );
+                                    elr_front_more();
                                 }
                             ?>
-                            <?php elr_front_more(); ?>
                         </section>  
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
