@@ -14,9 +14,11 @@
 
 .front-section {
     @extend %drm-container-full-width;
+    background-color: $main-text;
+    color: white;
+    border-bottom: 1px solid white;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: 1px solid $main-text;
     @include drm-clearfix;
 
     @include drm-breakpoint(mars) {
@@ -37,6 +39,10 @@
         text-align: center;
     }
 
+    h1 a {
+        color: white;
+    }
+
     .front-box-3 {
         text-align: center;
         padding: 40px;
@@ -54,41 +60,62 @@
         }
     }
 
-    .button-link {
+    .front-post-actions a {
         color: white;
+    }
+
+    .button-link {
         text-decoration: none;
-        background-color: $main-text;
         margin: 10px 0;
         padding: 10px 20px;
         border-radius: 3px;
-        border: 1px solid $main-text;
         display: inline-block;
         width: 70%;
+        border: 1px solid white;
+        color: $main-text;
+        background-color: white;
         @include drm-em-font(14);
 
         &:hover {
+            background-color: $main-text;
+            color: white;
+        }
+    }
+
+    .drm-simple-slider-list {
+        button {
+            background-color: white;
+        }
+    }
+
+    .drm-simple-slider-nav {
+        button {
             background-color: white;
             color: $main-text;
         }
     }
 
     &:nth-child(odd) {
-        background-color: $main-text;
-        color: white;
-        border-bottom: 1px solid white;
+        color: $main-text;
+        border-top: 1px solid $main-text;
+        background-color: white;
 
         h1 a {
-            color: white;
+            color: $main-text;
+        }
+
+        .front-post-actions a {
+            color: $main-text;
         }
 
         .button-link {
-            border: 1px solid white;
-            color: $main-text;
             background-color: white;
+            color: $main-text;
+            border: 1px solid $main-text;
 
             &:hover {
-                background-color: $main-text;
-                color: white;
+                background-color: white;
+                color: $main-text;
             }            
         }
     }

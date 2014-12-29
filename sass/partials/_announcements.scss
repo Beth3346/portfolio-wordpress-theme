@@ -2,29 +2,26 @@
     Front Announcements
 -----------------------------------------------------------------------------*/
 
-article.announcement {
-    margin: 10px auto;
-}
-
 .announcement {
+    margin: 10px auto;
+    width: 60%;
 
     h1 {
         margin: 0;
-        padding: 5px 0 5px 10px;
+        padding: 0 0 0 10px;
         text-align: left;
         float: left;
-        @include drm-em-font(24);
+        @include drm-em-font(28);
     }
 
     p {
-        margin: 0;
-        padding: 5px 0;
-        @include drm-em-font(14);
+        @extend %drm-reset-box;
+        @include drm-em-font(12);
     }
 
     a {
         @extend %drm-reset-box;
-        @include drm-em-font(14);
+        @include drm-em-font(12);
     }
 
     .header {
