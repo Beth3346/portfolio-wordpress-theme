@@ -29,8 +29,8 @@
 
                 <h3>Filter Results:</h3>
 
-                <?php elr_tax_nav( 'person_role', $tax_term ); ?>
-                <?php elr_tax_nav( 'department', $tax_term ); ?>
+                <?php elr_tax_nav( 'people', 'person_role', $tax_term ); ?>
+                <?php elr_tax_nav( 'people', 'department', $tax_term ); ?>
             </div>
             <div class="cpt-grid-content" data-post-type="person">
                 <?php elr_get_loop(); ?>

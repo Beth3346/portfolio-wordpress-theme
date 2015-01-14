@@ -25,14 +25,8 @@
         @include drm-clearfix;
 
         button {
-            background-color: $main-text;
-            color: white;
             border: none;
             @include drm-circle(75px);
-
-            &:hover {
-                background-color: $aqua;
-            }
 
             &.prev {
                 float: left;
@@ -63,12 +57,7 @@
             padding: 0;
             margin: 0 2px;
             border: none;
-            background-color: $main-text;
             @include drm-circle(10px);
-
-            &.active {
-                background-color: $aqua;
-            }
         }
     }
 }

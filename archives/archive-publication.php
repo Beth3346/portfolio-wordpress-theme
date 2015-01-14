@@ -29,8 +29,8 @@
 
                 <h3>Filter Results:</h3>
 
-                <?php elr_tax_nav( 'genre', $tax_term ); ?>
-                <?php elr_tax_nav( 'format', $tax_term ); ?>
+                <?php elr_tax_nav( 'publications', 'genre', $tax_term ); ?>
+                <?php elr_tax_nav( 'publications', 'format', $tax_term ); ?>
             </div>
             <div class="cpt-grid-content" data-post-type="publication">
                 <?php elr_get_loop(); ?>

@@ -28,8 +28,8 @@
 
                 <h3>Filter Results:</h3>
 
-                <?php elr_tax_nav( 'location_type', $tax_term ); ?>
-                <?php elr_tax_nav( 'state', $tax_term ); ?>
+                <?php elr_tax_nav( 'locations', 'location_type', $tax_term ); ?>
+                <?php elr_tax_nav( 'locations', 'state', $tax_term ); ?>
             </div>
             <div class="cpt-grid-content" data-post-type="location">
                 <?php elr_get_loop(); ?>

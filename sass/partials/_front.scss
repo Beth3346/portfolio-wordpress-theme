@@ -85,6 +85,10 @@
     .drm-simple-slider-list {
         button {
             background-color: white;
+
+            &.active {
+                background-color: $aqua;
+            }
         }
     }
 
@@ -92,6 +96,11 @@
         button {
             background-color: white;
             color: $main-text;
+
+            &:hover {
+                background-color: $aqua;
+                color: white;
+            }
         }
     }
 
@@ -114,9 +123,31 @@
             border: 1px solid $main-text;
 
             &:hover {
-                background-color: white;
-                color: $main-text;
+                background-color: $main-text;
+                color: white;
             }            
+        }
+
+        .drm-simple-slider-list {
+            button {
+                background-color: $main-text;
+
+                &.active {
+                    background-color: $aqua;
+                }
+            }
+        }
+
+        .drm-simple-slider-nav {
+            button {
+                background-color: $main-text;
+                color: white;
+
+                &:hover {
+                    background-color: $aqua;
+                    color: white;
+                }
+            }
         }
     }
 }

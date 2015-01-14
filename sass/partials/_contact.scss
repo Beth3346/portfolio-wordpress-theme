@@ -32,6 +32,10 @@
     @include drm-breakpoint(saturn) {
         float: none;
         width: 100%;
+
+        .social-media {
+            display: none;
+        }
     }
 
     h2 {

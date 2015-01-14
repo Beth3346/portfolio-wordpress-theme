@@ -28,7 +28,7 @@
     //register styles and scripts
             
     function elr_register_stuff() {
-        wp_register_script( 'respond', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js', array(), null, true );
+        wp_register_script( 'respond', SCRIPTS . '/vendor/respond.min.js', array(), null );
         wp_register_script( 'main', SCRIPTS . '/elr-theme-boilerplate.1.0.0.js', array( 'jquery' ), null, true );
         wp_register_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), null );
         wp_register_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), null, 'screen' );
