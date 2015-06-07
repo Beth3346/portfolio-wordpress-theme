@@ -14,11 +14,12 @@
 ?>
 
 <?php if ( have_comments() || comments_open() ) : ?>
-<div id="comments" class="commentwrap comments">
+<section id="comments" class="commentwrap comments">
+<h2>Comments</h2>
 <?php endif; // end commentwrap ?>
 
 <?php if ( have_comments() ) : ?>
-	<h4 class="comment-title"><?php comments_number(__( 'No Comments','elr' ), __( 'One Comment','elr' ), __( '% Comments','elr' ) );?></h4>
+	<p class="comment-title"><?php comments_number(__( 'No Comments','elr' ), __( 'One Comment','elr' ), __( '% Comments','elr' ) );?></p>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<div class="pagenav top clearfix">
@@ -26,7 +27,7 @@
 		</div> 
 		<!-- /.pagenav -->
 	<?php endif; // check for comment navigation ?>
-
+	
 	<ul class="commentlist">
 		<?php wp_list_comments( 'callback=custom_theme_comment' ); ?>
 	</ul>
@@ -73,7 +74,7 @@ $custom_comment_form = array( 'fields' => apply_filters( 'comment_form_default_f
 			'<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="required"></textarea>' .
 			'</p>',
 	'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-	'title_reply' => __( 'Leave a Reply' , 'elr' ),
+	'title_reply' => __( '<p>Leave a Comment</p>' , 'elr' ),
 	'comment_notes_before' => '',
 	'comment_notes_after' => '',
 	'cancel_reply_link' => __( 'Cancel' , 'elr' ),
@@ -83,6 +84,6 @@ comment_form( $custom_comment_form );
 ?>
 
 <?php if ( have_comments() || comments_open() ) : ?>
-</div>
+</section>
 <!-- /.commentwrap -->
 <?php endif; // end commentwrap ?>

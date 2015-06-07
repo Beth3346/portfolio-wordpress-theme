@@ -22,7 +22,7 @@
     $query = new WP_Query( $args );
 ?>
 <?php if ( $query->have_posts() ) : ?>
-    <div class="announcement">
+    <article class="announcement">
         <?php while ( $query->have_posts() ) : $query->the_post();
             global $post;
             $expected_response = get_post_meta( $post->ID, '_announcement_expected_response', true );
@@ -56,13 +56,12 @@
                 <?php if ( get_the_content( $post->ID ) ) : ?>
                     <p><?php echo esc_html( elr_trim_content( $short_excerpt_length ) ); ?></p>
                 <?php endif; ?> 
-                <a href="<?php the_permalink(); ?>">Read More</a>
-
                 <div>
-                    <?php elr_post_actions_nav( $post->ID ); ?>
+                    <a href="<?php the_permalink(); ?>">Read More</a>
+                    <div><?php elr_post_actions_nav( $post->ID ); ?></div>                    
                 </div>
             </div>
         <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
-    </div>
+    </article>
 <?php endif; ?>

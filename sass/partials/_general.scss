@@ -13,3 +13,8 @@
 .drm-grid-4 {
     @include drm-feature-box(4);
 }
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}

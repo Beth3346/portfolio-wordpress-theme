@@ -35,5 +35,6 @@
         <?php edit_post_link(__('Edit', 'elr')); ?>    
     </footer>
 
+    <?php comments_template(); ?>
     
 </article>

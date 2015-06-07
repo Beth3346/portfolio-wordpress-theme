@@ -31,9 +31,9 @@
             <?php endif; ?>
             WordPress Theme by: <a href="http://www.elizabeth-rogers.com">Elizabeth Rogers</a>
             <!-- wp_footer -->
-            <?php wp_footer(); ?>
         </small>
 	<!--end wrapper-->
 	</div>
+    <?php wp_footer(); ?>
 </body>
 </html>

@@ -2,7 +2,7 @@
 	Header
 -----------------------------------------------------------------------------*/
 
-header[role="banner"] {
+.branding {
 	@extend %drm-container-full-width;
 	padding-top: 20px;
 	padding-bottom: 40px;
@@ -34,7 +34,8 @@ header[role="banner"] {
 }
 
 .site-name {
-	@extend %drm-reset-box;
+	margin: 0;
+	padding: 0;
 	font-weight: normal;
 	text-align: left;
 	@include drm-em-font(28);
@@ -44,7 +45,8 @@ header[role="banner"] {
 	}
 
 	a {
-		@extend %drm-reset-box;
+		margin: 0;
+		padding: 0;
 		text-decoration: none;
 
 		&:hover {	
@@ -54,7 +56,8 @@ header[role="banner"] {
 }	
 
 .site-description {
-	@extend %drm-reset-box;
+	margin: 0;
+	padding: 0;
 	text-align: left;
 	@include drm-em-font(16);
 
@@ -76,7 +79,8 @@ header[role="banner"] {
 }
 
 .main-nav {
-	@extend %drm-reset-box;
+	margin: 0;
+	padding: 0;
 	float: right;
 	clear: both;
 	box-sizing: border-box;

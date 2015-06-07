@@ -59,8 +59,10 @@
     <header class="branding" role="banner">
         <div class="logo">
             <!-- add logo background image images/logo.png -->
-            <h1 class="site-name"><a href="<?php bloginfo('url'); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-            <h2 class="site-description" ><?php bloginfo('description'); ?></h2>           
+            <h2 class="site-name"><a href="<?php bloginfo('url'); ?>" rel="home"><?php bloginfo('name'); ?></a></h2>
+            <?php if ( get_bloginfo('description') ) : ?>
+                <h3 class="site-description" ><?php bloginfo('description'); ?></h3>
+            <?php endif; ?>       
         </div>
         <div class="navigation-holder">
             <div class="social-media-holder">
