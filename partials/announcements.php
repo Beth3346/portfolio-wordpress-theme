@@ -1,6 +1,5 @@
 <?php
     $short_excerpt_length = 200;
-    $front_page_options = (array)get_option('elr_theme_front_page_options');
 
     $args = array(
         'post_type' => 'announcement',
@@ -19,17 +18,18 @@
             ),
         ),
     );
-    $query = new WP_Query( $args );
+    $announcements = new WP_Query( $args );
 ?>
-<?php if ( $query->have_posts() ) : ?>
-    <article class="announcement">
-        <?php while ( $query->have_posts() ) : $query->the_post();
+<?php if ( $announcements->have_posts() ) : ?>
+    <div class="announcement">
+        <?php while ( $announcements->have_posts() ) : $announcements->the_post();
             global $post;
-            $expected_response = get_post_meta( $post->ID, '_announcement_expected_response', true );
-            $url = get_post_meta( $post->ID, '_announcement_url', true );
-            $priority = get_post_meta( $post->ID, '_announcement_priority', true );
-            $type = get_post_meta( $post->ID, '_announcement_type', true );
-            
+            $post_id = $post->ID;
+            $expected_response = get_post_meta( $post_id, '_announcement_expected_response', true );
+            $url = get_post_meta( $post_id, '_announcement_url', true );
+            $priority = get_post_meta( $post_id, '_announcement_priority', true );
+            $type = get_post_meta( $post_id, '_announcement_type', true );
+
             if ( $type ) {
                 $announcement_class = $type . '-alert';
             } else {
@@ -37,7 +37,7 @@
             }
 
             ?>
-            <div class="drm-dismissible-alert <?php echo esc_attr( $announcement_class ); ?>">
+            <div class="elr-dismissible-alert <?php echo esc_attr( $announcement_class ); ?>">
                 <button class="close">x</button>
                 <div class="header">
                     <?php if ( $type === 'danger' ) : ?>
@@ -51,17 +51,17 @@
                     <?php else : ?>
                         <i class="fa fa-circle-o"></i>
                     <?php endif; ?>
-                    <?php elr_post_title(); ?>
+                    <h1 class="announcement-heading"><?php the_title(); ?></h1>
                 </div>
-                <?php if ( get_the_content( $post->ID ) ) : ?>
+                <?php if ( get_the_content( $post_id ) ) : ?>
                     <p><?php echo esc_html( elr_trim_content( $short_excerpt_length ) ); ?></p>
-                <?php endif; ?> 
+                <?php endif; ?>
                 <div>
                     <a href="<?php the_permalink(); ?>">Read More</a>
-                    <div><?php elr_post_actions_nav( $post->ID ); ?></div>                    
+                    <div><?php elr_post_actions_nav( $post_id ); ?></div>
                 </div>
             </div>
         <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
-    </article>
+    </div>
 <?php endif; ?>

@@ -7,9 +7,9 @@
 
 if ( ! function_exists( 'custom_excerpt_more' ) ) {
     function custom_excerpt_more($more) {
-    	global $post;
+        global $post;
 
-    	return '...<p><a href="'. get_permalink( get_the_ID() ) . '"' . 'data-post="' . get_the_ID() . '" class="more-link">Read More</a></p>';
+        return '...<p><a href="'. get_permalink( get_the_ID() ) . '"' . 'data-post="' . get_the_ID() . '" class="elr-button elr-button-info more-link">Read More</a></p>';
     }
 }
 
@@ -17,7 +17,7 @@ add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
 if ( ! function_exists( 'custom_excerpt_length' ) ) {
     function custom_excerpt_length( $length ) {
-    	return 100;
+        return 100;
     }
 }
 

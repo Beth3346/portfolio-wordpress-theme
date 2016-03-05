@@ -1,181 +1,92 @@
-/*-----------------------------------------------------------------------------
-    Custom Post Styles
------------------------------------------------------------------------------*/
+// Custom Post Styles
 
-.num-results-nav, .taxonomy-nav {
+.num-results-nav,
+.taxonomy-nav {
     h4 {
+        @include elr-em-font(16px);
         font-weight: bold;
         padding-bottom: 0;
-        @include drm-em-font(12);
-    }
-
-    ul {
-        @include drm-unstyled-list(left, no);
-        padding-top: 0;
-
-        li {
-            display: inline-block;
-        }
-
-        a {
-            display: block;   
-            background-color: $main-text;
-            color: white;
-            border-radius: 5px;
-            margin-right: 5px;
-            text-decoration: none;
-            padding: 5px 10px;
-            @include drm-em-font(12);
-
-            &:hover {
-                text-decoration: none;
-                background-color: $aqua;
-            }
-
-            &.active {
-                background-color: $aqua;
-            }
-        }
     }
 }
 
+.filter-heading {
+    @include elr-em-font(18px);
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
+
 .cpt-grid-content {
+    @include elr-clearfix();
     padding-top: 40px;
     width: 100%;
-    @include drm-clearfix();
 
     .post-count {
         clear: both;
     }
 }
 
+.num-results-menu,
+.taxonomy-menu {
+    padding: 10px 0;
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        @include elr-em-font(12px);
+        display: block;
+        background-color: $main-text;
+        color: $white;
+        border-radius: 5px;
+        margin-right: 5px;
+        text-decoration: none;
+        padding: 5px 10px;
+
+        &:hover {
+            text-decoration: none;
+            background-color: $aqua;
+        }
+
+        &.active {
+            background-color: $aqua;
+        }
+    }
+}
+
 .cpt-grid-box {
-    @include drm-feature-box(4);
-    margin-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &:nth-child(4n-3) {
+        clear: left;
+    }
 
     h1 {
+        @include elr-em-font(14px);
         width: 90%;
         margin: auto;
         font-weight: bold;
-        @include drm-em-font(16, 14);
     }
 
     ul {
+        @include elr-em-font(14px);
         width: 90%;
         margin: auto;
-        @include drm-unstyled-list(center, no);
-        @include drm-em-font(14);
-
-        .cpt-button-link, .cpt-buy-link {
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
-
-    .cpt-grid-image-holder {
-        text-align: center;
-        height: 220px;
-        width: 90%;
-        margin: auto;
-
-        img {
-            box-sizing: border-box;
-            border: 1px solid $light-grey;            
-        }
     }
 }
 
-.person-info {
-    @include drm-unstyled-list(center, no);
-}
-
-.address, .cpt-info-center {
-    @include drm-unstyled-list(center, no);
-}
-
-.post-info, .cpt-info {
-    @include drm-unstyled-list(left, no);
-
-    .cpt-button-link, .cpt-buy-link {
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-.cpt-button-link {
-    @include drm-button-solid($main-text, white, 100%, center, 3px, $main-text);
-}
-
-.cpt-buy-link {
-    @include drm-button-solid($main-text, white, 40%, left, 3px, $main-text);
-}
-
-.cpt-info, .cpt-info-center, .address {
-    @include drm-em-font(14);
-}
-
-.event-image-holder, .location-image-holder {
-    width: 400px;
+.cpt-grid-image-holder {
+    text-align: center;
+    height: 220px;
+    width: 90%;
     margin: auto;
-
-    img {
-        border: 1px solid $main-text;
-    }
 }
 
-.event-map-holder, .location-map-holder {
-    width: 100%;
-    max-width: 1000px;
-    margin: 10px auto;
-    height: 450px;
-    overflow: hidden;
-    border: 1px solid $main-text;
-}
-
-.event {
-    .post-info li {
-        text-align: center;
-    }
-}
-
-.location {
-    .post-info, .address, .business-hours {
-        @include drm-unstyled-list(center, no);
-    }
-}
-
-.faq-accordion {
-    width: 100%;
-    box-sizing: border-box;
-
-    article {
-        margin: 0 0 10px 0;
-        padding: 0;
-    }
-
-    .drm-accordion-label {
-        border-radius: 3px;
-        background-color: white;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 5px 10px 5px 10px;
-        margin-bottom: 10px;
-        border: 1px solid $lighter-grey;
-        cursor: pointer;
-    }
-
-    .drm-accordion-content {
-        border-radius: 3px;
-        background-color: white;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 5px 10px 5px 10px;
-        border: 1px solid $lighter-grey;
-    }
-
-    .faq-info {
-        @include drm-unstyled-list(left, no);
-    }
+.cpt-meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }

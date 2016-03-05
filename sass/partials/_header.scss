@@ -1,111 +1,61 @@
-/*-----------------------------------------------------------------------------
-	Header
------------------------------------------------------------------------------*/
+// Header
 
-.branding {
-	@extend %drm-container-full-width;
-	padding-top: 20px;
-	padding-bottom: 40px;
-	box-sizing: border-box;
-	@include drm-clearfix();
+.main-header {
+    @include elr-clearfix;
+    padding: 20px;
 
-	@include drm-breakpoint(mars) {
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-
-	@include drm-breakpoint(jupiter) {
-		padding-left: 1%;
-		padding-right: 1%;
-	}
-}
-
-.logo {
-	float: left;
-	width: 40%;
-	padding-top: 1%;
-
-	@include drm-breakpoint(saturn) {
-		float: none;	
-		width: 100%;
-		padding: 1%;
-		box-sizing: border-box;
-	}
+    .social-media-section {
+        text-align: right;
+    }
 }
 
 .site-name {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-	text-align: left;
-	@include drm-em-font(28);
+    @include elr-em-font(28px);
+    margin: 0;
+    padding: 20px 0;
+    font-weight: 700;
+    text-align: left;
 
-	@include drm-breakpoint(saturn) {
-		text-align: center;
-	}
+    @include elr-breakpoint('saturn') {
+        text-align: center;
+    }
 
-	a {
-		margin: 0;
-		padding: 0;
-		text-decoration: none;
-
-		&:hover {	
-			text-decoration: underline;
-		}
-	}
-}	
-
-.site-description {
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	@include drm-em-font(16);
-
-	@include drm-breakpoint(saturn) {
-		text-align: center;
-	}
+    a {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
 }
 
-.navigation-holder {
-	float: right;
-	width: 60%;
+.site-description {
+    @include elr-em-font(16px);
+    margin: 0;
+    padding: 0;
+    text-align: left;
 
-	@include drm-breakpoint(saturn) {
-		float: none;	
-		width: 100%;
-		padding: 1%;
-		box-sizing: border-box;
-	}
+    @include elr-breakpoint('saturn') {
+        text-align: center;
+    }
 }
 
 .main-nav {
-	margin: 0;
-	padding: 0;
-	float: right;
-	clear: both;
-	box-sizing: border-box;
-	@include drm-inline-list;
+    margin: 0;
+    padding: 0;
 
-	@include drm-breakpoint(saturn) {
-		float: none;
-		text-align: center;
-		box-sizing: border-box;
-	}
+    li {
+        padding: 0 10px 0 0;
 
-	li {
-		padding: 0 10px 0 0;
+        &:last-child {
+            padding-right: 0;
+        }
+    }
 
-		&:last-child {
-			padding-right: 0;
-		}
-	}
+    a {
+        @include elr-em-font(14px);
+        text-decoration: none;
 
-	a {
-		text-decoration: none;
-		@include drm-em-font(14);
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

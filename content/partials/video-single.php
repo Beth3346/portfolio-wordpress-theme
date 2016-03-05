@@ -1,11 +1,11 @@
 <?php
-    if( !is_single() ) : global $more; $more = 0; endif; //enable more link    
+    if( !is_single() ) : global $more; $more = 0; endif; //enable more link
     global $post;
     $video = str_ireplace( '"', '', trim( get_post_meta( $post->ID, '_video_url', true ) ) );
     $length = str_ireplace( '"', '', trim(  get_post_meta( $post->ID, '_video_length', true ) ) );
     $creator = str_ireplace( '"', '', trim(  get_post_meta( $post->ID, '_video_creator', true ) ) );
 ?>
-<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post"); ?>>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-video"); ?>>
     <header>
         <?php elr_post_title(); ?>
         <ul class="post-meta">
@@ -13,8 +13,7 @@
             <?php elr_post_comments(); ?>
         </ul>
     </header>
-
-    <div class="drm-row">
+    <div>
         <?php elr_video( $video, 560, 349 ); ?>
         <ul class="video-info">
             <?php if ( get_the_terms( $post->ID, 'lesson' ) ) : ?>
@@ -34,6 +33,5 @@
         </ul>
     </div>
     <?php elr_post_content( $post->ID ); ?>
-
     <footer><?php elr_post_actions_nav( $post->ID ); ?></footer>
 </article>

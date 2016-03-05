@@ -5,14 +5,14 @@
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
 function elr_front_section_heading( $heading = 'Recent Articles' ) {
 
     if ( $heading ) {
-        echo '<h1 class="section-heading">';
+        echo '<h1 class="section-heading elr-text-center">';
         echo esc_html( $heading );
         echo '</h1>';
     }
@@ -23,11 +23,11 @@ function elr_front_section_heading( $heading = 'Recent Articles' ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
-function elr_front_thumbnail( $shape = 'rectangle', $title_length = 75, $url = null ) {
+function elr_front_thumbnail( $shape = 'rectangle', $title_length = 50, $url = null ) {
 
     $shape === 'circle' ? $class = 'circle-box' : $class = 'rectangle-box';
     $url ? $url = esc_url( $url ) : $url = get_the_permalink();
@@ -48,11 +48,11 @@ function elr_front_thumbnail( $shape = 'rectangle', $title_length = 75, $url = n
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
-function elr_front_title( $length = 75, $url = null ) {
+function elr_front_title( $length = 50, $url = null ) {
 
     $url ? $url = esc_url( $url ) : $url = get_the_permalink();
     echo '<h1><a href="';
@@ -69,11 +69,11 @@ function elr_front_title( $length = 75, $url = null ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
-function elr_front_content( $id, $length = 200 ) {
+function elr_front_content( $id, $length = 50 ) {
 
     if ( get_the_content() ) {
         echo '<p class="front-content">';
@@ -91,7 +91,7 @@ function elr_front_content( $id, $length = 200 ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -100,7 +100,7 @@ function elr_front_more( $text = 'Read More', $url = null ) {
     $url ? $url = esc_url( $url ) : $url = get_the_permalink();
     echo '<a href="';
     echo $url;
-    echo '" class="button-link">';
+    echo '" class="elr-button elr-button-info">';
     echo $text;
     echo '</a>';
 }

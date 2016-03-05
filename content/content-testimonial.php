@@ -6,10 +6,10 @@
     $title = get_post_meta( $post->ID, '_testimonial_title', true );
     $author = get_post_meta( $post->ID, '_testimonial_author', true );
 ?>
-<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post"); ?>>
-    <?php elr_post_thumbnail( 'post-image-holder' ); ?>    
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-testimonial"); ?>>
+    <?php elr_post_thumbnail( 'post-image-holder' ); ?>
     <!-- display the post content -->
-    <blockquote>            
+    <blockquote>
         <?php elr_post_content( $post->ID, false ); ?>
         <?php if ( $author ) : ?>
             <cite>

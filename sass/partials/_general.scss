@@ -1,20 +1,6 @@
-/*-----------------------------------------------------------------------------
-	General
------------------------------------------------------------------------------*/
+// General
 
-.drm-grid-2 {
-    @include drm-feature-box(2);
-}
-
-.drm-grid-3 {
-    @include drm-feature-box(3);
-}
-
-.drm-grid-4 {
-    @include drm-feature-box(4);
-}
-
-body {
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
+@include elr-reset();
+@include elr-base();
+@include elr-grid();
+@include elr-helper-classes();

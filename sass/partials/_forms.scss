@@ -1,55 +1,46 @@
-/*-----------------------------------------------------------------------------
-	Forms
------------------------------------------------------------------------------*/
+// Forms
 
-/* Removes fieldset borders. even on Opera 7 */
-fieldset {
-  border: 1px solid transparent;
+[type=text],
+[type=password],
+[type=email],
+[type=tel],
+textarea,
+[type=search] {
+    @include elr-form-state;
+    @include elr-em-font(12px);
+    padding: 6px 10px;
+    border-radius: 3px;
+    appearance: none;
 }
 
-/* form input */
-input, textarea, select, input[type=search], button {
-	font-size: 100%;
-	font-family: inherit;
+[type=search] {
+    border-radius: 15px;
+    height: 30px;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=tel], textarea, input[type=search] {
-	padding: 6px 10px;
-	box-sizing: border-box;
-	border-radius: 3px;
-	appearance: none;
-	@include drm-form-state($aqua, $off-white, $grey);
-	@include drm-em-font(12);
-}
-
-input[type=search] {
-	height: 30px;
-	@include border-radius(15px);
-}
-
-/* text area */
 textarea {
-	line-height: 150%;
+    line-height: 150%;
 }
 
-/* form button */
-input[type=reset], input[type=submit], button {
-	@include drm-button-solid($main-text, white, 40%, left, 0, $main-text);
+[type=reset],
+[type=submit],
+button {
+    @include elr-button-solid($main-text, $white, 40%, left, 0, $main-text);
 }
 
 small {
-	margin: 0;
-	display: block;
+    margin: 0;
+    display: block;
 
-	@include drm-breakpoint(saturn) {
-		text-align: center;
-	}
+    @include elr-breakpoint('saturn') {
+        text-align: center;
+    }
 }
 
 .hidden-field {
-	display: none;
+    display: none;
 }
 
 .contact-form .grunion-field-label span {
-	@include drm-em-font(10);
+    @include elr-em-font(10px);
 }

@@ -1,0 +1,135 @@
+// WordPress Post Formatting
+
+.post-title {
+    @include elr-em-font(36px);
+
+    a {
+        text-decoration: none;
+        color: $elr-blue;
+        transition: color .3s ease;
+
+        &:hover {
+            color: lighten($elr-blue, 15%);
+        }
+    }
+}
+
+.alignnone,
+.alignleft,
+.alignright,
+.aligncenter {
+    margin-bottom: 15px;
+}
+
+.alignleft {
+    float: left;
+    margin-right: 30px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 30px;
+}
+
+.aligncenter {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    text-align: center;
+    max-width: 100%;
+    float: left;
+    margin: 10px 15px 10px 10px;
+}
+
+.wp-caption-text {
+    @include elr-em-font(12px);
+    font-style: italic;
+    line-height: 120%;
+    margin: 6px 0;
+}
+
+.social-media-icons {
+    list-style: none;
+}
+
+.related-posts {
+    background-color: $almost-black;
+    padding: 10px 20px;
+    color: $white;
+    margin: 40px auto;
+    width: 80%;
+    border-radius: 5px;
+
+    li {
+        @include elr-clearfix();
+        list-style: none;
+    }
+
+    figure {
+        float: left;
+        padding: 0;
+        margin: 0 20px 0 0;
+        width: 100px;
+
+        a {
+            width: 100%;
+        }
+    }
+
+    p {
+        float: left;
+        width: 70%;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .post-date {
+        @include elr-em-font(10px);
+        display: block;
+        padding-top: 5px;
+    }
+}
+
+.sticky {
+    background-color: $lightest-grey;
+    padding: 20px;
+}
+
+.post-content {
+    min-width: 120px;
+}
+
+.post-image {
+    width: 80%;
+    margin: 2% 10%;
+
+    .left {
+        float: left;
+        margin: 10px 15px 10px 10px;
+    }
+
+    .right {
+        float: right;
+        margin: 10px 10px 10px 15px;
+    }
+}
+
+.post-image-caption {
+    @include elr-em-font(14px);
+    text-align: center;
+}
+
+.post-meta {
+    @include elr-em-font(14px);
+    margin: 0;
+}
+
+.post {
+    margin-bottom: 50px;
+}

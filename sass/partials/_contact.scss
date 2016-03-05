@@ -1,9 +1,6 @@
-/*-----------------------------------------------------------------------------
-    Contact Template
------------------------------------------------------------------------------*/
+// Contact Template
 
 .contact-template {
-    @extend %drm-container;
     overflow: hidden;
     padding: 0;
     margin-top: 20px;
@@ -14,13 +11,13 @@
     }
 
     h2 {
+        @include elr-em-font(20px);
         margin-bottom: 10px;
         text-align: left;
-        @include drm-em-font(20);
 
-        @include drm-breakpoint(saturn) {
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font(20px);
             text-align: center;
-            @include drm-em-font(20);
         }
     }
 }
@@ -28,15 +25,6 @@
 .contact-info-holder {
     word-wrap: break-word;
     margin-top: 40px;
-
-    @include drm-breakpoint(saturn) {
-        float: none;
-        width: 100%;
-
-        .social-media {
-            display: none;
-        }
-    }
 
     h2 {
         margin: 0;
@@ -48,17 +36,13 @@
     a {
         color: $text-color;
     }
+}
 
-    .organization-contact-info {
-        text-align: center;
+.organization-contact-info {
+    text-align: center;
 
-        a {
-            text-decoration: none;
-        }
-    }
-
-    .address {
-        @include drm-unstyled-list(center, no);
+    a {
+        text-decoration: none;
     }
 }
 
@@ -67,8 +51,7 @@
     height: 450px;
     overflow: hidden;
     border: 1px solid $light-grey;
-    margin: 30px 5%;
-    box-sizing: border-box;
+    margin: 30px auto;
 
     iframe {
         width: 100%;
@@ -79,8 +62,6 @@
 .contact-content {
     text-align: center;
     margin-bottom: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 .contact-form {
@@ -90,12 +71,7 @@
         padding-left: 10px;
     }
 
-    @include drm-breakpoint(saturn) {
-        float: none;
-        width: 100%;
-    }
-
     form {
-        @include drm-tabular-form();
+        @include elr-tabular-form();
     }
 }

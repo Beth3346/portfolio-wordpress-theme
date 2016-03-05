@@ -10,13 +10,6 @@
 
         <?php elr_post_meta( $post->ID ); ?>
     </header>
-
-    <div>
-        <?php the_content(); ?>
-    </div>
-
-    <footer>
-        <?php edit_post_link(__('Edit', 'elr')); ?>    
-    </footer>
-    
+    <div><?php the_content(); ?></div>
+    <footer><?php elr_edit_link(); ?></footer>
 </article>

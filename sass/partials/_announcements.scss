@@ -1,62 +1,58 @@
-/*-----------------------------------------------------------------------------
-    Front Announcements
------------------------------------------------------------------------------*/
+// Front Announcements
 
 .announcement {
     margin: 10px auto;
     width: 60%;
 
     h1 {
+        @include elr-em-font(28px);
         margin: 0;
         padding: 0 0 0 10px;
         text-align: left;
         float: left;
-        @include drm-em-font(28);
     }
 
-    p {
-        @extend %drm-reset-box;
-        @include drm-em-font(12);
-    }
-
+    p,
     a {
-        @extend %drm-reset-box;
-        @include drm-em-font(12);
+        @include elr-em-font(12px);
+        margin: 0;
+        padding: 0;
+        color: $text-color;
     }
 
     .header {
-        @include drm-clearfix;
+        @include elr-clearfix;
 
         i {
+            @include elr-em-font(30px);
             display: block;
             position: relative;
             float: left;
             padding: 5px 0;
-            @include drm-em-font(30);
         }
     }
 }
 
 .information-alert {
-    @include drm-context-box(info, 3px);
+    @include elr-context-box('info', 3px);
 }
 
 .danger-alert {
-    @include drm-context-box(danger, 3px);
+    @include elr-context-box('danger', 3px);
 }
 
 .warning-alert {
-    @include drm-context-box(warning, 3px);
+    @include elr-context-box('warning', 3px);
 }
 
 .success-alert {
-    @include drm-context-box(success, 3px);
+    @include elr-context-box('success', 3px);
 }
 
 .muted-alert {
-    @include drm-context-box(muted, 3px);
+    @include elr-context-box('muted', 3px);
 }
 
 .news-alert {
-    @include drm-context-box(custom, 3px, darken($drm-blue, 10%));
+    @include elr-context-box('custom', 3px, darken($elr-blue, 10%));
 }

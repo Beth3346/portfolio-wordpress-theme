@@ -5,61 +5,7 @@
  *
  * @since  3.0.0
  * @access public
- * @param  
- * @return void
- */
-
-function elr_get_contact() {
-    $front_page_options = (array)get_option('elr_theme_front_page_options');
-
-    if( isset( $front_page_options['show_contact'] ) ) : get_template_part( 'partials/front-contact'); endif;
-}
-
-/**
- * TODO: Function Description
- *
- * @since  3.0.0
- * @access public
- * @param  
- * @return void
- */
-
-function elr_post_thumbnail( $holder = 'post-image-holder', $thumbnail_size = array( 400, 9999 ) ) {
-
-    if ( has_post_thumbnail() ) {
-
-        echo '<div class="' . $holder . '">';
-
-            if ( is_single() || is_page() ) {
-                the_post_thumbnail( $thumbnail_size );
-
-            } else {
-                echo '<a href="';
-                    the_permalink();
-                echo '">';
-                    the_post_thumbnail( $thumbnail_size );
-                echo '</a>';
-            }
-            
-            $caption = get_post(get_post_thumbnail_id())->post_excerpt;
-
-            if ( $caption ) {
-
-                echo '<figcaption>';
-                    echo esc_html( $caption );
-                echo '</figcaption>';
-            }
-
-        echo '</div>';
-    }
-}
-
-/**
- * TODO: Function Description
- *
- * @since  3.0.0
- * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -78,95 +24,7 @@ function elr_map( $map, $width = 500, $height = 450 ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
- * @return void
- */
-
-function elr_bus_hours( $bus_hours ) {
-
-    if ( array_filter( $bus_hours ) ) {
-        echo '<ul class="business-hours">';
-
-        if( array_key_exists( 'sun_open', $bus_hours ) ) {
-            if ( $bus_hours['sun_open'] ) {
-                echo '<li><span class="bus-hour-label">Sunday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['sun_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['sun_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        if( array_key_exists( 'mon_open', $bus_hours ) ) {
-            if ( $bus_hours['mon_open'] ) {
-                echo '<li><span class="bus-hour-label">Monday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['mon_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['mon_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        if( array_key_exists( 'tue_open', $bus_hours ) ) {
-            if ( $bus_hours['tue_open'] ) {
-                echo '<li><span class="bus-hour-label">Tuesday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['tue_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['tue_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        if( array_key_exists( 'wed_open', $bus_hours ) ) {
-            if ( $bus_hours['wed_open'] ) {
-                echo '<li><span class="bus-hour-label">Wednesday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['wed_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['wed_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        if( array_key_exists( 'thu_open', $bus_hours ) ) {
-            if ( $bus_hours['thu_open'] ) {
-                echo '<li><span class="bus-hour-label">Thursday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['thu_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['thu_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        if( array_key_exists( 'fri_open', $bus_hours ) ) {
-            if ( $bus_hours['fri_open'] ) {
-                echo '<li><span class="bus-hour-label">Friday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['fri_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['fri_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        if( array_key_exists( 'sat_open', $bus_hours ) ) {
-            if ( $bus_hours['sat_open'] ) {
-                echo '<li><span class="bus-hour-label">Saturday:</span> ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['sat_open'] ) );
-                echo ' - ';
-                echo esc_html( mysql2date( 'g:i a', $bus_hours['sat_close'] ) );
-                echo '</li>';
-            }
-        }
-
-        echo '</ul>';
-    }
-}
-
-/**
- * TODO: Function Description
- *
- * @since  3.0.0
- * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -179,7 +37,7 @@ function elr_remove_quotes( $content ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -202,7 +60,7 @@ function elr_trim_title( $title_length = 75 ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -211,7 +69,7 @@ function elr_trim_content( $content_length = 200 ) {
 
     if ( strlen( $content ) > $content_length ) {
 
-        return wp_trim_words( elr_remove_quotes( $content ), 30, "..." );
+        return wp_trim_words( elr_remove_quotes( $content ), $content_length, "..." );
 
     } else {
 
@@ -225,7 +83,7 @@ function elr_trim_content( $content_length = 200 ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -250,7 +108,7 @@ function elr_video( $video, $width = 560, $height = 349 ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -260,13 +118,13 @@ function elr_address( $address ) {
 
         if ( array_key_exists( 'street_address', $address ) ) {
             if ( $address['street_address'] ) {
-                echo '<li class="drm-text-center" itemprop="streetAddress">';
+                echo '<li itemprop="streetAddress">';
                 echo esc_html( $address['street_address'] );
                 echo '</li>';
             }
         }
 
-        echo '<li class="drm-text-center">';
+        echo '<li>';
 
         if ( array_key_exists( 'city', $address ) ) {
             if ( $address['city'] ) {
@@ -293,13 +151,13 @@ function elr_address( $address ) {
         }
 
         if ( array_key_exists( 'country', $address ) ) {
-            if ( $address['country'] ) { 
+            if ( $address['country'] ) {
                 echo '<span itemprop="country">';
                 echo esc_html( $address['country'] );
                 echo '</span><br>';
             }
         }
-        
+
         echo '</li>';
         echo '</ul>';
     }
@@ -310,108 +168,134 @@ function elr_address( $address ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
 function elr_email( $email ) {
 
     if ( $email ) {
-        echo '<i class="fa fa-envelope"></i> <span itemprop="email"><a href="mailto:';
+        echo '<a href="mailto:';
         echo antispambot( $email );
         echo '">';
         echo antispambot( $email );
-        echo '</a></span>';
+        echo '</a>';
     }
 }
-
-/**
- * TODO: Function Description
- *
- * @since  3.0.0
- * @access public
- * @param  
- * @return void
- */
 
 function elr_phone( $phone ) {
 
     if ( $phone ) {
-        echo '<i class="fa fa-phone-square"></i> <span itemprop="telephone">';
-        echo esc_html( $phone );
-        echo '</span>';
+        echo '<a href="tel:' . $phone . '">' . $phone . '</a>';
     }
 }
 
-/**
- * Echos a li with social media icons
- *
- * @since  3.0.0
- * @access public
- * @param  
- * @return void
- */
-
-function elr_social_media( $social_media ) {
-
-    if ( array_filter( $social_media ) ) {
-
-        echo '<li class="social-media-icons">';
-
-            if( array_key_exists( 'work_email', $social_media ) ) {
-                if( $social_media['work_email'] ) {
-                    echo '<a href="mailto:' . antispambot( $social_media['work_email'] ) . '"><i class="fa fa-envelope"></i></a>';
-                }                
-            }
-
-            if( array_key_exists( 'email', $social_media ) ) {
-                if( $social_media['email'] ) {    
-                    echo '<a href="mailto:' . antispambot( $social_media['email'] ) . '"><i class="fa fa-envelope"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'facebook', $social_media ) ) {
-                if( $social_media['facebook'] ) {    
-                    echo '<a href="' . esc_url( $social_media['facebook'] ) . '" target="_blank"><i class="fa fa-facebook"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'twitter', $social_media ) ) {
-                if( $social_media['twitter'] ) {    
-                    echo '<a href="' . esc_url( $social_media['twitter'] ) . '" target="_blank"><i class="fa fa-twitter"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'google_plus', $social_media ) ) {
-                if( $social_media['google_plus'] ) {    
-                    echo '<a href="' . esc_url( $social_media['google_plus'] ) . '" target="_blank"><i class="fa fa-google-plus"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'pinterest', $social_media ) ) {
-                if( $social_media['pinterest'] ) {    
-                    echo '<a href="' . esc_url( $social_media['pinterest'] ) . '" target="_blank"><i class="fa fa-pinterest"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'github', $social_media ) ) {
-                if( $social_media['github'] ) {    
-                    echo '<a href="' . esc_url( $social_media['github'] ) . '" target="_blank"><i class="fa fa-github"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'linkedin', $social_media ) ) {
-                if( $social_media['linkedin'] ) {    
-                    echo '<a href="' . esc_url( $social_media['linkedin'] ) . '" target="_blank"><i class="fa fa-linkedin"></i></a>';
-                }
-            }
-
-            if( array_key_exists( 'yelp', $social_media ) ) {
-                if( $social_media['yelp'] ) {    
-                    echo '<a href="' . esc_url( $social_media['yelp'] ) . '" target="_blank"><i class="fa fa-yelp"></i></a>';
-                }
-            }
-
-        echo '</li>';
+function elr_breadcrumbs() {
+    if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb('<p id="breadcrumbs" class="breadcrumbs">','</p>');
     }
+}
+
+function elr_author_archive_title() {
+    /*
+     * Queue the first post, that way we know what author
+     * we're dealing with (if that is the case).
+     *
+     * We reset this later so we can run the loop properly
+     * with a call to rewind_posts().
+     */
+    the_post();
+
+    printf( __( 'All posts by %s', 'elr' ), get_the_author() );
+}
+
+function elr_author_archive_description() {
+    if ( get_the_author_meta( 'description' ) ) {
+        echo '<div class="author-description">';
+        echo get_the_author_meta( 'description' );
+        echo '</div>';
+    }
+}
+
+function elr_category_archive_title() {
+    printf( __( 'Category: %s', 'elr' ), single_cat_title( '', false ) );
+}
+
+function elr_category_archive_description() {
+    $term_description = term_description();
+    if ( ! empty( $term_description ) ) :
+        printf( '<div class="taxonomy-description">%s</div>', $term_description );
+    endif;
+}
+
+function elr_search_archive_title() {
+    printf( __( 'Search Results for: %s', 'elr' ), '<span>' . get_search_query() . '</span>' );
+}
+
+function elr_tag_archive_title() {
+    printf( __( 'Tag: %s', 'elr' ), single_tag_title( '', false ) );
+}
+
+function elr_tag_archive_description() {
+    // Show an optional term description.
+    $term_description = term_description();
+    if ( ! empty( $term_description ) ) :
+        printf( '<div class="taxonomy-description">%s</div>', $term_description );
+    endif;
+}
+
+function elr_related_posts( $taxonomy = 'category', $post_type = 'current', $num_posts = 3 ) {
+    $id = get_the_ID();
+
+    // config
+    if ( $taxonomy === 'category' ) {
+        $term_name = $taxonomy;
+        $term_id = 'cat_ID';
+    } else if ( $taxonomy === 'tag' ) {
+        $term_name = 'post_tag';
+        $term_id = 'term_id';
+    } else {
+        $term_name = $taxonomy;
+        $term_id = 'term_id';
+    }
+
+    if ( $post_type == 'current' ) {
+        $post_type = get_post_type();
+    }
+
+    $terms = get_the_terms($id, $term_name);
+    $related = array();
+
+    // TODO: need to check if term exists
+    if ( !empty( $terms ) ) {
+        foreach( $terms as $term ) {
+            $related[] = $term->$term_id;
+            $related_name[]['name'] = $term->name;
+        }
+    } else {
+        return;
+    }
+
+    $loop = new WP_Query(
+        array(
+            'posts_per_page' => $num_posts,
+            $taxonomy. '__in' => $related,
+            'orderby' => 'rand',
+            'post__not_in' => array( $id ),
+            'post_type' => $post_type
+        )
+    );
+
+    if ( $loop->have_posts() ) {
+        $related_posts = '<h3>' . $term_name . ': ' . $terms[0]->name . '</h3>' .
+        '<ul class="related-category-posts">';
+        while( $loop->have_posts() ) {
+            $loop->the_post();
+            $related_posts .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+        }
+        $related_posts .= '</ul>';
+        wp_reset_query();
+    }
+
+    return $related_posts;
 }

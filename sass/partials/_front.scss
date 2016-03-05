@@ -1,113 +1,88 @@
-/*-----------------------------------------------------------------------------
-    Front
------------------------------------------------------------------------------*/
+// scss-lint:disable NestingDepth
+// Front
 
 .cpt-content {
     padding: 0;
     margin: 0;
     width: 100%;
+}
 
-    .section-heading {
-        text-align: center;
+.section-heading {
+    @include elr-em-font(36px);
+}
+
+.front-post-box {
+    padding: 40px;
+
+    h1 {
+        @include elr-em-font(16px);
+        font-weight: bold;
+        height: 60px;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    p {
+        @include elr-em-font(14px);
+        height: 115px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+}
+
+.front-post-actions a {
+    color: $white;
+}
+
+.front-project-box {
+    p {
+        display: none;
     }
 }
 
 .front-section {
-    @extend %drm-container-full-width;
+    @include elr-clearfix;
     background-color: $main-text;
-    color: white;
-    border-bottom: 1px solid white;
+    color: $white;
+    border-bottom: 1px solid $white;
     padding-top: 30px;
     padding-bottom: 30px;
-    @include drm-clearfix;
-
-    @include drm-breakpoint(mars) {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    @include drm-breakpoint(jupiter) {
-        padding-left: 1%;
-        padding-right: 1%;
-    }
 
     figure {
         height: 200px;
-    }
-
-    .front-box-1 {
-        text-align: center;
+        margin-bottom: 10px;
     }
 
     h1 a {
-        color: white;
-    }
-
-    .front-box-3 {
-        text-align: center;
-        padding: 40px;
-        @include drm-feature-box(3);
-
-        h1 {
-            font-weight: bold;
-            height: 50px;
-            @include drm-em-font(16);
-        }
-
-        p {
-            height: 105px;
-            @include drm-em-font(14);
-        }
-    }
-
-    .front-post-actions a {
-        color: white;
+        color: $white;
     }
 
     .button-link {
+        @include elr-em-font(14px);
         text-decoration: none;
         margin: 10px 0;
         padding: 10px 20px;
         border-radius: 3px;
         display: inline-block;
         width: 70%;
-        border: 1px solid white;
+        border: 1px solid $white;
         color: $main-text;
-        background-color: white;
-        @include drm-em-font(14);
+        background-color: $white;
 
         &:hover {
             background-color: $main-text;
-            color: white;
-        }
-    }
-
-    .drm-simple-slider-list {
-        button {
-            background-color: white;
-
-            &.active {
-                background-color: $aqua;
-            }
-        }
-    }
-
-    .drm-simple-slider-nav {
-        button {
-            background-color: white;
-            color: $main-text;
-
-            &:hover {
-                background-color: $aqua;
-                color: white;
-            }
+            color: $white;
         }
     }
 
     &:nth-child(odd) {
         color: $main-text;
         border-top: 1px solid $main-text;
-        background-color: white;
+        background-color: $white;
 
         h1 a {
             color: $main-text;
@@ -118,17 +93,17 @@
         }
 
         .button-link {
-            background-color: white;
+            background-color: $white;
             color: $main-text;
             border: 1px solid $main-text;
 
             &:hover {
                 background-color: $main-text;
-                color: white;
-            }            
+                color: $white;
+            }
         }
 
-        .drm-simple-slider-list {
+        .testimonial-slider-list {
             button {
                 background-color: $main-text;
 
@@ -138,14 +113,14 @@
             }
         }
 
-        .drm-simple-slider-nav {
+        .testimonial-slider-nav {
             button {
                 background-color: $main-text;
-                color: white;
+                color: $white;
 
                 &:hover {
                     background-color: $aqua;
-                    color: white;
+                    color: $white;
                 }
             }
         }

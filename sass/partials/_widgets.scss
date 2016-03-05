@@ -1,49 +1,29 @@
-/*-----------------------------------------------------------------------------
-	Widgets
------------------------------------------------------------------------------*/
+// Widgets
+// scss-lint:disable ImportantRule
 
 .widget {
-	word-wrap: break-word;
-	text-transform: capitalize;
+    word-wrap: break-word;
 
-	ul {
-		@extend %drm-reset-box;
-	}
-
-    iframe {
-        width:100% !important;
-    }
-}
-
-.widget-title {
-	font-weight: bold;
-	@include drm-em-font(18);
-}
-
-.elr-recent-posts-widget {
-    li {
-        @include drm-clearfix;
-    }
-
-    figure {
-        box-sizing: border-box;
-        float: left;
-        width: 20%;
+    ul {
         margin: 0;
         padding: 0;
     }
 
-    p {
-        box-sizing: border-box;
-        width: 80%;
-        float: left;
-        margin: 0;
-        padding: 0 0 0 20px;
+    iframe {
+        width: 100% !important;
     }
+}
+
+.widget-title {
+    @include elr-em-font(18px);
+    font-weight: bold;
+}
+
+.elr-recent-posts-widget {
 
     .post-date {
+        @include elr-em-font(12px);
         display: block;
         color: $grey;
-        @include drm-em-font(12);
     }
 }

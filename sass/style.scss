@@ -1,49 +1,39 @@
-@charset "utf-8";
+// scss-lint:disable Comment
+
+@charset 'utf-8';
 
 /*!-----------------------------------------------------------------------------
     Theme Name:  ELR WordPress
-    Theme URI:   http://www.dynamicresponsemedia.net
     Version:     1.0.0
     Author:      Elizabeth Rogers
     Email:       info@elizabeth-rogers.com
     Website:     http://www.elizabeth-rogers.com
     License:     GNU General Public License 3.0
     License URI: http://www.gnu.org/licenses/gpl-3.0.html
-    Tags:        one-column, two-columns, right-sidebar, left-sidebar, fluid-layout, 
-                 custom-menu, featured-images, post-formats, sticky-post, 
-                 translation-ready
     Text Domain: elr
 -----------------------------------------------------------------------------*/
 
-/*----------------------------------------------------------------------------- 
-	Vendor Dependencis
------------------------------------------------------------------------------*/
+// Author Dependencies
 
-@import "vendor/reset";
+@import 'assets/elr-sass-utilities/sass-utilities';
 
-/*-----------------------------------------------------------------------------
-	Author Dependencies
------------------------------------------------------------------------------*/
+// Partials
 
-@import "assets/drm-sass-utilities/sass-utilities";
-
-/*-----------------------------------------------------------------------------
-	Partials
------------------------------------------------------------------------------*/
-
-@import "partials/general";
-@import "partials/header";
-@import "partials/main-content";
-@import "partials/widgets";
-@import "partials/sidebar";
-@import "partials/comments";
-@import "partials/forms";
-@import "partials/footer";
-@import "partials/navigation";
-@import "partials/social-media";
-@import "partials/contact";
-@import "partials/custom-post-styles";
-@import "partials/announcements";
-@import "partials/resume";
-@import "partials/front";
-@import "partials/front-testimonial-slider";
+@import 'partials/general';
+@import 'partials/header';
+@import 'partials/main-content';
+@import 'partials/widgets';
+@import 'partials/sidebar';
+@import 'partials/comments';
+@import 'partials/forms';
+@import 'partials/footer';
+@import 'partials/navigation';
+@import 'partials/social-media';
+@import 'partials/contact';
+@import 'partials/custom-post-styles';
+@import 'partials/announcements';
+@import 'partials/resume';
+@import 'partials/front';
+@import 'partials/front-testimonial-slider';
+@import 'partials/posts';
+@import 'partials/faqs';

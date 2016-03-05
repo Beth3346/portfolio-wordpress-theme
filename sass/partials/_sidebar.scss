@@ -1,58 +1,35 @@
-/*-----------------------------------------------------------------------------
-	Sidebar
------------------------------------------------------------------------------*/
+// Sidebar
 
 .sidebar {
-	padding: 1% 0 1% 5%;
-	float: right;
-	width: 35%;
-	box-sizing: border-box;
+    padding-left: 20px;
 
-	@include drm-breakpoint(mars) {
-		padding-right: 5%;
-	}
+    .widget {
+        padding: 0 0 20px;
 
-	@include drm-breakpoint(jupiter) {
-		padding-right: 1%;
-	}
+        .widget-title {
+            @include elr-em-font(16px);
+            @include elr-pill-heading($main-text, $white);
+            margin-bottom: 10px;
+        }
 
-	@include drm-breakpoint(saturn) {
-		float: none;	
-		width: 100%;
-		padding: 1%;
-	}
+        li {
+            @include elr-em-font(14px);
+            padding-left: 10px;
+            padding-right: 10px;
+            list-style: none;
+        }
 
-	.widget {
-		padding: 0 0 20px 0;
-		box-sizing: border-box;
+        &:last-child {
+            padding: 0;
+        }
+    }
 
-		.widget-title {
-			margin-bottom: 10px;
-			@include drm-em-font(16);
-			@include drm-pill-heading($main-text, white);
-		}
+    .searchform {
+        width: 80%;
+        margin: 0 auto;
 
-		ul {
-			@include drm-unstyled-list(left);		
-		}
-
-		li {
-			padding-left: 10px;
-			padding-right: 10px;
-			@include drm-em-font(14);
-		}
-
-		&:last-child {
-			padding: 0;
-		}
-	}
-
-	.searchform {
-		width: 80%;
-		margin: 0 auto 0 auto;
-		
-		input[type=search] {
-			width: 100%;		
-		}
-	}
+        [type=search] {
+            width: 100%;
+        }
+    }
 }

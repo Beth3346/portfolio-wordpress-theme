@@ -1,6 +1,4 @@
-/*-----------------------------------------------------------------------------
-    Resume Styles
------------------------------------------------------------------------------*/
+// Resume Styles
 
 .resume {
     h3 {
@@ -8,22 +6,22 @@
     }
 
     li {
-        @include drm-em-font(14);
+        @include elr-em-font(14px);
     }
+}
 
-    .portfolio ul {
-        padding-left: 0;
-        list-style: none;
-    }
+.portfolio ul {
+    padding-left: 0;
+    list-style: none;
+}
 
-    .experience-details {
-        padding-left: 0;
-        padding-bottom: 0;
-        
-        li {
-            font-weight: bold;
-            display: inline;
-            padding-right: 10px;
-        }
+.experience-details {
+    padding-left: 0;
+    padding-bottom: 0;
+
+    li {
+        font-weight: bold;
+        display: inline;
+        padding-right: 10px;
     }
 }

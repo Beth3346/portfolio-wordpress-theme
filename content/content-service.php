@@ -1,13 +1,27 @@
 <?php
     if(!is_single()) : global $more; $more = 0; endif; //enable more link
+    global $post;
+    $availability = get_post_meta( $post->ID, '_service_availability', true );
+    $price = get_post_meta($post->ID, '_service_price', true);
 ?>
-
-<?php if ( is_single() || is_page() ) : ?>
-    <?php get_template_part( 'content/partials/service-single' ); ?>
-
-<?php elseif ( is_post_type_archive( 'service' ) || is_tax() ) : ?>
-    <?php get_template_part( 'content/partials/service-grid' ); ?>
-
-<?php else : ?>
-    <?php get_template_part( 'content/partials/service-single' ); ?>
-<?php endif; ?>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-service"); ?>>
+    <header>
+        <?php elr_post_title(); ?>
+        <ul class="post-meta">
+            <?php elr_post_comments(); ?>
+        </ul>
+    </header>
+    <div>
+        <?php elr_post_thumbnail( 'cpt-image-holder' ); ?>
+        <!-- display custom post info -->
+        <ul class="cpt-info">
+            <?php if ( get_the_terms( $post->ID, 'service_type' ) ) : ?>
+                <li><i class="fa fa-cube"></i> <?php elr_taxonomy_terms( 'service_type', $post->ID ); ?></li>
+            <?php endif; ?>
+            <?php if ( $availability ) : ?><li><?php echo esc_html( $availability ); ?></li><?php endif; ?>
+            <?php if ( $price ) : ?><li>$<?php echo esc_html( $price ); ?></li><?php endif; ?>
+        </ul>
+    </div>
+    <?php elr_post_content( $post->ID ); ?>
+    <footer><?php elr_post_actions_nav( $post->ID ); ?></footer>
+</article>

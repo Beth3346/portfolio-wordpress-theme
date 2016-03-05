@@ -10,7 +10,7 @@
     $phone = NULL;
     $message = NULL;
     $mail_sent = false;
-    
+
     if ( isset($_POST['send'] ) ) {
 
         require_once( FRAMEWORK . '/forms/Validation.php' );
@@ -65,27 +65,27 @@
 <form action="" method="post" id="contact-form">
 
     <label for="full_name">*Name:</label>
-    <input type="text" name="full_name" id="full-name" maxlength="100" required placeholder="First Last" 
+    <input type="text" name="full_name" id="full-name" maxlength="100" required placeholder="First Last"
         <?php if( !( $mail_sent ) ) {
             echo 'value="' . htmlentities( $full_name ) . '"';
-        } ?> 
+        } ?>
     >
 
     <label for="phone">*Phone:</label>
-    <input type="tel" name="phone" id="phone" maxlength="100" required placeholder="First Last" 
+    <input type="tel" name="phone" id="phone" maxlength="100" required placeholder="First Last"
         <?php if( !( $mail_sent ) ) {
             echo 'value="' . htmlentities( $phone ) . '"';
-        } ?> 
+        } ?>
     >
 
     <label for="email">*Email:</label>
-    <input type="email" name="email" id="email" required placeholder="youremail@email.com" 
+    <input type="email" name="email" id="email" required placeholder="youremail@email.com"
         <?php if( !( $mail_sent ) ) {
             echo 'value="' . htmlentities( $email ) . '"';
-        } ?> 
+        } ?>
     >
 
-    <label for="message">*How Can We Help You?</label>
+    <label for="message">*How Can I Help You?</label>
     <textarea name="message" id="message" cols="20" rows="5" maxlength="180" required placeholder="Let us know how we can help you"><?php if( !( $mail_sent ) ) {
         echo htmlentities( $message );
     } ?></textarea>

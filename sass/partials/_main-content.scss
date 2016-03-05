@@ -1,241 +1,65 @@
-/*-----------------------------------------------------------------------------
-	Main Content
------------------------------------------------------------------------------*/
+// Main Content
 
-main {
-	@extend %drm-container-full-width;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	box-sizing: border-box;
-	@include drm-clearfix();
+.main-content {
+    @include elr-clearfix;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-.expertise {
-	h3, p {
-		text-align: center;
-	}
-}
-
-.content-holder {
-	float: left;
-	width: 65%;
-	padding: 1% 1% 1% 0;
-	box-sizing: border-box;
-
-	@include drm-breakpoint(mars) {
-		padding-left: 5%;
-	}
-
-	@include drm-breakpoint(jupiter) {
-		padding-left: 1%;
-	}
-
-	@include drm-breakpoint(saturn) {
-		float: none;	
-		width: 100%;
-		padding: 1% 5% 1% 5%;
-	}
-
-	h1 {
-		text-align: center;
-		font-weight: bold;
-	}
-
-	h2 {
-		text-align: center;
-		font-weight: bold;
-	}
-
-	h3 {
-		font-weight: bold;
-	}
-
-	img {
-		max-width: 100%;
-		margin: 2% auto 2% auto;
-		display: block;
-		box-sizing: border-box;
-	}
-
-	a.more-link, button.hide-link {
-		@include drm-em-font(14);	
-		@include drm-button-solid($main-text, white, 100%, center, 3px, $main-text)
-	}
-
-	li {
-		h1, h2, h3, h4, p {
-			margin: 0;
-			padding: 0;
-		}
-	}
-
-	.highlight {
-		color: $aqua;
-	}
-
-	pre {
-		margin: 20px auto;
-	}
-}
-
-.article-full {
-	width: 100%;
-	padding: 1% 5%;
-	box-sizing: border-box;
-
-	@include drm-breakpoint(mercury) {
-		padding: 1% 15%;
-	}
-
-	@include drm-breakpoint(venus) {
-		padding: 1% 15%;
-	}
-
-	@include drm-breakpoint(jupiter) {
-		padding: 1% 5%;
-	}
-}
-
-.post {
-	margin-bottom: 50px;
-}
-
-.sticky {
-	background-color: $lightest-grey;
-	padding: 20px;
-}
-
-.post-content {
-	min-width: 120px;
-}
-
-.post-image {
-	width: 80%;
-	margin: 2% 10%;
-	box-sizing: border-box;
-
-	.left {
-		float: left;
-		margin: 10px 15px 10px 10px;
-	}
-
-	.right {
-		float: right;
-		margin: 10px 10px 10px 15px;
-	}	
-}
-
-.post-image-caption {
-	text-align: center;
-	@include drm-em-font(14);
-}
-
-/* post meta */
-.post-meta {
-	margin: 0;
-	text-transform: capitalize;
-	@include drm-em-font(14);
-	@include drm-unstyled-list(left, no);
-}
-
-p.wp-caption-text {
-	margin-bottom: 20px;	
-}
-
-.wp-caption alignleft {
-	float: left;
-	margin: 10px 15px 10px 10px;
-}	
-
-/*------------------------------------------------------------------------------------
-WORDPRESS POST FORMATTING
-------------------------------------------------------------------------------------*/
-
-.alignnone {
-	margin-bottom: 15px;
-}
-
-.alignleft {
-	margin-bottom: 15px;
-	float: left;
-	margin-right: 30px;
-}
-
-.alignright {
-	margin-bottom: 15px;
-	float: right;
-	margin-left: 30px;
-}
-
-.aligncenter {
-	margin-bottom: 15px;
-	text-align: center;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.wp-caption {
-	text-align: center;
-	margin-bottom: 15px;
-	max-width: 100%;
-	box-sizing: border-box;
-}
-
-.wp-caption-text {
-	font-style: italic;
-	font-size: (12em / 16);
-	line-height: 120%;
-	margin: 6px 0;
-}
-
-.social-media-icons {
-	list-style: none;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .fa {
-	width: auto;
-	padding-right: 5px;
+    width: auto;
+    padding-right: 5px;
 }
 
-.related-posts {
-	background-color: $almost-black;
-	padding: 10px 20px;
-	color: white;
-	margin: 40px auto;
-	width: 80%;
-	border-radius: 5px;
-	box-sizing: border-box;
-
-	li {
-		list-style: none;
-		@include drm-clearfix();
-	}
-
-	figure {
-		float: left;
-		padding: 0;
-		margin: 0 20px 0 0;
-		width: 100px;
-
-		a {
-			width: 100%;
-		}
-	}
-
-	p {
-		float: left;
-		width: 70%;
-
-		a {
-			color: white;
-		}
-	}
-
-	.post-date {
-		display: block;
-		padding-top: 5px;
-		@include drm-em-font(10);
-	}
+.expertise {
+    h3,
+    p {
+        text-align: center;
+    }
 }
 
+.more-link,
+.hide-link {
+    width: 100%;
+}
+
+.content-holder {
+    padding-right: 40px;
+
+    h1,
+    h2,
+    h3 {
+        font-weight: bold;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%;
+        margin: 2% auto;
+        display: block;
+    }
+
+    li {
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    pre {
+        margin: 20px auto;
+    }
+}

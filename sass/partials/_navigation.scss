@@ -1,134 +1,114 @@
-/*------------------------------------------------------------------------------------
-	Page Navigation
-------------------------------------------------------------------------------------*/
+// Page Navigation
+// scss-lint:disable SelectorDepth NestingDepth
 
 .page-nav {
-	clear: both;
-	padding-bottom: 20px;
-	text-align: right;
-	color: white;
-	@include drm-clearfix();
+    @include elr-clearfix;
+    padding-bottom: 20px;
+    text-align: right;
+    color: $white;
 
-	@include drm-breakpoint(saturn) {
-		text-align: center;
-	}
+    @include elr-breakpoint('saturn') {
+        text-align: center;
+    }
 
-	a, span {
-		zoom: 1;
-		text-align: center;
-		margin: 0 0 0 10px;
-		line-height: 1.8em;
-		color: $main-text;
-		box-sizing: border-box;	
-		@include drm-circle(30px, inline-block);
-	}
+    a,
+    span {
+        @include elr-circle(30px, inline-block);
+        zoom: 1;
+        text-align: center;
+        margin: 0 0 0 10px;
+        line-height: 1.8em;
+        color: $main-text;
+    }
 
-	a {
-		text-decoration: none;
-		font-weight: normal;
+    a {
+        text-decoration: none;
+        font-weight: normal;
 
-		&:hover {
-			color: white;
-			background-color: $aqua;
-		}
-	}
+        &:hover {
+            color: $white;
+            background-color: $aqua;
+        }
+    }
 
-	.current {
-		text-decoration: none;
-		color: white;
-		background: $main-text;
-	}
+    .current {
+        text-decoration: none;
+        color: $white;
+        background: $main-text;
+    }
 }
 
-/*------------------------------------------------------------------------------------
-	Post Navigation
-------------------------------------------------------------------------------------*/
+// Post Navigation
 
 .post-nav {
-	margin: 0 0 30px;
-	padding: 15px 0;
-	clear: both;
-	box-sizing: border-box;
-	@include drm-clearfix();
+    @include elr-clearfix;
+    margin: 0 0 30px;
+    padding: 15px 0;
+    clear: both;
 
-	span {
-		width: 47%;
-		position: relative;
-		box-sizing: border-box;
+    span {
+        width: 47%;
+        position: relative;
 
-		span {
-			background: $main-text;
-			color: white;
-			font: normal 20px/100%;
-		}
-	}
+        span {
+            background: $main-text;
+            color: $white;
+        }
 
-	a {
-		text-decoration: underline;
-		display: block;
-		font-weight: normal;
-		line-height: 1.9em;
-		color: $main-text;
-		transition: all, .3s, ease-out;
+        .arrow {
+            @include elr-circle(30px, inline-block);
+            text-align: center;
+            margin: 0;
+        }
 
-		span {
-			text-align: center;
-			background: $main-text;
-			transition: all, .3s, ease-out;
-			@include drm-circle(30px, inline-block);
-		}	
+        .prev,
+        .next {
 
-		&:hover {
-			text-decoration: none;
-			color: $aqua;
-			transition: all, .3s, ease-in;
+            .arrow {
+                margin: 0 10px;
+                line-height: 1.8em;
 
-			span {
-				color: white;
-				background: $aqua;
-				transition: all, .3s, ease-in;
-			}
-		}
-	}
+                @include elr-breakpoint('saturn') {
+                    line-height: 1.5em;
+                }
+            }
+        }
 
-.post-nav span 
+        .prev {
+            float: left;
+        }
 
-	.arrow {
-		text-align: center;
-		margin: 0;
-		box-sizing: border-box;
-		text-shadow: none;
-		@include drm-circle(30px, inline-block);
-	}
+        .next {
+            float: right;
 
-	.prev {
-		float: left;
+            .arrow {
+                float: right;
+            }
+        }
+    }
 
-		span.arrow {
-			float: left;
-			margin: 0 10px 0 0;
-			line-height: 1.8em;
-			text-shadow: none;
+    a {
+        text-decoration: underline;
+        display: block;
+        font-weight: normal;
+        line-height: 1.9em;
+        color: $main-text;
+        transition: all, .3s, ease;
 
-			@include drm-breakpoint(saturn) {
-				line-height: 1.5em;
-			}
-		}
-	}
+        span {
+            @include elr-circle(30px, inline-block);
+            text-align: center;
+            background: $main-text;
+        }
 
-	.next {
-		float: right;
-		text-align: right;
+        &:hover {
+            text-decoration: none;
+            color: $aqua;
 
-		span.arrow {
-			float: right;
-			margin: 0 0 0 10px;
-			line-height: 1.8em;
-			text-shadow: none;
-
-			@include drm-breakpoint(saturn) {
-				line-height: 1.5em;
-			}
-		}
-	}
+            span {
+                color: $white;
+                background: $aqua;
+            }
+        }
+    }
 }

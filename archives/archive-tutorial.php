@@ -1,9 +1,5 @@
 <?php get_header(); ?>
-<main class="main-content">
-    <div class="content-holder">
-        <?php elr_get_loop(); ?>
-    </div>
-    <?php get_sidebar(); ?>
+<main class="main-content elr-container">
+    <?php elr_cpt_grid($wp_query, 'tutorial', array('lesson', 'difficulty'), true, true); ?>
 </main>
-<?php elr_get_contact(); ?>
 <?php get_footer(); ?>

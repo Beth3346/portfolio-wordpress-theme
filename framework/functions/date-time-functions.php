@@ -5,23 +5,13 @@
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
-function elr_post_date() {
-    $options = get_option( 'elr_theme_display_options' );
-
-    if ( isset( $options['relative_publish_dates'] ) ) {
-        $relative_publish_dates = $options['relative_publish_dates'];
-    } else {
-        $relative_publish_dates = NULL;
-    }
-    
-    echo '<li class="post-date">';
+function elr_post_date($relative_publish_dates = false) {
 
     if ( $relative_publish_dates ) {
-        echo '<i class="fa fa-calendar"></i> ';
         echo '<time datetime="';
             the_time('o-m-d');
         echo '" pubdate>';
@@ -30,15 +20,12 @@ function elr_post_date() {
             echo ' ago ';
         echo '</time>';
     } else {
-        echo '<i class="fa fa-calendar"></i> ';
         echo '<time datetime="';
             the_time('o-m-d');
         echo '" pubdate>';
         the_time('F j, Y');
         echo '</time>';
     }
-
-    echo '</li>';
 }
 
 /**
@@ -46,7 +33,7 @@ function elr_post_date() {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -56,7 +43,7 @@ function elr_time_diff( $datetime ) {
     if ( $datetime ) {
 
         $datetime = strtotime( $datetime );
-        echo '<li>';
+        echo '<span>';
 
         if ( $datetime > $current_time ) {
 
@@ -71,7 +58,7 @@ function elr_time_diff( $datetime ) {
             echo 'about ' . human_time_diff( $datetime, current_time('timestamp') ) . ' ago';
         }
 
-        echo '</li>';
+        echo '</span>';
     }
 }
 
@@ -80,7 +67,7 @@ function elr_time_diff( $datetime ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 
@@ -88,27 +75,27 @@ function elr_start_end( $start_date, $start_time, $end_date, $end_time ) {
 
     if ( $start_date === $end_date ) {
 
-        echo '<li>';
+        echo '<p>';
             echo mysql2date( 'l, F j, Y', $start_date );
-            echo '</span><br>';
+            echo '</span>';
             echo mysql2date( 'g:i a', $start_time );
             echo '</span> to ';
             echo mysql2date( 'g:i a', $end_time );
             echo '</span>';
-        echo '</li>';
+        echo '</p>';
 
     } else {
 
-        echo '<li>';
+        echo '<p>';
             echo mysql2date( 'l, F j, Y', $start_date );
             echo '</span> at ';
             echo mysql2date( 'g:i a', $start_time );
-            echo '</span><br /> to ';
+            echo '</span> to ';
             echo mysql2date( 'l, F j, Y', $end_date );
             echo '</span> at ';
             echo mysql2date( 'g:i a', $end_time );
             echo '</span>';
-        echo '</li>';
+        echo '</p>';
     }
 }
 
@@ -117,7 +104,7 @@ function elr_start_end( $start_date, $start_time, $end_date, $end_time ) {
  *
  * @since  3.0.0
  * @access public
- * @param  
+ * @param
  * @return void
  */
 

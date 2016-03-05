@@ -7,7 +7,7 @@
     $location = get_post_meta( $post->ID, '_project_location', true );
 ?>
 
-<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post"); ?>>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-project"); ?>>
     <header>
         <?php elr_post_title(); ?>
         <ul class="post-meta">
@@ -16,8 +16,8 @@
             <?php elr_post_comments(); ?>
         </ul>
     </header>
-    <div class="drm-row">
-        <?php elr_post_thumbnail( 'cpt-image-holder' ); ?>                
+    <div>
+        <?php elr_post_thumbnail( 'cpt-image-holder' ); ?>
         <ul class="cpt-info">
             <?php if ( get_the_terms( $post->ID, 'portfolio' ) ) : ?>
                 <li><i class="fa fa-folder"></i> <?php elr_taxonomy_terms( 'portfolio', $post->ID ); ?></li>
@@ -37,10 +37,10 @@
 
             <?php if ( $start_date ) : ?>
                 <li>
-                <i class="fa fa-calendar"></i> 
+                <i class="fa fa-calendar"></i>
                 <?php echo esc_html( mysql2date( 'F Y', $start_date ) ); ?>
                 <?php if ( $end_date ) : ?> - <?php echo esc_html( mysql2date( 'F Y', $end_date ) ); ?><?php endif; ?></li>
-            <?php endif; ?>            
+            <?php endif; ?>
 
             <?php if ( $client ) : ?>
                 <li><i class="fa fa-building"></i> <?php echo esc_html( $client ); ?></li>
@@ -53,8 +53,8 @@
             <?php if ( $url ) : ?>
                 <li><a class="cpt-button-link" href="<?php echo esc_url( $url ); ?>">View Project</a></li>
             <?php endif; ?>
-        </ul>    
-    </div>    
+        </ul>
+    </div>
     <?php elr_post_content( $post->ID ); ?>
     <footer><?php elr_post_actions_nav( $post->ID ); ?></footer>
 </article>

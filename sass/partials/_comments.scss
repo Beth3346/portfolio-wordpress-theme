@@ -1,46 +1,48 @@
-/*-----------------------------------------------------------------------------
-    Comments
------------------------------------------------------------------------------*/
+// Comments
 
 .comments {
-	margin: 0;
-	padding: 1% 0 1% 0;
-	color: $main-text;
-	width: 100%;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 20px 0;
+    color: $main-text;
+    width: 100%;
 
-	label {
-		font-weight: bold;
-		@include drm-em-font(14);
-	}
+    label {
+        @include elr-em-font(14px);
+        font-weight: bold;
+    }
 
-	input[type=text], input[type=password], input[type=email], input[type=tel], input[type=search] {
-		width: 80%;
-	}
+    [type=text],
+    [type=password],
+    [type=email],
+    [type=tel],
+    [type=search] {
+        width: 80%;
+    }
 
-	textarea {
-		width: 100%;
-	}
-
-	.commentlist {
-		@extend %drm-reset-box;
-		@include drm-unstyled-list();
-	}
-
-	.comment-author {
-        @extend %drm-reset-box;
+    textarea {
         width: 100%;
+    }
+}
 
-		.avatar {
-	        float: left;
-	        margin: 0 15px 0 0;
-	        @include drm-square(60px);
-		}
+.commentlist {
+    padding: 0;
+    margin: 0;
+}
 
-		.cite {
-			float: left;
-			margin-left: 20px;
-			display: block;
-		}
-	}
+.comment-author {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    .cite {
+        float: left;
+        margin-left: 20px;
+        display: block;
+    }
+}
+
+.avatar {
+    @include elr-square(60px);
+    float: left;
+    margin: 0 15px;
 }

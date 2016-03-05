@@ -1,10 +1,12 @@
 <?php get_header(); ?>
-<main class="main-content">
-    <div class="content-holder">
-        <?php elr_get_single_loop(); ?>
+<main class="main-content elr-container">
+    <div class="elr-row">
+        <div class="content-holder elr-col-two-thirds">
+            <?php elr_single_loop(); ?>
+        </div>
+        <aside class="sidebar elr-col-third" id="sidebar">
+            <?php get_sidebar(); ?>
+        </aside>
     </div>
-    <!-- /#content -->
-    <?php get_sidebar(); ?>
 </main>
-<?php elr_get_contact(); ?>
 <?php get_footer(); ?>

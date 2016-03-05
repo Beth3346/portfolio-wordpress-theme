@@ -94,3 +94,5 @@ if ( ! function_exists( 'elr_theme_options' ) ) {
 
     add_action( 'after_setup_theme', 'elr_theme_options' );
 }
+
+add_filter( 'pre_get_posts', 'elr_number_of_cpts' );

@@ -5,9 +5,10 @@
 //////////////////////////////////////////////////////////////////////
 
 if ( function_exists( 'register_nav_menus' ) ) {
-	register_nav_menus( array(
-		'main-nav' => __( 'Main Navigation', 'elr' ),
-	) );
+    register_nav_menus( array(
+        'main-nav' => __( 'Main Navigation', 'elr' ),
+        'footer-nav' => __( 'Footer Navigation', 'elr' ),
+    ) );
 }
 
 // $defaults = array(
@@ -39,8 +40,8 @@ if ( function_exists( 'register_nav_menus' ) ) {
 
 if ( ! function_exists( 'default_main_nav' ) ) {
     function default_main_nav() {
-    	echo '<ul id="main-nav" class="main-nav row">';
-    	   wp_list_pages( 'title_li=' );
-    	echo '</ul>';
+        echo '<ul id="main-nav" class="main-nav row">';
+           wp_list_pages( 'title_li=' );
+        echo '</ul>';
     }
 }

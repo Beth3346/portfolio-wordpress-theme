@@ -1,64 +1,90 @@
-/*-----------------------------------------------------------------------------
-    Front Testimonials
------------------------------------------------------------------------------*/
+// Front Testimonials
 
 .testimonial-slider {
     position: relative;
+}
 
-    .drm-simple-slide {
-        text-align: center;
-        padding-top: 40px;
-        box-sizing: border-box;
-        position: relative;
-        height: 100%;
+.testimonial-slide {
+    text-align: center;
+    padding-top: 40px;
+    position: relative;
+    height: 100%;
+    display: none;
 
-        .post-image-holder {
-            width: 200px;
-            margin: auto;
-        }
+    &:first-of-type {
+        display: block;
+    }
+}
+
+.testimonial-image-holder {
+    @include elr-circle(100px);
+    margin: 0 auto 40px;
+    overflow: hidden;
+
+    img {
+        min-height: 100px;
+    }
+}
+
+.testimonial-slider-nav {
+    @include elr-clearfix;
+    @include elr-centerer(true, false);
+    width: 100%;
+
+    button {
+        color: $main-text;
+
+        // &:hover {
+        //     color: $white;
+        // }
     }
 
-    .drm-simple-slider-nav {
-        width: 100%;
-        position: absolute;
-        top: ((500px - (75 * 2)) / 2);
-        @include drm-clearfix;
-
-        button {
-            border: none;
-            @include drm-circle(75px);
-
-            &.prev {
-                float: left;
-            }
-
-            &.next {
-                float: right;
-            }
-        }
+    .prev,
+    .next {
+        @include elr-circle(75px);
+        border: 0;
     }
 
-    .drm-simple-slider-list {
-        list-style: none;
-        position: absolute;
-        width: 100%;
-        text-align: center;
+    .prev {
+        float: left;
+    }
+
+    .next {
+        float: right;
+    }
+}
+
+.testimonial-slider-list,
+.testimonial-slider-nav {
+    button {
+        background-color: $white;
+
+        &.active {
+            background-color: $aqua;
+        }
+    }
+}
+
+.testimonial-slider-list {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+
+    li {
         padding: 0;
         margin: 0;
-        bottom: 0;
+        display: inline-block;
+    }
 
-        li {
-            padding: 0;
-            margin: 0;
-            display: inline-block;
-        }
-
-        button {
-            padding: 0;
-            margin: 0 2px;
-            border: none;
-            @include drm-circle(10px);
-        }
+    button {
+        @include elr-circle(10px);
+        padding: 0;
+        margin: 0 2px;
+        border: 0;
     }
 }
 

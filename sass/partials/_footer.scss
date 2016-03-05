@@ -1,58 +1,35 @@
-/*-----------------------------------------------------------------------------
-	Footer
------------------------------------------------------------------------------*/
+// Footer
 
-.footer {
-	@extend %drm-container-full-width;
-	padding-top: 2%;
-	padding-bottom: 5%;
-	background-color: $main-text;
-	color: white;
-	box-sizing: border-box;
-	@include drm-clearfix();
+.main-footer {
+    @include elr-clearfix;
+    background-color: $main-text;
+    color: $white;
+}
 
-	.widget {
-		@include drm-feature-box(5);
+.footer-menu {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
 
-		ul {
-			padding-top: 10px;
-			@include drm-unstyled-list(center);		
-		}
+    li {
+        @include elr-em-font(14px);
+        list-style: none;
+    }
 
-		.widget-title {
-			text-align: center;
-			color: white;
-			@include drm-em-font(16);
-		}
-
-		li {			
-			@include drm-em-font(14);
-		}
-
-		a {
-			color: white;
-
-			&:visited {
-				color: white;
-			}
-		}
-	}
-
-	#calendar_wrap {
-		width: 160px;
-		margin: auto;
-	}
+    a {
+        color: $white;
+        text-decoration: none;
+    }
 }
 
 .copyright {
-	clear: both;
-	display: block;
-	text-align: center;
-	color: white;
-	background-color: $main-text;
-	padding: 10px 50px 10px 50px;
+    display: block;
+    text-align: center;
+    color: $white;
+    background-color: $main-text;
+    padding: 0 50px 20px;
 
-	a {
-		color: white;
-	}
+    a {
+        color: $white;
+    }
 }
