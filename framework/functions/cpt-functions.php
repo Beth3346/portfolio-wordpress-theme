@@ -10,7 +10,7 @@
  */
 
 function elr_is_cpt_archive() {
-    if ( is_category() || is_author() || is_tag() || is_date() ) {
+    if ( is_category() || is_author() || is_tag() || is_date() || is_front_page() || is_home() ) {
         return false;
     } else {
         return true;
@@ -54,7 +54,7 @@ function elr_is_custom_post_type( $post = NULL ) {
  * @return void
  */
 
-function elr_number_of_cpts( $query, $num = 20, $post_types = array('project', 'video', 'publication', 'tutorial'), $taxonomies = array('technology', 'portfolio') ) {
+function elr_number_of_cpts( $query, $num = -1, $post_types = array('project', 'video', 'publication', 'skill', 'tutorial'), $taxonomies = array('technology', 'portfolio') ) {
 
     if ( $query->is_main_query() ) {
 
