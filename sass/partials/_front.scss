@@ -61,25 +61,13 @@
         color: $white;
     }
 
-    .button-link {
-        @include elr-em-font(14px);
-        text-decoration: none;
+    .elr-button {
         margin: 10px 0;
-        padding: 10px 20px;
-        border-radius: 3px;
         display: inline-block;
         width: 70%;
-        border: 1px solid $white;
-        color: $main-text;
-        background-color: $white;
-
-        &:hover {
-            background-color: $main-text;
-            color: $white;
-        }
     }
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
         color: $main-text;
         border-top: 1px solid $main-text;
         background-color: $white;
@@ -90,17 +78,6 @@
 
         .front-post-actions a {
             color: $main-text;
-        }
-
-        .button-link {
-            background-color: $white;
-            color: $main-text;
-            border: 1px solid $main-text;
-
-            &:hover {
-                background-color: $main-text;
-                color: $white;
-            }
         }
 
         .testimonial-slider-list {

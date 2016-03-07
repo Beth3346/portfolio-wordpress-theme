@@ -4,21 +4,24 @@
     @include elr-clearfix;
     background-color: $main-text;
     color: $white;
-}
-
-.footer-menu {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+}
+
+.footer-menu {
+    padding: 0;
+    margin: 0;
 
     li {
         @include elr-em-font(14px);
         list-style: none;
+        display: inline-block;
+        padding: 10px;
     }
 
     a {
         color: $white;
-        text-decoration: none;
     }
 }
 

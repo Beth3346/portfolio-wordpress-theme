@@ -12,8 +12,8 @@
 ?>
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-publication"); ?>>
     <header>
-        <?php elr_post_meta( $post->ID ); ?>
         <?php elr_post_title(); ?>
+        <?php elr_post_meta( $post->ID ); ?>
     </header>
     <div>
         <?php elr_post_thumbnail( 'cpt-image-holder' ); ?>

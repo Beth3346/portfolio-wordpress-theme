@@ -15,7 +15,6 @@
 
 <?php if ( have_comments() || comments_open() ) : ?>
 <section id="comments" class="commentwrap comments">
-<h2>Comments</h2>
 <?php endif; // end commentwrap ?>
 
 <?php if ( have_comments() ) : ?>

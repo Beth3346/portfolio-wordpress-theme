@@ -4,7 +4,7 @@
 .page-nav {
     @include elr-clearfix;
     padding-bottom: 20px;
-    text-align: right;
+    text-align: center;
     color: $white;
 
     @include elr-breakpoint('saturn') {
@@ -24,6 +24,7 @@
     a {
         text-decoration: none;
         font-weight: normal;
+        transition: background-color, .3s, ease, color, .3s, ease;
 
         &:hover {
             color: $white;
@@ -41,74 +42,44 @@
 // Post Navigation
 
 .post-nav {
-    @include elr-clearfix;
     margin: 0 0 30px;
     padding: 15px 0;
-    clear: both;
+}
 
-    span {
-        width: 47%;
-        position: relative;
-
-        span {
-            background: $main-text;
-            color: $white;
-        }
-
-        .arrow {
-            @include elr-circle(30px, inline-block);
-            text-align: center;
-            margin: 0;
-        }
-
-        .prev,
-        .next {
-
-            .arrow {
-                margin: 0 10px;
-                line-height: 1.8em;
-
-                @include elr-breakpoint('saturn') {
-                    line-height: 1.5em;
-                }
-            }
-        }
-
-        .prev {
-            float: left;
-        }
-
-        .next {
-            float: right;
-
-            .arrow {
-                float: right;
-            }
-        }
-    }
-
+.post-pager {
     a {
-        text-decoration: underline;
-        display: block;
-        font-weight: normal;
+        text-decoration: none;
         line-height: 1.9em;
         color: $main-text;
-        transition: all, .3s, ease;
-
-        span {
-            @include elr-circle(30px, inline-block);
-            text-align: center;
-            background: $main-text;
-        }
+        transition: background-color, .3s, ease, color, .3s, ease;
 
         &:hover {
             text-decoration: none;
             color: $aqua;
 
-            span {
-                color: $white;
+            .arrow {
                 background: $aqua;
             }
         }
+
+        .arrow {
+            @include elr-circle(30px, inline-block);
+            text-align: center;
+            background: $main-text;
+            color: $white;
+            margin-right: 5px;
+            transition: background-color, .3s, ease;
+        }
+
+        .post-pager-title {
+            padding: 0;
+            margin: 0;
+        }
     }
+}
+
+.post-next .arrow {
+    float: right;
+    margin-right: 0;
+    margin-left: 8px;
 }

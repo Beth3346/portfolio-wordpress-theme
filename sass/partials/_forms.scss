@@ -25,7 +25,8 @@ textarea {
 [type=reset],
 [type=submit],
 button {
-    @include elr-button-solid($main-text, $white, 40%, left, 0, $main-text);
+    @include elr-button;
+    @include elr-button-solid;
 }
 
 small {

@@ -1,22 +1,18 @@
     <footer class="main-footer elr-container-full">
         <div class="elr-row">
-            <nav id="footer-nav" class="footer-nav elr-clearfix" role="navigation">
+            <nav id="footer-nav" class="footer-nav elr-col-full" role="navigation">
                 <?php wp_nav_menu(
                     array(
                         'theme_location' => 'footer-nav',
                         'fallback_cb' => 'default_footer_nav',
                         'container'  => 'footer-nav-wrapper',
                         'menu_id' => 'footer-menu',
-                        'menu_class' => 'footer-menu elr-inline-list elr-text-center'
+                        'menu_class' => 'footer-menu'
                     )
                 ); ?>
             </nav>
-        </div>
-    </footer>
-    <div class="copyright elr-container-full">
-        <div class="elr-row">
-            <div class="elr-col-full elr-text-center">
-                <small>
+            <div class="elr-col-full">
+                <small class="copyright">
                     <?php bloginfo(); ?> &copy;<?php echo date( 'Y' ); ?>
                     All Rights Reserved.
                     Built with Care by: <a href="http://www.elizabeth-rogers.com">Elizabeth Rogers</a>
@@ -27,7 +23,7 @@
                 </small>
             </div>
         </div>
-    </div>
+    </footer>
     <?php wp_footer(); ?>
 </body>
 </html>

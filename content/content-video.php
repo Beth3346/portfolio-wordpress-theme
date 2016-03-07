@@ -1,10 +1,11 @@
-<?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
+<?php
+    if(!is_single()) : global $more; $more = 0; endif; //enable more link
+?>
 
-<article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post"); ?>>
-    <header>
-        <?php elr_post_title(); ?>
-        <?php elr_post_meta( $post->ID ); ?>
-    </header>
-    <div><?php the_content(); ?></div>
-    <footer><?php elr_edit_link(); ?></footer>
-</article>
+<?php if ( is_single() || is_page() ) : ?>
+    <?php get_template_part( 'content/partials/video-single' ); ?>
+<?php elseif ( elr_is_cpt_archive() || is_tax() ) : ?>
+    <?php get_template_part( 'content/partials/video-grid' ); ?>
+<?php else : ?>
+    <?php get_template_part( 'content/partials/video-single' ); ?>
+<?php endif; ?>

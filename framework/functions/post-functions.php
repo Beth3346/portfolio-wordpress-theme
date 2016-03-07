@@ -305,6 +305,7 @@ function elr_post_content( $id, $excerpt = true ) {
  */
 
 function elr_post_actions_nav( $id ) {
+    echo '<div class="post-actions">';
     edit_post_link( __( '<i class="fa fa-pencil-square-o"></i>', 'elr' ) );
 
     if ( current_user_can( 'publish_posts' ) ) {
@@ -318,6 +319,7 @@ function elr_post_actions_nav( $id ) {
         echo get_delete_post_link( $id );
         echo '"><i class="fa fa-trash-o"></i></a>';
     }
+    echo '</div>';
 }
 
 function elr_edit_link($text = 'Edit') {

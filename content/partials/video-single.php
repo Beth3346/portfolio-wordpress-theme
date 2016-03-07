@@ -8,10 +8,7 @@
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-video"); ?>>
     <header>
         <?php elr_post_title(); ?>
-        <ul class="post-meta">
-            <?php elr_post_date(); ?>
-            <?php elr_post_comments(); ?>
-        </ul>
+        <?php elr_post_meta( $post->ID ); ?>
     </header>
     <div>
         <?php elr_video( $video, 560, 349 ); ?>

@@ -4,7 +4,7 @@
 
 <?php if ( is_single() || is_page() ) : ?>
     <?php get_template_part( 'content/partials/project-single' ); ?>
-<?php elseif ( is_post_type_archive( 'project' ) || is_tax() ) : ?>
+<?php elseif ( elr_is_cpt_archive() || is_tax() ) : ?>
     <?php get_template_part( 'content/partials/project-grid' ); ?>
 <?php else : ?>
     <?php get_template_part( 'content/partials/project-single' ); ?>

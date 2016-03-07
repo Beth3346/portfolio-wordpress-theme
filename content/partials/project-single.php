@@ -10,11 +10,7 @@
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class("post post-project"); ?>>
     <header>
         <?php elr_post_title(); ?>
-        <ul class="post-meta">
-            <?php elr_post_category( $post->ID ); ?>
-            <?php elr_post_tags(); ?>
-            <?php elr_post_comments(); ?>
-        </ul>
+        <?php elr_post_meta( $post->ID ); ?>
     </header>
     <div>
         <?php elr_post_thumbnail( 'cpt-image-holder' ); ?>
@@ -49,12 +45,11 @@
             <?php if ( $location ) : ?>
                 <li><i class="fa fa-globe"></i> <?php echo esc_html( $location ); ?></li>
             <?php endif; ?>
-
-            <?php if ( $url ) : ?>
-                <li><a class="cpt-button-link" href="<?php echo esc_url( $url ); ?>">View Project</a></li>
-            <?php endif; ?>
         </ul>
     </div>
     <?php elr_post_content( $post->ID ); ?>
+    <?php if ( $url ) : ?>
+        <p class="elr-text-center"><a class="elr-button elr-button-info" href="<?php echo esc_url( $url ); ?>">View Project</a></p>
+    <?php endif; ?>
     <footer><?php elr_post_actions_nav( $post->ID ); ?></footer>
 </article>
